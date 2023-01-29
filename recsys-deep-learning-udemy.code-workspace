@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+    ],
+    "settings": {
+        "psi-header.variables": [
+
+            ["projectCreationYear", "2023"],
+            ["url", "https://github.com/john-james-ai/recsys-deep-learning-udemy"],
+            ["projectname", "Recommender Systems and Deep Learning in Python"],
+            ["version", "0.1.0"],
+            ["pythonversion","3.10.6"]
+    }
+    }
+}
