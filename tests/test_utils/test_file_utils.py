@@ -4,24 +4,26 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_neighborhood/test_similarity.py                                         #
+# Filename   : /tests/test_utils/test_file_utils.py                                                #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 06:31:33 am                                                #
-# Modified   : Sunday January 29th 2023 03:50:04 pm                                                #
+# Created    : Monday January 30th 2023 02:12:36 am                                                #
+# Modified   : Monday January 30th 2023 06:41:01 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+import os
 import inspect
 from datetime import datetime
 import pytest
 import logging
+import shutil
 
-from recsys.neighborhood.similarity import CosignUserSimilarity
+from recsys.io.zip import extractzip
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -29,11 +31,15 @@ logger = logging.getLogger(__name__)
 double_line = f"\n{100 * '='}"
 single_line = f"\n{100 * '-'}"
 
+SOURCE = "tests/data/download/international-trade-september-2022-quarter-csv.zip"
+DESTINATION = "tests/data/extract/"
+FILES = ["revised.csv", "output_csv_full.csv"]
 
-@pytest.mark.sim
-class TestSimilarity:  # pragma: no cover
+
+@pytest.mark.extract
+class TestExtract:  # pragma: no cover
     # ============================================================================================ #
-    def test_cos_user(self, test_ratings, caplog):
+    def test_setup(self, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -45,14 +51,8 @@ class TestSimilarity:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        u = test_ratings[test_ratings["userId"] == 1]
-        v = test_ratings[test_ratings["userId"] == 2]
-        sim = CosignUserSimilarity()
-        w = sim.compute(u, v)
-        assert isinstance(w, float)
-        assert w < 1
-        logging.debug(f"\n\nCosign User Similarity: \n{w}")
-
+        if os.path.exists(DESTINATION):
+            shutil.rmtree(DESTINATION)
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -69,7 +69,7 @@ class TestSimilarity:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_cos_item(self, test_ratings, caplog):
+    def test_extract_all(self, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -81,20 +81,15 @@ class TestSimilarity:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        i = test_ratings[test_ratings["movieId"] == "a"]
-        j = test_ratings[test_ratings["movieId"] == "b"]
-        sim = CosignUserSimilarity()
-        w = sim.compute(i, j)
-        assert isinstance(w, float)
-        assert w < 1
-        logging.debug(f"\n\nCosign Item Similarity: \n{w}")
+        extractzip(source=SOURCE, destination=DESTINATION)
+        assert len(os.listdir(DESTINATION)) == 5
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
 
         logger.info(
-            "\nCompleted {} {} in {} seconds at {} on {}".format(
+            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
                 self.__class__.__name__,
                 inspect.stack()[0][3],
                 duration,

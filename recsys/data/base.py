@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 07:02:57 am                                                #
-# Modified   : Sunday January 29th 2023 07:43:05 am                                                #
+# Modified   : Monday January 30th 2023 06:13:57 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,7 +22,7 @@ import logging
 from abc import ABC, abstractmethod
 import pandas as pd
 
-from recsys.utils.io import IOService
+from recsys.io.file import IOService
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -51,9 +51,37 @@ class Dataset(ABC):
             self._logger.debug(f"Saving {os.path.basename(filepath)} skipped. File already exists.")
 
     @abstractmethod
-    def summarize(self) -> pd.dataFrame:
+    def summarize(self) -> pd.DataFrame:
         """Provides summary of entity"""
 
     @abstractmethod
     def split(self, train_prop: float, train_filepath: str, test_filepath: str) -> None:
         """Splits dataset into train and test set"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class DataSource(ABC):
+    """Base class for data source classes
+
+    Args:
+        name (str): Name of the resource
+        description (str): Description of the resource
+    """
+
+    def __init__(self, name: str, description: str = None) -> None:
+
+        self._name = name
+        self._description = description
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
+
+    @property
+    def name(self) -> bool:
+        """The name of the datasource"""
+        return self._name
+
+    @property
+    def description(self) -> bool:
+        """The description for the datasource"""
+        return self._description

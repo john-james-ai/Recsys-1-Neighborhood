@@ -1,0 +1,996 @@
+[01/30/2023 12:46:15 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 12:46:15 AM on 01/30/2023
+[01/30/2023 12:46:15 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 12:46:15 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 12:46:15 AM on 01/30/2023
+[01/30/2023 12:46:15 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:46:15 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 12:46:15 AM on 01/30/2023
+[01/30/2023 12:46:15 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 12:46:15 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:46:16 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:46:16 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:46:16 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:46:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:46:17 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:46:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:46:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:46:17 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 12:46:17 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.6 seconds at 12:46:17 AM on 01/30/2023
+[01/30/2023 12:46:17 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:46:17 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 12:46:17 AM on 01/30/2023
+[01/30/2023 12:46:17 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 12:46:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:46:18 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:46:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 12:46:18 AM on 01/30/2023
+[01/30/2023 12:46:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 12:46:18 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:46:18 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 12:47:12 AM on 01/30/2023
+[01/30/2023 12:47:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 12:47:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 12:47:12 AM on 01/30/2023
+[01/30/2023 12:47:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:47:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 12:47:12 AM on 01/30/2023
+[01/30/2023 12:47:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 12:47:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:12 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:47:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:13 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:47:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:13 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 12:47:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.4 seconds at 12:47:13 AM on 01/30/2023
+[01/30/2023 12:47:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:47:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 12:47:13 AM on 01/30/2023
+[01/30/2023 12:47:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 12:47:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:14 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:14 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 12:47:14 AM on 01/30/2023
+[01/30/2023 12:47:14 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 12:47:14 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:14 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:14 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 12:47:14 AM on 01/30/2023
+[01/30/2023 12:47:14 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:47:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 12:47:38 AM on 01/30/2023
+[01/30/2023 12:47:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 12:47:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 12:47:38 AM on 01/30/2023
+[01/30/2023 12:47:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:47:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 12:47:38 AM on 01/30/2023
+[01/30/2023 12:47:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 12:47:38 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:39 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:47:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:39 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:47:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:40 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:40 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 12:47:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.4 seconds at 12:47:40 AM on 01/30/2023
+[01/30/2023 12:47:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:47:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 12:47:40 AM on 01/30/2023
+[01/30/2023 12:47:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 12:47:40 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:40 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:41 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 12:47:41 AM on 01/30/2023
+[01/30/2023 12:47:41 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 12:47:41 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:47:41 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:47:41 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.5 seconds at 12:47:41 AM on 01/30/2023
+[01/30/2023 12:47:41 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:50:08 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 12:50:08 AM on 01/30/2023
+[01/30/2023 12:50:08 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 12:50:08 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 12:50:08 AM on 01/30/2023
+[01/30/2023 12:50:08 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:50:08 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 12:50:08 AM on 01/30/2023
+[01/30/2023 12:50:08 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 12:50:08 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:50:09 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:50:09 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:50:09 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:50:09 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:50:09 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:50:09 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:50:10 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:50:10 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 12:50:10 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.5 seconds at 12:50:10 AM on 01/30/2023
+[01/30/2023 12:50:10 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:50:10 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 12:50:10 AM on 01/30/2023
+[01/30/2023 12:50:10 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 12:50:10 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:50:10 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:50:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 12:50:11 AM on 01/30/2023
+[01/30/2023 12:50:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 12:50:11 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:50:11 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:50:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 12:50:11 AM on 01/30/2023
+[01/30/2023 12:50:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:57:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 12:57:02 AM on 01/30/2023
+[01/30/2023 12:57:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 12:57:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 12:57:02 AM on 01/30/2023
+[01/30/2023 12:57:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:57:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 12:57:02 AM on 01/30/2023
+[01/30/2023 12:57:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 12:57:02 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:57:03 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:57:03 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 12:57:03 AM on 01/30/2023
+[01/30/2023 12:57:03 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 12:57:03 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:57:03 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:57:03 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 12:57:03 AM on 01/30/2023
+[01/30/2023 12:57:03 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 12:57:03 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:57:04 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:58:33 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 12:58:33 AM on 01/30/2023
+[01/30/2023 12:58:33 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 12:58:33 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 12:58:33 AM on 01/30/2023
+[01/30/2023 12:58:33 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:58:33 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 12:58:33 AM on 01/30/2023
+[01/30/2023 12:58:33 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 12:58:33 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:58:34 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:58:34 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 12:58:34 AM on 01/30/2023
+[01/30/2023 12:58:34 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 12:58:34 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:58:34 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:58:34 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 12:58:34 AM on 01/30/2023
+[01/30/2023 12:58:34 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 12:58:34 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:58:35 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:59:16 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 12:59:16 AM on 01/30/2023
+[01/30/2023 12:59:16 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 12:59:16 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 12:59:16 AM on 01/30/2023
+[01/30/2023 12:59:16 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:59:16 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 12:59:16 AM on 01/30/2023
+[01/30/2023 12:59:16 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 12:59:16 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:59:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:59:17 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:59:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:59:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:59:17 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 12:59:17 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:59:18 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:59:18 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 12:59:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.3 seconds at 12:59:18 AM on 01/30/2023
+[01/30/2023 12:59:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 12:59:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 12:59:18 AM on 01/30/2023
+[01/30/2023 12:59:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 12:59:18 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:59:18 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:59:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 12:59:19 AM on 01/30/2023
+[01/30/2023 12:59:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 12:59:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 12:59:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 12:59:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 12:59:19 AM on 01/30/2023
+[01/30/2023 12:59:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:01:59 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 01:01:59 AM on 01/30/2023
+[01/30/2023 01:01:59 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 01:01:59 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 01:01:59 AM on 01/30/2023
+[01/30/2023 01:01:59 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:01:59 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 01:01:59 AM on 01/30/2023
+[01/30/2023 01:01:59 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 01:01:59 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:02:00 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:02:00 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:02:00 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:02:00 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:02:00 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:02:00 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:02:00 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:02:00 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 01:02:00 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.4 seconds at 01:02:00 AM on 01/30/2023
+[01/30/2023 01:02:00 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:02:00 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 01:02:00 AM on 01/30/2023
+[01/30/2023 01:02:00 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 01:02:00 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:02:01 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:02:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 01:02:02 AM on 01/30/2023
+[01/30/2023 01:02:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 01:02:02 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:02:02 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:02:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 01:02:02 AM on 01/30/2023
+[01/30/2023 01:02:02 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:03:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 01:03:46 AM on 01/30/2023
+[01/30/2023 01:03:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 01:03:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 01:03:46 AM on 01/30/2023
+[01/30/2023 01:03:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:03:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 01:03:46 AM on 01/30/2023
+[01/30/2023 01:03:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 01:03:46 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:03:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:03:47 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:03:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:03:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:03:47 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:03:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:03:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:03:48 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 01:03:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.4 seconds at 01:03:48 AM on 01/30/2023
+[01/30/2023 01:03:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:03:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 01:03:48 AM on 01/30/2023
+[01/30/2023 01:03:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 01:03:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:03:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:03:48 AM] [ERROR] [recsys.data.web.WebResource] [web] [_get_url_response] : Request Error accessing www.somesite.com
+Invalid URL 'www.somesite.com': No scheme supplied. Perhaps you meant http://www.somesite.com?
+[01/30/2023 01:03:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 01:03:48 AM on 01/30/2023
+[01/30/2023 01:03:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 01:03:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:03:49 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:03:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 01:03:49 AM on 01/30/2023
+[01/30/2023 01:03:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:05:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 01:05:18 AM on 01/30/2023
+[01/30/2023 01:05:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 01:05:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 01:05:19 AM on 01/30/2023
+[01/30/2023 01:05:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:05:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 01:05:19 AM on 01/30/2023
+[01/30/2023 01:05:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 01:05:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:19 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:05:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:20 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:20 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:05:20 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:20 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:20 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 01:05:20 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.4 seconds at 01:05:20 AM on 01/30/2023
+[01/30/2023 01:05:20 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:05:20 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 01:05:20 AM on 01/30/2023
+[01/30/2023 01:05:20 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 01:05:20 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:20 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:20 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 01:05:20 AM on 01/30/2023
+[01/30/2023 01:05:20 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 01:05:20 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:21 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:21 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 01:05:21 AM on 01/30/2023
+[01/30/2023 01:05:21 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:05:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 01:05:38 AM on 01/30/2023
+[01/30/2023 01:05:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 01:05:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 01:05:38 AM on 01/30/2023
+[01/30/2023 01:05:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:05:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 01:05:38 AM on 01/30/2023
+[01/30/2023 01:05:38 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 01:05:38 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:38 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:38 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:05:38 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:39 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:05:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:39 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 01:05:39 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.4 seconds at 01:05:39 AM on 01/30/2023
+[01/30/2023 01:05:39 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:05:39 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 01:05:39 AM on 01/30/2023
+[01/30/2023 01:05:39 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 01:05:39 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:40 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:40 AM] [ERROR] [recsys.data.web.WebResource] [web] [_get_url_response] : Request Error accessing www.somesite.com
+Invalid URL 'www.somesite.com': No scheme supplied. Perhaps you meant http://www.somesite.com?
+[01/30/2023 01:05:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+	Completed TestWebResource test_exists in 0.4 seconds at 01:05:40 AM on 01/30/2023
+[01/30/2023 01:05:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:05:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 01:05:40 AM on 01/30/2023
+[01/30/2023 01:05:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 01:05:40 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:05:40 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:05:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 01:05:40 AM on 01/30/2023
+[01/30/2023 01:05:40 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:06:47 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 01:06:47 AM on 01/30/2023
+[01/30/2023 01:06:47 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 01:06:47 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 01:06:47 AM on 01/30/2023
+[01/30/2023 01:06:47 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:06:47 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 01:06:47 AM on 01/30/2023
+[01/30/2023 01:06:47 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 01:06:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:06:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:06:47 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:06:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:06:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:06:48 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 01:06:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:06:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:06:48 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.3 seconds at 01:06:48 AM on 01/30/2023
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 01:06:48 AM on 01/30/2023
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 01:06:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:06:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:06:48 AM] [ERROR] [recsys.data.web.WebResource] [web] [_get_url_response] : Request Error accessing www.somesite.com
+Invalid URL 'www.somesite.com': No scheme supplied. Perhaps you meant http://www.somesite.com?
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+	Completed TestWebResource test_exists in 0.4 seconds at 01:06:48 AM on 01/30/2023
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 01:06:48 AM on 01/30/2023
+[01/30/2023 01:06:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 01:06:48 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 01:06:49 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 01:06:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 01:06:49 AM on 01/30/2023
+[01/30/2023 01:06:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:16:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 02:16:11 AM on 01/30/2023
+[01/30/2023 02:16:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 02:16:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 02:16:11 AM on 01/30/2023
+[01/30/2023 02:16:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:16:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 02:16:11 AM on 01/30/2023
+[01/30/2023 02:16:11 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 02:16:11 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 02:16:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 02:16:12 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 02:16:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 02:16:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 02:16:12 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 02:16:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 02:16:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 02:16:12 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip. The resource exists at destination filepath: tests/data/download/zip_10MB.zip.
+[01/30/2023 02:16:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 1.7 seconds at 02:16:12 AM on 01/30/2023
+[01/30/2023 02:16:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:16:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 02:16:12 AM on 01/30/2023
+[01/30/2023 02:16:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 02:16:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 02:16:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 02:16:13 AM] [ERROR] [recsys.data.web.WebResource] [web] [_get_url_response] : Request Error accessing www.somesite.com
+Invalid URL 'www.somesite.com': No scheme supplied. Perhaps you meant http://www.somesite.com?
+[01/30/2023 02:16:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+	Completed TestWebResource test_exists in 0.4 seconds at 02:16:13 AM on 01/30/2023
+[01/30/2023 02:16:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:16:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 02:16:13 AM on 01/30/2023
+[01/30/2023 02:16:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 02:16:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): file-examples.com:443
+[01/30/2023 02:16:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://file-examples.com:443 "GET /wp-content/uploads/2017/02/zip_10MB.zip HTTP/1.1" 200 712
+[01/30/2023 02:16:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 0.4 seconds at 02:16:13 AM on 01/30/2023
+[01/30/2023 02:16:13 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:29:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebResource test_setup at 02:29:43 AM on 01/30/2023
+[01/30/2023 02:29:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 02:29:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebResource test_setup in 0.1 seconds at 02:29:43 AM on 01/30/2023
+[01/30/2023 02:29:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:29:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebResource test_download at 02:29:43 AM on 01/30/2023
+[01/30/2023 02:29:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 02:29:43 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 02:29:44 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 02:31:15 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 02:31:15 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 02:31:15 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 02:32:31 AM] [DEBUG] [recsys.data.web.WebResource] [web] [_download] : Entered WebResource:_download
+[01/30/2023 02:32:31 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 02:32:32 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 02:33:49 AM] [INFO] [recsys.data.web.WebResource] [web] [download] : Skipped download of https://files.grouplens.org/datasets/movielens/ml-25m.zip. The resource exists at destination filepath: tests/data/download/ml-25m.zip.
+[01/30/2023 02:33:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebResource test_download in 245.8 seconds at 02:33:49 AM on 01/30/2023
+[01/30/2023 02:33:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:33:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebResource test_exists at 02:33:49 AM on 01/30/2023
+[01/30/2023 02:33:49 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 02:33:49 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 02:33:49 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 02:35:12 AM] [ERROR] [recsys.data.web.WebResource] [web] [_get_url_response] : Request Error accessing www.somesite.com
+Invalid URL 'www.somesite.com': No scheme supplied. Perhaps you meant http://www.somesite.com?
+[01/30/2023 02:35:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+	Completed TestWebResource test_exists in 82.4 seconds at 02:35:12 AM on 01/30/2023
+[01/30/2023 02:35:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:35:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebResource test_properties at 02:35:12 AM on 01/30/2023
+[01/30/2023 02:35:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 02:35:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 02:35:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 02:36:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebResource test_properties in 96.8 seconds at 02:36:48 AM on 01/30/2023
+[01/30/2023 02:36:48 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+
+Started TestExtract test_setup at 02:38:15 AM on 01/30/2023
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+====================================================================================================
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+Completed TestExtract test_setup in 0.1 seconds at 02:38:15 AM on 01/30/2023
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_files] : 
+
+Started TestExtract test_extract_files at 02:38:15 AM on 01/30/2023
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_files] : 
+====================================================================================================
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+
+Started TestExtract test_extract_all at 02:38:15 AM on 01/30/2023
+[01/30/2023 02:38:15 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+====================================================================================================
+[01/30/2023 02:44:14 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+
+Started TestExtract test_setup at 02:44:14 AM on 01/30/2023
+[01/30/2023 02:44:14 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+====================================================================================================
+[01/30/2023 02:44:14 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+Completed TestExtract test_setup in 0.2 seconds at 02:44:14 AM on 01/30/2023
+[01/30/2023 02:44:14 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 02:44:14 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+
+Started TestExtract test_extract_all at 02:44:14 AM on 01/30/2023
+[01/30/2023 02:44:14 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+====================================================================================================
+[01/30/2023 02:44:23 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+	Completed TestExtract test_extract_all in 8.6 seconds at 02:44:23 AM on 01/30/2023
+[01/30/2023 02:44:23 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 05:54:04 AM on 01/30/2023
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 05:54:04 AM on 01/30/2023
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 05:54:04 AM on 01/30/2023
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 05:54:04 AM on 01/30/2023
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 05:54:04 AM on 01/30/2023
+[01/30/2023 05:54:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 05:54:55 AM on 01/30/2023
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 05:54:55 AM on 01/30/2023
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 05:54:55 AM on 01/30/2023
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 05:54:55 AM on 01/30/2023
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 05:54:55 AM on 01/30/2023
+[01/30/2023 05:54:55 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 05:56:35 AM on 01/30/2023
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 05:56:35 AM on 01/30/2023
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 05:56:35 AM on 01/30/2023
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 05:56:35 AM on 01/30/2023
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 05:56:35 AM on 01/30/2023
+[01/30/2023 05:56:35 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 06:15:43 AM on 01/30/2023
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 06:15:43 AM on 01/30/2023
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 06:15:43 AM on 01/30/2023
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 06:15:43 AM on 01/30/2023
+[01/30/2023 06:15:43 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 06:15:44 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 06:15:44 AM on 01/30/2023
+[01/30/2023 06:15:44 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:21:51 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 06:21:51 AM on 01/30/2023
+[01/30/2023 06:21:51 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:21:51 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 06:21:51 AM on 01/30/2023
+[01/30/2023 06:21:51 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:21:51 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 06:21:51 AM on 01/30/2023
+[01/30/2023 06:21:51 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 06:21:51 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 06:21:51 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 06:22:56 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 06:22:56 AM on 01/30/2023
+[01/30/2023 06:22:56 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 06:22:56 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 06:22:57 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 06:24:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 06:24:04 AM on 01/30/2023
+[01/30/2023 06:24:04 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:24:04 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 06:24:04 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 06:26:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 06:26:25 AM on 01/30/2023
+[01/30/2023 06:26:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:26:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 06:26:25 AM on 01/30/2023
+[01/30/2023 06:26:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:26:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 06:26:25 AM on 01/30/2023
+[01/30/2023 06:26:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 06:26:25 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 06:26:26 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 06:28:06 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 06:28:06 AM on 01/30/2023
+[01/30/2023 06:28:06 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 06:28:06 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 06:28:06 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 06:28:54 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 06:28:54 AM on 01/30/2023
+[01/30/2023 06:28:54 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:28:54 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[01/30/2023 06:28:54 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[01/30/2023 06:31:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 06:31:28 AM on 01/30/2023
+[01/30/2023 06:31:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:31:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 06:31:28 AM on 01/30/2023
+[01/30/2023 06:31:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:31:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 06:31:28 AM on 01/30/2023
+[01/30/2023 06:31:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 06:31:28 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:31:30 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:31:34 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 06:31:34 AM on 01/30/2023
+[01/30/2023 06:31:34 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 06:31:34 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:31:35 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:31:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 06:31:46 AM on 01/30/2023
+[01/30/2023 06:31:46 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:31:46 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:31:47 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:34:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 06:34:01 AM on 01/30/2023
+[01/30/2023 06:34:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:34:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 06:34:01 AM on 01/30/2023
+[01/30/2023 06:34:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:34:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 06:34:01 AM on 01/30/2023
+[01/30/2023 06:34:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 06:34:01 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:34:02 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:34:07 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 06:34:07 AM on 01/30/2023
+[01/30/2023 06:34:07 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 06:34:07 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:34:08 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:34:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 06:34:25 AM on 01/30/2023
+[01/30/2023 06:34:25 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:34:25 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:34:26 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:34:30 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebDataSource test_properties in 5.7 seconds at 06:34:30 AM on 01/30/2023
+[01/30/2023 06:34:30 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:36:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 06:36:01 AM on 01/30/2023
+[01/30/2023 06:36:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:36:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 06:36:01 AM on 01/30/2023
+[01/30/2023 06:36:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:36:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 06:36:01 AM on 01/30/2023
+[01/30/2023 06:36:01 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 06:36:01 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:36:02 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:36:07 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 06:36:07 AM on 01/30/2023
+[01/30/2023 06:36:07 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 06:36:07 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:36:07 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:36:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 06:36:12 AM on 01/30/2023
+[01/30/2023 06:36:12 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:36:12 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:36:13 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:36:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebDataSource test_properties in 6.2 seconds at 06:36:18 AM on 01/30/2023
+[01/30/2023 06:36:18 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:37:58 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+
+Started TestWebDataSource test_setup at 06:37:58 AM on 01/30/2023
+[01/30/2023 06:37:58 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:37:58 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+Completed TestWebDataSource test_setup in 0.1 seconds at 06:37:58 AM on 01/30/2023
+[01/30/2023 06:37:58 AM] [INFO] [tests.test_data.test_web] [test_web] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:37:58 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+
+Started TestWebDataSource test_download at 06:37:58 AM on 01/30/2023
+[01/30/2023 06:37:58 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+====================================================================================================
+[01/30/2023 06:37:58 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:37:59 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:38:03 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:38:04 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:38:04 AM] [DEBUG] [recsys.data.source.WebDataSource] [source] [_download] : Downloading https://stats.govt.nz/assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip to tests/data/download/international-trade-september-2022-quarter-csv.zip
+[01/30/2023 06:38:14 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:38:15 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:38:15 AM] [DEBUG] [recsys.data.source.WebDataSource] [source] [_download] : Downloading https://stats.govt.nz/assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip to tests/data/download/international-trade-september-2022-quarter-csv.zip
+[01/30/2023 06:38:19 AM] [INFO] [recsys.data.source.WebDataSource] [source] [_download] : Download of https://stats.govt.nz/assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip was skipped. File already exists.
+[01/30/2023 06:38:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+	Completed TestWebDataSource test_download in 20.9 seconds at 06:38:19 AM on 01/30/2023
+[01/30/2023 06:38:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_download] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:38:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+
+Started TestWebDataSource test_exists at 06:38:19 AM on 01/30/2023
+[01/30/2023 06:38:19 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+====================================================================================================
+[01/30/2023 06:38:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:38:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:38:24 AM] [ERROR] [recsys.data.source.WebDataSource] [source] [_request] : Request Error accessing www.somesite.com
+Invalid URL 'www.somesite.com': No scheme supplied. Perhaps you meant http://www.somesite.com?
+[01/30/2023 06:38:24 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+	Completed TestWebDataSource test_exists in 5.2 seconds at 06:38:24 AM on 01/30/2023
+[01/30/2023 06:38:24 AM] [INFO] [tests.test_data.test_web] [test_web] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:38:24 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+
+Started TestWebDataSource test_properties at 06:38:24 AM on 01/30/2023
+[01/30/2023 06:38:24 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+====================================================================================================
+[01/30/2023 06:38:24 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): stats.govt.nz:443
+[01/30/2023 06:38:25 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://stats.govt.nz:443 "GET /assets/Uploads/International-trade/International-trade-September-2022-quarter/Download-data/international-trade-september-2022-quarter-csv.zip HTTP/1.1" 200 14119982
+[01/30/2023 06:38:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+	Completed TestWebDataSource test_properties in 4.5 seconds at 06:38:28 AM on 01/30/2023
+[01/30/2023 06:38:28 AM] [INFO] [tests.test_data.test_web] [test_web] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:40:44 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+
+Started TestExtract test_setup at 06:40:44 AM on 01/30/2023
+[01/30/2023 06:40:44 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:40:44 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+Completed TestExtract test_setup in 0.1 seconds at 06:40:44 AM on 01/30/2023
+[01/30/2023 06:40:44 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:40:44 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+
+Started TestExtract test_extract_all at 06:40:44 AM on 01/30/2023
+[01/30/2023 06:40:44 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+====================================================================================================
+[01/30/2023 06:41:12 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+
+Started TestExtract test_setup at 06:41:12 AM on 01/30/2023
+[01/30/2023 06:41:12 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+====================================================================================================
+[01/30/2023 06:41:12 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+Completed TestExtract test_setup in 0.1 seconds at 06:41:12 AM on 01/30/2023
+[01/30/2023 06:41:12 AM] [INFO] [test_file_utils] [test_file_utils] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 06:41:12 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+
+Started TestExtract test_extract_all at 06:41:12 AM on 01/30/2023
+[01/30/2023 06:41:12 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+====================================================================================================
+[01/30/2023 06:41:13 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+	Completed TestExtract test_extract_all in 0.6 seconds at 06:41:13 AM on 01/30/2023
+[01/30/2023 06:41:13 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
+----------------------------------------------------------------------------------------------------

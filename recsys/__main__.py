@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Sunday January 29th 2023 09:27:12 am                                                #
+# Modified   : Sunday January 29th 2023 10:36:34 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,10 +20,18 @@ from recsys.container import Recsys
 
 
 # ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":
-
+def wireup():
     container = Recsys()
 
     container.init_resources()
 
     container.wire(modules=[__name__])
+
+
+def main():
+    wireup()
+
+
+# ------------------------------------------------------------------------------------------------ #
+if __name__ == "__main__":
+    main()
