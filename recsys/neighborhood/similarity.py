@@ -11,29 +11,15 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 07:36:27 am                                                #
-# Modified   : Sunday January 29th 2023 04:11:06 pm                                                #
+# Modified   : Monday January 30th 2023 09:47:27 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from abc import ABC, abstractmethod
-import logging
-import pandas as pd
 import numpy as np
+import pandas as pd
 
-
-# ------------------------------------------------------------------------------------------------ #
-class Similarity(ABC):
-    """Base class for similarity measures"""
-
-    def __init__(self) -> None:
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
-
-    @abstractmethod
-    def compute(self, *args, **kwargs) -> float:
-        """Computes the similarity between users u, and v"""
+from recsys.neighborhood.base import Similarity
 
 
 # ------------------------------------------------------------------------------------------------ #

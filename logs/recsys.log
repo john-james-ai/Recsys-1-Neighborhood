@@ -994,3 +994,351 @@ Started TestExtract test_extract_all at 06:41:12 AM on 01/30/2023
 	Completed TestExtract test_extract_all in 0.6 seconds at 06:41:13 AM on 01/30/2023
 [01/30/2023 06:41:13 AM] [INFO] [test_file_utils] [test_file_utils] [test_extract_all] : 
 ----------------------------------------------------------------------------------------------------
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+
+Started TestFileIO test_write at 09:03:41 PM on 01/30/2023
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+====================================================================================================
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+Completed TestFileIO test_write in 0.1 seconds at 09:03:41 PM on 01/30/2023
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_read] : 
+
+Started TestFileIO test_read at 09:03:41 PM on 01/30/2023
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_read] : 
+====================================================================================================
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+
+Started TestFileIO test_teardown at 09:03:41 PM on 01/30/2023
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+====================================================================================================
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+	Completed TestFileIO test_teardown in 0.0 seconds at 09:03:41 PM on 01/30/2023
+[01/30/2023 09:03:41 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+
+Started TestFileIO test_write at 09:06:20 PM on 01/30/2023
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+====================================================================================================
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+Completed TestFileIO test_write in 0.1 seconds at 09:06:21 PM on 01/30/2023
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_write] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_read] : 
+
+Started TestFileIO test_read at 09:06:21 PM on 01/30/2023
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_read] : 
+====================================================================================================
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_read] : 
+	Completed TestFileIO test_read in 0.0 seconds at 09:06:21 PM on 01/30/2023
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_read] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+
+Started TestFileIO test_teardown at 09:06:21 PM on 01/30/2023
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+====================================================================================================
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+	Completed TestFileIO test_teardown in 0.0 seconds at 09:06:21 PM on 01/30/2023
+[01/30/2023 09:06:21 PM] [INFO] [test_file_io] [test_file_io] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:23:25 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+
+Started TestRepo test_add at 11:23:25 PM on 01/30/2023
+[01/30/2023 11:23:25 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+====================================================================================================
+[01/30/2023 11:23:25 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:23:25 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:23:26 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+
+Started TestRepo test_get at 11:23:26 PM on 01/30/2023
+[01/30/2023 11:23:26 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+====================================================================================================
+[01/30/2023 11:23:26 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:23:26 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:23:27 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+
+Started TestRepo test_update at 11:23:27 PM on 01/30/2023
+[01/30/2023 11:23:27 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+====================================================================================================
+[01/30/2023 11:23:27 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:23:27 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:23:27 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+
+Started TestRepo test_delete at 11:23:27 PM on 01/30/2023
+[01/30/2023 11:23:27 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+====================================================================================================
+[01/30/2023 11:23:27 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:23:27 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+
+Started TestRepo test_add at 11:25:39 PM on 01/30/2023
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+====================================================================================================
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+
+Started TestRepo test_get at 11:25:40 PM on 01/30/2023
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+====================================================================================================
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+
+Started TestRepo test_update at 11:25:40 PM on 01/30/2023
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+====================================================================================================
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+
+Started TestRepo test_delete at 11:25:40 PM on 01/30/2023
+[01/30/2023 11:25:40 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+====================================================================================================
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:25:40 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:26:09 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+
+Started TestRepo test_add at 11:26:09 PM on 01/30/2023
+[01/30/2023 11:26:09 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+====================================================================================================
+[01/30/2023 11:26:09 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:26:09 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:26:09 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [add] : Unable to add test_ratings as it already exists. 
+[01/30/2023 11:26:09 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+
+Started TestRepo test_get at 11:26:09 PM on 01/30/2023
+[01/30/2023 11:26:09 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+====================================================================================================
+[01/30/2023 11:26:09 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:26:09 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:26:10 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+
+Started TestRepo test_update at 11:26:10 PM on 01/30/2023
+[01/30/2023 11:26:10 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+====================================================================================================
+[01/30/2023 11:26:10 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:26:10 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:26:13 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+
+Started TestRepo test_delete at 11:26:13 PM on 01/30/2023
+[01/30/2023 11:26:13 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+====================================================================================================
+[01/30/2023 11:26:13 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:26:13 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:26:14 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [delete] : Unable to delete test_ratings as it does not exist.
+[01/30/2023 11:26:14 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+	Completed TestRepo test_delete in 0.8 seconds at 11:26:14 PM on 01/30/2023
+[01/30/2023 11:26:14 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+
+Started TestRepo test_setup at 11:28:51 PM on 01/30/2023
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+====================================================================================================
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+	Completed TestRepo test_setup in 0.1 seconds at 11:28:51 PM on 01/30/2023
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+
+Started TestRepo test_add at 11:28:51 PM on 01/30/2023
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+====================================================================================================
+[01/30/2023 11:28:51 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:28:51 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:28:51 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [add] : Unable to add test_ratings as it already exists. 
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+Completed TestRepo test_add in 0.0 seconds at 11:28:51 PM on 01/30/2023
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+
+Started TestRepo test_get at 11:28:51 PM on 01/30/2023
+[01/30/2023 11:28:51 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+====================================================================================================
+[01/30/2023 11:28:51 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:28:51 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:28:52 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+
+Started TestRepo test_update at 11:28:52 PM on 01/30/2023
+[01/30/2023 11:28:52 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+====================================================================================================
+[01/30/2023 11:28:52 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:28:52 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:28:55 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+
+Started TestRepo test_delete at 11:28:55 PM on 01/30/2023
+[01/30/2023 11:28:55 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+====================================================================================================
+[01/30/2023 11:28:55 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:28:55 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:28:56 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [delete] : Unable to delete test_ratings as it does not exist.
+[01/30/2023 11:28:56 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+	Completed TestRepo test_delete in 0.9 seconds at 11:28:56 PM on 01/30/2023
+[01/30/2023 11:28:56 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+
+Started TestRepo test_setup at 11:29:47 PM on 01/30/2023
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+====================================================================================================
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+	Completed TestRepo test_setup in 0.1 seconds at 11:29:47 PM on 01/30/2023
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+
+Started TestRepo test_add at 11:29:47 PM on 01/30/2023
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+====================================================================================================
+[01/30/2023 11:29:47 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:29:47 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:29:47 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [add] : Unable to add test_ratings as it already exists. 
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+Completed TestRepo test_add in 0.0 seconds at 11:29:47 PM on 01/30/2023
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+
+Started TestRepo test_get at 11:29:47 PM on 01/30/2023
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+====================================================================================================
+[01/30/2023 11:29:47 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:29:47 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:29:47 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [get] : Object not_found does not exist.
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+	Completed TestRepo test_get in 0.0 seconds at 11:29:47 PM on 01/30/2023
+[01/30/2023 11:29:47 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:29:48 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+
+Started TestRepo test_update at 11:29:48 PM on 01/30/2023
+[01/30/2023 11:29:48 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+====================================================================================================
+[01/30/2023 11:29:48 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:29:48 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:29:51 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+
+Started TestRepo test_delete at 11:29:51 PM on 01/30/2023
+[01/30/2023 11:29:51 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+====================================================================================================
+[01/30/2023 11:29:51 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:29:51 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:29:52 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [delete] : Unable to delete test_ratings as it does not exist.
+[01/30/2023 11:29:52 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+	Completed TestRepo test_delete in 0.8 seconds at 11:29:52 PM on 01/30/2023
+[01/30/2023 11:29:52 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+
+Started TestRepo test_setup at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+====================================================================================================
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+	Completed TestRepo test_setup in 0.1 seconds at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+
+Started TestRepo test_add at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+====================================================================================================
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:31:46 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [add] : Unable to add test_ratings as it already exists. 
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+Completed TestRepo test_add in 0.0 seconds at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+
+Started TestRepo test_get at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+====================================================================================================
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:31:46 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [get] : Object not_found does not exist.
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+	Completed TestRepo test_get in 0.0 seconds at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+
+Started TestRepo test_update at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+====================================================================================================
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+
+Started TestRepo test_delete at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+====================================================================================================
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:31:46 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:31:46 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [delete] : Unable to delete test_ratings as it does not exist.
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+	Completed TestRepo test_delete in 0.0 seconds at 11:31:46 PM on 01/30/2023
+[01/30/2023 11:31:46 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+
+Started TestRepo test_setup at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+====================================================================================================
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+	Completed TestRepo test_setup in 0.1 seconds at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+
+Started TestRepo test_add at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+====================================================================================================
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:32:12 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [add] : Unable to add test_ratings as it already exists. 
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+Completed TestRepo test_add in 0.0 seconds at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_add] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+
+Started TestRepo test_get at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+====================================================================================================
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:32:12 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [get] : Object not_found does not exist.
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+	Completed TestRepo test_get in 0.0 seconds at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_get] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+
+Started TestRepo test_update at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+====================================================================================================
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:32:12 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [update] : Unable to update not_found as it does not exist.
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+	Completed TestRepo test_update in 0.0 seconds at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_update] : 
+----------------------------------------------------------------------------------------------------
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+
+Started TestRepo test_delete at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+====================================================================================================
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 1
+[01/30/2023 11:32:12 PM] [WARNING] [dotenv.main] [main] [with_warn_for_invalid_lines] : Python-dotenv could not parse statement starting at line 2
+[01/30/2023 11:32:12 PM] [ERROR] [recsys.io.persistence.Repo] [persistence] [delete] : Unable to delete test_ratings as it does not exist.
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+	Completed TestRepo test_delete in 0.0 seconds at 11:32:12 PM on 01/30/2023
+[01/30/2023 11:32:12 PM] [INFO] [test_persistence] [test_persistence] [test_delete] : 
+----------------------------------------------------------------------------------------------------

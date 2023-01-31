@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 05:10:07 am                                                #
-# Modified   : Monday January 30th 2023 07:00:44 am                                                #
+# Modified   : Monday January 30th 2023 08:26:07 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -60,6 +60,10 @@ class RatingsDataset:
         return self._data.memory_usage(deep=True).sum() / (1024**2)
 
     @property
+    def utility_matrix_size(self) -> int:
+        return self.nrows * self.ncols
+
+    @property
     def users(self) -> int:
         """Returns number of unique users"""
         return self._data["userId"].nunique()
@@ -77,6 +81,9 @@ class RatingsDataset:
             "Columns": self._data.shape[1],
             "Users": self._data["userId"].nunique(),
             "Movies": self._data["movieId"].nunique(),
+            "Utility Matrix Size": self.utility_matrix_size,
+            "Utility Matrix Memory Size (Mb)": self.utility_matrix_size / 1024**2,
+            "Utility Matrix Sparsity": self._data.shape[0] / self.utility_matrix_size,
             "Maximum Ratings per User": self._data["userId"].value_counts().max(),
             "Average Ratings per User": self._data["userId"].value_counts().mean(),
             "Median Ratings per User": self._data["userId"].value_counts().median(),

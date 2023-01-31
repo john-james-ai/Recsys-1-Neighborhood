@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Enter Project Name in Workspace Settings                                            #
+# Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/utils/io.py                                                                 #
+# Filename   : /recsys/io/file.py                                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : Enter URL in Workspace Settings                                                     #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 12:17:50 am                                                #
-# Modified   : Sunday January 29th 2023 12:21:18 am                                                #
+# Modified   : Monday January 30th 2023 08:57:20 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,6 +21,7 @@ from abc import ABC, abstractmethod
 import os
 import logging
 import yaml
+import scipy.sparse
 import pickle
 import pandas as pd
 from typing import Any, Union, List
@@ -207,6 +208,25 @@ class PickleIO(IO):
 
 
 # ------------------------------------------------------------------------------------------------ #
+#                                      SPARSE MATRIX                                               #
+# ------------------------------------------------------------------------------------------------ #
+
+
+class SparseMatrixIO(IO):
+    @classmethod
+    def _read(cls, filepath: str, **kwargs) -> Any:
+        try:
+            return scipy.sparse.load_npz(filepath)
+        except OSError as e:
+            cls._logger.error(e)
+            raise (e)
+
+    @classmethod
+    def _write(cls, filepath: str, data: scipy.sparse, **kwargs) -> None:
+        scipy.sparse.save_npz(file=filepath, matrix=data)
+
+
+# ------------------------------------------------------------------------------------------------ #
 #                                       IO SERVICE                                                 #
 # ------------------------------------------------------------------------------------------------ #
 class IOService:
@@ -219,6 +239,7 @@ class IOService:
         "pickle": PickleIO,
         "xlsx": ExcelIO,
         "xls": ExcelIO,
+        "npz": SparseMatrixIO,
     }
     _logger = logging.getLogger(
         f"{__module__}.{__name__}",
