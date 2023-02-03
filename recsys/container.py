@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:10:21 am                                                #
-# Modified   : Sunday January 29th 2023 09:26:25 am                                                #
+# Modified   : Thursday February 2nd 2023 06:15:07 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,6 +19,8 @@
 import logging.config  # pragma: no cover
 
 from dependency_injector import containers, providers
+
+from recsys.io.persistence import Repo
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -32,9 +34,18 @@ class LoggingContainer(containers.DeclarativeContainer):
     )
 
 
+class RepoContainer(containers.DeclarativeContainer):
+
+    config = providers.Configuration()
+
+    repo = providers.Resource(Repo, location=config.repo.location)
+
+
 # ------------------------------------------------------------------------------------------------ #
 class Recsys(containers.DeclarativeContainer):
 
     config = providers.Configuration(yaml_files=["config.yml"])
 
     logging = providers.Container(LoggingContainer, config=config)
+
+    repo = providers.Container(RepoContainer, config=config)

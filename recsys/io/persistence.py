@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 10:40:29 pm                                                #
-# Modified   : Monday January 30th 2023 11:26:03 pm                                                #
+# Modified   : Thursday February 2nd 2023 06:02:14 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -74,3 +74,8 @@ class Repo:
                 self._logger.error(msg)
                 raise FileNotFoundError(msg)
             del db[name]
+
+    def exists(self, name: str) -> bool:
+        """Returns true if the object named exists, False otherwise"""
+        with shelve.open(self._location) as db:
+            return db.get(name, None) is not None

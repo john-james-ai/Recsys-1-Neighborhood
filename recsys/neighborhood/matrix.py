@@ -11,69 +11,59 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 08:37:49 pm                                                #
-# Modified   : Monday January 30th 2023 11:32:36 pm                                                #
+# Modified   : Thursday February 2nd 2023 06:19:26 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Utility Matrix Module"""
-from scipy import sparse
+import pandas as pd
 
-from recsys.io.file import IOService
 from recsys.neighborhood.base import Matrix
 
 
 # ------------------------------------------------------------------------------------------------ #
-class UtilityMatrix(Matrix):
-    """Utility Matrix Contains User/Item Ratings in a Sparse Matrix Format
+class SimilarityMatrix(Matrix):
+    """Similarity Matrix Contains User/Item Ratings in a Sparse Matrix Format
 
     Args:
-        df_filepath (str): The filepath for the pandas DataFrame containing the user/item/rating data
+        name
         um_filepath (str): The filepath to which the utility matrix will be stored.
     """
 
-    def __init__(self, filepath: str) -> None:
-        self._filepath = filepath
-        self._matrix = None  # CSR Format
-        self._load_data(filepath)
+    def __init__(self, name: str, data: pd.DataFrame) -> None:
+        super().__init__(name=name, data=data)
+
+    @property
+    def name(self) -> tuple:
+        """Returns name of the matrix"""
+        return self._name
 
     @property
     def shape(self) -> tuple:
         """Returns tuple of the shape of the matrix"""
         return (
-            self._df.shape[0],
-            self._df.shape[1],
+            self._data.shape[0],
+            self._data.shape[1],
         )
 
     @property
     def size(self) -> int:
         """The number of cells in the matrix"""
-        return self._df.shape[0] * self._df.shape[1]
+        return self._data.shape[0] * self._data.shape[1]
 
     @property
     def memory(self) -> dict:
         """Memory consumed by matrix in bytes."""
-        return self._matrix.data.nbytes
-
-    def to_array(self) -> None:
-        """Converts the matrix to numpy array format"""
-        return self._matrix.toarray()
-
-    def to_csr(self) -> None:
-        """Converts a numpy matrix to compressed sparse row matrix"""
-        return self._matrix
+        return self._data.memory_usage(deep=True).sum()
 
     def load(self) -> None:
         """Loads the matrix from file"""
-        self._df = IOService.read(self._df_filepath)
+        self._data = self._repo.get(self._name)
 
-    def save(self, filepath: str) -> None:
+    def save(self) -> None:
         """Saves the matrix to file"""
-        try:
-            self._um = IOService.read(self._um_filepath)
-        except FileNotFoundError:
-            self._logger.error()
-
-    def _load_data(self, filepath: str) -> None:
-        df = IOService.read(filepath)
-        self._matrix = sparse.csr_matrix((df.rating, (df.userId, df.movieId)))
+        if self._repo.exists(name=self._name):
+            self._repo.update(name=self._name, item=self._data)
+        else:
+            self._repo.add(name=self._name, item=self._data)
