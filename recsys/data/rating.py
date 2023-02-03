@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 05:10:07 am                                                #
-# Modified   : Monday January 30th 2023 08:26:07 pm                                                #
+# Modified   : Thursday February 2nd 2023 09:08:46 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -33,16 +33,38 @@ class RatingsDataset:
     """
 
     def __init__(self, filepath: str) -> None:
+        self._name = os.path.basename(filepath)
         self._filepath = filepath
         self._data = IOService.read(filepath)
+        self._user_inverted_idx = {}
+        self._item_inverted_idx = {}
+        self.preprocess()
 
     def __len__(self) -> int:
         """Returns number of rows in the dataset"""
         return len(self._data)
 
+    def __eq__(self, other) -> bool:
+        """Determines equality with other object"""
+        if isinstance(other, self.__class__):
+            return (
+                self.name == other.name
+                and self.nrows == other.nrows
+                and self.ncols == other.ncols
+                and self.size == other.size
+                and np.array_equal(self.users, other.users)
+                and np.array_equal(self.items, other.items)
+            )
+        else:
+            return False
+
     def info(self) -> None:
         """Wraps pandas info method."""
         self._data.info()
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     @property
     def nrows(self) -> int:
@@ -64,12 +86,20 @@ class RatingsDataset:
         return self.nrows * self.ncols
 
     @property
-    def users(self) -> int:
+    def users(self) -> np.array:
+        return np.sort(self._data["userId"].unique())
+
+    @property
+    def items(self) -> np.array:
+        return np.sort(self._data["movieId"].unique())
+
+    @property
+    def n_users(self) -> int:
         """Returns number of unique users"""
         return self._data["userId"].nunique()
 
     @property
-    def items(self) -> int:
+    def n_items(self) -> int:
         """Returns number of unique items."""
         return self._data["movieId"].nunique()
 
@@ -161,7 +191,7 @@ class RatingsDataset:
         """
         return self._data["movieId"].value_counts(sort=True).to_frame("Counts")[0:n]
 
-    def get_items(self, userId: str) -> np.array:
+    def get_items(self, userId: int) -> np.array:
         """Returns an array of items rated by the designated user
 
         Args:
@@ -169,9 +199,9 @@ class RatingsDataset:
 
         Returns: np.array
         """
-        return self._data[self._data["userId"] == userId]["movieId"].values
+        return np.sort(self._data[self._data["userId"] == userId]["movieId"].values)
 
-    def get_users(self, movieId: str) -> np.array:
+    def get_users(self, movieId: int) -> np.array:
         """Returns an array of users which rated the designated movie
 
         Args:
@@ -179,4 +209,147 @@ class RatingsDataset:
 
         Returns: np.array
         """
-        return self._data[self._data["movieId"] == movieId]["userId"].values
+        return np.sort(self._data[self._data["movieId"] == movieId]["userId"].values)
+
+    def user_inverted_idx(self, force: bool = False) -> dict:
+        """Computes a user-item inverted index
+
+        Args:
+            force (bool): Whether to compute if the index has already been computed.
+        """
+        if force or not self._user_inverted_idx:
+            for user in self.users:
+                self._user_inverted_idx[user] = self.get_items(user)
+        return self._user_inverted_idx
+
+    def item_inverted_idx(self, force: bool = False) -> dict:
+        """Computes a user-item inverted index
+
+        Args:
+            force (bool): Whether to compute if the index has already been computed.
+        """
+        if force or not self._item_inverted_idx:
+            for item in self.items:
+                self._item_inverted_idx[item] = self.get_users(item)
+        return self._item_inverted_idx
+
+    def get_users_items_ratings(
+        self, items: list, users: list, normalized_by: str = None
+    ) -> pd.DataFrame:
+        """Subsets ratings by users and items.
+
+        The original ratings are returned, unless normalized by is set to 'user', or 'item'; whereby,
+        the ratings are normalized by the user average rating or the item average rating, respectively.
+
+        Args:
+            items (List[int]): List of ids for items of interest
+            users (List[int]): List of ids for users of interest
+            normalized_by (str): Optional. One of 'item', 'user' or None. Default is None.
+
+        """
+        data = self._get_data(normalized_by=normalized_by)
+        return data[(data["userId"].isin(users)) & (self._data["movieId"].isin(items))]
+
+    def get_user_ratings(self, user: int, normalized_by: str = None) -> pd.DataFrame:
+        """Gets all user ratings.
+
+        Args:
+            user (int): The id for the user for whom the ratings are being returned.
+        """
+        data = self._get_data(normalized_by=normalized_by)
+
+        return data[data["userId"] == user].sort_values(by="movieId", ascending=True, axis=0)
+
+    def get_item_ratings(self, item: int, normalized_by: str = None) -> pd.DataFrame:
+        """Gets all item ratings.
+
+        Args:
+            item (int): The id for item for which the ratings are being returned.
+            normalized_by (str): Optional. One of 'item', 'user' or None. Default is None.
+
+        """
+        data = self._get_data(normalized_by=normalized_by)
+
+        return data[data["movieId"] == item].sort_values(by="userId", ascending=True, axis=0)
+
+    def get_user_ratings_norm(self, user: int = None, normalized_by: str = None) -> pd.DataFrame:
+        """Returns the L2 norm of user ratings for the designated user or all users if user is None
+
+        For a single user, a float is returned. If user is None, a DataFrame containing
+        user rating norms is returned.
+
+        Args:
+            user (int): Id for the user for whom the L2 norm of ratings is being requested. Optional
+            normalized_by (str): Optional. One of 'item', 'user' or None. Default is None.
+        """
+        data = self._get_data(normalized_by=normalized_by)
+        norms = (
+            data.groupby("userId")
+            .apply(lambda x: np.sqrt(np.sum(np.square(x["rating"].values))))
+            .reset_index()
+        )
+        if user is None:
+            return norms
+        else:
+            return norms[norms["userId"] == user].values[0]
+
+    def get_item_ratings_norm(self, item: int = None, normalized_by: str = None) -> pd.DataFrame:
+        """Returns the L2 norm of item ratings for the designated item or all items if item is None
+
+        For a single item, a float is returned. If item is None, a DataFrame containing
+        item rating norms is returned.
+
+        Args:
+            item (int): Id for the item for which the L2 norm of ratings is being requested. Optional
+            normalized_by (str): Optional. One of 'item', 'user' or None. Default is None.
+        """
+        data = self._get_data(normalized_by=normalized_by)
+        norms = (
+            data.groupby("movieId")
+            .apply(lambda x: np.sqrt(np.sum(np.square(x["rating"].values))))
+            .reset_index()
+        )
+        if item is None:
+            return norms
+        else:
+            return norms[norms["movieId"] == item].values[0]
+
+    def preprocess(self) -> None:
+        self._normalize_by_user_ratings()
+
+        self._normalize_by_item_ratings()
+
+    def _normalize_by_user_ratings(self) -> None:
+        """Adds a column of ratings values normalized by average user rating."""
+        rbar = self._data.groupby("userId")["rating"].mean().reset_index()
+        rbar.columns = ["userId", "rbar"]
+        self._data = self._data.merge(rbar, on="userId", how="left")
+        self._data["rating_nbu"] = self._data["rating"] - self._data["rbar"]
+        self._data = self._data.drop(columns=["rbar"])
+
+    def _normalize_by_item_ratings(self) -> None:
+        """Creates a dataframe containing each item and its average rating."""
+        rbar = self._data.groupby("movieId")["rating"].mean().reset_index()
+        rbar.columns = ["movieId", "rbar"]
+        self._data = self._data.merge(rbar, on="movieId", how="left")
+        self._data["rating_nbi"] = self._data["rating"] - self._data["rbar"]
+        self._data = self._data.drop(columns=["rbar"])
+
+    def _get_data(self, normalized_by: str = None) -> pd.DataFrame:
+        """Returns ratings data with requested normalization.
+
+        normalized_by (str): Either 'item', 'user', or None.
+        """
+        if normalized_by is not None:
+            if normalized_by == "user":
+                data = self._data[["userId", "movieId", "rating_nbu"]]
+            elif normalized_by == "item":
+                data = self._data[["userId", "movieId", "rating_nbi"]]
+            else:
+                msg = f"Value for 'normalized_by' = {normalized_by} is invalid. Must be 'item', 'user', or None."
+                self._logger.error(msg)
+                raise ValueError(msg)
+        else:
+            data = self._data[["userId", "movieId", "rating"]]
+        data.columns = ["userId", "movieId", "rating"]
+        return data
