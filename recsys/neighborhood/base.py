@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 09:08:48 pm                                                #
-# Modified   : Thursday February 2nd 2023 07:10:44 pm                                              #
+# Modified   : Friday February 3rd 2023 11:04:24 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,6 +21,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 import logging
 import pandas as pd
+import numpy as np
 from tqdm import tqdm
 from itertools import combinations
 
@@ -31,13 +32,23 @@ from recsys.container import Recsys
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Similarity(ABC):
-    """Base class for similarity measures"""
+class SimilarityMetric(ABC):
+    """Base class for similarity metrics"""
 
     def __init__(self) -> None:
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
+        self._user_similarity = None
+        self._item_similarity = None
+
+    @property
+    def user_similarity(self) -> Matrix:
+        return self._user_similarity
+
+    @property
+    def item_similarity(self) -> Matrix:
+        return self._item_similarity
 
     @abstractmethod
     def compute_user_similarity(self, ratings: RatingsDataset) -> Matrix:
@@ -47,7 +58,7 @@ class Similarity(ABC):
     def compute_item_similarity(self, ratings: RatingsDataset) -> Matrix:
         """Computes the similarity between items"""
 
-    def _compute_user_pairs_per_item(self, ratings: RatingsDataset) -> dict:
+    def _extract_common_items(self, ratings: RatingsDataset) -> dict:
         """For each item, list pairs of users who have rated the item"""
         Iuv = {}
         # Obtain all unique items sorted
@@ -66,7 +77,7 @@ class Similarity(ABC):
                     Iuv[uv_key] = uv_ratings
         return Iuv
 
-    def _compute_item_pairs_per_user(self, ratings: RatingsDataset) -> dict:
+    def _extract_common_users(self, ratings: RatingsDataset) -> dict:
         """For each user, list the pairs of items the user has rated."""
         # Obtain all unique users sorted
         Uij = {}
@@ -84,6 +95,16 @@ class Similarity(ABC):
                 else:
                     Uij[ij_key] = ij_ratings
         return Uij
+
+    def _compute_user_rating_norms(self, ratings: RatingsDataset, centered_by: str = None):
+        """Computes L2 Norm for user ratings that have optionally been centered."""
+        ru = ratings.get_user_ratings(centered_by=centered_by)
+        return np.sqrt(np.sum(np.square(ru)))
+
+    def _compute_item_rating_norms(self, ratings: RatingsDataset, centered_by: str = None):
+        """Computes L2 Norm for user ratings that have optionally been centered."""
+        ri = ratings.get_item_ratings(centered_by=centered_by)
+        return np.sqrt(np.sum(np.square(ri)))
 
     def _to_key(self, t: tuple) -> str:
         """Returns a string dictionary key for a tuple"""

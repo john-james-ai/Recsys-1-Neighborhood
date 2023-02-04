@@ -11,59 +11,59 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 08:37:49 pm                                                #
-# Modified   : Thursday February 2nd 2023 06:19:26 pm                                              #
+# Modified   : Friday February 3rd 2023 10:46:07 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Utility Matrix Module"""
 import pandas as pd
+import numpy as np
+
 
 from recsys.neighborhood.base import Matrix
 
 
 # ------------------------------------------------------------------------------------------------ #
 class SimilarityMatrix(Matrix):
-    """Similarity Matrix Contains User/Item Ratings in a Sparse Matrix Format
-
-    Args:
-        name
-        um_filepath (str): The filepath to which the utility matrix will be stored.
-    """
-
     def __init__(self, name: str, data: pd.DataFrame) -> None:
         super().__init__(name=name, data=data)
 
     @property
-    def name(self) -> tuple:
-        """Returns name of the matrix"""
+    def name(self) -> str:
         return self._name
 
     @property
     def shape(self) -> tuple:
-        """Returns tuple of the shape of the matrix"""
-        return (
-            self._data.shape[0],
-            self._data.shape[1],
-        )
+        return self._data.shape
 
     @property
     def size(self) -> int:
-        """The number of cells in the matrix"""
         return self._data.shape[0] * self._data.shape[1]
 
     @property
-    def memory(self) -> dict:
-        """Memory consumed by matrix in bytes."""
+    def memory(self) -> int:
         return self._data.memory_usage(deep=True).sum()
 
     def load(self) -> None:
-        """Loads the matrix from file"""
         self._data = self._repo.get(self._name)
 
     def save(self) -> None:
-        """Saves the matrix to file"""
-        if self._repo.exists(name=self._name):
+        if self._repo.exists(self._name):
             self._repo.update(name=self._name, item=self._data)
         else:
             self._repo.add(name=self._name, item=self._data)
+
+
+# ------------------------------------------------------------------------------------------------ #
+class UserSimilarityMatrix(SimilarityMatrix):
+    def get_similarity(self, a: int, b: int) -> float:
+        u, v = np.sort([a, b])
+        return self._data[(self._data["u"] == u) & (self._data["v"] == v)].values[0]
+
+
+# ------------------------------------------------------------------------------------------------ #
+class ItemSimilarityMatrix(SimilarityMatrix):
+    def get_similarity(self, a: int, b: int) -> float:
+        i, j = np.sort([a, b])
+        return self._data[(self._data["i"] == i) & (self._data["j"] == j)].values[0]

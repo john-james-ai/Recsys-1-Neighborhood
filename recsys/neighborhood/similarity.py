@@ -11,29 +11,67 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday February 2nd 2023 03:44:46 pm                                              #
-# Modified   : Thursday February 2nd 2023 09:08:46 pm                                              #
+# Modified   : Saturday February 4th 2023 12:11:49 am                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Similarity Matrix Module"""
 import numpy as np
+import pandas as pd
+
 from tqdm import tqdm
-from itertools import combinations
 
 from recsys.data.rating import RatingsDataset
-from recsys.neighborhood.base import Matrix, Similarity
+from recsys.neighborhood.base import SimilarityMetric
+from recsys.neighborhood.matrix import UserSimilarityMatrix, ItemSimilarityMatrix
+
 
 # ------------------------------------------------------------------------------------------------ #
-class Cosign(Similarity):
+class CosignSimilarity(SimilarityMetric):
     def __init__(self) -> None:
         super().__init__()
 
-    def compute_user_similarity(self, ratings: RatingsDataset) -> Matrix:
-        Iuv = self._compute_user_pairs_per_item()
+    def compute_user_similarity(self, ratings: RatingsDataset) -> UserSimilarityMatrix:
 
-        for uv, uv_ratings in tqdm(I.items()):
-            u, v = from_key(uv)
-            ru = uv_ratings[uv_ratings["userId"] == u].sort_values(by="movieId")["rating"].values
-            rv = uv_ratings[uv_ratings["userId"] == v].sort_values(by="movieId")["rating"].values
-            S[uv] = ru.dot(rv) / (N[u] * N[v])
+        S = {}
+
+        Iuv = self._extract_common_items()
+
+        for uv, uv_ratings in tqdm(Iuv.items()):
+            u, v = self._from_key(uv)
+            rui = uv_ratings[uv_ratings["userId"] == u].sort_values(by="movieId")["rating"].values
+            rvi = uv_ratings[uv_ratings["userId"] == v].sort_values(by="movieId")["rating"].values
+            l2u = ratings.get_user_rating_norms(user=u)
+            l2v = ratings.get_user_rating_norms(user=v)
+            S[uv] = rui.dot(rvi) / (l2u * l2v)
+        similarity = pd.DataFrame.from_dict(
+            data=S, orient="index", columns=["similarity"]
+        ).reset_index()
+
+        similarity[["u", "v"]] = similarity["index"].str.split("_", 1, expand=True)
+        self._user_similarity = UserSimilarityMatrix(
+            name="cosign_user_similarity_matrix", data=similarity
+        )
+
+    def compute_item_similarity(self, ratings: RatingsDataset) -> ItemSimilarityMatrix:
+
+        S = {}
+
+        Uij = self._compute_item_pairs_per_item()
+
+        for ij, ij_ratings in tqdm(Uij.items()):
+            i, j = self._from_key(ij)
+            riu = ij_ratings[ij_ratings["movieId"] == i].sort_values(by="userId")["rating"].values
+            rju = ij_ratings[ij_ratings["movieId"] == j].sort_values(by="userId")["rating"].values
+            l2i = np.sqrt(np.sum(ratings.get_item_ratings(user=i) ** 2))
+            l2j = np.sqrt(np.sum(ratings.get_item_ratings(user=j) ** 2))
+            S[ij] = riu.dot(rju) / (l2i * l2j)
+        similarity = pd.DataFrame.from_dict(
+            data=S, orient="index", columns=["similarity"]
+        ).reset_index()
+
+        similarity[["i", "j"]] = similarity["index"].str.split("_", 1, expand=True)
+        self._item_similarity = ItemSimilarityMatrix(
+            name="cosign_item_similarity_matrix", data=similarity
+        )
