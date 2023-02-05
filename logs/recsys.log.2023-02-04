@@ -1,0 +1,1646 @@
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split] : 
+
+Started TestSplit test_split at 01:40:02 AM on 02/04/2023
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split] : 
+====================================================================================================
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split] : 
+Completed TestSplit test_split in 0.2 seconds at 01:40:02 AM on 02/04/2023
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+
+Started TestSplit test_split_error at 01:40:02 AM on 02/04/2023
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+====================================================================================================
+[02/04/2023 01:40:02 AM] [ERROR] [recsys.model.split.TemporalSplitter] [split] [split] : Column non-existing was not found.
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+	Completed TestSplit test_split_error in 0.0 seconds at 01:40:02 AM on 02/04/2023
+[02/04/2023 01:40:02 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:43:10 AM] [INFO] [test_split] [test_split] [test_split] : 
+
+Started TestSplit test_split at 01:43:10 AM on 02/04/2023
+[02/04/2023 01:43:10 AM] [INFO] [test_split] [test_split] [test_split] : 
+====================================================================================================
+[02/04/2023 01:43:11 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+
+Started TestSplit test_split_error at 01:43:11 AM on 02/04/2023
+[02/04/2023 01:43:11 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+====================================================================================================
+[02/04/2023 01:43:11 AM] [ERROR] [recsys.model.split.TemporalSplitter] [split] [split] : Column non-existing was not found.
+[02/04/2023 01:43:11 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+	Completed TestSplit test_split_error in 0.0 seconds at 01:43:11 AM on 02/04/2023
+[02/04/2023 01:43:11 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:43:49 AM] [INFO] [test_split] [test_split] [test_split] : 
+
+Started TestSplit test_split at 01:43:49 AM on 02/04/2023
+[02/04/2023 01:43:49 AM] [INFO] [test_split] [test_split] [test_split] : 
+====================================================================================================
+[02/04/2023 01:43:49 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+
+Started TestSplit test_split_error at 01:43:49 AM on 02/04/2023
+[02/04/2023 01:43:49 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+====================================================================================================
+[02/04/2023 01:43:49 AM] [ERROR] [recsys.model.split.TemporalSplitter] [split] [split] : Column non-existing was not found.
+[02/04/2023 01:43:49 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+	Completed TestSplit test_split_error in 0.0 seconds at 01:43:49 AM on 02/04/2023
+[02/04/2023 01:43:49 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:44:12 AM] [INFO] [test_split] [test_split] [test_split] : 
+
+Started TestSplit test_split at 01:44:12 AM on 02/04/2023
+[02/04/2023 01:44:12 AM] [INFO] [test_split] [test_split] [test_split] : 
+====================================================================================================
+[02/04/2023 01:44:12 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+
+Started TestSplit test_split_error at 01:44:12 AM on 02/04/2023
+[02/04/2023 01:44:12 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+====================================================================================================
+[02/04/2023 01:44:12 AM] [ERROR] [recsys.model.split.TemporalSplitter] [split] [split] : Column non-existing was not found.
+[02/04/2023 01:44:12 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+	Completed TestSplit test_split_error in 0.0 seconds at 01:44:12 AM on 02/04/2023
+[02/04/2023 01:44:12 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split] : 
+
+Started TestSplit test_split at 01:46:31 AM on 02/04/2023
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split] : 
+====================================================================================================
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split] : 
+Completed TestSplit test_split in 0.2 seconds at 01:46:31 AM on 02/04/2023
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+
+Started TestSplit test_split_error at 01:46:31 AM on 02/04/2023
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+====================================================================================================
+[02/04/2023 01:46:31 AM] [ERROR] [recsys.model.split.TemporalSplitter] [split] [split] : Column non-existing was not found.
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+	Completed TestSplit test_split_error in 0.0 seconds at 01:46:31 AM on 02/04/2023
+[02/04/2023 01:46:31 AM] [INFO] [test_split] [test_split] [test_split_error] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 01:57:12 AM on 02/04/2023
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 01:57:12 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 01:57:12 AM on 02/04/2023
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 01:57:12 AM on 02/04/2023
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 01:57:12 AM on 02/04/2023
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 01:57:12 AM on 02/04/2023
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 01:57:12 AM on 02/04/2023
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 01:57:12 AM on 02/04/2023
+[02/04/2023 01:57:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 01:57:13 AM on 02/04/2023
+[02/04/2023 01:57:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 02:05:22 AM on 02/04/2023
+[02/04/2023 02:05:22 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 02:06:54 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 02:06:54 AM on 02/04/2023
+[02/04/2023 02:06:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 02:06:55 AM on 02/04/2023
+[02/04/2023 02:06:55 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 02:07:53 AM on 02/04/2023
+[02/04/2023 02:07:53 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 02:07:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 02:07:54 AM on 02/04/2023
+[02/04/2023 02:07:54 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+	Completed TestRatingsDataset test_get_user_ratings in 0.0 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 02:11:57 AM on 02/04/2023
+[02/04/2023 02:11:57 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 02:12:23 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+	Completed TestRatingsDataset test_get_user_ratings in 0.0 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 02:12:24 AM on 02/04/2023
+[02/04/2023 02:12:24 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+	Completed TestRatingsDataset test_get_user_ratings in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+	Completed TestRatingsDataset test_ave_item_rating in 0.0 seconds at 02:12:43 AM on 02/04/2023
+[02/04/2023 02:12:43 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+	Completed TestRatingsDataset test_get_user_ratings in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+	Completed TestRatingsDataset test_ave_user_rating in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+	Completed TestRatingsDataset test_ave_item_rating in 0.0 seconds at 02:13:23 AM on 02/04/2023
+[02/04/2023 02:13:23 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 04:58:12 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              4.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         4.768372e+00
+Size                                 5.000000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             7.176198e-02
+Density                              9.282380e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_remap_id] : 
+
+Started TestRatingsDataset test_remap_id at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_remap_id] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+	Completed TestRatingsDataset test_get_user_ratings in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+	Completed TestRatingsDataset test_ave_user_rating in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+	Completed TestRatingsDataset test_ave_item_rating in 0.0 seconds at 04:58:13 AM on 02/04/2023
+[02/04/2023 04:58:13 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+
+Started TestRatingsDataset test_summarize at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [DEBUG] [tests.test_data.test_ratings] [test_ratings] [test_summarize] :                                             Count
+Rows                                 1.250000e+05
+Columns                              6.000000e+00
+Users                                6.269100e+04
+Movies                               1.111400e+04
+Memory Usage                         6.675720e+00
+Size                                 7.500000e+05
+Matrix Size                          6.967478e+08
+Sparsity                             1.076430e-01
+Density                              8.923570e-01
+Maximum Number of Ratings by User    1.610000e+02
+Average Number of Ratings by User    1.993907e+00
+Maximum Number of Ratings for Movie  4.030000e+02
+Average Number of Ratings for Movie  1.124708e+01
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+Completed TestRatingsDataset test_summarize in 0.2 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_summarize] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+
+Started TestRatingsDataset test_info at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+	Completed TestRatingsDataset test_info in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_info] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+
+Started TestRatingsDataset test_equality at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+	Completed TestRatingsDataset test_equality in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_equality] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+
+Started TestRatingsDataset test_properties at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+	Completed TestRatingsDataset test_properties in 0.1 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_properties] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_remap_id] : 
+
+Started TestRatingsDataset test_remap_id at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_remap_id] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_remap_id] : 
+	Completed TestRatingsDataset test_remap_id in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_remap_id] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+
+Started TestRatingsDataset test_topn at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+	Completed TestRatingsDataset test_topn in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_topn] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+
+Started TestRatingsDataset test_get_users at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+	Completed TestRatingsDataset test_get_users in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_users] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+
+Started TestRatingsDataset test_get_items at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+	Completed TestRatingsDataset test_get_items in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_items] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+
+Started TestRatingsDataset test_get_user_ratings at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+	Completed TestRatingsDataset test_get_user_ratings in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_user_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+
+Started TestRatingsDataset test_get_item_ratings at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+	Completed TestRatingsDataset test_get_item_ratings in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_get_item_ratings] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+
+Started TestRatingsDataset test_ave_user_rating at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+	Completed TestRatingsDataset test_ave_user_rating in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_user_rating] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+
+Started TestRatingsDataset test_ave_item_rating at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+====================================================================================================
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+	Completed TestRatingsDataset test_ave_item_rating in 0.0 seconds at 04:59:12 AM on 02/04/2023
+[02/04/2023 04:59:12 AM] [INFO] [tests.test_data.test_ratings] [test_ratings] [test_ave_item_rating] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 05:07:23 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexBuilder test_user at 05:07:23 AM on 02/04/2023
+[02/04/2023 05:07:23 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 05:07:47 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexBuilder test_item at 05:07:47 AM on 02/04/2023
+[02/04/2023 05:07:47 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 05:09:51 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexBuilder test_user at 05:09:51 AM on 02/04/2023
+[02/04/2023 05:09:51 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 05:10:13 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexBuilder test_item at 05:10:13 AM on 02/04/2023
+[02/04/2023 05:10:13 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 05:18:45 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexBuilder test_user at 05:18:45 AM on 02/04/2023
+[02/04/2023 05:18:45 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 05:19:07 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexBuilder test_item at 05:19:07 AM on 02/04/2023
+[02/04/2023 05:19:07 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 05:19:59 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexBuilder test_user at 05:19:59 AM on 02/04/2023
+[02/04/2023 05:19:59 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 05:20:21 AM] [DEBUG] [test_inverted_index] [test_inverted_index] [test_user] : [(197, 220), (197, 250), (197, 320), (197, 1685), (197, 1799), (197, 1825), (197, 1838), (197, 2160), (197, 2234), (197, 2868)]
+[02/04/2023 05:20:21 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+Completed TestInvertedIndexBuilder test_user in 22.0 seconds at 05:20:21 AM on 02/04/2023
+[02/04/2023 05:20:21 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 05:20:21 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexBuilder test_item at 05:20:21 AM on 02/04/2023
+[02/04/2023 05:20:21 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 05:21:37 AM] [DEBUG] [test_inverted_index] [test_inverted_index] [test_item] : [(5354, 6142), (832, 966), (832, 6770), (832, 8244), (832, 9102), (966, 6770), (966, 8244), (966, 9102), (6770, 8244), (6770, 9102)]
+[02/04/2023 05:21:37 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+	Completed TestInvertedIndexBuilder test_item in 75.6 seconds at 05:21:37 AM on 02/04/2023
+[02/04/2023 05:21:37 AM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 07:12:07 AM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 07:12:06 AM on 02/04/2023
+[02/04/2023 07:12:07 AM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 07:14:48 AM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 07:14:48 AM on 02/04/2023
+[02/04/2023 07:14:48 AM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 07:15:45 AM] [DEBUG] [test_cosign] [test_cosign] [test_cosign] : 3930161481
+[02/04/2023 07:15:45 AM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+Completed TestCosignSimilarity test_cosign in 57.1 seconds at 07:15:45 AM on 02/04/2023
+[02/04/2023 07:15:45 AM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 06:34:59 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 06:34:58 PM on 02/04/2023
+[02/04/2023 06:34:59 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 06:35:43 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 06:35:43 PM on 02/04/2023
+[02/04/2023 06:35:43 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 06:36:04 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 06:36:03 PM on 02/04/2023
+[02/04/2023 06:36:04 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 06:36:42 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 06:36:42 PM on 02/04/2023
+[02/04/2023 06:36:42 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 06:39:10 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 06:39:10 PM on 02/04/2023
+[02/04/2023 06:39:10 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 06:39:49 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+
+Started TestCosignSimilarity test_cosign at 06:39:49 PM on 02/04/2023
+[02/04/2023 06:39:49 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+====================================================================================================
+[02/04/2023 06:41:59 PM] [DEBUG] [test_cosign] [test_cosign] [test_cosign] : [[1.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.07446413 0.         ... 0.         0.         0.        ]
+ [0.         0.         0.22573306 ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.14354261 0.         0.        ]
+ [0.         0.         0.         ... 0.         0.24413654 0.        ]
+ [0.         0.         0.         ... 0.         0.         0.1060952 ]]
+[02/04/2023 06:41:59 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+Completed TestCosignSimilarity test_cosign in 129.7 seconds at 06:41:59 PM on 02/04/2023
+[02/04/2023 06:41:59 PM] [INFO] [test_cosign] [test_cosign] [test_cosign] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 06:59:43 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+
+Started TestCosignUserSimilarity test_cosign_csr at 06:59:43 PM on 02/04/2023
+[02/04/2023 06:59:43 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+====================================================================================================
+[02/04/2023 07:01:53 PM] [DEBUG] [test_cosign] [test_cosign] [test_cosign_csr] : [[1.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.07446413 0.         ... 0.         0.         0.        ]
+ [0.         0.         0.22573306 ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.14354261 0.         0.        ]
+ [0.         0.         0.         ... 0.         0.24413654 0.        ]
+ [0.         0.         0.         ... 0.         0.         0.1060952 ]]
+[02/04/2023 07:01:53 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+Completed TestCosignUserSimilarity test_cosign_csr in 130.3 seconds at 07:01:53 PM on 02/04/2023
+[02/04/2023 07:01:53 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 07:01:54 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+
+Started TestCosignUserSimilarity test_cosign_array_to_csr at 07:01:54 PM on 02/04/2023
+[02/04/2023 07:01:54 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+====================================================================================================
+[02/04/2023 07:04:18 PM] [DEBUG] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : [[1.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.07446413 0.         ... 0.         0.         0.        ]
+ [0.         0.         0.22573306 ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.14354261 0.         0.        ]
+ [0.         0.         0.         ... 0.         0.24413654 0.        ]
+ [0.         0.         0.         ... 0.         0.         0.1060952 ]]
+[02/04/2023 07:04:18 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+	Completed TestCosignUserSimilarity test_cosign_array_to_csr in 144.5 seconds at 07:04:18 PM on 02/04/2023
+[02/04/2023 07:04:18 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 07:04:19 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+
+Started TestCosignUserSimilarity test_cosign_array at 07:04:19 PM on 02/04/2023
+[02/04/2023 07:04:19 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+====================================================================================================
+[02/04/2023 07:06:25 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+
+Started TestCosignUserSimilarity test_cosign_errors at 07:06:25 PM on 02/04/2023
+[02/04/2023 07:06:25 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+====================================================================================================
+[02/04/2023 07:06:25 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 07:06:25 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 07:10:08 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+
+Started TestCosignUserSimilarity test_cosign_array at 07:10:08 PM on 02/04/2023
+[02/04/2023 07:10:08 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+====================================================================================================
+[02/04/2023 07:12:13 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+
+Started TestCosignUserSimilarity test_cosign_errors at 07:12:13 PM on 02/04/2023
+[02/04/2023 07:12:13 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+====================================================================================================
+[02/04/2023 07:12:13 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 07:13:42 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+
+Started TestCosignUserSimilarity test_cosign_array at 07:13:42 PM on 02/04/2023
+[02/04/2023 07:13:42 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+====================================================================================================
+[02/04/2023 07:15:47 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+
+Started TestCosignUserSimilarity test_cosign_errors at 07:15:47 PM on 02/04/2023
+[02/04/2023 07:15:47 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+====================================================================================================
+[02/04/2023 07:15:47 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 07:16:36 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+
+Started TestCosignUserSimilarity test_cosign_array at 07:16:36 PM on 02/04/2023
+[02/04/2023 07:16:36 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+====================================================================================================
+[02/04/2023 07:18:38 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+
+Started TestCosignUserSimilarity test_cosign_errors at 07:18:38 PM on 02/04/2023
+[02/04/2023 07:18:38 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+====================================================================================================
+[02/04/2023 07:18:38 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 09:11:16 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+
+Started TestCosignSimilarity test_cosign_csr at 09:11:16 PM on 02/04/2023
+[02/04/2023 09:11:16 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+====================================================================================================
+[02/04/2023 09:11:16 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+
+Started TestCosignSimilarity test_cosign_array_to_csr at 09:11:16 PM on 02/04/2023
+[02/04/2023 09:11:16 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+====================================================================================================
+[02/04/2023 09:14:17 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+
+Started TestCosignSimilarity test_cosign_csr at 09:14:17 PM on 02/04/2023
+[02/04/2023 09:14:17 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+====================================================================================================
+[02/04/2023 09:14:18 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+
+Started TestCosignSimilarity test_cosign_array_to_csr at 09:14:18 PM on 02/04/2023
+[02/04/2023 09:14:18 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+====================================================================================================
+[02/04/2023 09:15:32 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+
+Started TestCosignSimilarity test_cosign_csr at 09:15:32 PM on 02/04/2023
+[02/04/2023 09:15:32 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+====================================================================================================
+[02/04/2023 09:17:27 PM] [DEBUG] [test_cosign] [test_cosign] [test_cosign_csr] : [[1.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.07446413 0.         ... 0.         0.         0.        ]
+ [0.         0.         0.22573306 ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.14354261 0.         0.        ]
+ [0.         0.         0.         ... 0.         0.24413654 0.        ]
+ [0.         0.         0.         ... 0.         0.         0.1060952 ]]
+[02/04/2023 09:17:27 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+Completed TestCosignSimilarity test_cosign_csr in 114.3 seconds at 09:17:27 PM on 02/04/2023
+[02/04/2023 09:17:27 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_csr] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 09:17:28 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+
+Started TestCosignSimilarity test_cosign_array_to_csr at 09:17:28 PM on 02/04/2023
+[02/04/2023 09:17:28 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+====================================================================================================
+[02/04/2023 09:33:13 PM] [DEBUG] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : [[1.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.07446413 0.         ... 0.         0.         0.        ]
+ [0.         0.         0.22573306 ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.14354261 0.         0.        ]
+ [0.         0.         0.         ... 0.         0.24413654 0.        ]
+ [0.         0.         0.         ... 0.         0.         0.1060952 ]]
+[02/04/2023 09:33:13 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+	Completed TestCosignSimilarity test_cosign_array_to_csr in 945.8 seconds at 09:33:13 PM on 02/04/2023
+[02/04/2023 09:33:13 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array_to_csr] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 09:33:14 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+
+Started TestCosignSimilarity test_cosign_array at 09:33:14 PM on 02/04/2023
+[02/04/2023 09:33:14 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+====================================================================================================
+[02/04/2023 09:47:15 PM] [DEBUG] [test_cosign] [test_cosign] [test_cosign_array] : [[1.         0.         0.         ... 0.         0.         0.        ]
+ [0.         0.07446413 0.         ... 0.         0.         0.        ]
+ [0.         0.         0.22573306 ... 0.         0.         0.        ]
+ ...
+ [0.         0.         0.         ... 0.14354261 0.         0.        ]
+ [0.         0.         0.         ... 0.         0.24413654 0.        ]
+ [0.         0.         0.         ... 0.         0.         0.1060952 ]]
+[02/04/2023 09:47:15 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+	Completed TestCosignSimilarity test_cosign_array in 840.9 seconds at 09:47:15 PM on 02/04/2023
+[02/04/2023 09:47:15 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_array] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 09:47:15 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+
+Started TestCosignSimilarity test_cosign_errors at 09:47:15 PM on 02/04/2023
+[02/04/2023 09:47:15 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+====================================================================================================
+[02/04/2023 09:47:15 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 09:48:19 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+
+Started TestCosignSimilarity test_cosign_errors at 09:48:19 PM on 02/04/2023
+[02/04/2023 09:48:19 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+====================================================================================================
+[02/04/2023 09:48:19 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 09:50:10 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+
+Started TestCosignSimilarity test_cosign_errors at 09:50:10 PM on 02/04/2023
+[02/04/2023 09:50:10 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+====================================================================================================
+[02/04/2023 09:50:10 PM] [ERROR] [recsys.neighborhood.metric.CosignSimilarity] [base] [_check_array] : Type <class 'list'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 09:50:10 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+	Completed TestCosignSimilarity test_cosign_errors in 0.1 seconds at 09:50:10 PM on 02/04/2023
+[02/04/2023 09:50:10 PM] [INFO] [test_cosign] [test_cosign] [test_cosign_errors] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 09:55:45 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 09:55:45 PM on 02/04/2023
+[02/04/2023 09:55:45 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 09:56:08 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 09:56:08 PM on 02/04/2023
+[02/04/2023 09:56:08 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 09:59:08 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 09:59:08 PM on 02/04/2023
+[02/04/2023 09:59:08 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 09:59:31 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 09:59:31 PM on 02/04/2023
+[02/04/2023 09:59:31 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:01:14 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:01:14 PM on 02/04/2023
+[02/04/2023 10:01:14 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:01:37 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:01:37 PM on 02/04/2023
+[02/04/2023 10:01:37 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:02:09 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:02:09 PM on 02/04/2023
+[02/04/2023 10:02:09 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:02:09 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:02:09 PM on 02/04/2023
+[02/04/2023 10:02:09 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:03:10 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:03:09 PM on 02/04/2023
+[02/04/2023 10:03:10 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:03:10 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:03:10 PM on 02/04/2023
+[02/04/2023 10:03:10 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:03:24 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:03:23 PM on 02/04/2023
+[02/04/2023 10:03:24 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:03:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:03:51 PM on 02/04/2023
+[02/04/2023 10:03:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:08:45 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:08:45 PM on 02/04/2023
+[02/04/2023 10:08:45 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:09:16 PM] [ERROR] [recsys.io.repo.Repo] [repo] [add] : Unable to add user_index as it already exists. 
+[02/04/2023 10:09:16 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:09:16 PM on 02/04/2023
+[02/04/2023 10:09:16 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:25:09 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:25:08 PM on 02/04/2023
+[02/04/2023 10:25:09 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:25:37 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:25:37 PM on 02/04/2023
+[02/04/2023 10:25:37 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:27:10 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:27:09 PM on 02/04/2023
+[02/04/2023 10:27:10 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:27:40 PM] [ERROR] [recsys.io.repo.Repo] [repo] [add] : Unable to add user_index as it already exists. 
+[02/04/2023 10:27:40 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:27:40 PM on 02/04/2023
+[02/04/2023 10:27:40 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:29:27 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+
+Started TestInvertedIndexFactory test_setup at 10:29:27 PM on 02/04/2023
+[02/04/2023 10:29:27 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+====================================================================================================
+[02/04/2023 10:29:27 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:29:27 PM on 02/04/2023
+[02/04/2023 10:29:27 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:29:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+
+Started TestInvertedIndexFactory test_setup at 10:29:51 PM on 02/04/2023
+[02/04/2023 10:29:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+====================================================================================================
+[02/04/2023 10:29:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+	Completed TestInvertedIndexFactory test_setup in 0.1 seconds at 10:29:51 PM on 02/04/2023
+[02/04/2023 10:29:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 10:29:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:29:51 PM on 02/04/2023
+[02/04/2023 10:29:51 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:30:15 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:30:15 PM on 02/04/2023
+[02/04/2023 10:30:15 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:32:32 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+
+Started TestInvertedIndexFactory test_setup at 10:32:32 PM on 02/04/2023
+[02/04/2023 10:32:32 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+====================================================================================================
+[02/04/2023 10:32:32 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+	Completed TestInvertedIndexFactory test_setup in 0.1 seconds at 10:32:32 PM on 02/04/2023
+[02/04/2023 10:32:32 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 10:32:32 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:32:32 PM on 02/04/2023
+[02/04/2023 10:32:32 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:32:56 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:32:56 PM on 02/04/2023
+[02/04/2023 10:32:56 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:34:39 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+
+Started TestInvertedIndexFactory test_setup at 10:34:39 PM on 02/04/2023
+[02/04/2023 10:34:39 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+====================================================================================================
+[02/04/2023 10:34:39 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+	Completed TestInvertedIndexFactory test_setup in 0.1 seconds at 10:34:39 PM on 02/04/2023
+[02/04/2023 10:34:39 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 10:34:39 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+
+Started TestInvertedIndexFactory test_user at 10:34:39 PM on 02/04/2023
+[02/04/2023 10:34:39 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+====================================================================================================
+[02/04/2023 10:35:06 PM] [DEBUG] [test_inverted_index] [test_inverted_index] [test_user] : [1]
+[02/04/2023 10:35:06 PM] [DEBUG] [test_inverted_index] [test_inverted_index] [test_user] : There are 4633520 user co-ocurrences
+[02/04/2023 10:35:06 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+Completed TestInvertedIndexFactory test_user in 27.0 seconds at 10:35:06 PM on 02/04/2023
+[02/04/2023 10:35:06 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_user] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 10:35:06 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+
+Started TestInvertedIndexFactory test_item at 10:35:06 PM on 02/04/2023
+[02/04/2023 10:35:06 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+====================================================================================================
+[02/04/2023 10:36:27 PM] [DEBUG] [test_inverted_index] [test_inverted_index] [test_item] : [1]
+[02/04/2023 10:36:27 PM] [DEBUG] [test_inverted_index] [test_inverted_index] [test_item] : [(5354, 6142), (832, 966), (832, 6770), (832, 8244), (832, 9102), (966, 6770), (966, 8244), (966, 9102), (6770, 8244), (6770, 9102)]
+[02/04/2023 10:36:27 PM] [DEBUG] [test_inverted_index] [test_inverted_index] [test_item] : There are 190499 item co-ocurrences
+[02/04/2023 10:36:27 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+	Completed TestInvertedIndexFactory test_item in 80.4 seconds at 10:36:27 PM on 02/04/2023
+[02/04/2023 10:36:27 PM] [INFO] [test_inverted_index] [test_inverted_index] [test_item] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 11:17:26 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+
+Started TestCosineSimilarity test_user_cosine at 11:17:26 PM on 02/04/2023
+[02/04/2023 11:17:26 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+====================================================================================================
+[02/04/2023 11:18:58 PM] [DEBUG] [test_cosine] [test_cosine] [test_user_cosine] : Shape of cosine similarity is (62691, 62691).
+[02/04/2023 11:18:58 PM] [DEBUG] [test_cosine] [test_cosine] [test_user_cosine] : There are  9329731 nonzero elements.
+[02/04/2023 11:18:58 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+Completed TestCosineSimilarity test_user_cosine in 92.3 seconds at 11:18:58 PM on 02/04/2023
+[02/04/2023 11:18:58 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 11:18:58 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+
+Started TestCosineSimilarity test_item_cosine at 11:18:58 PM on 02/04/2023
+[02/04/2023 11:18:58 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+====================================================================================================
+[02/04/2023 11:18:58 PM] [ERROR] [recsys.neighborhood.metric.CosineSimilarity] [base] [_check_matrix] : Type <class 'scipy.sparse._csc.csc_matrix'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 11:20:06 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+
+Started TestCosineSimilarity test_user_cosine at 11:20:06 PM on 02/04/2023
+[02/04/2023 11:20:06 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+====================================================================================================
+[02/04/2023 11:21:22 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+
+Started TestCosineSimilarity test_user_cosine at 11:21:22 PM on 02/04/2023
+[02/04/2023 11:21:22 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+====================================================================================================
+[02/04/2023 11:22:45 PM] [DEBUG] [test_cosine] [test_cosine] [test_user_cosine] : Shape of cosine similarity is (62691, 62691).
+[02/04/2023 11:22:45 PM] [DEBUG] [test_cosine] [test_cosine] [test_user_cosine] : There are  9329731 nonzero elements.
+[02/04/2023 11:22:45 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+Completed TestCosineSimilarity test_user_cosine in 83.6 seconds at 11:22:45 PM on 02/04/2023
+[02/04/2023 11:22:45 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 11:22:45 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+
+Started TestCosineSimilarity test_item_cosine at 11:22:45 PM on 02/04/2023
+[02/04/2023 11:22:45 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+====================================================================================================
+[02/04/2023 11:22:46 PM] [ERROR] [recsys.neighborhood.metric.CosineSimilarity] [base] [_check_matrix] : Type <class 'scipy.sparse._csc.csc_matrix'> is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'.
+[02/04/2023 11:31:23 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+
+Started TestCosineSimilarity test_user_cosine at 11:31:22 PM on 02/04/2023
+[02/04/2023 11:31:23 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+====================================================================================================
+[02/04/2023 11:32:50 PM] [DEBUG] [test_cosine] [test_cosine] [test_user_cosine] : Shape of cosine similarity is (62691, 62691).
+[02/04/2023 11:32:50 PM] [DEBUG] [test_cosine] [test_cosine] [test_user_cosine] : There are  9329731 nonzero elements.
+[02/04/2023 11:32:50 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+Completed TestCosineSimilarity test_user_cosine in 88.0 seconds at 11:32:50 PM on 02/04/2023
+[02/04/2023 11:32:50 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+----------------------------------------------------------------------------------------------------
+[02/04/2023 11:32:50 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+
+Started TestCosineSimilarity test_item_cosine at 11:32:50 PM on 02/04/2023
+[02/04/2023 11:32:50 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+====================================================================================================
+[02/04/2023 11:33:23 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+
+Started TestCosineSimilarity test_item_cosine at 11:33:22 PM on 02/04/2023
+[02/04/2023 11:33:23 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+====================================================================================================
+[02/04/2023 11:33:26 PM] [DEBUG] [test_cosine] [test_cosine] [test_item_cosine] : Shape of cosine similarity is (11114, 11114).
+[02/04/2023 11:33:26 PM] [DEBUG] [test_cosine] [test_cosine] [test_item_cosine] : There are  392112 nonzero elements.
+[02/04/2023 11:33:26 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+Completed TestCosineSimilarity test_item_cosine in 4.0 seconds at 11:33:26 PM on 02/04/2023
+[02/04/2023 11:33:26 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+----------------------------------------------------------------------------------------------------

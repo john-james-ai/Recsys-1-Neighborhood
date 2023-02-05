@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 09:08:48 pm                                                #
-# Modified   : Saturday February 4th 2023 10:03:17 pm                                              #
+# Modified   : Sunday February 5th 2023 05:56:27 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -47,26 +47,25 @@ class Metric(ABC):
     @abstractmethod
     def __call__(
         self,
-        X: Union[np.ndarray, sparse.csr_matrix],
-        Y: Union[np.ndarray, sparse.csr_matrix] = None,
-        return_sparse: bool = True,
+        X: sparse.csr_matrix,
+        Y: sparse.csr_matrix = None,
+        *args,
+        **kwargs,
     ) -> Union[np.ndarray, sparse.csr_matrix]:
         """Computes the similarity between users"""
 
     def _normalize(
-        self, X: Union[np.ndarray, sparse.csr_matrix], norm: str = "l2", axis: int = 1
-    ) -> Union[np.ndarray, sparse.csr_matrix]:
+        self, X: Union[sparse.csr_matrix, sparse.csc_matrix], norm: str = "l2", axis: int = 1
+    ) -> Union[sparse.csr_matrix, sparse.csc_matrix]:
         """Scales input vectors individually to unit norm.
 
         Args:
-            X (np.ndarray, sparse.csr_matrix): The data to normalize
+            X (sparse.csr_matrix, sparse.csc_matrix): The data to normalize
             norm (str): One of ['l1', 'l2']. Default = 'l2'
             axis (int): Defines the axis along which the data are normalize. Either 0 (items) or 1 (users). Default = 1
         """
-        if not isinstance(X, (np.ndarray, sparse.csr_matrix)):
-            msg = f"X type {type(X)} is not supported."
-            self._logger.error(msg)
-            raise TypeError(msg)
+        X = self._check_matrix(X)
+
         if norm not in ["l1", "l2"]:
             msg = f"Norm {norm} is not supported."
             self._logger.error(msg)
@@ -76,16 +75,6 @@ class Metric(ABC):
             self._logger.error(msg)
             raise ValueError(msg)
 
-        X = self._check_array(X)
-        if isinstance(X, sparse.csr_matrix):
-            return self._normalize_sparse(X, norm, axis)
-        else:
-            return self._normalize_array(X, norm, axis)
-
-    def _normalize_sparse(
-        self, X: sparse.csr_matrix, norm: str = "l2", axis: int = 1
-    ) -> sparse.csr_matrix:
-        """Performs L1 or L2 normalization on a sparse matrix"""
         if axis == 0:
             X = sparse.csr_matrix.transpose(X)
 
@@ -99,28 +88,16 @@ class Metric(ABC):
             X = sparse.csr_matrix.transpose(X)
         return X
 
-    def _normalize_array(self, X: np.ndarray, norm: str = "l2", axis: int = 1) -> np.ndarray:
-        """Performs L1 or L2 normalization on an array"""
-        if axis == 0:
-            X = X.T
-
-        if norm == "l1":
-            norms = np.abs(X).sum(axis=1)
-        else:
-            norms = np.sqrt(np.sum(np.square(X), axis=1))
-        X = X / norms
-        if axis == 0:
-            X = X.T
-        return X
-
     def _check_input(
         self,
-        X: Union[np.ndarray, sparse.csr_matrix],
-        Y: Union[np.ndarray, sparse.csr_matrix],
-    ) -> Union[tuple[sparse.csr_matrix, sparse.csr_matrix], tuple[np.ndarray, np.ndarray]]:
+        X: Union[sparse.csc_matrix, sparse.csr_matrix],
+        Y: Union[sparse.csc_matrix, sparse.csr_matrix],
+    ) -> Union[
+        tuple[sparse.csr_matrix, sparse.csr_matrix], tuple[sparse.csc_matrix, sparse.csc_matrix]
+    ]:
         """Checks type and dimension of input."""
-        X = self._check_array(X)
-        Y = self._check_array(Y, none_allowed=True)
+        X = self._check_matrix(X)
+        Y = self._check_matrix(Y, none_allowed=True)
         Y = Y or X
 
         # Forcing input to be same type, because I ain't got no time for that sh&*.
@@ -138,20 +115,20 @@ class Metric(ABC):
             Y,
         )
 
-    def _check_array(
+    def _check_matrix(
         self,
-        X: Union[np.ndarray, sparse.csr_matrix],
+        X: Union[sparse.csr_matrix, sparse.csc_matrix],
         none_allowed: bool = False,
-    ) -> Union[sparse.csr_matrix, sparse.csr_matrix]:
+    ) -> sparse.csr_matrix:
         """Checks array type, casts it to float
 
         Args:
-            X (np.ndarray,sparse.csr_matrix): Input array
+            X (sparse.csr_matrix): Input array
         """
         if X is None and none_allowed:
             return X
 
-        elif not isinstance(X, (np.ndarray, sparse.csr_matrix)):
+        elif not isinstance(X, (sparse.csr_matrix, sparse.csc_matrix)):
             msg = f"Type {type(X)} is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'."
             self._logger.error(msg)
             raise TypeError(msg)
@@ -161,11 +138,8 @@ class Metric(ABC):
             self._logger.error(msg)
             raise ValueError(msg)
 
-        elif isinstance(X, np.ndarray):
-            X = X.astype(float)
+        X = sparse.csr_matrix.asfptype(X)
 
-        else:
-            X = sparse.csr_matrix.asfptype(X)
         return X
 
 
@@ -183,6 +157,16 @@ class Matrix(ABC):
     @abstractmethod
     def name(self) -> tuple:
         """Returns name of the matrix"""
+
+    @property
+    @abstractmethod
+    def dataset(self) -> str:
+        """The dataset name"""
+
+    @property
+    @abstractmethod
+    def mean_centered(self) -> Union[str, bool]:
+        """Indicates whether the ratings in the matrix have been mean centered"""
 
     @property
     @abstractmethod

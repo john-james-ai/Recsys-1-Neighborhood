@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 05:10:07 am                                                #
-# Modified   : Saturday February 4th 2023 06:32:47 pm                                              #
+# Modified   : Sunday February 5th 2023 07:30:43 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -25,6 +25,7 @@ from copy import copy
 from scipy import sparse
 
 from recsys.io.file import IOService
+from recsys.neighborhood.matrix import SparseMatrix
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -39,12 +40,14 @@ class RatingsDataset:
         self._name = os.path.basename(filepath)
         self._filepath = filepath
         self._data = IOService.read(filepath)
-        self._csr = None
+        self._matrices = {}
         self._ave_user_ratings = None
         self._ave_item_ratings = None
         self._user_id_map = None
         self._item_id_map = None
+        self._centered = False
         self._remap_ids()
+        self.center()
 
     def __len__(self) -> int:
         """Returns number of rows in the dataset"""
@@ -71,6 +74,10 @@ class RatingsDataset:
     @property
     def name(self) -> str:
         return self._name
+
+    @property
+    def filepath(self) -> str:
+        return self._filepath
 
     @property
     def nrows(self) -> int:
@@ -149,17 +156,22 @@ class RatingsDataset:
         """Returns a copy of the ratings dataframe."""
         return copy(self._data)
 
-    def as_csr(self) -> sparse.csr_matrix:
-        """Returns ratings data in csr sparse format"""
-        if self._csr is None:
-            row = self._data.useridx.values
-            col = self._data.itemidx.values
-            data = self._data.rating.values
-            self._csr = sparse.csr_matrix(
-                (data, (row, col)),
-                shape=(self._data.useridx.nunique(), self._data.itemidx.nunique()),
-            )
-        return self._csr.copy()
+    def as_sparse(self, mean_centered: Union[str, bool] = False) -> SparseMatrix:
+        """Returns ratings data in csr sparse format
+
+        Args:
+            mean_centered (str,bool): {'user', 'item', None}. Whether and how
+                to mean center the ratings.
+        """
+        # Return an existing csr if it exists
+        try:
+            return self._matrices[mean_centered]
+        except KeyError:
+            data = self._extract_data(mean_centered=mean_centered)
+            csr = self._create_csr(df=data)
+            matrix = self._create_sparse_matrix_object(csr=csr, mean_centered=mean_centered)
+            self._matrices[matrix.name] = matrix
+        return copy(matrix)
 
     def top_n_users(self, n: int = 10) -> pd.DataFrame:
         """Returns the users with n highest number of ratings.
@@ -278,6 +290,68 @@ class RatingsDataset:
             return self._ave_item_ratings[self._ave_item_ratings["movieId"] == item]["rbar"].values[
                 0
             ]
+
+    def center(self) -> pd.DataFrame:
+        """Centers the ratings by average user and item ratings."""
+        if self._centered is not True:
+            dimensions = {
+                "user": {"dim_col": "useridx", "mu_col": "mu_u", "centered_col": "rating_cu"},
+                "item": {"dim_col": "itemidx", "mu_col": "mu_i", "centered_col": "rating_ci"},
+            }
+
+            for dimension in dimensions.values():
+                self._center(
+                    dim_col=dimension["dim_col"],
+                    mu_col=dimension["mu_col"],
+                    centered_col=dimension["centered_col"],
+                )
+            self._centered = True
+
+    def _center(self, dim_col: str, mu_col: str, centered_col: str) -> None:
+        mu = self._data.groupby(dim_col)["rating"].mean().reset_index()
+        mu.columns = [dim_col, mu_col]
+        self._data = self._data.merge(mu, on=dim_col, how="left")
+        self._data[centered_col] = self._data["rating"] - self._data[mu_col]
+
+    def _extract_data(self, mean_centered: Union[str, bool] = False) -> pd.DataFrame:
+        """Extracts data raw or mean centered data, as prescribed"""
+        if mean_centered == "user":
+            data = self._data[["useridx", "itemidx", "rating_cu"]]
+        elif mean_centered == "item":
+            data = self._data[["useridx", "itemidx", "rating_ci"]]
+        else:
+            data = self._data[["useridx", "itemidx", "rating"]]
+        data.columns = ["useridx", "itemidx", "rating"]
+        return data
+
+    def _create_csr(self, df: pd.DataFrame) -> sparse.csr_matrix:
+        """Creates a csr_matrix, wraps it in a matrix object and adds it to the matrix iterable."""
+
+        row = df.useridx.values
+        col = df.itemidx.values
+        data = df.rating.values
+        rows = len(range(df.useridx.max() + 1))
+        cols = len(range(df.itemidx.max() + 1))
+        csr = sparse.csr_matrix((data, (row, col)), shape=(rows, cols))
+        return csr
+
+    def _create_sparse_matrix_object(
+        self, csr: sparse.csr_matrix, mean_centered: Union[str, bool]
+    ) -> None:
+        """Constructs a SparseMatrix object"""
+
+        id = len(self._matrices) + 1
+        name = "csr_matrix_" + str(id)
+        if mean_centered:
+            name += "_" + mean_centered + "_centered"
+        matrix = SparseMatrix(
+            name=name,
+            matrix=csr,
+            dataset=os.path.basename(self._filepath),
+            format="csr",
+            mean_centered=mean_centered,
+        )
+        return matrix
 
     def _remap_ids(self) -> None:
         """Remaps the ids to sequential range."""

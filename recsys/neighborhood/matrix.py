@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 08:37:49 pm                                                #
-# Modified   : Saturday February 4th 2023 10:27:00 pm                                              #
+# Modified   : Sunday February 5th 2023 06:30:47 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,6 +19,7 @@
 """Matrix Module"""
 import sys
 from scipy.sparse import csr_matrix
+from typing import Union
 
 from recsys.neighborhood.base import Matrix
 
@@ -93,3 +94,49 @@ class InvertedIndex(Matrix):
             b (int): an identifier for an element in the user or item dimension
         """
         return self._index[(a, b)]
+
+
+# ------------------------------------------------------------------------------------------------ #
+class SparseMatrix(Matrix):
+    """Encapsulates a sparse matrix object"""
+
+    def __init__(
+        self,
+        name: str,
+        matrix: csr_matrix,
+        dataset: str,
+        format: str = "csr",
+        mean_centered: Union[str, bool] = False,
+    ) -> None:
+        super().__init__(name=name)
+        self._matrix = matrix
+        self._dataset = dataset
+        self._format = format
+        self._mean_centered = mean_centered
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def dataset(self) -> str:
+        return self._dataset
+
+    @property
+    def format(self) -> str:
+        return self._format
+
+    @property
+    def mean_centered(self) -> Union[str, bool]:
+        return self._mean_centered
+
+    @property
+    def shape(self) -> tuple:
+        return self._matrix.shape
+
+    @property
+    def size(self) -> int:
+        return self._matrix.data.nbytes + self._matrix.indptr.nbytes + self._matrix.indices.nbytes
+
+    def get_csr(self) -> csr_matrix:
+        return self._matrix.copy()

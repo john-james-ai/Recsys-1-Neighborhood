@@ -11,11 +11,12 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:14:19 am                                                #
-# Modified   : Saturday February 4th 2023 06:30:50 pm                                              #
+# Modified   : Sunday February 5th 2023 07:40:49 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+import os
 import inspect
 from datetime import datetime
 import pytest
@@ -23,6 +24,8 @@ import logging
 import pandas as pd
 import numpy as np
 from scipy import sparse
+
+from recsys.neighborhood.matrix import SparseMatrix
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -480,7 +483,7 @@ class TestRatingsDataset:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_as_csr(self, ratings, caplog):
+    def test_as_sparse_raw(self, ratings, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -492,10 +495,76 @@ class TestRatingsDataset:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        csr = ratings.as_csr()
+        # Raw ratings
+        csr = ratings.as_sparse()
+        assert isinstance(csr, SparseMatrix)
+        assert "csr_matrix" in csr.name
+        assert csr.dataset == os.path.basename(ratings.filepath)
+        assert csr.format == "csr"
+        assert csr.mean_centered is False
+        assert isinstance(csr.shape, tuple)
+        assert isinstance(csr.size, int)
+        csr = csr.get_csr()
         assert isinstance(csr, sparse.csr_matrix)
-        assert csr.shape[0] == ratings.nrows
-        assert csr.shape[1] == ratings.ncols
+        logger.debug(csr.toarray())
+
+        # user mean centered ratings
+        csr = ratings.as_sparse(mean_centered="user")
+        assert "user" in csr.name
+
+        # item mean centered ratings
+        csr = ratings.as_sparse(mean_centered="item")
+        assert "item" in csr.name
+
+        # ---------------------------------------------------------------------------------------- #
+        end = datetime.now()
+        duration = round((end - start).total_seconds(), 1)
+
+        logger.info(
+            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
+                self.__class__.__name__,
+                inspect.stack()[0][3],
+                duration,
+                end.strftime("%I:%M:%S %p"),
+                end.strftime("%m/%d/%Y"),
+            )
+        )
+        logger.info(single_line)
+
+    # ============================================================================================ #
+    def test_center(self, ratings, caplog):
+        start = datetime.now()
+        logger.info(
+            "\n\nStarted {} {} at {} on {}".format(
+                self.__class__.__name__,
+                inspect.stack()[0][3],
+                start.strftime("%I:%M:%S %p"),
+                start.strftime("%m/%d/%Y"),
+            )
+        )
+        logger.info(double_line)
+        # ---------------------------------------------------------------------------------------- #
+        user = 72315
+        item = 162644
+        ratings.center()
+        df = ratings.as_dataframe()
+        assert "mu_i" in df.columns
+        assert "mu_u" in df.columns
+        assert "rating_ci" in df.columns
+        assert "rating_cu" in df.columns
+        assert np.greater(df.rating.values, df.rating_ci.values).all()
+        assert np.greater(df.rating.values, df.rating_cu.values).all()
+        assert np.greater(
+            df[(df["userId"] == user) & (df["movieId"] == item)]["rating"].values,
+            df[(df["userId"] == user) & (df["movieId"] == item)]["rating_cu"].values,
+        ).all()
+        assert np.greater(
+            df[(df["userId"] == user) & (df["movieId"] == item)]["rating"].values,
+            df[(df["userId"] == user) & (df["movieId"] == item)]["rating_ci"].values,
+        ).all()
+        df1 = df[(df["userId"] == user) & (df["movieId"] == item)]
+        df2 = df[(df["userId"] == user) & (df["movieId"] == item)]
+        logger.debug(f"{df1}, {df2}")
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
