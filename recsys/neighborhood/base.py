@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 09:08:48 pm                                                #
-# Modified   : Friday February 3rd 2023 11:04:24 pm                                                #
+# Modified   : Saturday February 4th 2023 10:03:17 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,110 +20,161 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
 import logging
-import pandas as pd
+from typing import Union
+
 import numpy as np
-from tqdm import tqdm
-from itertools import combinations
+from scipy import sparse
+from dependency_injector.wiring import Provide, inject
 
-from dependency_injector.wiring import inject, Provide
-
-from recsys.data.rating import RatingsDataset
 from recsys.container import Recsys
+from recsys.io.repo import Repo
 
 
 # ------------------------------------------------------------------------------------------------ #
-class SimilarityMetric(ABC):
-    """Base class for similarity metrics"""
+class Metric(ABC):
+    """Base class for vectorized co-occurrence and similarity metric computations"""
 
-    def __init__(self) -> None:
+    def __init__(self, name: str, **kwargs) -> None:
+        self._name = name
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
-        self._user_similarity = None
-        self._item_similarity = None
 
     @property
-    def user_similarity(self) -> Matrix:
-        return self._user_similarity
-
-    @property
-    def item_similarity(self) -> Matrix:
-        return self._item_similarity
+    def name(self) -> str:
+        return self._name
 
     @abstractmethod
-    def compute_user_similarity(self, ratings: RatingsDataset) -> Matrix:
+    def __call__(
+        self,
+        X: Union[np.ndarray, sparse.csr_matrix],
+        Y: Union[np.ndarray, sparse.csr_matrix] = None,
+        return_sparse: bool = True,
+    ) -> Union[np.ndarray, sparse.csr_matrix]:
         """Computes the similarity between users"""
 
-    @abstractmethod
-    def compute_item_similarity(self, ratings: RatingsDataset) -> Matrix:
-        """Computes the similarity between items"""
+    def _normalize(
+        self, X: Union[np.ndarray, sparse.csr_matrix], norm: str = "l2", axis: int = 1
+    ) -> Union[np.ndarray, sparse.csr_matrix]:
+        """Scales input vectors individually to unit norm.
 
-    def _extract_common_items(self, ratings: RatingsDataset) -> dict:
-        """For each item, list pairs of users who have rated the item"""
-        Iuv = {}
-        # Obtain all unique items sorted
-        for item in tqdm(ratings.items):
-            # Extract all ratings for the item
-            item_ratings = ratings.get_item_ratings(item=item)
-            # Iterate over each pair of users who rated the item
-            for uv_pair in combinations(item_ratings["userId"].values, 2):
-                # Extract the item's ratings for the pair of users
-                uv_ratings = item_ratings[item_ratings["userId"].isin(uv_pair)]
-                uv_key = self._to_key(uv_pair)
-                # Add the ratings for the pair to inverse index of items u,v user ratings
-                if Iuv.get(uv_key, None) is not None:
-                    Iuv[uv_key] = pd.concat([Iuv[uv_key], uv_ratings], axis=0)
-                else:
-                    Iuv[uv_key] = uv_ratings
-        return Iuv
+        Args:
+            X (np.ndarray, sparse.csr_matrix): The data to normalize
+            norm (str): One of ['l1', 'l2']. Default = 'l2'
+            axis (int): Defines the axis along which the data are normalize. Either 0 (items) or 1 (users). Default = 1
+        """
+        if not isinstance(X, (np.ndarray, sparse.csr_matrix)):
+            msg = f"X type {type(X)} is not supported."
+            self._logger.error(msg)
+            raise TypeError(msg)
+        if norm not in ["l1", "l2"]:
+            msg = f"Norm {norm} is not supported."
+            self._logger.error(msg)
+            raise ValueError(msg)
+        if axis not in [0, 1]:
+            msg = "Axis must be in [0,1]."
+            self._logger.error(msg)
+            raise ValueError(msg)
 
-    def _extract_common_users(self, ratings: RatingsDataset) -> dict:
-        """For each user, list the pairs of items the user has rated."""
-        # Obtain all unique users sorted
-        Uij = {}
-        for user in tqdm(ratings.users):
-            # Extract all ratings for the user
-            user_ratings = ratings.get_user_ratings(user=user)
-            # Iterate over each pair of items rated by the user
-            for ij_pair in combinations(user_ratings["movieId"].values, 2):
-                # Extract the user's ratings for the pair of items
-                ij_ratings = user_ratings[user_ratings["movieId"].isin(ij_pair)]
-                ij_key = self._to_key(ij_pair)
-                # Add the ratings for the pair to inverse index of user i,j item ratings
-                if Uij.get(ij_key, None) is not None:
-                    Uij[ij_key] = pd.concat([Uij[ij_key], ij_ratings], axis=0)
-                else:
-                    Uij[ij_key] = ij_ratings
-        return Uij
+        X = self._check_array(X)
+        if isinstance(X, sparse.csr_matrix):
+            return self._normalize_sparse(X, norm, axis)
+        else:
+            return self._normalize_array(X, norm, axis)
 
-    def _compute_user_rating_norms(self, ratings: RatingsDataset, centered_by: str = None):
-        """Computes L2 Norm for user ratings that have optionally been centered."""
-        ru = ratings.get_user_ratings(centered_by=centered_by)
-        return np.sqrt(np.sum(np.square(ru)))
+    def _normalize_sparse(
+        self, X: sparse.csr_matrix, norm: str = "l2", axis: int = 1
+    ) -> sparse.csr_matrix:
+        """Performs L1 or L2 normalization on a sparse matrix"""
+        if axis == 0:
+            X = sparse.csr_matrix.transpose(X)
 
-    def _compute_item_rating_norms(self, ratings: RatingsDataset, centered_by: str = None):
-        """Computes L2 Norm for user ratings that have optionally been centered."""
-        ri = ratings.get_item_ratings(centered_by=centered_by)
-        return np.sqrt(np.sum(np.square(ri)))
+        if norm == "l1":
+            norms = abs(X).sum(axis=1)
+        else:
+            norms = np.sqrt(X.power(2).sum(axis=1))
+        X = X / norms
+        X = sparse.csr_matrix(X)  # Division by dense vector returns dense array
+        if axis == 0:
+            X = sparse.csr_matrix.transpose(X)
+        return X
 
-    def _to_key(self, t: tuple) -> str:
-        """Returns a string dictionary key for a tuple"""
-        return str(t[0]) + "_" + str(t[1])
+    def _normalize_array(self, X: np.ndarray, norm: str = "l2", axis: int = 1) -> np.ndarray:
+        """Performs L1 or L2 normalization on an array"""
+        if axis == 0:
+            X = X.T
 
-    def _from_key(self, s: str) -> tuple:
-        """Returns a tuple for a string dictionary key"""
-        return tuple([int(x) for x in s.split("_")])
+        if norm == "l1":
+            norms = np.abs(X).sum(axis=1)
+        else:
+            norms = np.sqrt(np.sum(np.square(X), axis=1))
+        X = X / norms
+        if axis == 0:
+            X = X.T
+        return X
+
+    def _check_input(
+        self,
+        X: Union[np.ndarray, sparse.csr_matrix],
+        Y: Union[np.ndarray, sparse.csr_matrix],
+    ) -> Union[tuple[sparse.csr_matrix, sparse.csr_matrix], tuple[np.ndarray, np.ndarray]]:
+        """Checks type and dimension of input."""
+        X = self._check_array(X)
+        Y = self._check_array(Y, none_allowed=True)
+        Y = Y or X
+
+        # Forcing input to be same type, because I ain't got no time for that sh&*.
+        if type(X) != type(Y):
+            msg = f"X: type {type(X)} and Y: type {type(Y)} must be the same type."
+            self._logger.error(msg)
+            raise TypeError(msg)
+
+        if not all(np.equal(X.shape, Y.shape)):
+            msg = f"Shape mismatch: X.shape = {X.shape}: Y.shape = {Y.shape}."
+            self._logger.error(msg)
+            raise ValueError(msg)
+        return (
+            X,
+            Y,
+        )
+
+    def _check_array(
+        self,
+        X: Union[np.ndarray, sparse.csr_matrix],
+        none_allowed: bool = False,
+    ) -> Union[sparse.csr_matrix, sparse.csr_matrix]:
+        """Checks array type, casts it to float
+
+        Args:
+            X (np.ndarray,sparse.csr_matrix): Input array
+        """
+        if X is None and none_allowed:
+            return X
+
+        elif not isinstance(X, (np.ndarray, sparse.csr_matrix)):
+            msg = f"Type {type(X)} is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'."
+            self._logger.error(msg)
+            raise TypeError(msg)
+
+        elif not X.ndim == 2:
+            msg = "Input must be a 2 dimensional array or sparse matrix."
+            self._logger.error(msg)
+            raise ValueError(msg)
+
+        elif isinstance(X, np.ndarray):
+            X = X.astype(float)
+
+        else:
+            X = sparse.csr_matrix.asfptype(X)
+        return X
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Matrix:
+class Matrix(ABC):
     """Base class for recommender system matrices."""
 
-    @inject
-    def __init__(self, name: str, data: pd.DataFrame, repo=Provide[Recsys.repo]) -> None:
+    def __init__(self, name: str, *args, **kwargs) -> None:
         self._name = name
-        self._data = data
-        self._repo = repo
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
@@ -143,15 +194,16 @@ class Matrix:
     def size(self) -> int:
         """The number of cells in the matrix"""
 
-    @property
-    @abstractmethod
-    def memory(self) -> dict:
-        """Memory consumed by matrix in bytes."""
+
+# ------------------------------------------------------------------------------------------------ #
+class MatrixFactory(ABC):
+    @inject
+    def __init__(self, repo: Repo = Provide[Recsys.repo.repo]) -> None:
+        self._repo = repo
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     @abstractmethod
-    def load(self) -> None:
-        """Loads the matrix from file."""
-
-    @abstractmethod
-    def save(self, filepath: str) -> None:
-        """Saves the matrix to file"""
+    def __call__(self, *args, **kwargs) -> Matrix:
+        """Constructs the matrix"""

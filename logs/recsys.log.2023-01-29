@@ -5,7 +5,7 @@ Started TestSimilarity test_cos_user at 04:13:33 PM on 01/29/2023
 ====================================================================================================
 [01/29/2023 04:13:33 PM] [DEBUG] [root] [test_similarity] [test_cos_user] : 
 
-Cosign User Similarity: 
+Cosine User Similarity: 
 0.8553989227683015
 [01/29/2023 04:13:33 PM] [INFO] [test_similarity] [test_similarity] [test_cos_user] : 
 Completed TestSimilarity test_cos_user in 0.1 seconds at 04:13:33 PM on 01/29/2023

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 05:10:07 am                                                #
-# Modified   : Saturday February 4th 2023 12:08:32 am                                              #
+# Modified   : Saturday February 4th 2023 06:32:47 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,8 @@ import os
 import pandas as pd
 import numpy as np
 from typing import Union
-from tqdm import tqdm
+from copy import copy
+from scipy import sparse
 
 from recsys.io.file import IOService
 
@@ -38,15 +39,12 @@ class RatingsDataset:
         self._name = os.path.basename(filepath)
         self._filepath = filepath
         self._data = IOService.read(filepath)
-        self._user_inverted_idx = {}
-        self._item_inverted_idx = {}
+        self._csr = None
         self._ave_user_ratings = None
         self._ave_item_ratings = None
-        self._user_rating_norms = None
-        self._item_rating_norms = None
-        self._centered = False
-
-        self._preprocess()
+        self._user_id_map = None
+        self._item_id_map = None
+        self._remap_ids()
 
     def __len__(self) -> int:
         """Returns number of rows in the dataset"""
@@ -147,47 +145,21 @@ class RatingsDataset:
         df = pd.DataFrame.from_dict(data=d, orient="index", columns=["Count"])
         return df
 
-    def split(self, train_filepath: str, test_filepath: str, train_prop: float = 0.8) -> None:
-        """Creates training and test sets
+    def as_dataframe(self) -> None:
+        """Returns a copy of the ratings dataframe."""
+        return copy(self._data)
 
-        Args:
-            train_filepath (str): Path for training set
-            test_filepath (str): Path to test set
-            train_prop (float): Proportion of data to allocate to train set. Test set
-                allocation is 1-train_prop
-
-        """
-        data_sorted = self._data.sort_values(by=["timestamp"], ascending=True)
-        train_size = int(train_prop * len(data_sorted))
-
-        train = data_sorted[0:train_size]
-        test = data_sorted[train_size:]
-
-        os.makedirs(os.path.dirname(train_filepath), exist_ok=True)
-        os.makedirs(os.path.dirname(test_filepath), exist_ok=True)
-
-        IOService.write(filepath=train_filepath, data=train)
-        IOService.write(filepath=test_filepath, data=test)
-
-    def sample(
-        self, frac: float = 0.2, filepath: str = None, random_state: int = None
-    ) -> pd.DataFrame:
-        """Returns and optionally stores sample from the dataset.
-
-        Args:
-            frac (float): Proportion of dataset to sample
-            filepath (str): Optional path for saving the sample
-            random_state (int): Seed for pseudo random sampling
-
-        Returns: pd.DataFrame
-        """
-        df = self._data.sample(
-            frac=frac, replace=False, ignore_index=True, random_state=random_state
-        )
-        if filepath:
-            os.makedirs(os.path.dirname(filepath), exist_ok=True)
-            IOService.write(filepath=filepath, data=df)
-        return df
+    def as_csr(self) -> sparse.csr_matrix:
+        """Returns ratings data in csr sparse format"""
+        if self._csr is None:
+            row = self._data.useridx.values
+            col = self._data.itemidx.values
+            data = self._data.rating.values
+            self._csr = sparse.csr_matrix(
+                (data, (row, col)),
+                shape=(self._data.useridx.nunique(), self._data.itemidx.nunique()),
+            )
+        return self._csr.copy()
 
     def top_n_users(self, n: int = 10) -> pd.DataFrame:
         """Returns the users with n highest number of ratings.
@@ -231,31 +203,7 @@ class RatingsDataset:
         """
         return np.sort(self._data[self._data["movieId"] == movieId]["userId"].values)
 
-    def user_inverted_idx(self, force: bool = False) -> dict:
-        """Computes a user-item inverted index
-
-        Args:
-            force (bool): Whether to compute if the index has already been computed.
-        """
-        if force or not self._user_inverted_idx:
-            for user in self.users:
-                self._user_inverted_idx[user] = self.get_items(user)
-        return self._user_inverted_idx
-
-    def item_inverted_idx(self, force: bool = False) -> dict:
-        """Computes a user-item inverted index
-
-        Args:
-            force (bool): Whether to compute if the index has already been computed.
-        """
-        if force or not self._item_inverted_idx:
-            for item in self.items:
-                self._item_inverted_idx[item] = self.get_users(item)
-        return self._item_inverted_idx
-
-    def get_users_items_ratings(
-        self, items: list, users: list, centered_by: str = None
-    ) -> pd.DataFrame:
+    def get_users_items_ratings(self, items: list, users: list) -> pd.DataFrame:
         """Subsets ratings by users and items.
 
         The original ratings are returned, unless normalized by is set to 'user', or 'item'; whereby,
@@ -264,33 +212,32 @@ class RatingsDataset:
         Args:
             items (List[int]): List of ids for items of interest
             users (List[int]): List of ids for users of interest
-            centered_by (str): Optional. One of 'item', 'user' or None. Default is None.
 
         """
-        data = self._get_data(centered_by=centered_by)
-        return data[(data["userId"].isin(users)) & (self._data["movieId"].isin(items))]
+        return self._data[(self._data["userId"].isin(users)) & (self._data["movieId"].isin(items))]
 
-    def get_user_ratings(self, user: int, centered_by: str = None) -> pd.DataFrame:
+    def get_user_ratings(self, user: int) -> pd.DataFrame:
         """Gets all user ratings.
 
         Args:
             user (int): The id for the user for whom the ratings are being returned.
         """
-        data = self._get_data(centered_by=centered_by)
 
-        return data[data["userId"] == user].sort_values(by="movieId", ascending=True, axis=0)
+        return self._data[self._data["userId"] == user].sort_values(
+            by="movieId", ascending=True, axis=0
+        )
 
-    def get_item_ratings(self, item: int, centered_by: str = None) -> pd.DataFrame:
+    def get_item_ratings(self, item: int) -> pd.DataFrame:
         """Gets all item ratings.
 
         Args:
             item (int): The id for item for which the ratings are being returned.
-            centered_by (str): Optional. One of 'item', 'user' or None. Default is None.
 
         """
-        data = self._get_data(centered_by=centered_by)
 
-        return data[data["movieId"] == item].sort_values(by="userId", ascending=True, axis=0)
+        return self._data[self._data["movieId"] == item].sort_values(
+            by="userId", ascending=True, axis=0
+        )
 
     def get_ave_user_ratings(self, user: int = None) -> Union[float, pd.DataFrame]:
         """Returns user average ratings
@@ -301,6 +248,10 @@ class RatingsDataset:
         Args:
             user (int): Optional. User for which average ratings are being requested.
         """
+        if self._ave_user_ratings is None:
+            self._ave_user_ratings = self._data.groupby("userId")["rating"].mean().reset_index()
+            self._ave_user_ratings.columns = ["userId", "rbar"]
+
         if user is None:
             return self._ave_user_ratings
         else:
@@ -317,6 +268,10 @@ class RatingsDataset:
         Args:
             item (int): Optional. Item id for which average ratings are being requested.
         """
+        if self._ave_item_ratings is None:
+            self._ave_item_ratings = self._data.groupby("movieId")["rating"].mean().reset_index()
+            self._ave_item_ratings.columns = ["movieId", "rbar"]
+
         if item is None:
             return self._ave_item_ratings
         else:
@@ -324,159 +279,20 @@ class RatingsDataset:
                 0
             ]
 
-    def get_user_rating_norms(self, user: int = None, centered_by: str = None) -> pd.DataFrame:
-        rating_map = {None: "rating_l2", "user": "rating_cbu_l2", "item": "rating_cbi_l2"}
-
-        if self._user_rating_norms is None:
-            self._compute_user_rating_norms()
-
-        rating_type = rating_map.get(centered_by, None)
-        if rating_type is not None:
-            norm = self._user_rating_norms[["userId", rating_type]]
-            norm.columns = ["userId", "l2"]
-            if user is None:
-                return norm
-            else:
-                return norm[norm["userId"] == user]["l2"].values
-        else:
-            msg = "Invalid value for 'centered_by'. Must be in ['user', 'item', None]."
-            self._logger.error(msg)
-            raise ValueError(msg)
-
-    def get_item_rating_norms(self, item: int = None, centered_by: str = None) -> pd.DataFrame:
-        rating_map = {None: "rating_l2", "user": "rating_cbu_l2", "item": "rating_cbi_l2"}
-
-        if self._item_rating_norms is None:
-            self._compute_item_rating_norms()
-
-        rating_type = rating_map.get(centered_by, None)
-        if rating_type is not None:
-            norm = self._item_rating_norms[["movieId", rating_type]]
-            norm.columns = ["movieId", "l2"]
-            if item is None:
-                return norm
-            else:
-                return norm[norm["movieId"] == item]["l2"].values
-        else:
-            msg = "Invalid value for 'centered_by'. Must be in ['user', 'item', None]."
-            self._logger.error(msg)
-            raise ValueError(msg)
-
-    def _compute_user_rating_norms(self) -> pd.DataFrame:
-        """Returns l2 norms of raw, user centered, and item centered ratings for each user"""
-        tqdm.pandas()
-        self.center_ratings()
-        data = self._data[["userId", "rating", "rating_cbu", "rating_cbi"]]
-        self._user_rating_norms = (
-            data.groupby("userId")
-            .progress_apply(
-                lambda x: np.sqrt(
-                    np.sum(np.square(x[["rating", "rating_cbu", "rating_cbi"]]), axis=0)
-                )
-            )
-            .reset_index()
-        )
-        self._user_rating_norms.columns = ["userId", "rating_l2", "rating_cbu_l2", "rating_cbi_l2"]
-
-    def _compute_item_rating_norms(self) -> pd.DataFrame:
-        """Returns l2 norms of raw, user centered, and item centered ratings for each item"""
-        tqdm.pandas()
-        self.center_ratings()
-        data = self._data[["movieId", "rating", "rating_cbu", "rating_cbi"]]
-        self._item_rating_norms = (
-            data.groupby("movieId")
-            .progress_apply(
-                lambda x: np.sqrt(
-                    np.sum(np.square(x[["rating", "rating_cbu", "rating_cbi"]]), axis=0)
-                )
-            )
-            .reset_index()
-        )
-        self._item_rating_norms.columns = ["movieId", "rating_l2", "rating_cbu_l2", "rating_cbi_l2"]
-
-    def center_ratings(self) -> None:
-        """Adds rating centered by average user rating, and average item rating if not already done."""
-        if self._centered is False:
-            self._center_by_ave_user_rating()
-            self._center_by_ave_item_rating()
-            self._centered = True
-
-    def _preprocess(self) -> None:
-        self._index()
-        self._categorize()
-        self._compute_ave_item_ratings()
-        self._compute_ave_user_ratings()
-
-    def _index(self) -> None:
-        """Map user and item indexes to ids."""
+    def _remap_ids(self) -> None:
+        """Remaps the ids to sequential range."""
         # Create User Map
         userId = np.sort(self._data["userId"].unique())
         useridx = range(len(userId))
         u = {"userId": userId, "useridx": useridx}
-        u = pd.DataFrame(data=u)
+        self._user_id_map = pd.DataFrame(data=u)
 
         # Create Item Map
         movieId = np.sort(self._data["movieId"].unique())
         itemidx = range(len(movieId))
         i = {"movieId": movieId, "itemidx": itemidx}
-        i = pd.DataFrame(data=i)
+        self._item_id_map = pd.DataFrame(data=i)
 
         # Install New Indices
-        self._data = self._data.merge(u, on="userId", how="left")
-        self._data = self._data.merge(i, on="movieId", how="left")
-
-    def _categorize(self) -> None:
-        self._data = self._data.astype(
-            {
-                "userId": "category",
-                "movieId": "category",
-                "useridx": "category",
-                "itemidx": "category",
-            }
-        )
-
-    def _compute_ave_user_ratings(self) -> None:
-        """Computes average user ratings."""
-        self._ave_user_ratings = (
-            self._data.groupby("userId")["rating"].mean().to_frame().reset_index()
-        )
-        self._ave_user_ratings.columns = ["userId", "rbar"]
-
-    def _compute_ave_item_ratings(self) -> None:
-        """Computes average item ratings."""
-        self._ave_item_ratings = (
-            self._data.groupby("movieId")["rating"].mean().to_frame().reset_index()
-        )
-        self._ave_item_ratings.columns = ["movieId", "rbar"]
-
-    def _center_by_ave_user_rating(self) -> None:
-        """Adds a column of ratings values normalized by average user rating."""
-        self._data = self._data.merge(self._ave_user_ratings, on="userId", how="left")
-        self._data["rating_cbu"] = self._data["rating"].values - self._data["rbar"].values
-        self._data = self._data.drop(columns=["rbar"])
-
-    def _center_by_ave_item_rating(self) -> None:
-        """Creates a dataframe containing each item and its average rating."""
-        self._data = self._data.merge(self._ave_item_ratings, on="movieId", how="left")
-        self._data["rating_cbi"] = self._data["rating"].values - self._data["rbar"].values
-        self._data = self._data.drop(columns=["rbar"])
-
-    def _get_data(self, centered_by: str = None) -> pd.DataFrame:
-        """Returns ratings data with requested normalization.
-
-        centered_by (str): Either 'item', 'user', or None.
-        """
-        if centered_by is not None:
-            self.center_ratings()  # Only happens once.
-            if centered_by == "user":
-                data = self._data[["userId", "movieId", "rating_cbu"]].copy()
-            elif centered_by == "item":
-                data = self._data[["userId", "movieId", "rating_cbi"]].copy()
-            else:
-                msg = f"Value for 'centered_by' = {centered_by} is invalid. Must be 'item', 'user', or None."
-                self._logger.error(msg)
-                raise ValueError(msg)
-        else:
-            data = self._data[["userId", "movieId", "rating"]].copy()
-        data.columns = ["userId", "movieId", "rating"]
-        return data
+        self._data = self._data.merge(self._user_id_map, on="userId", how="left")
+        self._data = self._data.merge(self._item_id_map, on="movieId", how="left")

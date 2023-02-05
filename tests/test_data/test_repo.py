@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday February 2nd 2023 06:02:39 pm                                              #
-# Modified   : Thursday February 2nd 2023 06:21:22 pm                                              #
+# Modified   : Saturday February 4th 2023 12:37:01 am                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,7 +23,7 @@ import pytest
 import logging
 import shutil
 
-from recsys.io.persistence import Repo
+from recsys.io.repo import Repo
 from recsys.data.rating import RatingsDataset
 
 # ------------------------------------------------------------------------------------------------ #

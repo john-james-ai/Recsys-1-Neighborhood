@@ -11,20 +11,18 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:14:19 am                                                #
-# Modified   : Friday February 3rd 2023 03:27:25 pm                                                #
+# Modified   : Saturday February 4th 2023 06:30:50 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-import os
 import inspect
 from datetime import datetime
 import pytest
 import logging
 import pandas as pd
 import numpy as np
-
-from recsys.io.file import IOService
+from scipy import sparse
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -176,7 +174,7 @@ class TestRatingsDataset:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_split(self, ratings, caplog):
+    def test_remap_id(self, ratings, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -188,46 +186,10 @@ class TestRatingsDataset:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        ratings.split(train_filepath=TRAIN_FILEPATH, test_filepath=TEST_FILEPATH)
-        assert os.path.exists(TRAIN_FILEPATH)
-        assert os.path.exists(TEST_FILEPATH)
-        train = IOService.read(TRAIN_FILEPATH)
-        test = IOService.read(TEST_FILEPATH)
-        assert train.shape[0] + test.shape[0] == ratings.nrows
+        df = ratings.as_dataframe()
+        assert "itemidx" in df.columns
+        assert "useridx" in df.columns
 
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(single_line)
-
-    # ============================================================================================ #
-    def test_sample(self, ratings, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        sample = ratings.sample(frac=0.2, filepath=SAMPLE_FILEPATH)
-        assert os.path.exists(SAMPLE_FILEPATH)
-        m = len(ratings)
-        s = int(m * 0.2)
-        assert sample.shape[0] == s
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -295,7 +257,7 @@ class TestRatingsDataset:  # pragma: no cover
         item = 58047
         users = ratings.get_users(item)
         assert isinstance(users, np.ndarray)
-        assert len(users) == 3
+        assert len(users) == 14
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -326,75 +288,7 @@ class TestRatingsDataset:  # pragma: no cover
         # ---------------------------------------------------------------------------------------- #
         items = ratings.get_items(97615)
         assert isinstance(items, np.ndarray)
-        assert len(items) == 5
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(single_line)
-
-    # ============================================================================================ #
-    @pytest.mark.skip(reason="working and takes too long")
-    def test_user_inverted_idx(self, ratings, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        user_idx = ratings.user_inverted_idx()
-        assert isinstance(user_idx, dict)
-        assert len(user_idx) == ratings.n_users
-        assert np.array_equal(ratings.get_items(69871), user_idx[69871])
-
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(single_line)
-
-    # ============================================================================================ #
-    @pytest.mark.skip(reason="working and takes too long")
-    def test_item_inverted_idx(self, ratings, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        item_idx = ratings.item_inverted_idx()
-        assert isinstance(item_idx, dict)
-        assert len(item_idx) == ratings.n_items
-        assert np.array_equal(ratings.get_users(16), item_idx[16])
-
+        assert len(items) == 9
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -425,74 +319,8 @@ class TestRatingsDataset:  # pragma: no cover
         # ---------------------------------------------------------------------------------------- #
         u = 97615
         ru = ratings.get_user_ratings(user=u)
-        assert len(ru) == 5
-        assert ru["rating"].sum() == 22.5
-
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(single_line)
-
-    # ============================================================================================ #
-    def test_get_user_ratings_centered_by_user(self, ratings, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        u = 97615
-        ru = ratings.get_user_ratings(user=u, centered_by="user")
-        assert len(ru) == 5
-        assert np.isclose(ru["rating"].sum(), 0)
-
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(single_line)
-
-    # ============================================================================================ #
-    def test_get_user_ratings_centered_by_item(self, ratings, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        u = 97615
-        ru = ratings.get_user_ratings(user=u, centered_by="item")
-        assert len(ru) == 5
-        assert np.isclose(ru["rating"].sum(), 3.98, rtol=1e-2)
+        assert len(ru) == 9
+        assert ru["rating"].sum() == 41
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
@@ -524,74 +352,8 @@ class TestRatingsDataset:  # pragma: no cover
         # ---------------------------------------------------------------------------------------- #
         i = 58047
         ri = ratings.get_item_ratings(item=i)
-        assert len(ri) == 3
-        assert ri["rating"].sum() == 12
-
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(single_line)
-
-    # ============================================================================================ #
-    def test_get_item_ratings_centered_by_user(self, ratings, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        i = 58047
-        ru = ratings.get_item_ratings(item=i, centered_by="user")
-        assert len(ru) == 3
-        assert np.isclose(ru["rating"].sum(), 0.6875)
-
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(single_line)
-
-    # ============================================================================================ #
-    def test_get_item_ratings_centered_by_item(self, ratings, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
-        )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        i = 58047
-        ru = ratings.get_item_ratings(item=i, centered_by="item")
-        assert len(ru) == 3
-        assert ru["rating"].sum() == 0
+        assert len(ri) == 14
+        assert ri["rating"].sum() == 57
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
@@ -624,11 +386,11 @@ class TestRatingsDataset:  # pragma: no cover
         u = 97615
         rbar = ratings.get_ave_user_ratings(user=u)
         assert isinstance(rbar, float)
-        assert np.isclose(rbar, 4.50)
+        assert np.isclose(rbar, 4.5555, rtol=1e-2)
 
         rbar = ratings.get_ave_user_ratings()
         assert isinstance(rbar, pd.DataFrame)
-        assert np.isclose(rbar[rbar["userId"] == u]["rbar"].values[0], 4.50)
+        assert np.isclose(rbar[rbar["userId"] == u]["rbar"].values[0], 4.5555, rtol=1e-2)
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
@@ -661,11 +423,11 @@ class TestRatingsDataset:  # pragma: no cover
         i = 58047
         rbar = ratings.get_ave_item_ratings(item=i)
         assert isinstance(rbar, float)
-        assert np.isclose(rbar, 4)
+        assert np.isclose(rbar, 4.07, rtol=1e-2)
 
         rbar = ratings.get_ave_item_ratings()
         assert isinstance(rbar, pd.DataFrame)
-        assert np.isclose(rbar[rbar["movieId"] == i]["rbar"].values[0], 4)
+        assert np.isclose(rbar[rbar["movieId"] == i]["rbar"].values[0], 4.07, rtol=1e-2)
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
@@ -683,7 +445,7 @@ class TestRatingsDataset:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_user_rating_norms(self, ratings, caplog):
+    def test_as_dataframe(self, ratings, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -695,21 +457,13 @@ class TestRatingsDataset:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        u = 97615
-        # Raw Ratings
-        norms = ratings.get_user_rating_norms()
-        assert isinstance(norms, pd.DataFrame)
-        assert np.isclose(norms[norms["userId"] == u]["l2"].values, 10.11187421, rtol=1.0e-2)
+        df = ratings.as_dataframe()
+        assert isinstance(df, pd.DataFrame)
+        assert df.shape[0] == ratings.nrows
+        assert df.shape[1] == ratings.ncols
+        assert df.useridx.nunique() == ratings.n_users
+        assert df.itemidx.nunique() == ratings.n_items
 
-        # Ratings Centered by User Average
-        norms = ratings.get_user_rating_norms(centered_by="user")
-        assert isinstance(norms, pd.DataFrame)
-        assert np.isclose(norms[norms["userId"] == u]["l2"].values, 1, rtol=1.0e-2)
-
-        # Ratings Centered by Item Average
-        norms = ratings.get_user_rating_norms(centered_by="item")
-        assert isinstance(norms, pd.DataFrame)
-        assert np.isclose(norms[norms["userId"] == u]["l2"].values, 2.09, rtol=1.0e-2)
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -726,7 +480,7 @@ class TestRatingsDataset:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_item_rating_norms(self, ratings, caplog):
+    def test_as_csr(self, ratings, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -738,21 +492,10 @@ class TestRatingsDataset:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        i = 58047
-        # Raw Ratings
-        norms = ratings.get_item_rating_norms()
-        assert isinstance(norms, pd.DataFrame)
-        assert np.isclose(norms[norms["movieId"] == i]["l2"].values, 7.07, rtol=1.0e-2)
-
-        # Ratings Centered by User Average
-        norms = ratings.get_item_rating_norms(centered_by="user")
-        assert isinstance(norms, pd.DataFrame)
-        assert np.isclose(norms[norms["movieId"] == i]["l2"].values, 0.53, rtol=1.0e-2)
-
-        # Ratings Centered by Item Average
-        norms = ratings.get_item_rating_norms(centered_by="item")
-        assert isinstance(norms, pd.DataFrame)
-        assert np.isclose(norms[norms["movieId"] == i]["l2"].values, 1.41, rtol=1.0e-2)
+        csr = ratings.as_csr()
+        assert isinstance(csr, sparse.csr_matrix)
+        assert csr.shape[0] == ratings.nrows
+        assert csr.shape[1] == ratings.ncols
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)

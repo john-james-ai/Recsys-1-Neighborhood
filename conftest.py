@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Friday February 3rd 2023 11:03:09 am                                                #
+# Modified   : Saturday February 4th 2023 10:01:00 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -41,6 +41,12 @@ def ratings2():
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session")
+def ratings_df():
+    return IOService.read(RATINGS_FILEPATH)
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session")
 def test_ratings():
     return IOService.read(TEST_RATINGS_FILEPATH)
 
@@ -50,4 +56,5 @@ def test_ratings():
 def container():
     container = Recsys()
     container.init_resources()
+    container.wire(modules=["recsys.neighborhood.base"])
     return container
