@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 09:08:48 pm                                                #
-# Modified   : Sunday February 5th 2023 05:56:27 am                                                #
+# Modified   : Friday February 17th 2023 01:03:59 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -26,6 +26,7 @@ import numpy as np
 from scipy import sparse
 from dependency_injector.wiring import Provide, inject
 
+from recsys.data.rating import RatingsDataset
 from recsys.container import Recsys
 from recsys.io.repo import Repo
 
@@ -45,13 +46,7 @@ class Metric(ABC):
         return self._name
 
     @abstractmethod
-    def __call__(
-        self,
-        X: sparse.csr_matrix,
-        Y: sparse.csr_matrix = None,
-        *args,
-        **kwargs,
-    ) -> Union[np.ndarray, sparse.csr_matrix]:
+    def __call__(self, ratings: RatingsDataset, *args, **kwargs) -> Matrix:
         """Computes the similarity between users"""
 
     def _normalize(
@@ -191,3 +186,40 @@ class MatrixFactory(ABC):
     @abstractmethod
     def __call__(self, *args, **kwargs) -> Matrix:
         """Constructs the matrix"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class Index(ABC):
+    @abstractmethod
+    def __len__(self) -> int:
+        """Total number of items in the index"""
+
+    @property
+    def name(self) -> int:
+        """Returns the name by which the object will be persisted."""
+        return self._name
+
+    @property
+    def size(self) -> int:
+        """Total size of index in memory"""
+
+    @abstractmethod
+    def search(self, **kwargs) -> list:
+        """Returns a list of items or users matching search criteria"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class IndexFactory(ABC):
+    def __init__(self, ratings: RatingsDataset) -> None:
+        self._ratings = ratings
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
+
+    @abstractmethod
+    def create_user(self) -> Index:
+        """Creates the user version of the index"""
+
+    @abstractmethod
+    def create_item(self) -> Index:
+        """Creates the item version of the index"""

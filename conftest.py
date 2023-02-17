@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Saturday February 4th 2023 10:01:00 pm                                              #
+# Modified   : Friday February 17th 2023 02:57:24 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,20 +23,20 @@ from recsys.io.file import IOService
 from recsys.container import Recsys
 
 # ------------------------------------------------------------------------------------------------ #
-RATINGS_FILEPATH = "data/dev/ratings_0.5_pct.pkl"
+RATINGS_FILEPATH = "tests/data/train.pkl"
 TEST_RATINGS_FILEPATH = "tests/data/test_ratings.csv"
 
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session")
 def ratings():
-    return RatingsDataset(filepath=RATINGS_FILEPATH)
+    return RatingsDataset(filename="train.pkl", mode="test")
 
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session")
 def ratings2():
-    return RatingsDataset(filepath=TEST_RATINGS_FILEPATH)
+    return RatingsDataset(filename="train.pkl", mode="dev")
 
 
 # ------------------------------------------------------------------------------------------------ #

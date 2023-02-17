@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 4th 2023 02:51:47 pm                                              #
-# Modified   : Saturday February 4th 2023 09:10:24 pm                                              #
+# Modified   : Friday February 17th 2023 01:09:26 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,8 +22,9 @@ from itertools import combinations
 from tqdm import tqdm
 
 from recsys.data.rating import RatingsDataset
-from recsys.neighborhood.base import MatrixFactory, Metric
-from recsys.neighborhood.matrix import SimilarityMatrix, InvertedIndex
+from recsys.neighborhood.base import MatrixFactory, Metric, IndexFactory
+from recsys.neighborhood.matrix import SimilarityMatrix
+from recsys.neighborhood.indices import Cooccurrence, Coreference
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -51,51 +52,68 @@ class SimilarityMatrixFactory(MatrixFactory):
 
 
 # ------------------------------------------------------------------------------------------------ #
-class InvertedIndexFactory(MatrixFactory):
-    """Constructs user and item co-occurrence inverted index objects"""
+class CooccurrenceFactory(IndexFactory):
+    """Creates a user_item, or an item_user cooccurrence index
+
+    Args:
+        ratings (RatingsDataset): Input ratings dataset.
+    """
 
     def __init__(self, ratings: RatingsDataset) -> None:
-        super().__init__()
-        self._ratings = ratings
+        super().__init__(ratings=ratings)
 
-    def __call__(self, name: str, dimension: str = "user") -> InvertedIndex:
-        """Constructs an inverted index of co-occurring elements within the dimension
+    def create_user(self) -> Cooccurrence:
+        U = {}
+        for useridx in tqdm(self._ratings.users):
+            U[useridx] = self._ratings.get_items_rated_user(useridx=useridx)
+        index = Cooccurrence(index=U, user=True)
+        return index
 
-        Args:
-            name (str): Name of the SimilarityMatrix object
-            dimension (str): ['user', 'item']. The dimension over which similarity is computed. Default='user'
-        """
-        if "u" in dimension:
-            index = self._build_user_index()
-        else:
-            index = self._build_item_index()
+    def create_item(self) -> Cooccurrence:
+        I = {}  # noqa E741
+        for itemidx in tqdm(self._ratings.items):
+            I[itemidx] = self._ratings.get_users_rated_item(itemidx=itemidx)
+        index = Cooccurrence(index=I, user=False)
+        return index
 
-        ii = InvertedIndex(name=name, index=index, dimension=dimension)
-        self._repo.add(name=name, item=ii)
-        return ii
 
-    def _build_user_index(self) -> dict:
+# ------------------------------------------------------------------------------------------------ #
+class CoreferenceFactory(IndexFactory):
+    """Constructs user-user and item-item coreference index objects
+
+    Args:
+        ratings (RatingsDataset): Input ratings dataset.
+    """
+
+    def __init__(self, ratings: RatingsDataset) -> None:
+        super().__init__(ratings=ratings)
+
+    def create_user(self) -> Coreference:
         """Constructs index of co-occuring users, i.e. rated same film."""
+
         UV = {}
 
-        for item in tqdm(self._ratings.items):
-            item_ratings = self._ratings.get_item_ratings(item=item)
+        for itemidx in tqdm(self._ratings.items):
+            item_ratings = self._ratings.get_item_ratings(itemidx=itemidx)
             for uv_pair in combinations(item_ratings["useridx"].values, 2):
                 if UV.get(uv_pair, None) is not None:
-                    UV[uv_pair].append(item)
+                    UV[uv_pair].append(itemidx)
                 else:
-                    UV[uv_pair] = [item]
-        return UV
+                    UV[uv_pair] = [itemidx]
+            index = Coreference(index=UV, user=True)
+        return index
 
-    def _build_item_index(self) -> dict:
+    def create_item(self) -> Coreference:
         """Constructs index of co-occuring items, i.e. rated by a user."""
+
         IJ = {}
 
-        for user in tqdm(self._ratings.users):
-            user_ratings = self._ratings.get_user_ratings(user=user)
+        for useridx in tqdm(self._ratings.users):
+            user_ratings = self._ratings.get_user_ratings(useridx=useridx)
             for ij_pair in combinations(user_ratings["itemidx"].values, 2):
                 if IJ.get(ij_pair, None) is not None:
-                    IJ[ij_pair].append(user)
+                    IJ[ij_pair].append(useridx)
                 else:
-                    IJ[ij_pair] = [user]
-        return IJ
+                    IJ[ij_pair] = [useridx]
+            index = Coreference(index=IJ, user=False)
+        return index
