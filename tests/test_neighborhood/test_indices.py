@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 17th 2023 12:32:15 pm                                               #
-# Modified   : Friday February 17th 2023 01:12:41 pm                                               #
+# Modified   : Friday February 17th 2023 02:20:06 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -52,6 +52,7 @@ class TestCoocurrence:  # pragma: no cover
         assert isinstance(index, Cooccurrence)
         assert index.size > 0
         assert len(index) == ratings.n_users
+        assert index.mode == "test"
 
         repo = container.repo.repo()
         repo.reset()
@@ -92,6 +93,7 @@ class TestCoocurrence:  # pragma: no cover
         assert isinstance(index, Cooccurrence)
         assert index.size > 0
         assert len(index) == ratings.n_items
+        assert index.mode == "test"
 
         repo = container.repo.repo()
         repo.add(index.name, item=index)
@@ -135,6 +137,7 @@ class TestCoreference:  # pragma: no cover
         assert isinstance(index, Coreference)
         assert index.size > 0
         assert len(index) > ratings.n_users
+        assert index.mode == "test"
 
         repo = container.repo.repo()
         repo.reset()
@@ -174,7 +177,8 @@ class TestCoreference:  # pragma: no cover
         assert isinstance(index, Coreference)
         assert index.size > 0
         assert len(index) > ratings.n_items
-        # Save Index
+        assert index.mode == "test"
+
         repo = container.repo.repo()
         repo.add(index.name, item=index)
         i2 = repo.get(index.name)

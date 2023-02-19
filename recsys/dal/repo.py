@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/io/repo.py                                                                  #
+# Filename   : /recsys/dal/repo.py                                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 10:40:29 pm                                                #
-# Modified   : Saturday February 4th 2023 10:33:52 pm                                              #
+# Modified   : Sunday February 19th 2023 11:50:10 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -29,14 +29,15 @@ import shutil
 class Repo:
     """Object repostirory class"""
 
-    def __init__(self, locations: dict = None) -> None:
+    def __init__(self, locations: dict, io: IOService) -> None:
         # Obtain mode from the environment variable
         load_dotenv()
-        mode = os.environ.get("MODE")
+        mode = os.environ.get("ENV")
         # locations dict is keyed by mode and value is a location
         self._location = locations[mode]
         # Ensure the location directory exists
         os.makedirs(os.path.dirname(self._location), exist_ok=True)
+        self._io = io
 
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
@@ -51,7 +52,10 @@ class Repo:
                 raise FileNotFoundError(msg)
             return db[name]
 
-    def add(self, name: str, item: Any) -> None:
+    def get_all(self) -> list:
+        """Returns a list of objects."""
+
+    def add(self, entity: Entity) -> None:
         """Adds an object to the repository"""
         with shelve.open(self._location) as db:
             if db.get(name, None) is not None:
@@ -60,7 +64,7 @@ class Repo:
                 raise FileExistsError(msg)
             db[name] = item
 
-    def update(self, name: str, item: Any) -> None:
+    def update(self, entity: Entity) -> None:
         """Updates an existing item in the repository."""
         with shelve.open(self._location) as db:
             if db.get(name, None) is None:
@@ -69,7 +73,7 @@ class Repo:
                 raise FileNotFoundError(msg)
             db[name] = item
 
-    def delete(self, name: str) -> None:
+    def delete(self, id: int) -> None:
         """Deletes a named item from the repository."""
         with shelve.open(self._location) as db:
             if db.get(name, None) is None:

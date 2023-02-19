@@ -4,58 +4,30 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /config.yml                                                                         #
+# Filename   : /recsys/dal/dao.py                                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:13:15 am                                                #
-# Modified   : Sunday February 19th 2023 04:33:30 am                                               #
+# Created    : Sunday February 19th 2023 04:15:04 am                                               #
+# Modified   : Sunday February 19th 2023 04:20:54 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-logging:
-  version: 1
-  formatters:
-    console:
-      format: "[%(asctime)s] [%(levelname)s] [%(name)s] [%(funcName)s] : %(message)s"
-      datefmt: "%m/%d/%Y %I:%M:%S %p"
-    file:
-      format: "[%(asctime)s] [%(levelname)s] [%(name)s] [%(module)s] [%(funcName)s] : %(message)s"
-      datefmt: "%m/%d/%Y %I:%M:%S %p"
-  handlers:
-    console:
-      class: "logging.StreamHandler"
-      level: "DEBUG"
-      formatter: "console"
-      stream: "ext://sys.stderr"
-    file:
-      class: logging.handlers.TimedRotatingFileHandler
-      formatter: file
-      when: midnight
-      interval: 1
-      backupCount: 0
-      level: "DEBUG"
-      filename: logs/recsys.log
-  root:
-    level: "DEBUG"
-    handlers: ["console", "file"]
-  disable_existing_loggers: False
+from recsys.data.rdbms import SQLite
+from recsys.dal.sql import ObjectDML
 
-files:
-  format: pkl
-  fms:
-    dev: data/dev/
-    test: tests/data/
-    prod: data/prod/
-  mms:
-    dev: models/dev/
-    test: tests/models/
-    prod: models/prod/
 
-sqlite:
-  prod: data/prod/database/recsys.sqlite
-  dev: data/dev/database/recsys.sqlite
-  test: tests/data/database/recsys.sqlite
+class DAO:
+    """Data Access Object to Database
+
+    Args:
+        db (Database): Database object
+        dml (SQL): Data manipulation language class
+    """
+
+    def __init__(self, db: SQLite, dml: ObjectDML) -> None:
+        self._db = db()
+        self._dml = dml()

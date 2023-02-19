@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 4th 2023 05:26:17 am                                              #
-# Modified   : Thursday February 16th 2023 11:05:35 pm                                             #
+# Modified   : Friday February 17th 2023 08:15:35 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -31,7 +31,7 @@ from recsys.data.rating import RatingsDataset
 class CosineSimilarity(Metric):
     """Creates a Cosine similarity matrix."""
 
-    def __init__(self, name: str = "cosine_similarity") -> None:
+    def __init__(self, name: str = "cosine") -> None:
         super().__init__(name=name)
 
     def __call__(self, ratings: RatingsDataset, dimension: str = "user") -> SimilarityMatrix:

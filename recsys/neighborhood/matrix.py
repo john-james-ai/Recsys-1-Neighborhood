@@ -11,132 +11,38 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 08:37:49 pm                                                #
-# Modified   : Sunday February 5th 2023 06:30:47 am                                                #
+# Modified   : Friday February 17th 2023 08:15:19 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Matrix Module"""
-import sys
-from scipy.sparse import csr_matrix
+from scipy.sparse import csr_matrix, csc_matrix
 from typing import Union
 
+from recsys.data.rating import RatingsDataset
 from recsys.neighborhood.base import Matrix
 
 
 # ------------------------------------------------------------------------------------------------ #
 class SimilarityMatrix(Matrix):
-    def __init__(self, name: str, matrix: csr_matrix, dimension: str = "user") -> None:
-        super().__init__(name=name)
-        self._matrix = matrix
-        self._dimension = dimension
-
-    @property
-    def name(self) -> str:
-        return self._name
-
-    @property
-    def dimension(self) -> str:
-        return self._dimension
-
-    @property
-    def shape(self) -> tuple:
-        return self._matrix.shape
-
-    @property
-    def size(self) -> int:
-        return self._matrix.size
-
-    def as_csr(self) -> csr_matrix:
-        return self._matrix.copy()
-
-
-# ------------------------------------------------------------------------------------------------ #
-class InvertedIndex(Matrix):
-    """Index of users and items that co-occur as ratings.
-
-    Args:
-        name (str): Name of the index
-        index (dict): Dictionary of lists containing co-occurring pairs of users or items
-        dimension (str): Either 'user' or 'item'
-    """
-
-    def __init__(self, name: str, index: dict, dimension: str = "user") -> None:
-        self._name = name
-        self._index = index
-        self._dimension = dimension
-
-    @property
-    def name(self) -> str:
-        return self._name
-
-    @property
-    def dimension(self) -> str:
-        return self._dimension
-
-    @property
-    def shape(self) -> int:
-        return len(self._index)
-
-    @property
-    def size(self) -> int:
-        return sys.getsizeof(self._index)
-
-    def get_pairs(self) -> list:
-        """Returns a list of tuples. Each tuple contains a co-occurring pair of user or item identifiers"""
-        return list(self._index.keys())
-
-    def get_common_elements(self, a: int, b: int) -> list:
-        """Returns a list of elements common to a and b.
-
-        Args:
-            a (int): an identifier for an element in the user or item dimension
-            b (int): an identifier for an element in the user or item dimension
-        """
-        return self._index[(a, b)]
-
-
-# ------------------------------------------------------------------------------------------------ #
-class SparseMatrix(Matrix):
-    """Encapsulates a sparse matrix object"""
-
     def __init__(
         self,
-        name: str,
-        matrix: csr_matrix,
-        dataset: str,
-        format: str = "csr",
-        mean_centered: Union[str, bool] = False,
+        method: str,
+        matrix: Union[csr_matrix, csc_matrix],
+        ratings: RatingsDataset,
+        user: bool = True,
     ) -> None:
-        super().__init__(name=name)
-        self._matrix = matrix
-        self._dataset = dataset
-        self._format = format
-        self._mean_centered = mean_centered
+        super().__init__(matrix=matrix, ratings=ratings, user=user)
+        self._method = method
+        self._set_name()
 
-    @property
-    def name(self) -> str:
-        return self._name
+    def get_similarity(self, a: int, b: int) -> float:
+        key = (a, b) if a < b else (b, a)
+        return self._matrix[key]
 
-    @property
-    def dataset(self) -> str:
-        return self._dataset
-
-    @property
-    def format(self) -> str:
-        return self._format
-
-    @property
-    def mean_centered(self) -> Union[str, bool]:
-        return self._mean_centered
-
-    @property
-    def shape(self) -> tuple:
-        return self._matrix.shape
-
-    @property
-    def size(self) -> int:
-        return self._matrix.data.nbytes + self._matrix.indptr.nbytes + self._matrix.indices.nbytes
-
-    def get_csr(self) -> csr_matrix:
-        return self._matrix.copy()
+    def _set_name(self) -> None:
+        matrix_type = "user" if self._user else "item"
+        self._name = (
+            self._method + "_" + matrix_type + "_similarity_" + self._mode + "_" + self._dataset
+        )

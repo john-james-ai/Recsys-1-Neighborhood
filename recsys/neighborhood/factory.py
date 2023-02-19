@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 4th 2023 02:51:47 pm                                              #
-# Modified   : Friday February 17th 2023 01:09:26 pm                                               #
+# Modified   : Friday February 17th 2023 02:22:45 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,33 +22,8 @@ from itertools import combinations
 from tqdm import tqdm
 
 from recsys.data.rating import RatingsDataset
-from recsys.neighborhood.base import MatrixFactory, Metric, IndexFactory
-from recsys.neighborhood.matrix import SimilarityMatrix
+from recsys.neighborhood.base import IndexFactory
 from recsys.neighborhood.indices import Cooccurrence, Coreference
-
-
-# ------------------------------------------------------------------------------------------------ #
-class SimilarityMatrixFactory(MatrixFactory):
-    """Similarity matrix"""
-
-    def __init__(self, ratings: RatingsDataset) -> None:
-        super().__init__()
-        self._ratings = ratings
-
-    def __call__(self, name: str, metric: Metric, dimension: str = "user") -> SimilarityMatrix:
-        """Creates a similarity matrix using the metric object
-
-        Args:
-            name (str): Name of the SimilarityMatrix object
-            metric (Type[Metric]): Metric type object.
-            dimension (str): ['user', 'item']. The dimension over which similarity is computed. Default='user'
-        """
-        X = self._ratings.as_csr()
-        C = metric(X, return_sparse=True)
-
-        matrix = SimilarityMatrix(name=name, matrix=C, dimension=dimension)
-        self._repo.add(name=name, item=matrix)
-        return matrix
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -66,14 +41,18 @@ class CooccurrenceFactory(IndexFactory):
         U = {}
         for useridx in tqdm(self._ratings.users):
             U[useridx] = self._ratings.get_items_rated_user(useridx=useridx)
-        index = Cooccurrence(index=U, user=True)
+        index = Cooccurrence(
+            index=U, ratings_dataset_name=self._ratings.name, mode=self._ratings.mode, user=True
+        )
         return index
 
     def create_item(self) -> Cooccurrence:
         I = {}  # noqa E741
         for itemidx in tqdm(self._ratings.items):
             I[itemidx] = self._ratings.get_users_rated_item(itemidx=itemidx)
-        index = Cooccurrence(index=I, user=False)
+        index = Cooccurrence(
+            index=I, ratings_dataset_name=self._ratings.name, mode=self._ratings.mode, user=False
+        )
         return index
 
 
@@ -100,7 +79,12 @@ class CoreferenceFactory(IndexFactory):
                     UV[uv_pair].append(itemidx)
                 else:
                     UV[uv_pair] = [itemidx]
-            index = Coreference(index=UV, user=True)
+            index = Coreference(
+                index=UV,
+                ratings_dataset_name=self._ratings.name,
+                mode=self._ratings.mode,
+                user=True,
+            )
         return index
 
     def create_item(self) -> Coreference:
@@ -115,5 +99,10 @@ class CoreferenceFactory(IndexFactory):
                     IJ[ij_pair].append(useridx)
                 else:
                     IJ[ij_pair] = [useridx]
-            index = Coreference(index=IJ, user=False)
+            index = Coreference(
+                index=IJ,
+                ratings_dataset_name=self._ratings.name,
+                mode=self._ratings.mode,
+                user=False,
+            )
         return index

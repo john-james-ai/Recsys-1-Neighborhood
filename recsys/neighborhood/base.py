@@ -11,24 +11,22 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 09:08:48 pm                                                #
-# Modified   : Friday February 17th 2023 01:03:59 pm                                               #
+# Modified   : Friday February 17th 2023 03:06:58 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Base class for neighborhood collaborative filtering package"""
 from __future__ import annotations
+import sys
 from abc import ABC, abstractmethod
 import logging
 from typing import Union
 
 import numpy as np
-from scipy import sparse
-from dependency_injector.wiring import Provide, inject
+from scipy.sparse import csr_matrix, csc_matrix
 
 from recsys.data.rating import RatingsDataset
-from recsys.container import Recsys
-from recsys.io.repo import Repo
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -50,12 +48,12 @@ class Metric(ABC):
         """Computes the similarity between users"""
 
     def _normalize(
-        self, X: Union[sparse.csr_matrix, sparse.csc_matrix], norm: str = "l2", axis: int = 1
-    ) -> Union[sparse.csr_matrix, sparse.csc_matrix]:
+        self, X: Union[csr_matrix, csc_matrix], norm: str = "l2", axis: int = 1
+    ) -> Union[csr_matrix, csc_matrix]:
         """Scales input vectors individually to unit norm.
 
         Args:
-            X (sparse.csr_matrix, sparse.csc_matrix): The data to normalize
+            X (csr_matrix, csc_matrix): The data to normalize
             norm (str): One of ['l1', 'l2']. Default = 'l2'
             axis (int): Defines the axis along which the data are normalize. Either 0 (items) or 1 (users). Default = 1
         """
@@ -71,25 +69,23 @@ class Metric(ABC):
             raise ValueError(msg)
 
         if axis == 0:
-            X = sparse.csr_matrix.transpose(X)
+            X = csr_matrix.transpose(X)
 
         if norm == "l1":
             norms = abs(X).sum(axis=1)
         else:
             norms = np.sqrt(X.power(2).sum(axis=1))
         X = X / norms
-        X = sparse.csr_matrix(X)  # Division by dense vector returns dense array
+        X = csr_matrix(X)  # Division by dense vector returns dense array
         if axis == 0:
-            X = sparse.csr_matrix.transpose(X)
+            X = csr_matrix.transpose(X)
         return X
 
     def _check_input(
         self,
-        X: Union[sparse.csc_matrix, sparse.csr_matrix],
-        Y: Union[sparse.csc_matrix, sparse.csr_matrix],
-    ) -> Union[
-        tuple[sparse.csr_matrix, sparse.csr_matrix], tuple[sparse.csc_matrix, sparse.csc_matrix]
-    ]:
+        X: Union[csc_matrix, csr_matrix],
+        Y: Union[csc_matrix, csr_matrix],
+    ) -> Union[tuple[csr_matrix, csr_matrix], tuple[csc_matrix, csc_matrix]]:
         """Checks type and dimension of input."""
         X = self._check_matrix(X)
         Y = self._check_matrix(Y, none_allowed=True)
@@ -112,19 +108,19 @@ class Metric(ABC):
 
     def _check_matrix(
         self,
-        X: Union[sparse.csr_matrix, sparse.csc_matrix],
+        X: Union[csr_matrix, csc_matrix],
         none_allowed: bool = False,
-    ) -> sparse.csr_matrix:
+    ) -> csr_matrix:
         """Checks array type, casts it to float
 
         Args:
-            X (sparse.csr_matrix): Input array
+            X (csr_matrix): Input array
         """
         if X is None and none_allowed:
             return X
 
-        elif not isinstance(X, (sparse.csr_matrix, sparse.csc_matrix)):
-            msg = f"Type {type(X)} is not supported. Must be 'np.ndarray' or 'sparse.csr_matrix'."
+        elif not isinstance(X, (csr_matrix, csc_matrix)):
+            msg = f"Type {type(X)} is not supported. Must be 'np.ndarray' or 'csr_matrix'."
             self._logger.error(msg)
             raise TypeError(msg)
 
@@ -133,66 +129,22 @@ class Metric(ABC):
             self._logger.error(msg)
             raise ValueError(msg)
 
-        X = sparse.csr_matrix.asfptype(X)
+        X = csr_matrix.asfptype(X)
 
         return X
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Matrix(ABC):
-    """Base class for recommender system matrices."""
-
-    def __init__(self, name: str, *args, **kwargs) -> None:
-        self._name = name
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
-
-    @property
-    @abstractmethod
-    def name(self) -> tuple:
-        """Returns name of the matrix"""
-
-    @property
-    @abstractmethod
-    def dataset(self) -> str:
-        """The dataset name"""
-
-    @property
-    @abstractmethod
-    def mean_centered(self) -> Union[str, bool]:
-        """Indicates whether the ratings in the matrix have been mean centered"""
-
-    @property
-    @abstractmethod
-    def shape(self) -> tuple:
-        """Returns tuple of the shape of the matrix"""
-
-    @property
-    @abstractmethod
-    def size(self) -> int:
-        """The number of cells in the matrix"""
-
-
-# ------------------------------------------------------------------------------------------------ #
-class MatrixFactory(ABC):
-    @inject
-    def __init__(self, repo: Repo = Provide[Recsys.repo.repo]) -> None:
-        self._repo = repo
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
-
-    @abstractmethod
-    def __call__(self, *args, **kwargs) -> Matrix:
-        """Constructs the matrix"""
-
-
-# ------------------------------------------------------------------------------------------------ #
-class Index(ABC):
-    @abstractmethod
-    def __len__(self) -> int:
-        """Total number of items in the index"""
+    def __init__(
+        self, matrix: Union[csr_matrix, csc_matrix], ratings: RatingsDataset, user: bool = True
+    ) -> None:
+        self._matrix = matrix
+        self._mode = ratings.mode
+        self._ratings = ratings.name
+        self._dataset = ratings.dataset
+        self._user = user
+        self._name = None
 
     @property
     def name(self) -> int:
@@ -201,7 +153,65 @@ class Index(ABC):
 
     @property
     def size(self) -> int:
+        return self._matrix.data.nbytes
+
+    @property
+    def nnz(self) -> int:
+        return self._matrix.nnz
+
+    @property
+    def mode(self) -> int:
+        """Returns the mode in qhich the index was created."""
+        return self._mode
+
+    @property
+    def ratings(self) -> str:
+        """Returns the name of the ratings object, from which the index derives."""
+        return self._ratings
+
+    @property
+    def dataset(self) -> str:
+        """Returns the name of the dataset, i.e. 'train', 'test'."""
+        return self._dataset
+
+
+# ------------------------------------------------------------------------------------------------ #
+class Index(ABC):
+    def __init__(self, index: dict, ratings: RatingsDataset, user: bool = True) -> None:
+        self._index = index
+        self._mode = ratings.mode
+        self._ratings = ratings.name
+        self._dataset = ratings.dataset
+        self._user = user
+
+    def __len__(self) -> int:
+        """Total number of items in the index"""
+        return len(self._index)
+
+    @property
+    def name(self) -> int:
+        """Returns the name by which the object will be persisted."""
+        return self._name
+
+    @property
+    def mode(self) -> int:
+        """Returns the mode in qhich the index was created."""
+        return self._mode
+
+    @property
+    def ratings(self) -> str:
+        """Returns the name of the ratings object, from which the index derives."""
+        return self._ratings
+
+    @property
+    def dataset(self) -> str:
+        """Returns the name of the dataset, i.e. 'train', 'test'."""
+        return self._dataset
+
+    @property
+    def size(self) -> int:
         """Total size of index in memory"""
+        return sys.getsizeof(self._index)
 
     @abstractmethod
     def search(self, **kwargs) -> list:

@@ -8,80 +8,83 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 07:02:57 am                                                #
-# Modified   : Monday January 30th 2023 06:13:57 am                                                #
+# Created    : Saturday February 18th 2023 02:13:37 pm                                             #
+# Modified   : Sunday February 19th 2023 04:37:46 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Base module for data package."""
-import os
-import logging
 from abc import ABC, abstractmethod
-import pandas as pd
+import logging
+from typing import Any
 
-from recsys.io.file import IOService
+from dependency_injector.wiring import Provide, inject
+
+from recsys.data.fio import IOService
+from recsys.container import Recsys
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Dataset(ABC):
-    """Base class for datasets"""
+class FMS(ABC):
+    """Abstract file management class."""
 
-    def __init__(self, filepath: str) -> None:
-        self._filepath = filepath
-        self._data = None
+    @inject
+    def __init__(self, config: dict, io: IOService = Provide[Recsys.data.io]) -> None:
+        self._config = config
+        self._io = io()
+
+    def read(self, filepath: str) -> Any:
+        """Read the file"""
+        return self._io.read(filepath)
+
+    def write(self, data: Any, filepath: str) -> Any:
+        """Write data to file"""
+        self._io.write(data=data, filepath=filepath)
+
+    @abstractmethod
+    def get_filepath(self, name: str, stage: str) -> str:
+        """Returns the filepath for the provided name, stage and current environment."""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class Database(ABC):
+    """Abstract base class for rdbms databases"""
+
+    def __init__(self) -> None:
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
 
-    def load(self) -> None:
-        self._logger.debug(f"Loading {os.path.basename(self._filepath)}")
-        self._data = IOService.read(self._filepath)
-        self._logger.debug(f"Load {os.path.basename(self._filepath)} complete.")
-
-    def save(self, filepath: str, force: bool = False) -> None:
-
-        if self._force or not os.path.exists(filepath):
-            self._logger.debug(f"Saving {os.path.basename(filepath)}")
-            IOService.write(filepath=filepath, data=self._data)
-            self._logger.debug(f"Save {os.path.basename(filepath)} complete.")
-        else:
-            self._logger.debug(f"Saving {os.path.basename(filepath)} skipped. File already exists.")
+    @abstractmethod
+    def connect(self) -> None:
+        """Connects to the underlying database."""
 
     @abstractmethod
-    def summarize(self) -> pd.DataFrame:
-        """Provides summary of entity"""
+    def close(self) -> None:
+        """Closes connection to underlying database."""
 
     @abstractmethod
-    def split(self, train_prop: float, train_filepath: str, test_filepath: str) -> None:
-        """Splits dataset into train and test set"""
+    def command(self, sql: str, args: tuple = None) -> Any:
+        """Executes an sql command on the database and returns a cursor object."""
 
+    @abstractmethod
+    def insert(self, sql: str, args: tuple = None) -> int:
+        """Inserts a row into a table in the database."""
 
-# ------------------------------------------------------------------------------------------------ #
-class DataSource(ABC):
-    """Base class for data source classes
+    @abstractmethod
+    def select(self, sql: str, args: tuple = None) -> tuple:
+        """Returns a single row from the database"""
 
-    Args:
-        name (str): Name of the resource
-        description (str): Description of the resource
-    """
+    @abstractmethod
+    def select_all(self, sql: str, args: tuple = None) -> tuple:
+        """Returns multiple rows from the database"""
 
-    def __init__(self, name: str, description: str = None) -> None:
+    @abstractmethod
+    def update(self, sql: str, args: tuple = None) -> None:
+        """Performs an update on existing data in the database."""
 
-        self._name = name
-        self._description = description
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
-
-    @property
-    def name(self) -> bool:
-        """The name of the datasource"""
-        return self._name
-
-    @property
-    def description(self) -> bool:
-        """The description for the datasource"""
-        return self._description
+    @abstractmethod
+    def delete(self, sql: str, args: tuple = None) -> None:
+        """Deletes existing data from a database table."""

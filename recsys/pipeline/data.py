@@ -4,58 +4,28 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /config.yml                                                                         #
+# Filename   : /recsys/pipeline/data.py                                                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:13:15 am                                                #
-# Modified   : Sunday February 19th 2023 04:33:30 am                                               #
+# Created    : Saturday February 18th 2023 11:46:34 pm                                             #
+# Modified   : Sunday February 19th 2023 11:50:02 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-logging:
-  version: 1
-  formatters:
-    console:
-      format: "[%(asctime)s] [%(levelname)s] [%(name)s] [%(funcName)s] : %(message)s"
-      datefmt: "%m/%d/%Y %I:%M:%S %p"
-    file:
-      format: "[%(asctime)s] [%(levelname)s] [%(name)s] [%(module)s] [%(funcName)s] : %(message)s"
-      datefmt: "%m/%d/%Y %I:%M:%S %p"
-  handlers:
-    console:
-      class: "logging.StreamHandler"
-      level: "DEBUG"
-      formatter: "console"
-      stream: "ext://sys.stderr"
-    file:
-      class: logging.handlers.TimedRotatingFileHandler
-      formatter: file
-      when: midnight
-      interval: 1
-      backupCount: 0
-      level: "DEBUG"
-      filename: logs/recsys.log
-  root:
-    level: "DEBUG"
-    handlers: ["console", "file"]
-  disable_existing_loggers: False
+"""Data Pipeline Module"""
 
-files:
-  format: pkl
-  fms:
-    dev: data/dev/
-    test: tests/data/
-    prod: data/prod/
-  mms:
-    dev: models/dev/
-    test: tests/models/
-    prod: models/prod/
+from recsys.pipeline.base import Pipeline
 
-sqlite:
-  prod: data/prod/database/recsys.sqlite
-  dev: data/dev/database/recsys.sqlite
-  test: tests/data/database/recsys.sqlite
+# ------------------------------------------------------------------------------------------------ #
+class DataPipeline(Pipeline):
+    """Data Pipeline Class"""
+
+    def __init__(self, name: str, description: str, io: IOService = Provide[Recsys.io.io]) -> None:
+        self._name = name
+        self._description = description
+        self._io = io()
+        self._tasks = {}

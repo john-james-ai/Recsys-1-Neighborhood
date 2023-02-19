@@ -2173,3 +2173,31 @@ Started TestCoreference test_item at 01:12:53 PM on 02/17/2023
 	Completed TestCoreference test_item in 11.7 seconds at 01:13:04 PM on 02/17/2023
 [02/17/2023 01:13:04 PM] [INFO] [test_indices] [test_indices] [test_item] : 
 ----------------------------------------------------------------------------------------------------
+[02/17/2023 02:21:09 PM] [INFO] [test_indices] [test_indices] [test_user] : 
+
+Started TestCoreference test_user at 02:21:09 PM on 02/17/2023
+[02/17/2023 02:21:09 PM] [INFO] [test_indices] [test_indices] [test_user] : 
+====================================================================================================
+[02/17/2023 02:21:09 PM] [INFO] [test_indices] [test_indices] [test_item] : 
+
+Started TestCoreference test_item at 02:21:09 PM on 02/17/2023
+[02/17/2023 02:21:09 PM] [INFO] [test_indices] [test_indices] [test_item] : 
+====================================================================================================
+[02/17/2023 02:22:51 PM] [INFO] [test_indices] [test_indices] [test_user] : 
+
+Started TestCoreference test_user at 02:22:51 PM on 02/17/2023
+[02/17/2023 02:22:51 PM] [INFO] [test_indices] [test_indices] [test_user] : 
+====================================================================================================
+[02/17/2023 02:22:56 PM] [INFO] [test_indices] [test_indices] [test_user] : 
+Completed TestCoreference test_user in 4.3 seconds at 02:22:56 PM on 02/17/2023
+[02/17/2023 02:22:56 PM] [INFO] [test_indices] [test_indices] [test_user] : 
+----------------------------------------------------------------------------------------------------
+[02/17/2023 02:22:56 PM] [INFO] [test_indices] [test_indices] [test_item] : 
+
+Started TestCoreference test_item at 02:22:56 PM on 02/17/2023
+[02/17/2023 02:22:56 PM] [INFO] [test_indices] [test_indices] [test_item] : 
+====================================================================================================
+[02/17/2023 02:23:07 PM] [INFO] [test_indices] [test_indices] [test_item] : 
+	Completed TestCoreference test_item in 11.5 seconds at 02:23:07 PM on 02/17/2023
+[02/17/2023 02:23:07 PM] [INFO] [test_indices] [test_indices] [test_item] : 
+----------------------------------------------------------------------------------------------------
