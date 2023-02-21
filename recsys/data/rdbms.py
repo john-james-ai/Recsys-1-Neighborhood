@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/data/database.py                                                            #
+# Filename   : /recsys/data/rdbms.py                                                               #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday February 18th 2023 02:13:16 pm                                             #
-# Modified   : Sunday February 19th 2023 02:43:51 am                                               #
+# Created    : Monday February 20th 2023 09:10:07 pm                                               #
+# Modified   : Monday February 20th 2023 09:44:33 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -27,8 +27,7 @@ from dotenv import load_dotenv
 # ------------------------------------------------------------------------------------------------ #
 class SQLite(Database):
     def __init__(self, config: dict) -> None:
-        super().__init__()
-        self._config = config
+        super().__init__(config=config)
         self._connection = None
         self._location = None
 
@@ -46,9 +45,7 @@ class SQLite(Database):
 
     def connect(self) -> None:
         """Connects to the database."""
-        load_dotenv()
-        mode = os.getenv("ENV")
-        self._location = self._config.get(mode, "dev")
+        self._location = self._config.get("location")
         self._connection = sqlite3.connect(self._location)
 
     def close(self) -> None:

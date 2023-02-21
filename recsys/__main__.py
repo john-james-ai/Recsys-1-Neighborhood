@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Saturday February 18th 2023 09:27:31 pm                                             #
+# Modified   : Monday February 20th 2023 02:37:13 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -25,7 +25,14 @@ def wireup():
 
     container.init_resources()
 
-    container.wire(modules=[__name__, "recsys.neighborhood.base", "recsys.domain.base"])
+    container.wire(
+        modules=[
+            __name__,
+            "recsys.neighborhood.base",
+            "recsys.domain.base",
+            "recsys.workflow.profile",
+        ]
+    )
 
 
 def main():

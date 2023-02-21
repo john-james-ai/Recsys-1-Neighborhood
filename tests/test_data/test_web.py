@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:41:51 pm                                                #
-# Modified   : Monday January 30th 2023 06:37:14 am                                                #
+# Modified   : Monday February 20th 2023 09:59:37 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,7 +24,7 @@ import logging
 import shutil
 import requests
 
-from recsys.data.source import WebDataSource
+from recsys.dal.source import WebDataSource
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)

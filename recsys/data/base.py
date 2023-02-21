@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 18th 2023 02:13:37 pm                                             #
-# Modified   : Sunday February 19th 2023 04:37:46 am                                               #
+# Modified   : Monday February 20th 2023 10:12:37 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,66 +20,40 @@ from abc import ABC, abstractmethod
 import logging
 from typing import Any
 
-from dependency_injector.wiring import Provide, inject
-
-from recsys.data.fio import IOService
-from recsys.container import Recsys
-
 
 # ------------------------------------------------------------------------------------------------ #
-class FMS(ABC):
-    """Abstract file management class."""
-
-    @inject
-    def __init__(self, config: dict, io: IOService = Provide[Recsys.data.io]) -> None:
-        self._config = config
-        self._io = io()
-
-    def read(self, filepath: str) -> Any:
-        """Read the file"""
-        return self._io.read(filepath)
-
-    def write(self, data: Any, filepath: str) -> Any:
-        """Write data to file"""
-        self._io.write(data=data, filepath=filepath)
-
-    @abstractmethod
-    def get_filepath(self, name: str, stage: str) -> str:
-        """Returns the filepath for the provided name, stage and current environment."""
-
-
+#                                           DATABASE                                               #
 # ------------------------------------------------------------------------------------------------ #
 class Database(ABC):
-    """Abstract base class for rdbms databases"""
+    """Abstract database class"""
 
-    def __init__(self) -> None:
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
+    def __init__(self, config: dict) -> None:
+        self._config = config
+        self._logger = logging.getLogger(f"{self.__module__}.{self.__class__.__name__}")
 
     @abstractmethod
     def connect(self) -> None:
-        """Connects to the underlying database."""
+        """Connects to the database."""
 
     @abstractmethod
     def close(self) -> None:
-        """Closes connection to underlying database."""
+        """Closes the underlying database connection."""
 
     @abstractmethod
-    def command(self, sql: str, args: tuple = None) -> Any:
-        """Executes an sql command on the database and returns a cursor object."""
+    def command(self) -> None:
+        """Executes the SQL command on the underlying database connection."""
 
     @abstractmethod
     def insert(self, sql: str, args: tuple = None) -> int:
-        """Inserts a row into a table in the database."""
+        """Inserts data into a table and returns the last row id."""
 
     @abstractmethod
     def select(self, sql: str, args: tuple = None) -> tuple:
-        """Returns a single row from the database"""
+        """Performs a select command returning a single instance or row."""
 
     @abstractmethod
-    def select_all(self, sql: str, args: tuple = None) -> tuple:
-        """Returns multiple rows from the database"""
+    def select_all(self, sql: str, args: tuple = None) -> list:
+        """Performs a select command returning multiple instances or rows."""
 
     @abstractmethod
     def update(self, sql: str, args: tuple = None) -> None:
@@ -87,4 +61,31 @@ class Database(ABC):
 
     @abstractmethod
     def delete(self, sql: str, args: tuple = None) -> None:
-        """Deletes existing data from a database table."""
+        """Deletes existing data."""
+
+    @abstractmethod
+    def exists(self, sql: str, args: tuple = None) -> None:
+        """Checks existence of an item in the database."""
+
+
+# ------------------------------------------------------------------------------------------------ #
+#                                  FILE MANAGEMENT SYSTEM BASE CLASS                               #
+# ------------------------------------------------------------------------------------------------ #
+class FMSBase(ABC):
+    """Abstract file management service class."""
+
+    @abstractmethod
+    def read(self, filepath: str) -> Any:
+        """Read the file"""
+
+    @abstractmethod
+    def write(self, data: Any, filepath: str) -> Any:
+        """Write data to file"""
+
+    @abstractmethod
+    def delete(self, filepath: str) -> Any:
+        """Write data to file"""
+
+    @abstractmethod
+    def get_filepath(self, name: str, stage: str) -> str:
+        """Returns the filepath for the provided name, stage and current environment."""

@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 3rd 2023 10:23:59 pm                                                #
-# Modified   : Saturday February 4th 2023 12:11:44 am                                              #
+# Modified   : Monday February 20th 2023 09:59:31 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,7 @@ import pandas as pd
 from itertools import combinations
 from multiprocessing import Pool
 
-from recsys.data.rating import RatingsDataset
+from recsys.dal.rating import RatingsDataset
 from recsys.neighborhood.matrix import SimilarityMatrix, UserSimilarityMatrix
 
 FILEPATH = "data/dev/ratings_0.5_pct.pkl"

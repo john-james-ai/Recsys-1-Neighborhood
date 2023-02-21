@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:10:21 am                                                #
-# Modified   : Sunday February 19th 2023 05:23:08 am                                               #
+# Modified   : Monday February 20th 2023 11:24:33 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,15 +20,16 @@ import logging.config  # pragma: no cover
 
 from dependency_injector import containers, providers
 
-from recsys.data.rdbms import SQLite
-from recsys.data.fio import IOService
-from recsys.data.fms import FileService, ModelService
-from recsys.dal.dao import DatasetDAO, ModelDAO
+from recsys.repo.rating import RatingRepo
+from recsys.repo.user import UserRepo
+from recsys.repo.task import TaskRepo
+from recsys.repo.item import ItemRepo
+from recsys.repo.matrix import MatrixRepo
+from recsys.dal.dao import DAO
 from recsys.dal.fao import FAO
-from recsys.dal.mao import MAO
-from recsys.dal.dataset import DatasetRepo
-from recsys.dal.model import ModelRepo
-from recsys.dal.sql import DatasetDML
+from recsys.data.fio import IOService
+from recsys.data.fms import FMS
+from recsys.data.rdbms import SQLite
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -49,37 +50,39 @@ class DataContainer(containers.DeclarativeContainer):
 
     io = providers.Resource(IOService)
 
-    db = providers.Resource(SQLite, config=config.sqlite)
+    fms = providers.Resource(FMS, io=io)
 
-    fms = providers.Resource(FileService, config=config.files, io=io)
-
-    mms = providers.Resource(ModelService, config=config.files, io=io)
+    db = providers.Singleton(SQLite, config=config.sqlite)
 
 
 # ------------------------------------------------------------------------------------------------ #
 class DALContainer(containers.DeclarativeContainer):
 
-    db = providers.Dependency()
-    fms = providers.Dependency()
-    mms = providers.Dependency()
+    dbms = providers.Resource()
 
-    dataset_dao = providers.Resource(DatasetDAO, db=db, dml=DatasetDML)
+    fms = providers.Resource()
 
-    fao = providers.Resource(FAO, fms=fms)
+    dao = providers.Container(DAO, db=dbms)
 
-    mao = providers.Resource(MAO, mms=mms)
+    fao = providers.Container(FAO, fms=fms)
 
 
 # ------------------------------------------------------------------------------------------------ #
 class RepoContainer(containers.DeclarativeContainer):
 
-    dao = providers.Dependency()
-    fao = providers.Dependency()
-    mao = providers.Dependency()
+    dao = providers.Resource()
 
-    dataset = providers.Resource(DatasetRepo, dao=dao, fao=fao)
+    fao = providers.Resource()
 
-    model = providers.Resource(ModelRepo, dao=dao, mao=mao)
+    rating = providers.Container(RatingRepo, dao=dao, fao=fao)
+
+    user = providers.Container(UserRepo, dao=dao, fao=fao)
+
+    item = providers.Container(ItemRepo, dao=dao, fao=fao)
+
+    task = providers.Container(TaskRepo, dao=dao, fao=fao)
+
+    metric = providers.Container(MatrixRepo, dao=dao, fao=fao)
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -91,6 +94,6 @@ class Recsys(containers.DeclarativeContainer):
 
     data = providers.Container(DataContainer, config=config)
 
-    dal = providers.Container(DALContainer, db=data.db, fms=data.fms, mms=data.mms)
+    dal = providers.Container(DALContainer, dbms=data.db, fms=data.fms)
 
-    repo = providers.Container(RepoContainer, dao=dal.dao, fao=dal.fao, mao=dal.mao)
+    repo = providers.Container(RepoContainer, dao=dal.dao, fao=dal.fao)
