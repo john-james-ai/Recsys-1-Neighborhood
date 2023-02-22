@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday January 30th 2023 08:37:49 pm                                                #
-# Modified   : Friday February 17th 2023 08:15:19 pm                                               #
+# Modified   : Wednesday February 22nd 2023 06:23:36 am                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,7 +20,7 @@
 from scipy.sparse import csr_matrix, csc_matrix
 from typing import Union
 
-from recsys.data.rating import RatingsDataset
+from recsys.persistence.rating import RatingsDataset
 from recsys.neighborhood.base import Matrix
 
 

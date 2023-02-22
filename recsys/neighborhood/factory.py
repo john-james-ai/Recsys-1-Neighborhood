@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning-udemy                         #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 4th 2023 02:51:47 pm                                              #
-# Modified   : Friday February 17th 2023 02:22:45 pm                                               #
+# Modified   : Wednesday February 22nd 2023 06:23:15 am                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,7 @@ from itertools import combinations
 
 from tqdm import tqdm
 
-from recsys.data.rating import RatingsDataset
+from recsys.persistencerating import RatingsDataset
 from recsys.neighborhood.base import IndexFactory
 from recsys.neighborhood.indices import Cooccurrence, Coreference
 

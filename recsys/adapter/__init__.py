@@ -1,37 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Enter Project Name in Workspace Settings                                            #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/__main__.py                                                                 #
+# Filename   : /recsys/utils/__init__.py                                                           #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : Enter URL in Workspace Settings                                                     #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Wednesday February 22nd 2023 11:37:48 am                                            #
+# Created    : Sunday January 29th 2023 12:18:07 am                                                #
+# Modified   : Sunday January 29th 2023 12:18:08 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from recsys.container import Recsys
-
-
-# ------------------------------------------------------------------------------------------------ #
-def wireup():
-    container = Recsys()
-
-    container.init_resources()
-
-    container.wire(modules=[__name__, "recsys.neighborhood.base", "recsys.dal.dao"])
-
-
-def main():
-    wireup()
-
-
-# ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":
-    main()

@@ -4,52 +4,49 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/data/fms.py                                                                 #
+# Filename   : /recsys/adapter/base.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday February 19th 2023 03:47:35 am                                               #
-# Modified   : Monday February 20th 2023 11:25:03 pm                                               #
+# Created    : Wednesday February 22nd 2023 01:03:35 pm                                            #
+# Modified   : Wednesday February 22nd 2023 01:40:51 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-import os
-from typing import Any
-from dependency_injector.wiring import Provide, inject
+"""Base Adapter Module"""
+from dataclasses import dataclass
+from abc import ABC
 
-from recsys.data.base import FMSBase
-from recsys.data.fio import IOService
-from recsys.container import Recsys
+from recsys.dal.dto import DatasetDTO
 
 
 # ------------------------------------------------------------------------------------------------ #
-class FMS(FMSBase):
-    """File Management Services.
+#                                  SQL COMMAND ABC                                                 #
+# ------------------------------------------------------------------------------------------------ #
 
-    Args:
-        config (dict): File service configuration
-        io (IOService): IO parser
-    """
 
-    __format = "pkl"
+@dataclass
+class SQL(ABC):  # pragma: no cover
+    """Base class for SQL Command Objects."""
 
-    @inject
-    def __init__(self, io: IOService = Provide[Recsys.data.io]) -> None:
-        super().__init__()
-        self._io = io
 
-    def read(self, filepath: str) -> Any:
-        """Read the file"""
-        return self._io.read(filepath)
+# ------------------------------------------------------------------------------------------------ #
+#                                 BASE ADAPTER CLASS                                               #
+# ------------------------------------------------------------------------------------------------ #
+@dataclass
+class Adapter(ABC):  # pragma: no cover
+    """Defines interface of messages that the adapter supports."""
 
-    def write(self, data: Any, filepath: str) -> Any:
-        """Write data to file"""
-        self._io.write(data=data, filepath=filepath)
-
-    def get_filepath(self, name: str, stage: str) -> str:
-        """Returns the filepath for the provided name, and stage."""
-        # The current environment is stored in an environment variable.
-        return os.path.join("data", "movielens25m", stage) + "_" + name + ".pkl"
+    create: type[SQL] = None
+    drop: type[SQL] = None
+    table_exists: type[SQL] = None
+    insert: type[SQL] = None
+    update: type[SQL] = None
+    read: type[SQL] = None
+    read_all: type[SQL] = None
+    row_exists: type[SQL] = None
+    delete: type[SQL] = None
+    respond: DatasetDTO = None

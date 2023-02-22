@@ -10,82 +10,139 @@
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday February 18th 2023 02:13:37 pm                                             #
-# Modified   : Monday February 20th 2023 10:12:37 pm                                               #
+# Created    : Sunday January 29th 2023 07:02:57 am                                                #
+# Modified   : Wednesday February 22nd 2023 11:24:02 am                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+"""Base module for entity package."""
 from abc import ABC, abstractmethod
+import os
+from dotenv import load_dotenv
 import logging
-from typing import Any
+
+from recsys.dal.base import DTO
 
 
 # ------------------------------------------------------------------------------------------------ #
-#                                           DATABASE                                               #
+#                                  DATASET ABSTRACT BASE CLASS                                     #
 # ------------------------------------------------------------------------------------------------ #
-class Database(ABC):
-    """Abstract database class"""
+class Data(ABC):
+    """Data base class.
 
-    def __init__(self, config: dict) -> None:
-        self._config = config
-        self._logger = logging.getLogger(f"{self.__module__}.{self.__class__.__name__}")
+    Args:
+        name (str): Name of the data object
+        description (str): Describes the contents of the data object
+        stage (str): The stage within the data flow or lifecycle.
+
+    """
+
+    def __init__(self, name: str, description: str, stage: str) -> None:
+        self._name = name
+        self._description = description
+        self._stage = stage
+        self._type = self.__class__.__name__
+        self._id = None
+        self._filepath = None
+        self._profile = None
+        self._workspace = self._get_workspace()
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
+
+    def __len__(self) -> int:
+        return len(self._data)
+
+    @property
+    def id(self) -> int:
+        return self._id
+
+    @id.setter
+    def id(self, id: int) -> None:
+        self._id = id
+
+    @property
+    def type(self) -> str:
+        return self._type
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def description(self) -> str:
+        return self._description
+
+    @property
+    def stage(self) -> str:
+        return self._stage
+
+    @property
+    def workspace(self) -> str:
+        return self._workspace
+
+    @property
+    def rows(self) -> int:
+        return self._rows
+
+    @property
+    def cols(self) -> int:
+        return self._cols
+
+    @property
+    def n_users(self) -> int:
+        return self._n_users
+
+    @property
+    def n_items(self) -> int:
+        return self._n_items
+
+    @property
+    def size(self) -> int:
+        return self._size
+
+    @property
+    def matrix_size(self) -> int:
+        return self._matrix_size
+
+    @property
+    def sparsity(self) -> int:
+        return self._sparsity
+
+    @property
+    def density(self) -> int:
+        return self._density
+
+    @property
+    def memory_mb(self) -> int:
+        return self._memory_mb
+
+    @property
+    def cost(self) -> str:
+        return self._cost
+
+    @cost.setter
+    def cost(self, cost: str) -> None:
+        self._cost = cost
+
+    @property
+    def filepath(self) -> str:
+        return self._filepath
+
+    @filepath.setter
+    def filepath(self, filepath: str) -> None:
+        self._filepath = filepath
 
     @abstractmethod
-    def connect(self) -> None:
-        """Connects to the database."""
+    def summarize(self) -> None:
+        """Returns a summary of the data"""
 
     @abstractmethod
-    def close(self) -> None:
-        """Closes the underlying database connection."""
+    def as_dto(self) -> DTO:
+        """Returns a Data Transfer Object representation of the entity."""
 
-    @abstractmethod
-    def command(self) -> None:
-        """Executes the SQL command on the underlying database connection."""
-
-    @abstractmethod
-    def insert(self, sql: str, args: tuple = None) -> int:
-        """Inserts data into a table and returns the last row id."""
-
-    @abstractmethod
-    def select(self, sql: str, args: tuple = None) -> tuple:
-        """Performs a select command returning a single instance or row."""
-
-    @abstractmethod
-    def select_all(self, sql: str, args: tuple = None) -> list:
-        """Performs a select command returning multiple instances or rows."""
-
-    @abstractmethod
-    def update(self, sql: str, args: tuple = None) -> None:
-        """Performs an update on existing data in the database."""
-
-    @abstractmethod
-    def delete(self, sql: str, args: tuple = None) -> None:
-        """Deletes existing data."""
-
-    @abstractmethod
-    def exists(self, sql: str, args: tuple = None) -> None:
-        """Checks existence of an item in the database."""
-
-
-# ------------------------------------------------------------------------------------------------ #
-#                                  FILE MANAGEMENT SYSTEM BASE CLASS                               #
-# ------------------------------------------------------------------------------------------------ #
-class FMSBase(ABC):
-    """Abstract file management service class."""
-
-    @abstractmethod
-    def read(self, filepath: str) -> Any:
-        """Read the file"""
-
-    @abstractmethod
-    def write(self, data: Any, filepath: str) -> Any:
-        """Write data to file"""
-
-    @abstractmethod
-    def delete(self, filepath: str) -> Any:
-        """Write data to file"""
-
-    @abstractmethod
-    def get_filepath(self, name: str, stage: str) -> str:
-        """Returns the filepath for the provided name, stage and current environment."""
+    def _get_workspace(self) -> str:
+        """Reads the current workspace from the environment variable."""
+        load_dotenv()
+        return os.getenv("WORKSPACE", "dev")

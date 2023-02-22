@@ -4,45 +4,15 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /config.yml                                                                         #
+# Filename   : /recsys/analysis/eda.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:13:15 am                                                #
-# Modified   : Wednesday February 22nd 2023 10:37:18 am                                            #
+# Created    : Wednesday February 22nd 2023 08:05:52 am                                            #
+# Modified   : Wednesday February 22nd 2023 08:05:53 am                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-logging:
-  version: 1
-  formatters:
-    console:
-      format: "[%(asctime)s] [%(levelname)s] [%(name)s] [%(funcName)s] : %(message)s"
-      datefmt: "%m/%d/%Y %I:%M:%S %p"
-    file:
-      format: "[%(asctime)s] [%(levelname)s] [%(name)s] [%(module)s] [%(funcName)s] : %(message)s"
-      datefmt: "%m/%d/%Y %I:%M:%S %p"
-  handlers:
-    console:
-      class: "logging.StreamHandler"
-      level: "DEBUG"
-      formatter: "console"
-      stream: "ext://sys.stderr"
-    file:
-      class: logging.handlers.TimedRotatingFileHandler
-      formatter: file
-      when: midnight
-      interval: 1
-      backupCount: 0
-      level: "DEBUG"
-      filename: logs/recsys.log
-  root:
-    level: "DEBUG"
-    handlers: ["console", "file"]
-  disable_existing_loggers: False
-
-database:
-  sqlite: repository/recsys.db

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:10:21 am                                                #
-# Modified   : Monday February 20th 2023 11:24:33 pm                                               #
+# Modified   : Wednesday February 22nd 2023 02:26:24 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,16 +20,11 @@ import logging.config  # pragma: no cover
 
 from dependency_injector import containers, providers
 
-from recsys.repo.rating import RatingRepo
-from recsys.repo.user import UserRepo
-from recsys.repo.task import TaskRepo
-from recsys.repo.item import ItemRepo
-from recsys.repo.matrix import MatrixRepo
 from recsys.dal.dao import DAO
-from recsys.dal.fao import FAO
-from recsys.data.fio import IOService
-from recsys.data.fms import FMS
-from recsys.data.rdbms import SQLite
+from recsys.dal.dba import DBA
+from recsys.persistence.fio import IOService
+from recsys.adapter.dataset import DatasetAdapter
+from recsys.persistence.rdbms import SQLite
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -48,41 +43,19 @@ class DataContainer(containers.DeclarativeContainer):
 
     config = providers.Configuration()
 
-    io = providers.Resource(IOService)
-
-    fms = providers.Resource(FMS, io=io)
+    fio = providers.Singleton(IOService)
 
     db = providers.Singleton(SQLite, config=config.sqlite)
 
-
-# ------------------------------------------------------------------------------------------------ #
-class DALContainer(containers.DeclarativeContainer):
-
-    dbms = providers.Resource()
-
-    fms = providers.Resource()
-
-    dao = providers.Container(DAO, db=dbms)
-
-    fao = providers.Container(FAO, fms=fms)
+    dao = providers.Resource(DAO, adapter=DatasetAdapter, database=db)
 
 
 # ------------------------------------------------------------------------------------------------ #
-class RepoContainer(containers.DeclarativeContainer):
+class DBAContainer(containers.DeclarativeContainer):
 
-    dao = providers.Resource()
+    db = providers.Configuration()
 
-    fao = providers.Resource()
-
-    rating = providers.Container(RatingRepo, dao=dao, fao=fao)
-
-    user = providers.Container(UserRepo, dao=dao, fao=fao)
-
-    item = providers.Container(ItemRepo, dao=dao, fao=fao)
-
-    task = providers.Container(TaskRepo, dao=dao, fao=fao)
-
-    metric = providers.Container(MatrixRepo, dao=dao, fao=fao)
+    dataset = providers.Resource(DBA, adapter=DatasetAdapter, database=db)
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -92,8 +65,6 @@ class Recsys(containers.DeclarativeContainer):
 
     logging = providers.Container(LoggingContainer, config=config)
 
-    data = providers.Container(DataContainer, config=config)
+    data = providers.Container(DataContainer, config=config.database)
 
-    dal = providers.Container(DALContainer, dbms=data.db, fms=data.fms)
-
-    repo = providers.Container(RepoContainer, dao=dal.dao, fao=dal.fao)
+    dba = providers.Container(DBAContainer, db=data.db)
