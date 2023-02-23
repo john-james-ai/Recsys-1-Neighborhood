@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 21st 2023 10:26:40 pm                                              #
-# Modified   : Wednesday February 22nd 2023 03:23:51 pm                                            #
+# Modified   : Wednesday February 22nd 2023 04:02:36 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -164,6 +164,7 @@ class TestDB:  # pragma: no cover
         # ---------------------------------------------------------------------------------------- #
         dao = container.data.dao()
         df = dao.read_all()
+        logger.debug(df)
         assert isinstance(df, pd.DataFrame)
         assert df.shape[0] == 5
         assert df.shape[1] == 18

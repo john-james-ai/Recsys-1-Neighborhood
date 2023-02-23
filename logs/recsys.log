@@ -989,3 +989,91 @@ Started TestDB test_delete at 03:23:57 PM on 02/22/2023
 	Completed TestDB test_delete in 1.3 seconds at 03:23:58 PM on 02/22/2023
 [02/22/2023 03:23:58 PM] [INFO] [tests.test_data.test_db] [test_db] [test_delete] : 
 ----------------------------------------------------------------------------------------------------
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_setup] : 
+
+Started TestDB test_setup at 04:02:46 PM on 02/22/2023
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_setup] : 
+====================================================================================================
+[02/22/2023 04:02:46 PM] [INFO] [recsys.dal.dba.DBA] [dba] [drop] : Dropped the dataset table.
+[02/22/2023 04:02:46 PM] [INFO] [recsys.dal.dba.DBA] [dba] [create] : Created the dataset table.
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_setup] : 
+	Completed TestDB test_setup in 0.1 seconds at 04:02:46 PM on 02/22/2023
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_create] : 
+
+Started TestDB test_create at 04:02:46 PM on 02/22/2023
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_create] : 
+====================================================================================================
+[02/22/2023 04:02:46 PM] [DEBUG] [recsys.dal.dao.DAO] [dao] [create] : DAO inserted dataset.1 - dto_1 into database at 139772332268016.
+[02/22/2023 04:02:46 PM] [DEBUG] [recsys.dal.dao.DAO] [dao] [create] : DAO inserted dataset.2 - dto_2 into database at 139772332268016.
+[02/22/2023 04:02:46 PM] [DEBUG] [recsys.dal.dao.DAO] [dao] [create] : DAO inserted dataset.3 - dto_3 into database at 139772332268016.
+[02/22/2023 04:02:46 PM] [DEBUG] [recsys.dal.dao.DAO] [dao] [create] : DAO inserted dataset.4 - dto_4 into database at 139772332268016.
+[02/22/2023 04:02:46 PM] [DEBUG] [recsys.dal.dao.DAO] [dao] [create] : DAO inserted dataset.5 - dto_5 into database at 139772332268016.
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_create] : 
+Completed TestDB test_create in 0.1 seconds at 04:02:46 PM on 02/22/2023
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_create] : 
+----------------------------------------------------------------------------------------------------
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read] : 
+
+Started TestDB test_read at 04:02:46 PM on 02/22/2023
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read] : 
+====================================================================================================
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read] : 
+	Completed TestDB test_read in 0.0 seconds at 04:02:46 PM on 02/22/2023
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read] : 
+----------------------------------------------------------------------------------------------------
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read_all] : 
+
+Started TestDB test_read_all at 04:02:46 PM on 02/22/2023
+[02/22/2023 04:02:46 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read_all] : 
+====================================================================================================
+[02/22/2023 04:02:46 PM] [DEBUG] [tests.test_data.test_db] [test_db] [test_read_all] :    id   name           type  ... density            filepath              created
+0   1  dto_1  test_dto_type  ...    15.0  some_test_filepath  2023-02-22 21:02:46
+1   2  dto_2  test_dto_type  ...    15.0  some_test_filepath  2023-02-22 21:02:46
+2   3  dto_3  test_dto_type  ...    15.0  some_test_filepath  2023-02-22 21:02:46
+3   4  dto_4  test_dto_type  ...    15.0  some_test_filepath  2023-02-22 21:02:46
+4   5  dto_5  test_dto_type  ...    15.0  some_test_filepath  2023-02-22 21:02:46
+
+[5 rows x 18 columns]
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read_all] : 
+	Completed TestDB test_read_all in 0.2 seconds at 04:02:47 PM on 02/22/2023
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_read_all] : 
+----------------------------------------------------------------------------------------------------
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_update] : 
+
+Started TestDB test_update at 04:02:47 PM on 02/22/2023
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_update] : 
+====================================================================================================
+[02/22/2023 04:02:47 PM] [DEBUG] [tests.test_data.test_db] [test_db] [test_update] : DatasetDTO(id=1, name='dto_1', type='test_dto_type', description='dto_description_1', workspace='dev', filepath='some_test_filepath', stage='stage_10', rows=56, cols=89, n_users=1000, n_items=2000, size=8773, matrix_size=55, memory_mb=46.0, cost=264, sparsity=85.0, density=15.0, created='2023-02-22 21:02:46')
+[02/22/2023 04:02:47 PM] [DEBUG] [tests.test_data.test_db] [test_db] [test_update] : DatasetDTO(id=2, name='dto_2', type='test_dto_type', description='dto_description_2', workspace='dev', filepath='some_test_filepath', stage='stage_20', rows=57, cols=90, n_users=2000, n_items=4000, size=8774, matrix_size=110, memory_mb=92.0, cost=528, sparsity=85.0, density=15.0, created='2023-02-22 21:02:46')
+[02/22/2023 04:02:47 PM] [DEBUG] [tests.test_data.test_db] [test_db] [test_update] : DatasetDTO(id=3, name='dto_3', type='test_dto_type', description='dto_description_3', workspace='dev', filepath='some_test_filepath', stage='stage_30', rows=58, cols=91, n_users=3000, n_items=6000, size=8775, matrix_size=165, memory_mb=138.0, cost=792, sparsity=85.0, density=15.0, created='2023-02-22 21:02:46')
+[02/22/2023 04:02:47 PM] [DEBUG] [tests.test_data.test_db] [test_db] [test_update] : DatasetDTO(id=4, name='dto_4', type='test_dto_type', description='dto_description_4', workspace='dev', filepath='some_test_filepath', stage='stage_40', rows=59, cols=92, n_users=4000, n_items=8000, size=8776, matrix_size=220, memory_mb=184.0, cost=1056, sparsity=85.0, density=15.0, created='2023-02-22 21:02:46')
+[02/22/2023 04:02:47 PM] [DEBUG] [tests.test_data.test_db] [test_db] [test_update] : DatasetDTO(id=5, name='dto_5', type='test_dto_type', description='dto_description_5', workspace='dev', filepath='some_test_filepath', stage='stage_50', rows=60, cols=93, n_users=5000, n_items=10000, size=8777, matrix_size=275, memory_mb=230.0, cost=1320, sparsity=85.0, density=15.0, created='2023-02-22 21:02:46')
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_update] : 
+	Completed TestDB test_update in 0.1 seconds at 04:02:47 PM on 02/22/2023
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_update] : 
+----------------------------------------------------------------------------------------------------
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_exists] : 
+
+Started TestDB test_exists at 04:02:47 PM on 02/22/2023
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_exists] : 
+====================================================================================================
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_exists] : 
+	Completed TestDB test_exists in 0.0 seconds at 04:02:47 PM on 02/22/2023
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_delete] : 
+
+Started TestDB test_delete at 04:02:47 PM on 02/22/2023
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_delete] : 
+====================================================================================================
+[02/22/2023 04:02:47 PM] [ERROR] [recsys.dal.dao.DAO] [dao] [delete] : DAO  was unable to delete dataset.1. Not found in the database.
+[02/22/2023 04:02:47 PM] [ERROR] [recsys.dal.dao.DAO] [dao] [delete] : DAO  was unable to delete dataset.2. Not found in the database.
+[02/22/2023 04:02:47 PM] [ERROR] [recsys.dal.dao.DAO] [dao] [delete] : DAO  was unable to delete dataset.3. Not found in the database.
+[02/22/2023 04:02:47 PM] [ERROR] [recsys.dal.dao.DAO] [dao] [delete] : DAO  was unable to delete dataset.4. Not found in the database.
+[02/22/2023 04:02:47 PM] [ERROR] [recsys.dal.dao.DAO] [dao] [delete] : DAO  was unable to delete dataset.5. Not found in the database.
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_delete] : 
+	Completed TestDB test_delete in 0.1 seconds at 04:02:47 PM on 02/22/2023
+[02/22/2023 04:02:47 PM] [INFO] [tests.test_data.test_db] [test_db] [test_delete] : 
+----------------------------------------------------------------------------------------------------

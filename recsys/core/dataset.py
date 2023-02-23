@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/data/dataset.py                                                             #
+# Filename   : /recsys/core/dataset.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 18th 2023 07:10:48 pm                                             #
-# Modified   : Wednesday February 22nd 2023 01:25:45 pm                                            #
+# Modified   : Wednesday February 22nd 2023 06:21:06 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,7 +19,7 @@
 import numpy as np
 import pandas as pd
 
-from recsys.data.base import Data
+from recsys.core.base import Data
 from recsys.dal.dto import DatasetDTO
 
 

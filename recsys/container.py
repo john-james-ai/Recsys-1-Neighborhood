@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:10:21 am                                                #
-# Modified   : Wednesday February 22nd 2023 02:26:24 pm                                            #
+# Modified   : Wednesday February 22nd 2023 08:09:10 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -39,7 +39,7 @@ class LoggingContainer(containers.DeclarativeContainer):
 
 
 # ------------------------------------------------------------------------------------------------ #
-class DataContainer(containers.DeclarativeContainer):
+class DatabaseContainer(containers.DeclarativeContainer):
 
     config = providers.Configuration()
 
@@ -48,12 +48,6 @@ class DataContainer(containers.DeclarativeContainer):
     db = providers.Singleton(SQLite, config=config.sqlite)
 
     dao = providers.Resource(DAO, adapter=DatasetAdapter, database=db)
-
-
-# ------------------------------------------------------------------------------------------------ #
-class DBAContainer(containers.DeclarativeContainer):
-
-    db = providers.Configuration()
 
     dataset = providers.Resource(DBA, adapter=DatasetAdapter, database=db)
 
@@ -65,6 +59,4 @@ class Recsys(containers.DeclarativeContainer):
 
     logging = providers.Container(LoggingContainer, config=config)
 
-    data = providers.Container(DataContainer, config=config.database)
-
-    dba = providers.Container(DBAContainer, db=data.db)
+    db = providers.Container(DatabaseContainer, config=config.database)
