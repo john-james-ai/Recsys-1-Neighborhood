@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# ================================================================================================ #
+# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Version    : 0.1.0                                                                               #
+# Python     : 3.10.6                                                                              #
+# Filename   : /config/datasource.yml                                                              #
+# ------------------------------------------------------------------------------------------------ #
+# Author     : John James                                                                          #
+# Email      : john.james.ai.studio@gmail.com                                                      #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# ------------------------------------------------------------------------------------------------ #
+# Created    : Monday February 20th 2023 07:09:58 am                                               #
+# Modified   : Thursday February 23rd 2023 12:26:23 am                                             #
+# ------------------------------------------------------------------------------------------------ #
+# License    : MIT License                                                                         #
+# Copyright  : (c) 2023 John James                                                                 #
+# ================================================================================================ #
+#                                 RECSYS DATA SOURCE CONFIG                                        #
+# ================================================================================================ #
+#                                     MOVIELENS 25M                                                #
+# ------------------------------------------------------------------------------------------------ #
+
+  name: movielens25m
+  title: MovieLens 25M Dataset
+  description: This dataset (ml-25m) describes 5-star rating and free-text tagging activity from MovieLens, a movie recommendation service. It contains 25000095 ratings and 1093360 tag applications across 62423 movies. These data were created by 162541 users between January 09, 1995 and November 21, 2019. This dataset was generated on November 21, 2019.
+  author: Jesse Vig, Shilad Sen, and John Riedl
+  publisher: GroupLens Research
+  version: N/A
+  generated: November 21, 2019.
+  website: https://grouplens.org/datasets/movielens/25m/
+  uri: https://files.grouplens.org/datasets/movielens/ml-25m.zip
+  doi: https://doi.org/10.1145/2827872
+  email: grouplens-info@umn.edu
+
+---
+
+# ================================================================================================ #
+#                              SPOTIFY MILLION PLAYLIST DATASOURCE                                 #
+# ================================================================================================ #
+
+name: spotify_million
+title:  Spotify Million Playlist Benchmark Dataset
+description:  The Spotify Million Playlist Dataset Challenge consists of a dataset and evaluation to enable research in music recommendations. It is a continuation of the RecSys Challenge 2018, which ran from January to July 2018. The dataset contains 1,000,000 playlists, including playlist titles and track titles, created by users on the Spotify platform between January 2010 and October 2017.
+author:
+  - Cedric De Boom
+  - Paul Lamere
+  - Ching-Wei Chen
+  - Ben Carterette
+  - Christophe Charbuillet
+  - Jean Garcia-Gathright
+  - James Kirk
+  - James McInerney
+  - Vidhya Murali
+  - Hugh Rawlinson
+  - Sravana Reddy
+  - Marc Romejin
+  - Romain Yon
+  -  Yu Zhao
+publisher: Recsys 2018 Challenge
+version: 2018
+released: September, 2020
+weebsite: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge
+uri1: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge/dataset_files?unique_download_uri=204765&challenge_id=277
+uri2: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge/dataset_files?unique_download_uri=204766&challenge_id=277
+doi: https://doi.org/10.1145/3240323.3240342
+
+---
+
+# ================================================================================================ #
+#                              TENREC BENCHMARK DATASET                                            #
+# ================================================================================================ #
+name: tenrec
+title: Tenrec - A Large-scale Multipurpose Benchmark Dataset for Recommender Systems
+description: Tenrec is a large-scale multipurpose benchmark dataset for recommender systems where data was collected from two feeds (articles and videos) recommendation platforms.
+author: Guanghu Yuan, Fajie Yuan, Yudong Li, Beibei Kong, Shujie Li, Lei Chen, Min Yang, Chenyun YU, Bo Hu, Zang Li, Yu Xu, Xiaohu Qie
+publisher: Cornell University
+version: v2
+released: Thu, 20 Oct 2022
+website: https://github.com/yuangh-x/2022-NIPS-Tenrec
+uri: https://static.qblv.qq.com/qblv/h5/algo-frontend/tenrec_dataset.html
+doi: https://doi.org/10.48550/arXiv.2210.10629
+

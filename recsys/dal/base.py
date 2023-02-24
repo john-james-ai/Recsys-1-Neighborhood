@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 03:41:26 am                                            #
-# Modified   : Wednesday February 22nd 2023 01:05:39 pm                                            #
+# Modified   : Wednesday February 22nd 2023 10:58:15 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -34,7 +34,7 @@ class DTO(ABC):
     name: str = None
     type: str = None
     description: str = None
-    workspace: str = None
+    lab: str = None
     filepath: str = None
 
 

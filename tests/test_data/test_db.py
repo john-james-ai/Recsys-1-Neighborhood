@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 21st 2023 10:26:40 pm                                              #
-# Modified   : Wednesday February 22nd 2023 04:02:36 pm                                            #
+# Modified   : Wednesday February 22nd 2023 10:58:15 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -120,7 +120,7 @@ class TestDB:  # pragma: no cover
             assert dto.name == "dto_" + str(i)
             assert dto.type == "test_dto_type"
             assert dto.description == "dto_description_" + str(i)
-            assert dto.workspace == "dev"
+            assert dto.lab == "dev"
             assert dto.filepath == "some_test_filepath"
             assert dto.stage == "stage_" + str(i * 10)
             assert dto.rows == i * 22

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:13:15 am                                                #
-# Modified   : Wednesday February 22nd 2023 09:31:43 pm                                            #
+# Modified   : Wednesday February 22nd 2023 10:58:14 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -45,17 +45,17 @@ logging:
   disable_existing_loggers: False
 
 database:
-  sqlite: workspaces/recsys.db
+  sqlite: labs/recsys.db
 
-workspaces:
+labs:
   main:
-    path: workspaces/main
+    path: labs/main
     sample: 1
   lesarcs:
-    path: workspaces/lesarcs
+    path: labs/lesarcs
     sample: 0.3
   vesuvio:
-    path: workspaces/vesuvio
+    path: labs/vesuvio
     sample: 0.1
 
 stages:

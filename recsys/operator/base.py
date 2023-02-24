@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 18th 2023 09:41:57 pm                                             #
-# Modified   : Wednesday February 22nd 2023 06:17:38 pm                                            #
+# Modified   : Thursday February 23rd 2023 01:47:26 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -34,5 +34,5 @@ class Operator(ABC):
         """Performs the operation."""
 
     @abstractmethod
-    def _skip(self) -> bool:
+    def skipif(self) -> bool:
         """Returns True if force is False and task endpoint already exists."""

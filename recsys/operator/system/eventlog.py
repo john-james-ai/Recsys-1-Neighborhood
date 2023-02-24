@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/system/profile.py                                                           #
+# Filename   : /recsys/operator/system/eventlog.py                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 18th 2023 09:53:01 pm                                             #
-# Modified   : Wednesday February 22nd 2023 08:10:39 pm                                            #
+# Modified   : Thursday February 23rd 2023 03:44:25 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -34,7 +34,7 @@ from recsys.container import Recsys
 
 
 @inject
-def profile1(con=Provide[Recsys.db.db]):
+def eventlog(con=Provide[Recsys.db.db]):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(self, *args, **kwargs):
@@ -70,6 +70,7 @@ def profile1(con=Provide[Recsys.db.db]):
                 start_pct_disk_used = psutil.disk_usage("/").percent
                 start_read_count = psutil.disk_io_counters().read_count
                 start_write_count = psutil.disk_io_counters().write_count
+
                 result = func(self, *args, **kwargs)
 
                 end_time = datetime.now()
@@ -149,7 +150,7 @@ def profile1(con=Provide[Recsys.db.db]):
 # ------------------------------------------------------------------------------------------------ #
 
 
-def profile2(name):
+def profiler(name):
     def inner(func):
         def wrapper(*args, **kwargs):
             prof = cProfile.Profile()

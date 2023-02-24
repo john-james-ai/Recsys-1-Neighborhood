@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/neighborhood/metric.py                                                      #
+# Filename   : /recsys/data/metric.py                                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 4th 2023 05:26:17 am                                              #
-# Modified   : Monday February 20th 2023 09:59:42 pm                                               #
+# Modified   : Wednesday February 22nd 2023 11:05:39 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,8 +22,8 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 
-from recsys.neighborhood.base import Metric
-from recsys.neighborhood.matrix import SimilarityMatrix
+from recsys.data.base import Metric
+from recsys.data.matrix import SimilarityMatrix
 from recsys.dal.rating import RatingsDataset
 
 

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:25:30 am                                            #
-# Modified   : Wednesday February 22nd 2023 03:11:56 pm                                            #
+# Modified   : Wednesday February 22nd 2023 10:58:15 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -34,7 +34,7 @@ from recsys.adapter.base import Adapter
 @dataclass
 class CreateDatasetTable(SQL):
     name: str = "dataset"
-    sql: str = """CREATE TABLE IF NOT EXISTS dataset (id INTEGER PRIMARY KEY, name TEXT NOT NULL, type TEXT NOT NULL, description TEXT , workspace TEXT NOT NULL, stage TEXT NOT NULL, rows INTEGER NOT NULL, cols INTEGER NOT NULL, n_users INTEGER NOT NULL, n_items INTEGER NOT NULL, size INTEGER NOT NULL, matrix_size INTEGER NOT NULL, memory_mb REAL NOT NULL, cost INTEGER NOT NULL, sparsity REAL NOT NULL, density REAL NOT NULL, filepath TEXT NOT NULL, created TEXT DEFAULT CURRENT_TIMESTAMP);"""
+    sql: str = """CREATE TABLE IF NOT EXISTS dataset (id INTEGER PRIMARY KEY, name TEXT NOT NULL, type TEXT NOT NULL, description TEXT , lab TEXT NOT NULL, stage TEXT NOT NULL, rows INTEGER NOT NULL, cols INTEGER NOT NULL, n_users INTEGER NOT NULL, n_items INTEGER NOT NULL, size INTEGER NOT NULL, matrix_size INTEGER NOT NULL, memory_mb REAL NOT NULL, cost INTEGER NOT NULL, sparsity REAL NOT NULL, density REAL NOT NULL, filepath TEXT NOT NULL, created TEXT DEFAULT CURRENT_TIMESTAMP);"""
     args: tuple = ()
     description: str = "Created the dataset table."
 
@@ -75,7 +75,7 @@ class InsertDataset(SQL):
                     name,
                     type,
                     description,
-                    workspace,
+                    lab,
                     stage,
                     rows,
                     cols,
@@ -96,7 +96,7 @@ class InsertDataset(SQL):
             self.dto.name,
             self.dto.type,
             self.dto.description,
-            self.dto.workspace,
+            self.dto.lab,
             self.dto.stage,
             self.dto.rows,
             self.dto.cols,
@@ -122,7 +122,7 @@ class UpdateDataset(SQL):
     sql: str = """UPDATE dataset SET name = ?,
                     type = ?,
                     description = ?,
-                    workspace = ?,
+                    lab = ?,
                     stage = ?,
                     rows = ?,
                     cols = ?,
@@ -143,7 +143,7 @@ class UpdateDataset(SQL):
             self.dto.name,
             self.dto.type,
             self.dto.description,
-            self.dto.workspace,
+            self.dto.lab,
             self.dto.stage,
             self.dto.rows,
             self.dto.cols,
@@ -221,7 +221,7 @@ class Respond:
             name=self.row[1],
             type=self.row[2],
             description=self.row[3],
-            workspace=self.row[4],
+            lab=self.row[4],
             stage=self.row[5],
             rows=self.row[6],
             cols=self.row[7],

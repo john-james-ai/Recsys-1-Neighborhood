@@ -11,20 +11,22 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 18th 2023 07:10:48 pm                                             #
-# Modified   : Wednesday February 22nd 2023 06:21:06 pm                                            #
+# Modified   : Wednesday February 22nd 2023 11:34:02 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-import numpy as np
+import os
+from dotenv import load_dotenv
 import pandas as pd
+import numpy as np
 
-from recsys.core.base import Data
+from recsys.core.base import Entity
 from recsys.dal.dto import DatasetDTO
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Dataset(Data):
+class Dataset(Entity):
     """Dataset containing movielens ratings data"""
 
     def __init__(
@@ -40,6 +42,22 @@ class Dataset(Data):
         self._summarize()
 
     @property
+    def id(self) -> str:
+        return self._id
+
+    @id.setter
+    def id(self, id: int) -> int:
+        self._id = id
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def description(self) -> str:
+        return self._description
+
+    @property
     def users(self) -> np.array:
         """Returns array of unique users"""
         return np.sort(self._data["userId"].unique())
@@ -48,6 +66,71 @@ class Dataset(Data):
     def items(self) -> np.array:
         """Returns array of unique items"""
         return np.sort(self._data["movieId"].unique())
+
+    @property
+    def rows(self) -> int:
+        """Return the numbrr of rows."""
+        return self._rows
+
+    @property
+    def cols(self) -> int:
+        """Return the numbrr of columns."""
+        return self._cols
+
+    @property
+    def n_users(self) -> int:
+        """Return the number of users."""
+        return self._n_used
+
+    @property
+    def n_items(self) -> int:
+        """Return the numbrr of movies."""
+        return self._n_items
+
+    @property
+    def size(self) -> int:
+        """Return the numbrr of elements in the DataFrame."""
+        return self._size
+
+    @property
+    def matrix_size(self) -> int:
+        """The product of unique elements along each axis."""
+        return self._matrix_size
+
+    @property
+    def sparsity(self) -> int:
+        """Computed on main dataset"""
+        return self._sparsity
+
+    @property
+    def density(self) -> int:
+        """The inverse of sparsity."""
+        return self._density
+
+    @property
+    def memory_mb(self) -> int:
+        """Memory usage"""
+        return self._memory_mb
+
+    @property
+    def cost(self) -> str:
+        "The number of seconds to create the document."
+        return self._cost
+
+    @cost.setter
+    def cost(self, cost: str) -> None:
+        """Cost to produce the artifact."""
+        self._cost = cost
+
+    @property
+    def filepath(self) -> str:
+        """Location where the file is persisted."""
+        return self._filepath
+
+    @filepath.setter
+    def filepath(self, filepath: str) -> None:
+        """It will be set soon."""
+        self._filepath = filepath
 
     def get_user_ratings(self, userId: int) -> pd.DataFrame:
         """Returns ratings created by user.
@@ -90,7 +173,7 @@ class Dataset(Data):
             name=self._name,
             type=self._type,
             description=self._description,
-            workspace=self._workspace,
+            lab=self._lab,
             stage=self._stage,
             rows=self._rows,
             cols=self._cols,
@@ -104,6 +187,11 @@ class Dataset(Data):
             density=self._density,
             filepath=self._filepath,
         )
+
+    def _get_lab(self) -> str:
+        """Reads the current lab from the environment variable."""
+        load_dotenv()
+        return os.getenv("WORKSPACE", "dev")
 
     def _summarize(self) -> None:
         """Sets a data profile including basic summary statistics"""
@@ -124,7 +212,7 @@ class Dataset(Data):
             d["name"] = self._name
             d["type"] = self._type
             d["description"] = self._description
-            d["workspace"] = self._workspace
+            d["lab"] = self._lab
             d["stage"] = self._stage
             d["rows"] = self._rows
             d["cols"] = self._cols

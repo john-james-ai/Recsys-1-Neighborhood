@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/neighborhood/offline.py                                                     #
+# Filename   : /recsys/data/offline.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 3rd 2023 10:23:59 pm                                                #
-# Modified   : Monday February 20th 2023 09:59:31 pm                                               #
+# Modified   : Wednesday February 22nd 2023 11:05:36 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,7 +22,7 @@ from itertools import combinations
 from multiprocessing import Pool
 
 from recsys.dal.rating import RatingsDataset
-from recsys.neighborhood.matrix import SimilarityMatrix, UserSimilarityMatrix
+from recsys.data.matrix import SimilarityMatrix, UserSimilarityMatrix
 
 FILEPATH = "data/dev/ratings_0.5_pct.pkl"
 
