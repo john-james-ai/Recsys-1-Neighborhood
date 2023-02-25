@@ -11,29 +11,29 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Friday February 24th 2023 09:30:12 pm                                               #
+# Modified   : Saturday February 25th 2023 09:13:00 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from recsys.container import Recsys
+from recsys.container import Recsys  # pragma: no cover
 
 
 # ------------------------------------------------------------------------------------------------ #
-def wireup():
+def wireup():  # pragma: no cover
     container = Recsys()
 
     container.init_resources()
 
     container.wire(
-        modules=[__name__, "recsys.operator.base"],
+        modules=[__name__, "recsys.operator.base", "recsys.workflow.cache"],
     )
 
 
-def main():
+def main():  # pragma: no cover
     wireup()
 
 
 # ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()

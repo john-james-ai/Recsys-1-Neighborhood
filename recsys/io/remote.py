@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Friday February 24th 2023 11:33:11 pm                                               #
+# Modified   : Saturday February 25th 2023 04:55:12 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,6 +23,7 @@ from tqdm import tqdm
 from zipfile import ZipFile
 
 from recsys.operator.base import Operator
+from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -43,6 +44,7 @@ class ZipDownloader(Operator):
         super().__init__(source=source, destination=destination, force=force)
         self._chunk_size = chunk_size
 
+    @event_log
     def run(self, *args, **kwargs) -> None:
         """Downloads a zipfile."""
 

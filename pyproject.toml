@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "recsys-deep-learning-udemy"
+name = "recsys"
 version = "0.0.1"
 description = "Recommender Systems and Deep Learning in Python"
 authors = [
@@ -8,9 +8,9 @@ authors = [
 license = "MIT"
 readme = "README.md"
 
-documentation = "https://john-james-ai.github.io/recsys-deep-learning-udemy"
-homepage = "https://john-james-ai.github.io/recsys-deep-learning-udemy"
-repository = "https://github.com/john-james-ai/recsys-deep-learning-udemy"
+documentation = "https://john-james-ai.github.io/Recsys-1-Neighborhood"
+homepage = "https://john-james-ai.github.io/Recsys-1-Neighborhood"
+repository = "https://github.com/john-james-ai/Recsys-1-Neighborhood"
 
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -26,7 +26,7 @@ classifiers = [
 ]
 
 packages = [
-    { include = "recsys_deep_learning_udemy", from = "src" }
+    { include = "recsys"}
 ]
 
 [tool.poetry.dependencies]
@@ -62,7 +62,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.isort]
 profile = "black"
-src_paths = ["src", "tests"]
+src_paths = ["recsys", "tests"]
 
 [tool.black]
 target-version = ["py37", "py38", "py39"]
@@ -72,7 +72,7 @@ include = '\.pyi?$'
 log_cli = true
 log_cli_level = "DEBUG"
 addopts = """\
-    --cov recsys_deep_learning_udemy \
+    --cov recsys \
     --cov tests \
     --cov-report term-missing \
     --no-cov-on-fail \

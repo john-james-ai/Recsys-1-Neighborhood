@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday February 20th 2023 09:57:03 pm                                               #
-# Modified   : Friday February 24th 2023 10:22:53 pm                                               #
+# Modified   : Saturday February 25th 2023 02:51:30 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -62,7 +62,7 @@ class IO(ABC):  # pragma: no cover
 # ------------------------------------------------------------------------------------------------ #
 
 
-class ExcelIO(IO):
+class ExcelIO(IO):  # pragma: no cover
     @classmethod
     def _read(
         cls,
@@ -110,7 +110,7 @@ class ExcelIO(IO):
 # ------------------------------------------------------------------------------------------------ #
 
 
-class CSVIO(IO):
+class CSVIO(IO):  # pragma: no cover
     @classmethod
     def _read(
         cls,
@@ -151,7 +151,7 @@ class CSVIO(IO):
 # ------------------------------------------------------------------------------------------------ #
 
 
-class YamlIO(IO):
+class YamlIO(IO):  # pragma: no cover
     @classmethod
     def _read(cls, filepath: str, **kwargs) -> dict:
 
@@ -181,7 +181,7 @@ class YamlIO(IO):
 # ------------------------------------------------------------------------------------------------ #
 
 
-class PickleIO(IO):
+class PickleIO(IO):  # pragma: no cover
     @classmethod
     def _read(cls, filepath: str, **kwargs) -> Any:
 
@@ -213,7 +213,7 @@ class PickleIO(IO):
 # ------------------------------------------------------------------------------------------------ #
 
 
-class SparseMatrixIO(IO):
+class SparseMatrixIO(IO):  # pragma: no cover
     @classmethod
     def _read(cls, filepath: str, **kwargs) -> Any:
         try:
@@ -230,7 +230,7 @@ class SparseMatrixIO(IO):
 # ------------------------------------------------------------------------------------------------ #
 #                                       IO SERVICE                                                 #
 # ------------------------------------------------------------------------------------------------ #
-class IOService:
+class IOService:  # pragma: no cover
 
     __io = {
         "csv": CSVIO,

@@ -8,8 +8,8 @@
       "author_email": "john.james.ai.studio@gmail.com",
       "github_username": "john-james-ai",
       "project_name": "Recommender Systems and Deep Learning in Python",
-      "project_slug": "recsys-deep-learning-udemy",
-      "package_name": "recsys_deep_learning_udemy",
+      "project_slug": "recsys",
+      "package_name": "recsys",
       "project_short_description": "Recommender Systems and Deep Learning in Python",
       "_template": "https://github.com/woltapp/wolt-python-package-cookiecutter"
     }

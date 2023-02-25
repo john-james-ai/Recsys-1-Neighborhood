@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 09:20:09 pm                                               #
-# Modified   : Friday February 24th 2023 11:12:11 pm                                               #
+# Modified   : Saturday February 25th 2023 04:55:31 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,7 +19,10 @@
 """Train/Test Split Module"""
 import os
 
+import pandas as pd
+
 from recsys.operator.base import Operator
+from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -56,20 +59,23 @@ class TemporalTrainTestSplit(Operator):
         self._train_size = train_size
         self._timestamp_var = timestamp_var
 
-    def run(self) -> None:
+    @event_log
+    def run(self, data: pd.DataFrame = None) -> None:
         """Performs the train test split."""
-        data = self._fio.read()
-        try:
+        data = self._fio.read(self._source)
+
+        if self._timestamp_var in data.columns:
+
             data_sorted = data.sort_values(by=[self._timestamp_var], ascending=True)
-        except KeyError:
+            train_size = int(self._train_size * data.shape[0])
+
+            train = data_sorted[0:train_size]
+            test = data_sorted[train_size:]
+
+            self._fio.write(filepath=self._train_filepath, data=train)
+            self._fio.write(filepath=self._test_filepath, data=test)
+
+        else:
             msg = f"Column {self._timestamp_var} was not found."
             self._logger.error(msg)
             raise ValueError(msg)
-
-        train_size = int(self._train_size * len(data_sorted))
-
-        train = data_sorted[0:train_size]
-        test = data_sorted[train_size:]
-
-        self._fio.write(filepath=self._train_filepath, data=train)
-        self._fio.write(filepath=self._test_filepath, data=test)

@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_operators/test_file.py                                                  #
+# Filename   : /tests/test_operators/test_transformer.py                                           #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Friday February 24th 2023 10:11:22 pm                                               #
-# Modified   : Saturday February 25th 2023 08:26:20 am                                             #
+# Created    : Saturday February 25th 2023 03:12:23 am                                             #
+# Modified   : Saturday February 25th 2023 09:31:16 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,8 +22,10 @@ from datetime import datetime
 import pytest
 import logging
 import shutil
+import numpy as np
 
-from recsys.io.remote import ZipDownloader, ZipExtractor, CopyFile
+from recsys.data_prep.rating import RatingCenterer
+from recsys.io.service import IOService
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -33,13 +35,13 @@ single_line = f"\n{100 * '-'}"
 
 
 @pytest.mark.operator
-@pytest.mark.file
-class TestFileOperators:  # pragma: no cover
+@pytest.mark.transformer
+@pytest.mark.centerer
+class TestRatingCenterer:  # pragma: no cover
 
-    RESULTS = "tests/results/operators/file/"
+    DESTINATION = "tests/results/operators/transformer/ratings.pkl"
 
     # ============================================================================================ #
-    # @pytest.mark.skip(reason="Works and takes too long to download")
     def test_setup(self, caplog):
         start = datetime.now()
         logger.info(
@@ -52,7 +54,7 @@ class TestFileOperators:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        shutil.rmtree(TestFileOperators.RESULTS, ignore_errors=True)
+        shutil.rmtree(os.path.dirname(TestRatingCenterer.DESTINATION), ignore_errors=True)
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -69,8 +71,7 @@ class TestFileOperators:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    # @pytest.mark.skip(reason="Works and takes too long to download")
-    def test_download(self, files, caplog):
+    def test_center(self, files, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -82,20 +83,28 @@ class TestFileOperators:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        SOURCE = files.zipfile_url
-        DESTINATION = "tests/results/operators/file/zipdownloader/ml-25m.zip"
-        dl = ZipDownloader(source=SOURCE, destination=DESTINATION)
-        dl.execute()
-        assert os.path.exists(DESTINATION)
-        assert dl.status == "success"
-        assert isinstance(dl.started, datetime)
-        assert isinstance(dl.ended, datetime)
-        assert isinstance(dl.duration, float)
-        dl.execute()
-        assert dl.status == "skipped"
-        assert isinstance(dl.started, datetime)
-        assert isinstance(dl.ended, datetime)
-        assert isinstance(dl.duration, float)
+        c = RatingCenterer(source=files.ratings_pkl, destination=TestRatingCenterer.DESTINATION)
+        c.execute()
+        assert os.path.exists(TestRatingCenterer.DESTINATION)
+
+        ratings = IOService.read(TestRatingCenterer.DESTINATION)
+        assert "rating_cbu" in ratings.columns
+        assert "rating_cbi" in ratings.columns
+
+        USERID = 48653
+        ITEMID = 8633
+        ITEM_CENTERED_RATINGS = [0, -0.5, 0, 0.5]
+        USER_CENTERED_RATINGS = [0.1, -0.4, 0.1, 0.1, 0.1]
+
+        ratings_cbu = ratings[ratings["userId"] == USERID]["rating_cbu"].values
+        ratings_cbi = ratings[ratings["movieId"] == ITEMID]["rating_cbi"].values
+
+        logger.debug(f"\nRatings centered by item: \n{ratings_cbi}")
+        logger.debug(f"\nRatings centered by user: \n{ratings_cbu}")
+
+        assert np.isclose(ratings_cbi, ITEM_CENTERED_RATINGS).all()
+        assert np.isclose(ratings_cbu, USER_CENTERED_RATINGS).all()
+
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -112,7 +121,7 @@ class TestFileOperators:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_extract(self, files, caplog):
+    def test_errors(self, files, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -124,64 +133,33 @@ class TestFileOperators:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        SOURCE = files.zipfile_download
-        DESTINATION = "tests/results/operators/file/zipextract/"
-        shutil.rmtree(DESTINATION, ignore_errors=True)
-        ext = ZipExtractor(source=SOURCE, destination=DESTINATION)
-        ext.execute()
-        assert len(os.listdir(DESTINATION)) > 0
-        assert ext.status == "success"
-        assert isinstance(ext.started, datetime)
-        assert isinstance(ext.ended, datetime)
-        assert isinstance(ext.duration, float)
-        ext.execute()
-        assert ext.status == "skipped"
-        assert isinstance(ext.started, datetime)
-        assert isinstance(ext.ended, datetime)
-        assert isinstance(ext.duration, float)
-        # ---------------------------------------------------------------------------------------- #
-        end = datetime.now()
-        duration = round((end - start).total_seconds(), 1)
-
-        logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                duration,
-                end.strftime("%I:%M:%S %p"),
-                end.strftime("%m/%d/%Y"),
-            )
+        c = RatingCenterer(
+            source=files.ratings_pkl,
+            destination=TestRatingCenterer.DESTINATION,
+            uservar="incorrect",
+            force=True,
         )
-        logger.info(single_line)
+        with pytest.raises(ValueError):
+            c.execute()
 
-    # ============================================================================================ #
-    def test_copy(self, files, caplog):
-        start = datetime.now()
-        logger.info(
-            "\n\nStarted {} {} at {} on {}".format(
-                self.__class__.__name__,
-                inspect.stack()[0][3],
-                start.strftime("%I:%M:%S %p"),
-                start.strftime("%m/%d/%Y"),
-            )
+        c = RatingCenterer(
+            source=files.ratings_pkl,
+            destination=TestRatingCenterer.DESTINATION,
+            itemvar="incorrect",
+            force=True,
         )
-        logger.info(double_line)
-        # ---------------------------------------------------------------------------------------- #
-        SOURCE = files.ratings_csv
-        DESTINATION = "tests/results/operators/file/copy/ratings.pkl"
-        shutil.rmtree(os.path.dirname(DESTINATION), ignore_errors=True)
-        cp = CopyFile(source=SOURCE, destination=DESTINATION)
-        cp.execute()
-        assert os.path.exists(DESTINATION)
-        assert cp.status == "success"
-        assert isinstance(cp.started, datetime)
-        assert isinstance(cp.ended, datetime)
-        assert isinstance(cp.duration, float)
-        cp.execute()
-        assert cp.status == "skipped"
-        assert isinstance(cp.started, datetime)
-        assert isinstance(cp.ended, datetime)
-        assert isinstance(cp.duration, float)
+        with pytest.raises(ValueError):
+            c.execute()
+
+        c = RatingCenterer(
+            source=files.ratings_pkl,
+            destination=TestRatingCenterer.DESTINATION,
+            rating_var="incorrect",
+            force=True,
+        )
+        with pytest.raises(ValueError):
+            c.execute()
+
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)

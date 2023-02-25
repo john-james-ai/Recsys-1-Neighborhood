@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/base.py                                                            #
+# Filename   : /recsys/workflow/operator.py                                                        #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday February 18th 2023 09:41:57 pm                                             #
-# Modified   : Friday February 24th 2023 11:35:43 pm                                               #
+# Created    : Saturday February 25th 2023 05:43:46 am                                             #
+# Modified   : Saturday February 25th 2023 09:27:14 am                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,46 +24,31 @@ from datetime import datetime
 
 from dependency_injector.wiring import Provide, inject
 
-from recsys.persistence.fio import IOService
 from recsys.container import Recsys
-from recsys.workflow.event import event_log
+from recsys.io.service import IOService
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Operator(ABC):
-    """Base class for all operators"""
+    """Abstract base class for classes that perform a descrete operation as part of a larger workflow"""
 
     @inject
-    def __init__(
-        self,
-        source: str,
-        destination: str,
-        force: bool = False,
-        fio: IOService = Provide[Recsys.services.fio],
-    ) -> None:
-        self._source = source
-        self._destination = destination
-        self._force = force
+    def __init__(self, *args, **kwargs) -> None:
         self._started = None
         self._ended = None
         self._duration = None
-        self._fio = fio
         self._status = "created"
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
 
+    @abstractmethod
+    def __repr__(self) -> str:
+        """String representation of the object."""
+
     @property
     def status(self) -> str:
         return self._status
-
-    @property
-    def source(self) -> str:
-        return self._source
-
-    @property
-    def destination(self) -> str:
-        return self._destination
 
     @property
     def started(self) -> datetime:
@@ -86,20 +71,44 @@ class Operator(ABC):
         self._duration = (self._ended - self._started).total_seconds()
         self._status = "success" if self._status == "started" else self._status
 
-    @event_log
-    def execute(self, data: Any = None) -> Union[Any, None]:
-        """Performs the operation."""
-        self._setup()
-        if self._skip():
-            pass
-        else:
-            data = self.run(data)
-        self._teardown()
-        return data
+    @abstractmethod
+    def execute(self, *args, **kwargs) -> Union[Any, None]:
+        """Executes the operation"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class FileOperator(Operator):
+    """Base class for operators that manipulate files."""
+
+    @inject
+    def __init__(
+        self,
+        source: str,
+        destination: str,
+        force: bool = False,
+        fio: IOService = Provide[Recsys.services.fio],
+    ) -> None:
+        super().__init__()
+        self._source = source
+        self._destination = destination
+        self._force = force
+        self._fio = fio
 
     @abstractmethod
-    def run(self, data: Any = None) -> Union[Any, None]:
-        """Performs the operation"""
+    def __repr__(self) -> str:
+        """String representation of the object."""
+
+    @property
+    def source(self) -> str:
+        return self._source
+
+    @property
+    def destination(self) -> str:
+        return self._destination
+
+    @abstractmethod
+    def execute(self, *args, **kwargs) -> Union[Any, None]:
+        """Performs the operation."""
 
     def _skip(self) -> bool:
         """Used to evaluate whether the operation should be skipped."""
@@ -123,3 +132,19 @@ class Operator(ABC):
             return True
         else:
             return False
+
+
+# ------------------------------------------------------------------------------------------------ #
+class DataOperator(Operator):
+    """Base class for operators that manipulate data."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__()
+
+    @abstractmethod
+    def __repr__(self) -> str:
+        """String representation of the object."""
+
+    @abstractmethod
+    def execute(self, data: Any) -> Any:
+        """Performs the operation on data and returns the data"""
