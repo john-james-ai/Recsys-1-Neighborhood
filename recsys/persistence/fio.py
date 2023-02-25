@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/data/fio.py                                                                 #
+# Filename   : /recsys/persistence/fio.py                                                          #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday February 20th 2023 09:57:03 pm                                               #
-# Modified   : Monday February 20th 2023 09:57:32 pm                                               #
+# Modified   : Friday February 24th 2023 10:22:53 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -254,6 +254,7 @@ class IOService:
     @classmethod
     def write(cls, filepath: str, data: Any, **kwargs) -> None:
         io = cls._get_io(filepath)
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
         io.write(filepath=filepath, data=data, **kwargs)
 
     @classmethod

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:10:21 am                                                #
-# Modified   : Wednesday February 22nd 2023 08:09:10 pm                                            #
+# Modified   : Friday February 24th 2023 09:05:58 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,15 +20,11 @@ import logging.config  # pragma: no cover
 
 from dependency_injector import containers, providers
 
-from recsys.dal.dao import DAO
-from recsys.dal.dba import DBA
 from recsys.persistence.fio import IOService
-from recsys.adapter.dataset import DatasetAdapter
-from recsys.persistence.rdbms import SQLite
 
 
 # ------------------------------------------------------------------------------------------------ #
-class LoggingContainer(containers.DeclarativeContainer):
+class ServicesContainer(containers.DeclarativeContainer):
 
     config = providers.Configuration()
 
@@ -37,19 +33,7 @@ class LoggingContainer(containers.DeclarativeContainer):
         config=config.logging,
     )
 
-
-# ------------------------------------------------------------------------------------------------ #
-class DatabaseContainer(containers.DeclarativeContainer):
-
-    config = providers.Configuration()
-
     fio = providers.Singleton(IOService)
-
-    db = providers.Singleton(SQLite, config=config.sqlite)
-
-    dao = providers.Resource(DAO, adapter=DatasetAdapter, database=db)
-
-    dataset = providers.Resource(DBA, adapter=DatasetAdapter, database=db)
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -57,6 +41,4 @@ class Recsys(containers.DeclarativeContainer):
 
     config = providers.Configuration(yaml_files=["config.yml"])
 
-    logging = providers.Container(LoggingContainer, config=config)
-
-    db = providers.Container(DatabaseContainer, config=config.database)
+    services = providers.Container(ServicesContainer, config=config)

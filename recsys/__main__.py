@@ -11,15 +11,14 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Thursday February 23rd 2023 12:07:19 am                                             #
+# Modified   : Friday February 24th 2023 09:30:12 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 from recsys.container import Recsys
 
-# ------------------------------------------------------------------------------------------------ #
-def load_sources()
+
 # ------------------------------------------------------------------------------------------------ #
 def wireup():
     container = Recsys()
@@ -27,9 +26,7 @@ def wireup():
     container.init_resources()
 
     container.wire(
-        modules=[
-            __name__,
-        ]
+        modules=[__name__, "recsys.operator.base"],
     )
 
 

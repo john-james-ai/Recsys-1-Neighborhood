@@ -9,6 +9,7 @@ __pycache__/
 # Data
 /data
 tests/data
+tests/results
 
 # Logs
 /logs
