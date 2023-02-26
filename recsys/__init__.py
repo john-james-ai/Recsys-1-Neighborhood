@@ -11,12 +11,14 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 12:18:02 am                                                #
-# Modified   : Saturday February 25th 2023 07:26:22 am                                             #
+# Modified   : Sunday February 26th 2023 12:27:39 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from recsys.workflow.operator import Operator
+from abc import ABC
+
+from recsys.workflow import operator
 from types import SimpleNamespace
 
 # ------------------------------------------------------------------------------------------------ #
@@ -34,3 +36,18 @@ SCHEMA = SimpleNamespace(**SCHEMA)
 
 CACHE_CONFIG = {"expires": "P1W"}
 CACHE_CONFIG = SimpleNamespace(**CACHE_CONFIG)
+
+
+# ------------------------------------------------------------------------------------------------ #
+class Asset(ABC):
+    def __init__(self, name: str, description: str, *args, **kwargs) -> None:
+        self._name = name
+        self._description = description
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def description(self) -> str:
+        return self._description

@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/file.py                                                            #
+# Filename   : /recsys/io/remote.py                                                                #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Saturday February 25th 2023 04:55:12 am                                             #
+# Modified   : Saturday February 25th 2023 08:40:01 pm                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,16 +20,14 @@
 import os
 import requests
 from tqdm import tqdm
-from zipfile import ZipFile
 
-from recsys.operator.base import Operator
-from recsys.workflow.event import event_log
+from recsys import operator
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                                   ZIP DOWNLOADER                                                 #
 # ------------------------------------------------------------------------------------------------ #
-class ZipDownloader(Operator):
+class ZipDownloader(operator.FileOperator):
     """Downloads a zip file from a website.
 
     Args:
@@ -44,7 +42,6 @@ class ZipDownloader(Operator):
         super().__init__(source=source, destination=destination, force=force)
         self._chunk_size = chunk_size
 
-    @event_log
     def run(self, *args, **kwargs) -> None:
         """Downloads a zipfile."""
 
@@ -61,46 +58,3 @@ class ZipDownloader(Operator):
             for data in resp.iter_content(chunk_size=self._chunk_size):
                 size = file.write(data)
                 bar.update(size)
-
-
-# ------------------------------------------------------------------------------------------------ #
-#                                   ZIP EXTRACTOR                                                  #
-# ------------------------------------------------------------------------------------------------ #
-class ZipExtractor(Operator):
-    """Extracts Zipfile contents.
-
-    Args:
-        source(str): Path to the zipfile
-        destination (str): The extract directory
-        force (bool): Whether to force execution.
-    """
-
-    def __init__(self, source: str, destination: str, force: bool = False) -> None:
-        super().__init__(source=source, destination=destination, force=force)
-
-    def run(self, *args, **kwargs) -> None:
-        """Extracts the contents"""
-
-        with ZipFile(self._source, mode="r") as archive:
-            archive.extractall(self._destination)
-
-
-# ------------------------------------------------------------------------------------------------ #
-#                                      COPY FILE                                                   #
-# ------------------------------------------------------------------------------------------------ #
-class CopyFile(Operator):
-    """Copies a file.
-
-    Args:
-        source (str): Source filepath
-        destination (str): Destination filepath
-        force (bool): Whether to force execution.
-    """
-
-    def __init__(self, source: str, destination: str, force: bool = False) -> None:
-        super().__init__(source=source, destination=destination, force=force)
-
-    def run(self, *args, **kwargs) -> None:
-        """Extracts the contents"""
-        data = self._fio.read(filepath=self._source)
-        self._fio.write(filepath=self._destination, data=data)

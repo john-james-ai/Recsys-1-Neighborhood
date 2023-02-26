@@ -4,36 +4,32 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/__main__.py                                                                 #
+# Filename   : /recsys/system/cache.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Sunday February 26th 2023 04:52:07 pm                                               #
+# Created    : Sunday February 26th 2023 06:22:39 am                                               #
+# Modified   : Sunday February 26th 2023 06:23:30 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from recsys.container import Recsys  # pragma: no cover
+from dataclasses import dataclass
+from datetime import datetime
+import isodate
+from typing import Any
 
 
 # ------------------------------------------------------------------------------------------------ #
-def wireup():  # pragma: no cover
-    container = Recsys()
+@dataclass
+class Cache:
+    key: str
+    duration: str
+    content: Any
+    expires: datetime = None
+    created: datetime = datetime.now()
 
-    container.init_resources()
-
-    container.wire(
-        modules=[__name__, "recsys.workflow.cache"],
-    )
-
-
-def main():  # pragma: no cover
-    wireup()
-
-
-# ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":  # pragma: no cover
-    main()
+    def __init__(self) -> None:
+        self.expires = self.created + isodate.parse_duration(self.duration)

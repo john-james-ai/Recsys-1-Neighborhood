@@ -11,65 +11,25 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 05:43:46 am                                             #
-# Modified   : Saturday February 25th 2023 09:27:14 am                                             #
+# Modified   : Sunday February 26th 2023 04:47:32 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from abc import ABC, abstractmethod
 import os
+from abc import ABC, abstractmethod
 import logging
 from typing import Any, Union
-from datetime import datetime
-
-from dependency_injector.wiring import Provide, inject
-
-from recsys.container import Recsys
-from recsys.io.service import IOService
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Operator(ABC):
     """Abstract base class for classes that perform a descrete operation as part of a larger workflow"""
 
-    @inject
     def __init__(self, *args, **kwargs) -> None:
-        self._started = None
-        self._ended = None
-        self._duration = None
-        self._status = "created"
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
-
-    @abstractmethod
-    def __repr__(self) -> str:
-        """String representation of the object."""
-
-    @property
-    def status(self) -> str:
-        return self._status
-
-    @property
-    def started(self) -> datetime:
-        return self._started
-
-    @property
-    def ended(self) -> datetime:
-        return self._ended
-
-    @property
-    def duration(self) -> int:
-        return self._duration
-
-    def _setup(self) -> None:
-        self._started = datetime.now()
-        self._status = "started"
-
-    def _teardown(self, status: str = "success") -> None:
-        self._ended = datetime.now()
-        self._duration = (self._ended - self._started).total_seconds()
-        self._status = "success" if self._status == "started" else self._status
 
     @abstractmethod
     def execute(self, *args, **kwargs) -> Union[Any, None]:
@@ -78,25 +38,18 @@ class Operator(ABC):
 
 # ------------------------------------------------------------------------------------------------ #
 class FileOperator(Operator):
-    """Base class for operators that manipulate files."""
+    """Base class for operators that manipulate files, i.e. download, compress."""
 
-    @inject
     def __init__(
         self,
         source: str,
         destination: str,
         force: bool = False,
-        fio: IOService = Provide[Recsys.services.fio],
     ) -> None:
         super().__init__()
         self._source = source
         self._destination = destination
         self._force = force
-        self._fio = fio
-
-    @abstractmethod
-    def __repr__(self) -> str:
-        """String representation of the object."""
 
     @property
     def source(self) -> str:
@@ -135,16 +88,72 @@ class FileOperator(Operator):
 
 
 # ------------------------------------------------------------------------------------------------ #
-class DataOperator(Operator):
-    """Base class for operators that manipulate data."""
+class SamplingOperator(Operator):
+    """Base class for operators that sample data."""
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__()
 
     @abstractmethod
-    def __repr__(self) -> str:
-        """String representation of the object."""
+    def execute(self, data: Any = None) -> Any:
+        """Performs the operation on data and returns the data"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class TransformationOperator(Operator):
+    """Base class for operators that transform data."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__()
 
     @abstractmethod
-    def execute(self, data: Any) -> Any:
+    def execute(self, data: Any = None) -> Any:
+        """Performs the operation on data and returns the data"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class PredictionOperator(Operator):
+    """Base class for operators that produce measures or predictions."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__()
+
+    @abstractmethod
+    def execute(self, data: Any = None) -> Any:
+        """Performs the operation on data and returns the data"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class ModelOperator(Operator):
+    """Base class for operators that transform data."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__()
+
+    @abstractmethod
+    def execute(self, data: Any = None) -> Any:
+        """Performs the operation on data and returns the data"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class ModelSelectionOperator(Operator):
+    """Base class for operators that prepare data for modeling according to a preset strategy."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__()
+
+    @abstractmethod
+    def execute(self, data: Any = None) -> Any:
+        """Performs the operation on data and returns the data"""
+
+
+# ------------------------------------------------------------------------------------------------ #
+class ModelEvaluationOperator(Operator):
+    """Base class for operators that transform data."""
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__()
+
+    @abstractmethod
+    def execute(self, data: Any = None) -> Any:
         """Performs the operation on data and returns the data"""

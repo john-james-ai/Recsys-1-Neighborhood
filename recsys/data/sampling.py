@@ -4,26 +4,26 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/sampling.py                                                        #
+# Filename   : /recsys/data/sampling.py                                                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:51:25 pm                                            #
-# Modified   : Saturday February 25th 2023 04:55:15 am                                             #
+# Modified   : Sunday February 26th 2023 12:10:39 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Sampling Operator Module"""
 
-from recsys.operator.base import Operator
+from recsys import operator
 from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
-class UserRandomSampling(Operator):
+class UserRandomSampling(operator.Operator):
     """Samples users at random until the target sample size is obtained.
 
     Args:

@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/transformer.py                                                     #
+# Filename   : /recsys/data/transformation.py                                                      #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:50:55 pm                                            #
-# Modified   : Saturday February 25th 2023 04:56:10 am                                             #
+# Modified   : Saturday February 25th 2023 09:19:56 pm                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,36 +19,28 @@
 """Transformer Module"""
 import pandas as pd
 
-from recsys.operator.base import Operator
+from recsys import operator
 from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
-class RatingCenterer(Operator):
+class MeanCenter(operator.TransformationOperator):
     """Centers ratings by average user and item rating
 
     Args:
-        source (str): The source filepath
-        destination (str): Destination filepath
-        uservar (str): The name of the column containing the user identifier.
-        itemvar (str): The name of the column containing the item identifier.
-        user_centered_rating_var (str): The name of the column containing the user centered rating
-        item_centered_rating_var (str): The name of the column containing the item centered rating
-        force (bool): Wether to force execution
+        by (str): The aggregate average rating by which the ratings will be centered. Valid
+            values are ['userId','movieId']. Default is 'userId'
+    Returns: DataFrame including the centered rating. The column name is automatically set
+        to rating_ctr_<by>.
     """
 
     def __init__(
         self,
-        source: str,
-        destination: str,
-        uservar: str = "userId",
-        itemvar: str = "movieId",
-        rating_var: str = "rating",
-        user_centered_rating_var: str = "rating_cbu",
-        item_centered_rating_var: str = "rating_cbi",
-        force: bool = False,
+        by: str = "userId",
     ) -> None:
-        super().__init__(source=source, destination=destination, force=force)
+        super().__init__()
+        self._by = by
+        self._column = "rating_ctr_" + by
         self._uservar = uservar
         self._itemvar = itemvar
         self._rating_var = rating_var

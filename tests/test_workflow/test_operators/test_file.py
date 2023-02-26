@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_operators/test_file.py                                                  #
+# Filename   : /tests/test_workflow/test_operators/test_file.py                                    #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 10:11:22 pm                                               #
-# Modified   : Saturday February 25th 2023 08:26:20 am                                             #
+# Modified   : Sunday February 26th 2023 12:09:12 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,7 +23,9 @@ import pytest
 import logging
 import shutil
 
-from recsys.io.remote import ZipDownloader, ZipExtractor, CopyFile
+from recsys.io.remote import ZipDownloader
+from recsys.io.local import ConvertFile
+from recsys.io.compress import ZipExtractor
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -155,7 +157,7 @@ class TestFileOperators:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_copy(self, files, caplog):
+    def test_convert(self, files, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -170,7 +172,7 @@ class TestFileOperators:  # pragma: no cover
         SOURCE = files.ratings_csv
         DESTINATION = "tests/results/operators/file/copy/ratings.pkl"
         shutil.rmtree(os.path.dirname(DESTINATION), ignore_errors=True)
-        cp = CopyFile(source=SOURCE, destination=DESTINATION)
+        cp = ConvertFile(source=SOURCE, destination=DESTINATION)
         cp.execute()
         assert os.path.exists(DESTINATION)
         assert cp.status == "success"

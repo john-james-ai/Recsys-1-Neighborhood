@@ -4,36 +4,15 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/__main__.py                                                                 #
+# Filename   : /recsys/persistence/__init__.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Sunday February 26th 2023 04:52:07 pm                                               #
+# Created    : Sunday January 29th 2023 12:18:07 am                                                #
+# Modified   : Wednesday February 22nd 2023 10:58:49 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from recsys.container import Recsys  # pragma: no cover
-
-
-# ------------------------------------------------------------------------------------------------ #
-def wireup():  # pragma: no cover
-    container = Recsys()
-
-    container.init_resources()
-
-    container.wire(
-        modules=[__name__, "recsys.workflow.cache"],
-    )
-
-
-def main():  # pragma: no cover
-    wireup()
-
-
-# ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":  # pragma: no cover
-    main()

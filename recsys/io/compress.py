@@ -11,24 +11,21 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Saturday February 25th 2023 08:25:35 am                                             #
+# Modified   : Saturday February 25th 2023 08:39:44 pm                                             #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Data Mover Module"""
-import os
-import requests
-from tqdm import tqdm
 from zipfile import ZipFile
 
-from recsys.operator.base import Operator
-from recsys.workflow.event import event_log
+from recsys import operator
+
 
 # ------------------------------------------------------------------------------------------------ #
 #                                   ZIP EXTRACTOR                                                  #
 # ------------------------------------------------------------------------------------------------ #
-class ZipExtractor(Operator):
+class ZipExtractor(operator.FileOperator):
     """Extracts Zipfile contents.
 
     Args:

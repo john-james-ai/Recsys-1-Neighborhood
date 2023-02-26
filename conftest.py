@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Saturday February 25th 2023 02:51:58 am                                             #
+# Modified   : Sunday February 26th 2023 05:01:49 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,6 +20,7 @@ import pytest
 from types import SimpleNamespace
 
 from recsys.container import Recsys
+from recsys.io.service import IOService
 
 # ------------------------------------------------------------------------------------------------ #
 #                                         FILEPATHS                                                #
@@ -48,9 +49,22 @@ def files():
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session", autouse=True)
+def config():
+    FILEPATH = "tests/data/test_workflow_config.yml"
+    return IOService.read(FILEPATH)
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session", autouse=True)
+def ratings():
+    return IOService.read(RATINGS_PKL)
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session", autouse=True)
 def container():
     container = Recsys()
     container.init_resources()
-    container.wire(modules=["recsys.container"], packages=["recsys.operator"])
+    container.wire(modules=["recsys.container", "tests.data.operators", "recsys.workflow.cache"])
 
     return container

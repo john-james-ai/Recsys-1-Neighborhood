@@ -10,72 +10,58 @@
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday February 25th 2023 07:11:13 am                                             #
-# Modified   : Saturday February 25th 2023 09:15:29 am                                             #
+# Created    : Saturday February 25th 2023 11:52:22 pm                                             #
+# Modified   : Sunday February 26th 2023 05:41:04 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Cache Module"""
-from datetime import datetime
-from dataclasses import dataclass
-from typing import Any
-import functools
+"""Cache and Decorator Module"""
+import sys
 import logging
 
-import isodate
+
 from dependency_injector.wiring import Provide, inject
 
 from recsys.container import Recsys
-from recsys.database.cache import CacheDB
-
-
-# ------------------------------------------------------------------------------------------------ #
-@dataclass
-class Cache:
-    key: str
-    duration: str
-    content: Any
-    expires: datetime = None
-    created: datetime = datetime.now()
-
-    def __init__(self) -> None:
-        self.expires = self.created + isodate.parse_duration(self.duration)
-
+from recsys.system.cache import Cache
 
 # ------------------------------------------------------------------------------------------------ #
-@inject
-def cache(cache_db: CacheDB = Provide[Recsys.db.cache]):
-    def decorator(func):
-        @functools.wraps(func)
-        def wrapper(self, *args, **kwargs):
 
-            module = func.__module__
-            classname = func.__qualname__
-            params = func.__repr__()
-            key = module + "_" + classname + "_" + params
 
-            logger = logging.getLogger(f"{module}.{classname}")
+def cache(func):
+    @inject
+    def wrapper(*args, cache_db=Provide[Recsys.cache], **kwargs):
 
-            if cache_db.exists(key):
-                logger.info(f"Operator {module}.{classname} retrieved data from cache.")
-                cache = cache_db.select(key)
-                return cache.content
+        module = func.__module__
+        classname = func.__qualname__
 
-            else:
-                try:
-                    result = func(self, *args, **kwargs)
+        logger = logging.getLogger(f"{module}.{classname}")
+        logger.debug(f"\nInside cache for operator {module}.{classname}.")
 
-                    cache = Cache(key=key, duration=cache_db.duration, content=result)
-                    cache_db.insert(cache)
+        args_repr = [repr(a) for a in args]
+        kwargs_repr = [f"{k}={v!r}" for k, v in kwargs.items()]
+        signature = ", ".join(args_repr + kwargs_repr)
 
-                    return result
-                except Exception as e:
-                    logger.exception(
-                        f"Exception raised in {module}.{classname}. Exception: {str(e)}"
-                    )
-                    raise e
+        logger.debug(f"The cache key: {signature}.")
 
-        return wrapper
+        if cache_db.exists(signature):
+            logger.info(f"Operator {module}.{classname} retrieved data from cache.")
+            cache = cache_db.select(signature)
+            return cache.content
+        else:
+            logger.debug("Prior results not found in cache.")
+            try:
+                result = func(*args, **kwargs)
 
-    return decorator
+                cache = Cache(key=signature, duration=cache_db.duration, content=result)
+                cache_db.insert(cache)
+
+                logger.debug(f"Wrote {sys.getsizeof(result)} bytes to cache.")
+
+                return result
+            except Exception as e:
+                logger.exception(f"Exception raised in {module}.{classname}. Exception: {str(e)}")
+                raise e
+
+    return wrapper

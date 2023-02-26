@@ -4,28 +4,25 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_operators/test_transformer.py                                           #
+# Filename   : /tests/test_container/test_devstudio.py                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday February 25th 2023 03:12:23 am                                             #
-# Modified   : Saturday February 25th 2023 09:31:16 am                                             #
+# Created    : Sunday February 26th 2023 12:17:58 pm                                               #
+# Modified   : Sunday February 26th 2023 05:22:57 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-import os
 import inspect
 from datetime import datetime
 import pytest
 import logging
-import shutil
-import numpy as np
 
-from recsys.data_prep.rating import RatingCenterer
-from recsys.io.service import IOService
+from recsys.persistence.repo import Repo
+from recsys.persistence.odb import ObjectDB, CacheDB
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -34,15 +31,10 @@ double_line = f"\n{100 * '='}"
 single_line = f"\n{100 * '-'}"
 
 
-@pytest.mark.operator
-@pytest.mark.transformer
-@pytest.mark.centerer
-class TestRatingCenterer:  # pragma: no cover
-
-    DESTINATION = "tests/results/operators/transformer/ratings.pkl"
-
+@pytest.mark.box
+class TestContainer:  # pragma: no cover
     # ============================================================================================ #
-    def test_setup(self, caplog):
+    def test_devstudio(self, container, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -54,7 +46,11 @@ class TestRatingCenterer:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        shutil.rmtree(os.path.dirname(TestRatingCenterer.DESTINATION), ignore_errors=True)
+        assert isinstance(container.devstudio.presidio(), Repo)
+        assert isinstance(container.devstudio.enrico(), Repo)
+        assert isinstance(container.devstudio.backflip(), Repo)
+        assert isinstance(container.cache(), CacheDB)
+
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -71,7 +67,7 @@ class TestRatingCenterer:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_center(self, files, caplog):
+    def test_presidio(self, container, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -83,28 +79,9 @@ class TestRatingCenterer:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        c = RatingCenterer(source=files.ratings_pkl, destination=TestRatingCenterer.DESTINATION)
-        c.execute()
-        assert os.path.exists(TestRatingCenterer.DESTINATION)
-
-        ratings = IOService.read(TestRatingCenterer.DESTINATION)
-        assert "rating_cbu" in ratings.columns
-        assert "rating_cbi" in ratings.columns
-
-        USERID = 48653
-        ITEMID = 8633
-        ITEM_CENTERED_RATINGS = [0, -0.5, 0, 0.5]
-        USER_CENTERED_RATINGS = [0.1, -0.4, 0.1, 0.1, 0.1]
-
-        ratings_cbu = ratings[ratings["userId"] == USERID]["rating_cbu"].values
-        ratings_cbi = ratings[ratings["movieId"] == ITEMID]["rating_cbi"].values
-
-        logger.debug(f"\nRatings centered by item: \n{ratings_cbi}")
-        logger.debug(f"\nRatings centered by user: \n{ratings_cbu}")
-
-        assert np.isclose(ratings_cbi, ITEM_CENTERED_RATINGS).all()
-        assert np.isclose(ratings_cbu, USER_CENTERED_RATINGS).all()
-
+        assert isinstance(container.presidio.db(), ObjectDB)
+        assert isinstance(container.presidio.cache(), CacheDB)
+        assert isinstance(container.presidio.repo(), Repo)
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -121,7 +98,7 @@ class TestRatingCenterer:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_errors(self, files, caplog):
+    def test_enrico(self, container, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -133,33 +110,40 @@ class TestRatingCenterer:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        c = RatingCenterer(
-            source=files.ratings_pkl,
-            destination=TestRatingCenterer.DESTINATION,
-            uservar="incorrect",
-            force=True,
-        )
-        with pytest.raises(ValueError):
-            c.execute()
+        assert isinstance(container.enrico.db(), ObjectDB)
+        assert isinstance(container.enrico.cache(), CacheDB)
+        assert isinstance(container.enrico.repo(), Repo)
+        # ---------------------------------------------------------------------------------------- #
+        end = datetime.now()
+        duration = round((end - start).total_seconds(), 1)
 
-        c = RatingCenterer(
-            source=files.ratings_pkl,
-            destination=TestRatingCenterer.DESTINATION,
-            itemvar="incorrect",
-            force=True,
+        logger.info(
+            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
+                self.__class__.__name__,
+                inspect.stack()[0][3],
+                duration,
+                end.strftime("%I:%M:%S %p"),
+                end.strftime("%m/%d/%Y"),
+            )
         )
-        with pytest.raises(ValueError):
-            c.execute()
+        logger.info(single_line)
 
-        c = RatingCenterer(
-            source=files.ratings_pkl,
-            destination=TestRatingCenterer.DESTINATION,
-            rating_var="incorrect",
-            force=True,
+    # ============================================================================================ #
+    def test_backflip(self, container, caplog):
+        start = datetime.now()
+        logger.info(
+            "\n\nStarted {} {} at {} on {}".format(
+                self.__class__.__name__,
+                inspect.stack()[0][3],
+                start.strftime("%I:%M:%S %p"),
+                start.strftime("%m/%d/%Y"),
+            )
         )
-        with pytest.raises(ValueError):
-            c.execute()
-
+        logger.info(double_line)
+        # ---------------------------------------------------------------------------------------- #
+        assert isinstance(container.backflip.db(), ObjectDB)
+        assert isinstance(container.backflip.cache(), CacheDB)
+        assert isinstance(container.backflip.repo(), Repo)
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)

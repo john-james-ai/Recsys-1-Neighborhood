@@ -4,36 +4,28 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/__main__.py                                                                 #
+# Filename   : /recsys/system/idgen.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Sunday February 26th 2023 04:52:07 pm                                               #
+# Created    : Sunday February 26th 2023 06:03:54 am                                               #
+# Modified   : Sunday February 26th 2023 06:23:46 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from recsys.container import Recsys  # pragma: no cover
-
-
-# ------------------------------------------------------------------------------------------------ #
-def wireup():  # pragma: no cover
-    container = Recsys()
-
-    container.init_resources()
-
-    container.wire(
-        modules=[__name__, "recsys.workflow.cache"],
-    )
-
-
-def main():  # pragma: no cover
-    wireup()
-
+"""Id Generator Module"""
 
 # ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":  # pragma: no cover
-    main()
+class IDGen:
+    def __init__(self, config: dict, db: Database) -> None:
+        self._config = config
+        self._min = config.get("min")
+        self._max = config.get("max")
+        self._length = config.get("length")
+        self._method = config.get("method")
+        self._db = config.get('persistence')
+
+    def get_id(self,)

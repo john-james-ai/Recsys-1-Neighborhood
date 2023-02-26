@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/persistence/fio.py                                                          #
+# Filename   : /recsys/io/service.py                                                               #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday February 20th 2023 09:57:03 pm                                               #
-# Modified   : Saturday February 25th 2023 02:51:30 am                                             #
+# Modified   : Sunday February 26th 2023 04:54:13 am                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,9 +21,10 @@ from abc import ABC, abstractmethod
 import os
 import logging
 import yaml
-import scipy.sparse
 import pickle
 import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
 from typing import Any, Union, List
 
 
@@ -209,22 +210,22 @@ class PickleIO(IO):  # pragma: no cover
 
 
 # ------------------------------------------------------------------------------------------------ #
-#                                      SPARSE MATRIX                                               #
+#                                         PARQUET                                                  #
 # ------------------------------------------------------------------------------------------------ #
 
 
-class SparseMatrixIO(IO):  # pragma: no cover
+class ParquetIO(IO):  # pragma: no cover
     @classmethod
     def _read(cls, filepath: str, **kwargs) -> Any:
-        try:
-            return scipy.sparse.load_npz(filepath)
-        except OSError as e:
-            cls._logger.error(e)
-            raise (e)
+        """Read the pyarrow table, then convert to pandas."""
+        table = pa.parquet.read_table(filepath, memory_map=True)
+        return table.to_pandas()
 
     @classmethod
-    def _write(cls, filepath: str, data: scipy.sparse, **kwargs) -> None:
-        scipy.sparse.save_npz(file=filepath, matrix=data)
+    def _write(cls, filepath: str, data: pd.DataFrame, **kwargs) -> None:
+        """Converts Pandas DataFrame to a pyarrow table, then persists."""
+        table = pa.Table.from_pandas(data)
+        pq.write_table(table, filepath)
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -240,7 +241,7 @@ class IOService:  # pragma: no cover
         "pickle": PickleIO,
         "xlsx": ExcelIO,
         "xls": ExcelIO,
-        "npz": SparseMatrixIO,
+        "parquet": ParquetIO,
     }
     _logger = logging.getLogger(
         f"{__module__}.{__name__}",
