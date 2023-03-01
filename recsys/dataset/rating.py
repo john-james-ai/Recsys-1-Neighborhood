@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday February 26th 2023 12:40:31 am                                               #
-# Modified   : Sunday February 26th 2023 05:30:17 am                                               #
+# Modified   : Wednesday March 1st 2023 12:03:47 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,7 +20,7 @@ import numpy as np
 import pandas as pd
 from typing import Union
 
-from recsys.dataset.base import Dataset
+from recsys.assets.dataset import Dataset
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -167,7 +167,7 @@ class RatingsDataset(Dataset):
             d = {}
             d["id"] = self._id
             d["name"] = self._name
-            d["type"] = self._type
+            d["type"] = self.__class__.__name__
             d["description"] = self._description
             d["workspace"] = self._workspace
             d["nrows"] = self._data.shape[0]

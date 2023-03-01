@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/data/transformation.py                                                      #
+# Filename   : /recsys/operator/data/center.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:50:55 pm                                            #
-# Modified   : Saturday February 25th 2023 09:19:56 pm                                             #
+# Modified   : Tuesday February 28th 2023 11:56:18 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,12 +19,12 @@
 """Transformer Module"""
 import pandas as pd
 
-from recsys import operator
+from recsys import Operator
 from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
-class MeanCenter(operator.TransformationOperator):
+class MeanCenter(Operator):
     """Centers ratings by average user and item rating
 
     Args:

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 01:34:13 am                                             #
-# Modified   : Tuesday February 28th 2023 04:07:11 pm                                              #
+# Modified   : Tuesday February 28th 2023 11:54:09 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,7 +24,7 @@ import pytest
 import logging
 import shutil
 
-from recsys.model.model_selection.split import TemporalTrainTestSplit
+from recsys.operator.model_selection.split import TemporalTrainTestSplit
 from recsys.persistence.io import IOService
 
 # ------------------------------------------------------------------------------------------------ #

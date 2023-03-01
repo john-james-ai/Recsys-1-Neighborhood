@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 09:50:07 pm                                             #
-# Modified   : Tuesday February 28th 2023 04:15:10 pm                                              #
+# Modified   : Tuesday February 28th 2023 11:47:11 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,13 +21,12 @@ from abc import ABC, abstractmethod
 import importlib
 import pandas as pd
 
-from recsys.workflow.event import Event
 from recsys.workflow.task import Task
 from recsys.operator.base import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Pipeline(Event):
+class Pipeline:
     """Tasks executed in sequence."""
 
     def __init__(self, name: str, description: str, *args, **kwargs) -> None:

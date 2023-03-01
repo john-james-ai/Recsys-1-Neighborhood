@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 06:29:22 pm                                             #
-# Modified   : Saturday February 25th 2023 11:12:57 pm                                             #
+# Modified   : Tuesday February 28th 2023 11:51:16 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,7 +19,7 @@
 from typing import Any
 
 from recsys.workflow.base import Event
-from recsys.workflow.operator import Operator
+from recsys import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #

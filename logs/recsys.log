@@ -1,29 +1,390 @@
-[02/28/2023 12:31:20 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+[03/01/2023 12:04:39 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
 
-Started TestContainer test_workspace at 12:31:20 PM on 02/28/2023
-[02/28/2023 12:31:20 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+Started TestContainer test_studio at 12:04:39 AM on 03/01/2023
+[03/01/2023 12:04:39 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
 ====================================================================================================
-[02/28/2023 12:37:56 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+[03/01/2023 12:05:20 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
 
-Started TestContainer test_workspace at 12:37:56 PM on 02/28/2023
-[02/28/2023 12:37:56 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+Started TestContainer test_studio at 12:05:20 AM on 03/01/2023
+[03/01/2023 12:05:20 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
 ====================================================================================================
-[02/28/2023 12:39:52 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
 
-Started TestContainer test_workspace at 12:39:52 PM on 02/28/2023
-[02/28/2023 12:39:52 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+Started TestContainer test_studio at 12:12:05 AM on 03/01/2023
+[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
 ====================================================================================================
-[02/28/2023 12:42:58 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
+Completed TestContainer test_studio in 0.1 seconds at 12:12:05 AM on 03/01/2023
+[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
 
-Started TestContainer test_workspace at 12:42:58 PM on 02/28/2023
-[02/28/2023 12:42:58 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+Started TestODB test_setup at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
 ====================================================================================================
-[02/28/2023 12:43:24 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.1 seconds at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
 
-Started TestContainer test_workspace at 12:43:24 PM on 02/28/2023
-[02/28/2023 12:43:24 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+Started TestODB test_connect at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
 ====================================================================================================
-[02/28/2023 12:43:24 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
-Completed TestContainer test_workspace in 0.1 seconds at 12:43:24 PM on 02/28/2023
-[02/28/2023 12:43:24 PM] [INFO] [tests.test_container.test_devstudio] [test_devstudio] [test_workspace] : 
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+
+Started TestODB test_insert at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+====================================================================================================
+[03/01/2023 12:20:56 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+	Completed TestODB test_insert in 0.0 seconds at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+
+Started TestODB test_select at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+====================================================================================================
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+
+Started TestODB test_selectall at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+====================================================================================================
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+
+Started TestODB test_update at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+====================================================================================================
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+
+Started TestODB test_delete at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+====================================================================================================
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+
+Started TestODB test_exists_clear at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+====================================================================================================
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+
+Started TestODB test_teardown at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+====================================================================================================
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+	Completed TestODB test_teardown in 0.0 seconds at 12:20:56 AM on 03/01/2023
+[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.1 seconds at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+
+Started TestODB test_connect at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+====================================================================================================
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+Completed TestODB test_connect in 0.0 seconds at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+
+Started TestODB test_insert at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+====================================================================================================
+[03/01/2023 12:21:41 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+	Completed TestODB test_insert in 0.0 seconds at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+
+Started TestODB test_select at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+====================================================================================================
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+
+Started TestODB test_selectall at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+====================================================================================================
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+
+Started TestODB test_update at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+====================================================================================================
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+
+Started TestODB test_delete at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+====================================================================================================
+[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+
+Started TestODB test_exists_clear at 12:21:41 AM on 03/01/2023
+[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+====================================================================================================
+[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+
+Started TestODB test_teardown at 12:21:42 AM on 03/01/2023
+[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+====================================================================================================
+[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+	Completed TestODB test_teardown in 0.0 seconds at 12:21:42 AM on 03/01/2023
+[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.1 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+
+Started TestODB test_connect at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+Completed TestODB test_connect in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+
+Started TestODB test_insert at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+	Completed TestODB test_insert in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+
+Started TestODB test_select at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key Not_exist not found in database.
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+	Completed TestODB test_select in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+
+Started TestODB test_selectall at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+
+Started TestODB test_update at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+
+Started TestODB test_delete at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key ratings not found in database.
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+	Completed TestODB test_delete in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+
+Started TestODB test_exists_clear at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+	Completed TestODB test_exists_clear in 0.1 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+
+Started TestODB test_teardown at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+====================================================================================================
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+	Completed TestODB test_teardown in 0.0 seconds at 12:22:39 AM on 03/01/2023
+[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.1 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+
+Started TestODB test_connect at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+Completed TestODB test_connect in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+
+Started TestODB test_insert at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+	Completed TestODB test_insert in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+
+Started TestODB test_select at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key Not_exist not found in database.
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+	Completed TestODB test_select in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+
+Started TestODB test_selectall at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+	Completed TestODB test_selectall in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+
+Started TestODB test_update at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [update] : Object with key nothinghere not found in database.
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+	Completed TestODB test_update in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+
+Started TestODB test_delete at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key ratings not found in database.
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+	Completed TestODB test_delete in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+
+Started TestODB test_exists_clear at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+
+Started TestODB test_setup at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+	Completed TestODB test_exists_clear in 0.1 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
+----------------------------------------------------------------------------------------------------
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+
+Started TestODB test_teardown at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+====================================================================================================
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+	Completed TestODB test_teardown in 0.0 seconds at 12:23:40 AM on 03/01/2023
+[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
 ----------------------------------------------------------------------------------------------------

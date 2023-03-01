@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Tuesday February 28th 2023 05:56:48 pm                                              #
+# Modified   : Wednesday March 1st 2023 12:02:55 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,8 +22,8 @@ from types import SimpleNamespace
 from recsys.container import Recsys
 from recsys.persistence.io import IOService
 from recsys.dataset.rating import RatingsDataset
-from recsys.persistence.odb import ObjectDB, CacheDB  # noqa F401
-from recsys.persistence.cache import CacheObject
+from recsys.persistence.odb import ObjectDB
+
 
 # ------------------------------------------------------------------------------------------------ #
 #                                         FILEPATHS                                                #
@@ -91,26 +91,9 @@ def odb():
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session", autouse=True)
-def cache():
-    return CacheDB(filepath=TEST_CACHE)
-
-
-# ------------------------------------------------------------------------------------------------ #
-@pytest.fixture(scope="session", autouse=True)
-def cache_objects(ratings):
-    objects = []
-    timedeltas = [-7, 0, 7]
-    for i, delta in enumerate(timedeltas):
-        obj = CacheObject(key=str(i), ttl=delta, content=ratings)
-        objects.append(obj)
-    return objects
-
-
-# ------------------------------------------------------------------------------------------------ #
-@pytest.fixture(scope="session", autouse=True)
 def container():
     container = Recsys()
     container.init_resources()
-    container.wire(modules=["recsys.container", "recsys.persistence.cache"])
+    container.wire(modules=["recsys.container"])
 
     return container

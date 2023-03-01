@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/model/model_selection/split.py                                              #
+# Filename   : /recsys/operator/model_selection/split.py                                           #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 09:20:09 pm                                               #
-# Modified   : Sunday February 26th 2023 12:11:22 am                                               #
+# Modified   : Wednesday March 1st 2023 12:01:56 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,14 +21,14 @@ import os
 
 import pandas as pd
 
-from recsys import operator
+from recsys import Operator
 from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                                TEMPORAL TRAIN/TEST SPLIT                                         #
 # ------------------------------------------------------------------------------------------------ #
-class TemporalTrainTestSplit(operator.ModelEvaluationOperator):
+class TemporalTrainTestSplit(Operator):
     """Temporal train test split uses timestamp to split along a temporal dimension
 
     Args:

@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_workflow/test_operators/test_transformer.py                             #
+# Filename   : /tests/test_workflow/test_operators/test_center.py                                  #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 03:12:23 am                                             #
-# Modified   : Tuesday February 28th 2023 04:06:55 pm                                              #
+# Modified   : Tuesday February 28th 2023 11:55:30 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,7 +24,7 @@ import logging
 import shutil
 import numpy as np
 
-from recsys.data.transformation import MeanCenter
+from recsys.operator.data.center import MeanCenter
 from recsys.persistence.io import IOService
 
 # ------------------------------------------------------------------------------------------------ #
@@ -71,7 +71,7 @@ class TestRatingCenterer:  # pragma: no cover
         logger.info(single_line)
 
     # ============================================================================================ #
-    def test_center(self, ratings, caplog):
+    def test_center(self, ratings, files, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -133,7 +133,7 @@ class TestRatingCenterer:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        c = RatingCenterer(
+        c = MeanCenter(
             source=files.ratings_pkl,
             destination=TestRatingCenterer.DESTINATION,
             uservar="incorrect",
@@ -142,7 +142,7 @@ class TestRatingCenterer:  # pragma: no cover
         with pytest.raises(ValueError):
             c.execute()
 
-        c = RatingCenterer(
+        c = MeanCenter(
             source=files.ratings_pkl,
             destination=TestRatingCenterer.DESTINATION,
             itemvar="incorrect",
@@ -151,7 +151,7 @@ class TestRatingCenterer:  # pragma: no cover
         with pytest.raises(ValueError):
             c.execute()
 
-        c = RatingCenterer(
+        c = MeanCenter(
             source=files.ratings_pkl,
             destination=TestRatingCenterer.DESTINATION,
             rating_var="incorrect",

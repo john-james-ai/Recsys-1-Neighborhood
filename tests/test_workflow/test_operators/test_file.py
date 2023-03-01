@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 10:11:22 pm                                               #
-# Modified   : Sunday February 26th 2023 12:09:12 am                                               #
+# Modified   : Tuesday February 28th 2023 11:53:41 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,9 +23,9 @@ import pytest
 import logging
 import shutil
 
-from recsys.io.remote import ZipDownloader
-from recsys.io.local import ConvertFile
-from recsys.io.compress import ZipExtractor
+from recsys.operator.io.remote import ZipDownloader
+from recsys.operator.io.local import ConvertFile
+from recsys.operator.io.compress import ZipExtractor
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)

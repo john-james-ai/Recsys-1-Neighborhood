@@ -4,41 +4,15 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/io/compress.py                                                     #
+# Filename   : /recsys/persistence/__init__.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Tuesday February 28th 2023 11:48:52 pm                                              #
+# Created    : Sunday January 29th 2023 12:18:07 am                                                #
+# Modified   : Wednesday February 22nd 2023 10:58:49 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Data Mover Module"""
-from zipfile import ZipFile
-
-from recsys import Operator
-
-
-# ------------------------------------------------------------------------------------------------ #
-#                                   ZIP EXTRACTOR                                                  #
-# ------------------------------------------------------------------------------------------------ #
-class ZipExtractor(Operator):
-    """Extracts Zipfile contents.
-
-    Args:
-        source(str): Path to the zipfile
-        destination (str): The extract directory
-        force (bool): Whether to force execution.
-    """
-
-    def __init__(self, source: str, destination: str, force: bool = False) -> None:
-        super().__init__(source=source, destination=destination, force=force)
-
-    def run(self, *args, **kwargs) -> None:
-        """Extracts the contents"""
-
-        with ZipFile(self._source, mode="r") as archive:
-            archive.extractall(self._destination)

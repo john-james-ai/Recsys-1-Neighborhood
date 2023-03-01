@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 03:40:09 pm                                              #
-# Modified   : Tuesday February 28th 2023 04:08:16 pm                                              #
+# Modified   : Wednesday March 1st 2023 12:04:19 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -105,7 +105,7 @@ class Dataset(Asset):  # pragma: no cover
             d = {}
             d["id"] = self._id
             d["name"] = self._name
-            d["type"] = self._type
+            d["type"] = self.__class__.__name__
             d["description"] = self._description
             d["workspace"] = self._workspace
             d["nrows"] = self._data.shape[0]

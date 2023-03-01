@@ -11,24 +11,22 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 05:57:39 am                                             #
-# Modified   : Tuesday February 28th 2023 04:06:49 pm                                              #
+# Modified   : Wednesday March 1st 2023 12:01:23 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Local IO Module"""
 from typing import Any
-from dependency_injector.wiring import Provide, inject
 
-from recsys import operator
-from recsys.container import Recsys
+from recsys import Operator
 from recsys.persistence.io import IOService
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                                      FILE READER                                                 #
 # ------------------------------------------------------------------------------------------------ #
-class FileReader(operator.FileOperator):
+class FileReader(Operator):
     """Reads data from a file.
 
     Currently supports csv, yaml, excel, and pickle file formats. The format is inferred from
@@ -38,8 +36,7 @@ class FileReader(operator.FileOperator):
         filepath (str): Path of file to read.
     """
 
-    @inject
-    def __init__(self, filepath: str, fio: IOService = Provide[Recsys.services.fio]) -> None:
+    def __init__(self, filepath: str, fio: IOService = IOService) -> None:
         self._filepath = filepath
         self._fio = fio
 
@@ -50,7 +47,7 @@ class FileReader(operator.FileOperator):
 # ------------------------------------------------------------------------------------------------ #
 #                                      FILE WRITER                                                 #
 # ------------------------------------------------------------------------------------------------ #
-class FileWriter(operator.FileOperator):
+class FileWriter(Operator):
     """Writes data to a file.
 
     Currently supports csv, yaml, excel, and pickle file formats. The format is inferred from
@@ -60,8 +57,7 @@ class FileWriter(operator.FileOperator):
         filepath (str): Path of file to read.
     """
 
-    @inject
-    def __init__(self, filepath: str, fio: IOService = Provide[Recsys.services.fio]) -> None:
+    def __init__(self, filepath: str, fio: IOService = IOService) -> None:
 
         self._filepath = filepath
         self._fio = fio
@@ -73,7 +69,7 @@ class FileWriter(operator.FileOperator):
 # ------------------------------------------------------------------------------------------------ #
 #                                     CONVERT FILE                                                 #
 # ------------------------------------------------------------------------------------------------ #
-class ConvertFile(operator.FileOperator):
+class ConvertFile(Operator):
     """Converts a file between the supported formats.
 
     The source and destination file formats are inferred from the filepath extensions.
@@ -84,8 +80,13 @@ class ConvertFile(operator.FileOperator):
         force (bool): Whether to force execution.
     """
 
-    def __init__(self, source: str, destination: str, force: bool = False) -> None:
-        super().__init__(source=source, destination=destination, force=force)
+    def __init__(
+        self, source: str, destination: str, fio: IOService = IOService, force: bool = False
+    ) -> None:
+        self._source = source
+        self._destination = destination
+        self._fio = fio
+        self._force = force
 
     def run(self, *args, **kwargs) -> None:
         """Converts the file"""

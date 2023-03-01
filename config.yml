@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:13:15 am                                                #
-# Modified   : Tuesday February 28th 2023 01:45:01 pm                                              #
+# Modified   : Wednesday March 1st 2023 12:11:42 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -44,48 +44,6 @@ logging:
     handlers: ["console", "file"]
   disable_existing_loggers: False
 
-
-workspace: ${WORKSPACE}
-workspaces:
-  presidio:
-    name: presidio
-    description: Production Workspace
-    data:
-      dataset: devstudio/presidio/dataset.db
-      experiment: devstudio/presidio/experiment.db
-      model: devstudio/presidio/model.db
-      datasize: 1.0
-    cache:
-      location: devstudio/presidio/cache.db
-      ttl: 7
-      max_size: 512
-      enabled: True
-  enrico:
-    name: enrico
-    description: Development Workspace
-    data:
-      dataset: devstudio/enrico/dataset.db
-      experiment: devstudio/enrico/experiment.db
-      model: devstudio/enrico/model.db
-      datasize: 0.2
-    cache:
-      location: devstudio/enrico/cache.db
-      ttl: 7
-      max_size: 512
-      enabled: True
-  backflip:
-    name: backflip
-    description: Rapid Development Workspace
-    data:
-      dataset: devstudio/backflip/dataset.db
-      experiment: devstudio/backflip/experiment.db
-      model: devstudio/backflip/model.db
-      datasize: .05
-    cache:
-      location: devstudio/backflip/cache.db
-      ttl: 7
-      max_size: 512
-      enabled: True
-
-idgen:
-  database: devstudio/idgen.db
+studio:
+  name: devstudio
+  database: devstudio/studio.db

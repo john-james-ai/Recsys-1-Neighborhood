@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 08:13:00 am                                             #
-# Modified   : Tuesday February 28th 2023 05:11:58 pm                                              #
+# Modified   : Wednesday March 1st 2023 12:22:57 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,9 +20,11 @@
 import os
 import shelve
 from typing import Any
-from datetime import datetime
 
 from recsys.persistence.database import Database
+from recsys.exceptions.database import ObjectExistsError
+from recsys.exceptions.database import ObjectNotFoundError
+from recsys.exceptions.database import ObjectDBEmpty
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -42,6 +44,10 @@ class ObjectDB(Database):
     def filepath(self) -> str:
         return self._filepath
 
+    @property
+    def is_connected(self) -> bool:
+        return self._is_connected
+
     def __enter__(self):
         self.connect()
         return self
@@ -53,9 +59,6 @@ class ObjectDB(Database):
             self._logger.error(f"\nExecution Type: {exc_type}")
             self._logger.error(f"\nExecution Value: {exc_value}")
             self._logger.error(f"\nTraceback: {traceback}")
-
-    def is_connected(self) -> bool:
-        return self._is_connected
 
     def connect(self) -> None:
         """Connects to the database."""
@@ -76,7 +79,7 @@ class ObjectDB(Database):
         else:
             msg = f"Object with key {key} already exists in the database."
             self._logger.error(msg)
-            raise Database.ObjectExistsError(msg)
+            raise ObjectExistsError(msg)
 
     def select(self, key: str) -> Any:
         """Retrieves data from the database"""
@@ -88,16 +91,16 @@ class ObjectDB(Database):
         except KeyError:
             msg = f"Object with key {key} not found in database."
             self._logger.error(msg)
-            raise Database.ObjectNotFoundError(msg)
+            raise ObjectNotFoundError(msg)
 
-    def selectall(self, key: str) -> Any:
+    def selectall(self) -> Any:
         """Retrieves all data from the database"""
         objects = {}
         self._check_connection()
         keys = self._connection.keys()
         if len(keys) == 0:
             msg = f"Database at {self._filename} is empty."
-            raise Database.ObjectDBEmpty(msg)
+            raise ObjectDBEmpty(msg)
         for key in keys:
             objects[key] = self._connection[key]
         return objects
@@ -110,7 +113,7 @@ class ObjectDB(Database):
         else:
             msg = f"Object with key {key} not found in database."
             self._logger.error(msg)
-            raise Database.ObjectNotFoundError(msg)
+            raise ObjectNotFoundError(msg)
 
     def delete(self, key: str) -> None:
         """Deletes existing data."""
@@ -120,7 +123,7 @@ class ObjectDB(Database):
         else:
             msg = f"Object with key {key} doesn't exist in the database."
             self._logger.error(msg)
-            raise Database.ObjectNotFoundError(msg)
+            raise ObjectNotFoundError(msg)
 
     def exists(self, key: str) -> bool:
         """Checks existence of an item in the database."""
@@ -135,18 +138,3 @@ class ObjectDB(Database):
     def _check_connection(self) -> None:
         if not self._is_connected:
             self.connect()
-
-
-# ------------------------------------------------------------------------------------------------ #
-class CacheDB(ObjectDB):
-    """Cache database"""
-
-    def __init__(self, filepath: str) -> None:
-        super().__init__(filepath=filepath)
-
-    def clean(self) -> None:
-        """Removes expired cache."""
-        self._check_connection()
-        for key, cache in self._connection.items():
-            if cache.expires < datetime.now():
-                del self._connection[key]

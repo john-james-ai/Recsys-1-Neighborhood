@@ -4,41 +4,42 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/persistence/repo.py                                                         #
+# Filename   : /recsys/datastore/asset.py                                                          #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday February 26th 2023 08:45:00 am                                               #
-# Modified   : Tuesday February 28th 2023 06:52:05 pm                                              #
+# Created    : Tuesday February 28th 2023 10:44:08 pm                                              #
+# Modified   : Tuesday February 28th 2023 11:25:23 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 from __future__ import annotations
 import os
-from typing import Any
 import logging
 from dotenv import load_dotenv
+from typing import Any
 
 import pandas as pd
-
+from recsys.assets.base import Asset
+from recsys.datastore.repo import Repo
 from recsys.persistence.odb import ObjectDB
-from recsys import Asset
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Repo:
+class AssetRepo(Repo):
     def __init__(self, database: ObjectDB, idgen: IDGen) -> None:
         self._database = database
         self._idgen = idgen
 
-    def add(self, asset: Asset) -> None:
-        """Adds an object to the repository"""
+    def add(self, asset: Asset) -> str:
+        """Adds an object to the repository and returns the id."""
         asset.id = self._idgen.getid(asset)
         asset.save()
         self._database.insert(key=asset.oid, value=asset)
+        return asset.id
 
     def get(self, key: str) -> Any:
         """Obtains an object from persistence by key."""
