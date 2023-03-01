@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:13:15 am                                                #
-# Modified   : Sunday February 26th 2023 02:17:16 pm                                               #
+# Modified   : Tuesday February 28th 2023 01:45:01 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -50,26 +50,42 @@ workspaces:
   presidio:
     name: presidio
     description: Production Workspace
-    database: dev_studio/presidio/workspace.db
-    cache: dev_studio/presidio/cache.db
-    duration: P1W
-    datasize: 1
+    data:
+      dataset: devstudio/presidio/dataset.db
+      experiment: devstudio/presidio/experiment.db
+      model: devstudio/presidio/model.db
+      datasize: 1.0
+    cache:
+      location: devstudio/presidio/cache.db
+      ttl: 7
+      max_size: 512
+      enabled: True
   enrico:
     name: enrico
     description: Development Workspace
-    database: dev_studio/enrico/workspace.db
-    cache: dev_studio/enrico/cache.db
-    duration: P1W
-    datasize: 0.2
+    data:
+      dataset: devstudio/enrico/dataset.db
+      experiment: devstudio/enrico/experiment.db
+      model: devstudio/enrico/model.db
+      datasize: 0.2
+    cache:
+      location: devstudio/enrico/cache.db
+      ttl: 7
+      max_size: 512
+      enabled: True
   backflip:
     name: backflip
-    description: Test Workspace
-    database: dev_studio/backflip/workspace.db
-    cache: dev_studio/backflip/cache.db
-    duration: P1W
-    datasize: 0.05
+    description: Rapid Development Workspace
+    data:
+      dataset: devstudio/backflip/dataset.db
+      experiment: devstudio/backflip/experiment.db
+      model: devstudio/backflip/model.db
+      datasize: .05
+    cache:
+      location: devstudio/backflip/cache.db
+      ttl: 7
+      max_size: 512
+      enabled: True
 
-dev_studio:
-  location: dev_studio/
-  database: dev_studio/workspace.db
-  idgendb: dev_studio/idgen.db
+idgen:
+  database: devstudio/idgen.db

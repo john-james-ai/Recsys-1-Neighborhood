@@ -11,20 +11,29 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday February 26th 2023 11:42:47 am                                               #
-# Modified   : Sunday February 26th 2023 12:57:18 pm                                               #
+# Modified   : Tuesday February 28th 2023 03:55:16 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 from abc import ABC, abstractmethod
 from typing import Any
+import logging
+from recsys.persistence.exceptions import ObjectExistsError  # noqa F401
+from recsys.persistence.exceptions import ObjectNotFoundError  # noqa F401
+from recsys.persistence.exceptions import ObjectDBEmpty  # noqa F401
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                                       DATABASE                                                  #
 # ------------------------------------------------------------------------------------------------ #
-class Database(ABC):
+class Database(ABC):  # pragma: no cover
     """Abstract Base Class for Database"""
+
+    def __init__(self) -> None:
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     @abstractmethod
     def connect(self) -> None:

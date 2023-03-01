@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:10:21 am                                                #
-# Modified   : Sunday February 26th 2023 05:35:32 pm                                               #
+# Modified   : Tuesday February 28th 2023 08:01:37 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,9 +22,12 @@ import logging.config  # pragma: no cover
 
 from dependency_injector import containers, providers
 
-from recsys.io.service import IOService
-from recsys.persistence.odb import CacheDB, ObjectDB
-from recsys.persistence.repo import Repo
+from recsys.persistence.io import IOService
+from recsys.persistence.odb import ObjectDB
+from recsys.persistence.repo import Repo, IDGen
+from recsys.persistence.cache import Cache, CacheConfig
+from recsys.persistence.datastore import DataStore
+from recsys.persistence.workspace import Workspace
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -39,53 +42,132 @@ class ServicesContainer(containers.DeclarativeContainer):
 
     fio = providers.Factory(IOService)
 
+    iddb = providers.Singleton(ObjectDB, filepath=config.idgen.database)
+
+    idgen = providers.Singleton(IDGen, database=iddb)
+
 
 # ------------------------------------------------------------------------------------------------ #
 class PresidioContainer(containers.DeclarativeContainer):
 
     config = providers.Configuration()
+    idgen = providers.Dependency()
 
-    db = providers.Factory(ObjectDB, filepath=config.database)
+    # Database
+    dataset_odb = providers.Factory(ObjectDB, filepath=config.data.dataset)
+    experiment_odb = providers.Factory(ObjectDB, filepath=config.data.experiment)
+    model_odb = providers.Factory(ObjectDB, filepath=config.data.model)
 
-    cache = providers.Factory(CacheDB, filepath=config.cache, duration=config.duration)
+    # Repositories
+    dataset = providers.Factory(Repo, database=dataset_odb, idgen=idgen)
+    experiment = providers.Factory(Repo, database=experiment_odb, idgen=idgen)
+    model = providers.Factory(Repo, database=model_odb, idgen=idgen)
 
-    repo = providers.Factory(Repo, database=db)
+    # DataStore
+    datastore = providers.Factory(
+        DataStore,
+        workspace=config.name,
+        dataset=dataset,
+        experiment=experiment,
+        model=model,
+        datasize=config.data.datasize,
+    )
+
+    # Cache Config
+    cache_config = providers.Factory(
+        CacheConfig,
+        workspace=config.name,
+        ttl=config.cache.ttl,
+        max_size=config.cache.max_size,
+        location=config.cache.location,
+        enabled=config.cache.enabled,
+    )
+
+    cache_db = providers.Factory(ObjectDB, filepath=config.cache.location)
+
+    cache_mgr = providers.Factory(Cache, config=cache_config, storage=cache_db)
 
 
 # ------------------------------------------------------------------------------------------------ #
 class EnricoContainer(containers.DeclarativeContainer):
 
     config = providers.Configuration()
+    idgen = providers.Dependency()
 
-    db = providers.Factory(ObjectDB, filepath=config.database)
+    # Database
+    dataset_odb = providers.Factory(ObjectDB, filepath=config.data.dataset)
+    experiment_odb = providers.Factory(ObjectDB, filepath=config.data.experiment)
+    model_odb = providers.Factory(ObjectDB, filepath=config.data.model)
 
-    cache = providers.Factory(CacheDB, filepath=config.cache, duration=config.duration)
+    # Repositories
+    dataset = providers.Factory(Repo, database=dataset_odb, idgen=idgen)
+    experiment = providers.Factory(Repo, database=experiment_odb, idgen=idgen)
+    model = providers.Factory(Repo, database=model_odb, idgen=idgen)
 
-    repo = providers.Factory(Repo, database=db)
+    # DataStore
+    datastore = providers.Factory(
+        DataStore,
+        workspace=config.name,
+        dataset=dataset,
+        experiment=experiment,
+        model=model,
+        datasize=config.data.datasize,
+    )
+
+    # Cache Config
+    cache_config = providers.Factory(
+        CacheConfig,
+        workspace=config.name,
+        ttl=config.ttl,
+        max_size=config.max_size,
+        location=config.location,
+        enabled=config.enabled,
+    )
+
+    cache_db = providers.Factory(ObjectDB, filepath=config.cache.location)
+
+    cache_mgr = providers.Factory(Cache, config=cache_config, storage=cache_db)
 
 
 # ------------------------------------------------------------------------------------------------ #
 class BackflipContainer(containers.DeclarativeContainer):
 
     config = providers.Configuration()
+    idgen = providers.Dependency()
 
-    db = providers.Factory(ObjectDB, filepath=config.database)
+    # Database
+    dataset_odb = providers.Factory(ObjectDB, filepath=config.data.dataset)
+    experiment_odb = providers.Factory(ObjectDB, filepath=config.data.experiment)
+    model_odb = providers.Factory(ObjectDB, filepath=config.data.model)
 
-    cache = providers.Factory(CacheDB, filepath=config.cache, duration=config.duration)
+    # Repositories
+    dataset = providers.Factory(Repo, database=dataset_odb, idgen=idgen)
+    experiment = providers.Factory(Repo, database=experiment_odb, idgen=idgen)
+    model = providers.Factory(Repo, database=model_odb, idgen=idgen)
 
-    repo = providers.Factory(Repo, database=db)
+    # DataStore
+    datastore = providers.Factory(
+        DataStore,
+        workspace=config.name,
+        dataset=dataset,
+        experiment=experiment,
+        model=model,
+        datasize=config.data.datasize,
+    )
 
+    # Cache Config
+    cache_config = providers.Factory(
+        CacheConfig,
+        workspace=config.name,
+        ttl=config.ttl,
+        max_size=config.max_size,
+        location=config.location,
+        enabled=config.enabled,
+    )
 
-# ------------------------------------------------------------------------------------------------ #
-class DevStudioContainer(containers.DeclarativeContainer):
+    cache_db = providers.Factory(ObjectDB, filepath=config.cache.location)
 
-    presidio = providers.Dependency()
-
-    enrico = providers.Dependency()
-
-    backflip = providers.Dependency()
-
-    config = providers.Configuration()
+    cache_mgr = providers.Factory(Cache, config=cache_config, storage=cache_db)
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -97,41 +179,37 @@ class Recsys(containers.DeclarativeContainer):
 
     services = providers.Container(ServicesContainer, config=config)
 
-    presidio = providers.Container(PresidioContainer, config=config.workspaces.presidio)
+    presidio = providers.Container(
+        PresidioContainer, config=config.workspaces.presidio, idgen=services.idgen
+    )
 
     enrico = providers.Container(EnricoContainer, config=config.workspaces.enrico)
 
     backflip = providers.Container(BackflipContainer, config=config.workspaces.backflip)
 
-    devstudio = providers.Container(
-        DevStudioContainer,
-        presidio=presidio.repo,
-        enrico=enrico.repo,
-        backflip=backflip.repo,
-        config=config,
-    )
-
-    repo = providers.Selector(
-        config.workspace,
-        presidio=providers.Factory(Repo, database=presidio.db),
-        enrico=providers.Factory(Repo, database=enrico.db),
-        backflip=providers.Factory(Repo, database=backflip.db),
-    )
-
-    cache = providers.Selector(
+    workspace = providers.Selector(
         config.workspace,
         presidio=providers.Factory(
-            CacheDB, filepath=config.presidio.cache, duration=config.presidio.duration
+            Workspace,
+            name=config.workspaces.presidio.name,
+            description=config.workspaces.presidio.description,
+            cache=presidio.cache_mgr,
+            datastore=presidio.datastore,
         ),
         enrico=providers.Factory(
-            CacheDB, filepath=config.enrico.cache, duration=config.enrico.duration
+            Workspace,
+            name=config.workspaces.enrico.name,
+            description=config.workspaces.enrico.description,
+            cache=enrico.cache_mgr,
+            datastore=enrico.datastore,
         ),
         backflip=providers.Factory(
-            CacheDB, filepath=config.backflip.cache, duration=config.backflip.duration
+            Workspace,
+            name=config.workspaces.backflip.name,
+            description=config.workspaces.backflip.description,
+            cache=backflip.cache_mgr,
+            datastore=backflip.datastore,
         ),
     )
 
     config.override({"workspace": os.getenv("WORKSPACE")})
-    instance = cache()
-    assert isinstance(instance, CacheDB)
-    logging.debug(config)

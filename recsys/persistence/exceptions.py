@@ -4,32 +4,30 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/system/cache.py                                                             #
+# Filename   : /recsys/persistence/exceptions.py                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday February 26th 2023 06:22:39 am                                               #
-# Modified   : Sunday February 26th 2023 06:23:30 am                                               #
+# Created    : Tuesday February 28th 2023 02:30:33 pm                                              #
+# Modified   : Tuesday February 28th 2023 04:09:13 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from dataclasses import dataclass
-from datetime import datetime
-import isodate
-from typing import Any
 
 
-# ------------------------------------------------------------------------------------------------ #
-@dataclass
-class Cache:
-    key: str
-    duration: str
-    content: Any
-    expires: datetime = None
-    created: datetime = datetime.now()
+class ObjectNotFoundError(Exception):  # pragma: no cover
+    def __init__(self, msg) -> None:
+        super().__init__(msg)
 
-    def __init__(self) -> None:
-        self.expires = self.created + isodate.parse_duration(self.duration)
+
+class ObjectExistsError(Exception):  # pragma: no cover
+    def __init__(self, msg) -> None:
+        super().__init__(msg)
+
+
+class ObjectDBEmpty(Exception):  # pragma: no cover
+    def __init__(self, msg) -> None:
+        super().__init__(msg)

@@ -11,12 +11,11 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 11:15:41 pm                                             #
-# Modified   : Saturday February 25th 2023 11:28:47 pm                                             #
+# Modified   : Sunday February 26th 2023 08:29:35 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-import os
 import inspect
 from datetime import datetime
 import pytest
@@ -113,13 +112,20 @@ class TestPipeline:  # pragma: no cover
         # ---------------------------------------------------------------------------------------- #
         builder = PipelineBuilder(config=config)
         builder.build_pipeline()
-        builder.pipeline.run()
-        fp1 = "tests/results/pipeline/test_operators_1.csv"
-        fp2 = "tests/results/pipeline/test_operators_2.csv"
-        fp3 = "tests/results/pipeline/test_operators_3.csv"
-        assert os.path.exists(fp1)
-        assert os.path.exists(fp2)
-        assert os.path.exists(fp3)
+        s1 = datetime.now()
+        data1 = builder.pipeline.run()
+        e1 = datetime.now()
+        d1 = (e1 - s1).total_seconds()
+
+        s2 = datetime.now()
+        data2 = builder.pipeline.run()
+        e2 = datetime.now()
+        d2 = (e2 - s2).total_seconds()
+
+        assert d2 < d1
+        assert data1.shape[0] == data2.shape[0]
+        assert data1.shape[1] == data2.shape[1]
+
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)

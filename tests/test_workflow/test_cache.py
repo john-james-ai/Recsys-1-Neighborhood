@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 07:51:17 am                                             #
-# Modified   : Sunday February 26th 2023 12:46:44 pm                                               #
+# Modified   : Tuesday February 28th 2023 03:45:15 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,7 @@ from datetime import datetime
 import pytest
 import logging
 
-from recsys.system.cache import Cache
+from recsys.persistence.cache import CacheObject
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -46,9 +46,9 @@ class TestCache:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         key = "some_key"
-        duration = "P3W"
+        ttl = "P3W"
         content = {"some": "dict"}
-        cache = Cache(key=key, duration=duration, content=content)
+        cache = CacheObject(key=key, duration=duration, content=content)
         assert isinstance(cache.created, datetime)
         assert isinstance(cache.expires, datetime)
 

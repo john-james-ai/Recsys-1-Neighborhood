@@ -4,23 +4,32 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/system/dev_studio.py                                                        #
+# Filename   : /recsys/operator/base.py                                                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday February 26th 2023 08:26:20 am                                               #
-# Modified   : Sunday February 26th 2023 10:02:30 am                                               #
+# Created    : Tuesday February 28th 2023 04:13:11 pm                                              #
+# Modified   : Tuesday February 28th 2023 04:13:51 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+from abc import ABC, abstractmethod
+import logging
+from typing import Any, Union
 
 
 # ------------------------------------------------------------------------------------------------ #
-class DevStudio:
-    def __init__(self, location: str) -> None:
-        self._location = location
-        self._database = Database(location)
-        self._idgen = Database()
+class Operator(ABC):
+    """Abstract base class for classes that perform a descrete operation as part of a larger workflow"""
+
+    def __init__(self, *args, **kwargs) -> None:
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
+
+    @abstractmethod
+    def execute(self, *args, **kwargs) -> Union[Any, None]:
+        """Executes the operation"""

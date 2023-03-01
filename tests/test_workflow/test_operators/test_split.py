@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_operators/test_split.py                                                 #
+# Filename   : /tests/test_workflow/test_operators/test_split.py                                   #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 01:34:13 am                                             #
-# Modified   : Saturday February 25th 2023 09:20:04 pm                                             #
+# Modified   : Tuesday February 28th 2023 04:07:11 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -25,7 +25,7 @@ import logging
 import shutil
 
 from recsys.model.model_selection.split import TemporalTrainTestSplit
-from recsys.io.service import IOService
+from recsys.persistence.io import IOService
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)

@@ -4,28 +4,45 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/system/idgen.py                                                             #
+# Filename   : /recsys/persistence/datastore.py                                                    #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday February 26th 2023 06:03:54 am                                               #
-# Modified   : Sunday February 26th 2023 06:23:46 am                                               #
+# Created    : Sunday February 26th 2023 11:01:00 pm                                               #
+# Modified   : Tuesday February 28th 2023 01:39:54 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Id Generator Module"""
+
+from recsys.persistence.repo import Repo
+
 
 # ------------------------------------------------------------------------------------------------ #
-class IDGen:
-    def __init__(self, config: dict, db: Database) -> None:
-        self._config = config
-        self._min = config.get("min")
-        self._max = config.get("max")
-        self._length = config.get("length")
-        self._method = config.get("method")
-        self._db = config.get('persistence')
+class DataStore:
 
-    def get_id(self,)
+    __home = "devstudio"
+
+    def __init__(
+        self, workspace: str, dataset: Repo, experiment: Repo, model: Repo, datasize: float
+    ) -> None:
+        self._workspace = workspace
+        self._dataset = dataset
+        self._experiment = experiment
+        self._model = model
+        self._datasize = datasize
+        self._size = 0
+
+    @property
+    def dataset(self) -> Repo:
+        return self._dataset
+
+    @property
+    def experiment(self) -> Repo:
+        return self._experiment
+
+    @property
+    def model(self) -> Repo:
+        return self.model

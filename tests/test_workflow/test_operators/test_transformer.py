@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 03:12:23 am                                             #
-# Modified   : Sunday February 26th 2023 12:16:54 pm                                               #
+# Modified   : Tuesday February 28th 2023 04:06:55 pm                                              #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -25,7 +25,7 @@ import shutil
 import numpy as np
 
 from recsys.data.transformation import MeanCenter
-from recsys.io.service import IOService
+from recsys.persistence.io import IOService
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
