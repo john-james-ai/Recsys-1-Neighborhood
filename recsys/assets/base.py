@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 01:00:36 pm                                              #
-# Modified   : Tuesday February 28th 2023 06:42:52 pm                                              #
+# Modified   : Wednesday March 1st 2023 03:18:30 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -34,8 +34,6 @@ class Asset(ABC):  # pragma: no cover
 
         self._name = name
         self._description = description
-        self._id = None
-        self._oid = None
 
         self._created = datetime.now()
         self._saved = None
@@ -47,19 +45,6 @@ class Asset(ABC):  # pragma: no cover
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
-
-    @property
-    def id(self) -> int:
-        return self._id
-
-    @id.setter
-    def id(self, id: int) -> None:
-        self._id = id
-        self._oid = self.__class__.__name__.lower() + "_" + str(self._id)
-
-    @property
-    def oid(self) -> str:
-        return self._oid
 
     @property
     def name(self) -> str:

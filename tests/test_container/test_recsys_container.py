@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday February 26th 2023 12:17:58 pm                                               #
-# Modified   : Wednesday March 1st 2023 12:05:13 am                                                #
+# Modified   : Wednesday March 1st 2023 07:09:57 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,7 @@ from datetime import datetime
 import pytest
 import logging
 
-from recsys.datastore.studio import Studio
+from recsys.studio.studio import Studio
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)

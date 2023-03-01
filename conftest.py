@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Wednesday March 1st 2023 12:02:55 am                                                #
+# Modified   : Wednesday March 1st 2023 05:08:04 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,8 +21,10 @@ from types import SimpleNamespace
 
 from recsys.container import Recsys
 from recsys.persistence.io import IOService
-from recsys.dataset.rating import RatingsDataset
+from recsys.data.rating import RatingsDataset
 from recsys.persistence.odb import ObjectDB
+from recsys.assets.model import Model
+from recsys.repo.asset import IDGen
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -35,7 +37,7 @@ ZIPFILE_EXTRACT = "tests/data/extract/"
 RATINGS_CSV = "tests/data/test_ratings.csv"
 RATINGS_PKL = "tests/data/ratings_1_pct.pkl"
 TEST_DATABASE = "tests/data/database/test.odb"
-TEST_CACHE = "tests/data/cache/test.odb"
+TEST_IDGENDB = "tests/data/database/idgen.odb"
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -73,6 +75,12 @@ def dataset(ratings):
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session", autouse=True)
+def model(ratings):
+    return Model(name="test_model", description="Test Model", model=ratings)
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session", autouse=True)
 def datasets(ratings):
     ds = []
     for i in range(1, 6):
@@ -87,6 +95,14 @@ def datasets(ratings):
 @pytest.fixture(scope="session", autouse=True)
 def odb():
     return ObjectDB(filepath=TEST_DATABASE)
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session", autouse=True)
+def idgen():
+    odb = ObjectDB(filepath=TEST_IDGENDB)
+    idgen = IDGen(database=odb)
+    return idgen
 
 
 # ------------------------------------------------------------------------------------------------ #

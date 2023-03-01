@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:10:21 am                                                #
-# Modified   : Wednesday March 1st 2023 12:11:54 am                                                #
+# Modified   : Wednesday March 1st 2023 07:09:58 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,8 +21,8 @@ import logging.config  # pragma: no cover
 from dependency_injector import containers, providers
 
 from recsys.persistence.odb import ObjectDB
-from recsys.datastore.studio import Studio
-from recsys.datastore.workspace import WorkspaceRepo
+from recsys.studio.studio import Studio
+from recsys.repo.asset import Repo
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -43,7 +43,7 @@ class StudioContainer(containers.DeclarativeContainer):
 
     db = providers.Factory(ObjectDB, filepath=config.studio.database)
 
-    repo = providers.Factory(WorkspaceRepo, database=db)
+    repo = providers.Factory(Repo, database=db)
 
     studio = providers.Factory(Studio, name=config.studio.name, repo=repo)
 

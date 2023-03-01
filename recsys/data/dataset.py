@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/assets/dataset.py                                                           #
+# Filename   : /recsys/data/dataset.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 03:40:09 pm                                              #
-# Modified   : Wednesday March 1st 2023 12:04:19 am                                                #
+# Modified   : Wednesday March 1st 2023 05:21:02 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,14 +23,14 @@ import numpy as np
 import pandas as pd
 
 from recsys.persistence.io import IOService
-from recsys import Asset
+from recsys.assets.data import DataAsset
 
 
 # ------------------------------------------------------------------------------------------------ #
-#                                  DATASET BASE CLASS                                              #
+#                                  DATASET CLASS                                                   #
 # ------------------------------------------------------------------------------------------------ #
-class Dataset(Asset):  # pragma: no cover
-    """Base class for datasets.
+class Dataset(DataAsset):  # pragma: no cover
+    """Base class for tabular datasets.
     Args:
         name (str): Name of the dataset
         description (str): Describes the contents of the dataset
@@ -45,13 +45,11 @@ class Dataset(Asset):  # pragma: no cover
         data: pd.DataFrame,
         datasource: str = "movielens25m",
     ) -> None:
-        super().__init__(name=name, description=description)
-        self._datasource = datasource
-        self._data = data
+        super().__init__(name=name, description=description, datasource=datasource, data=data)
 
-        self._profiled = False
-        self._profile = None
-        self._run_profile()
+        self._summarized = False
+        self._summary = None
+        self._summarize()
 
     @property
     def columns(self) -> np.array:
@@ -89,12 +87,12 @@ class Dataset(Asset):  # pragma: no cover
         """DataFrame containing summary and statistical information"""
         return self._data.describe().T
 
-    def profile(self) -> pd.DataFrame:
-        self._run_profile()
-        return self._profile
+    def summary(self) -> pd.DataFrame:
+        self._summarize()
+        return self._summary
 
-    def _run_profile(self) -> None:
-        if not self._profiled:
+    def _summarize(self) -> None:
+        if not self._summarized:
             self._nrows = self._data.shape[0]
             self._ncols = self._data.shape[1]
             self._size = self._nrows * self._ncols
@@ -113,5 +111,5 @@ class Dataset(Asset):  # pragma: no cover
             d["size"] = self._size
             d["memory"] = self.memory
 
-            self._profile = pd.DataFrame.from_dict(data=d, orient="index", columns=["Metric"])
-        self._profiled = True
+            self._summary = pd.DataFrame.from_dict(data=d, orient="index", columns=["Metric"])
+        self._summarized = True

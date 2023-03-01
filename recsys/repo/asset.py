@@ -4,58 +4,61 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/datastore/asset.py                                                          #
+# Filename   : /recsys/repo/asset.py                                                               #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 10:44:08 pm                                              #
-# Modified   : Tuesday February 28th 2023 11:25:23 pm                                              #
+# Modified   : Wednesday March 1st 2023 03:34:09 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from __future__ import annotations
-import os
-import logging
-from dotenv import load_dotenv
+"""Asset Repo Module"""
 from typing import Any
 
 import pandas as pd
+
 from recsys.assets.base import Asset
-from recsys.datastore.repo import Repo
+from recsys.repo.base import Repo
 from recsys.persistence.odb import ObjectDB
+from recsys.exceptions.repo import RepoException
 
 
 # ------------------------------------------------------------------------------------------------ #
 class AssetRepo(Repo):
-    def __init__(self, database: ObjectDB, idgen: IDGen) -> None:
+    def __init__(self, database: ObjectDB, asset_type: type[Asset]) -> None:
         self._database = database
-        self._idgen = idgen
+        self._asset_type = asset_type
 
-    def add(self, asset: Asset) -> str:
-        """Adds an object to the repository and returns the id."""
-        asset.id = self._idgen.getid(asset)
+    def add(self, asset: Asset) -> None:
+        """Adds an object to the repository."""
+        self._check_asset(asset)
         asset.save()
-        self._database.insert(key=asset.oid, value=asset)
-        return asset.id
+        self._database.insert(key=asset.name, value=asset)
 
-    def get(self, key: str) -> Any:
-        """Obtains an object from persistence by key."""
-        return self._database.select(key=key)
+    def get(self, name: str) -> Any:
+        """Obtains an object from persistence by name."""
+        return self._database.select(key=name)
 
     def update(self, asset: Asset) -> None:
         """Updates an object in storage"""
+        self._check_asset(asset)
         asset.update()
-        self._database.update(key=asset.oid, value=asset)
+        self._database.update(key=asset.name, value=asset)
 
     def remove(self, key: str) -> None:
         """Removes an object from storage."""
         self._database.remove(key=key)
 
-    def exists(self, key: str) -> bool:
-        return self._database.exists(key)
+    def reset(self) -> None:
+        """Removes an object from storage."""
+        self._database.clear()
+
+    def exists(self, name: str) -> bool:
+        return self._database.exists(key=name)
 
     def info(self) -> pd.DataFrame:
         """Prints the contents of storage."""
@@ -68,45 +71,16 @@ class AssetRepo(Repo):
             d["name"] = object.name
             d["description"] = object.description
             d["memory"] = object.memory
-            d["create"] = object.created
+            d["created"] = object.created
             d["updated"] = object.updated
             inventory.append(d)
 
         inventory = pd.DataFrame(data=inventory, index=range(len(inventory)))
         return inventory
 
-
-# ------------------------------------------------------------------------------------------------ #
-class IDGen:
-    def __init__(self, database: ObjectDB) -> None:
-        self._database = database
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
-
-    def getid(self, asset: Asset) -> int:
-        key = self._get_key(asset)
-        try:
-            id = self._database.select(key=key)
-            self._database.update(key=key, value=id + 1)
-        except ObjectDB.Database.ObjectNotFoundError:
-            id = 1
-            self._database.insert(key=key, value=2)
-        return id
-
-    def reset(self, asset: Asset) -> None:
-        key = self._get_key(asset)
-        try:
-            self._database.delete(key)
-        except ObjectDB.Database.ObjectNotFoundError:
-            pass
-        self._database.insert(key=key, value=1)
-
-    def _get_key(self, asset: Asset) -> str:
-        load_dotenv()
-        workspace = os.getenv(key="WORKSPACE")
-        try:
-            return workspace + "_" + asset.__class__.__name__.lower()
-        except Exception as e:
-            self._logger.error(e)
-            raise
+    def _check_asset(self, asset: Asset) -> None:
+        """Ensures asset type is equal to the asset type for this repo."""
+        if not isinstance(asset, self._asset_type):
+            msg = f"Asset must be of type {self._asset_type}, not {type(asset)}."
+            self._logger.error(msg)
+            raise RepoException(msg)
