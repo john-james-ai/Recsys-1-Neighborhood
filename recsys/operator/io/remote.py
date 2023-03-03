@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Tuesday February 28th 2023 11:49:57 pm                                              #
+# Modified   : Thursday March 2nd 2023 09:45:22 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -33,6 +33,7 @@ class ZipDownloader(Operator):
     Args:
         source (str): The URL to the zip file resource
         destination (str): A filename into which the zip file will be stored.
+        chunk_size (int): Size of download chunks
         force (bool): Whether to force execution.
     """
 
@@ -44,17 +45,17 @@ class ZipDownloader(Operator):
 
     def run(self, *args, **kwargs) -> None:
         """Downloads a zipfile."""
-
-        resp = requests.get(self._source, stream=True)
-        total = int(resp.headers.get("content-length", 0))
-        os.makedirs(os.path.dirname(self._destination), exist_ok=True)
-        with open(self._destination, "wb") as file, tqdm(
-            desc=self._destination,
-            total=total,
-            unit="iB",
-            unit_scale=True,
-            unit_divisor=1024,
-        ) as bar:
-            for data in resp.iter_content(chunk_size=self._chunk_size):
-                size = file.write(data)
-                bar.update(size)
+        if not self._skip(endpoint=self._destination):
+            resp = requests.get(self._source, stream=True)
+            total = int(resp.headers.get("content-length", 0))
+            os.makedirs(os.path.dirname(self._destination), exist_ok=True)
+            with open(self._destination, "wb") as file, tqdm(
+                desc=self._destination,
+                total=total,
+                unit="iB",
+                unit_scale=True,
+                unit_divisor=1024,
+            ) as bar:
+                for data in resp.iter_content(chunk_size=self._chunk_size):
+                    size = file.write(data)
+                    bar.update(size)

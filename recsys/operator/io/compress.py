@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Tuesday February 28th 2023 11:48:52 pm                                              #
+# Modified   : Thursday March 2nd 2023 09:45:11 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -40,5 +40,6 @@ class ZipExtractor(Operator):
     def run(self, *args, **kwargs) -> None:
         """Extracts the contents"""
 
-        with ZipFile(self._source, mode="r") as archive:
-            archive.extractall(self._destination)
+        if not self._skip(endpoint=self._destination):
+            with ZipFile(self._source, mode="r") as archive:
+                archive.extractall(self._destination)

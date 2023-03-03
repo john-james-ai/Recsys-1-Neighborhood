@@ -4,19 +4,19 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/similarity/cosine.py                                               #
+# Filename   : /recsys/operator/similarity/pearson.py                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday March 1st 2023 07:07:09 am                                                #
-# Modified   : Friday March 3rd 2023 12:57:54 am                                                   #
+# Modified   : Friday March 3rd 2023 01:06:52 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Cosine similarity module"""
+"""Pearson similarity module"""
 from functools import cache
 
 import pandas as pd
@@ -26,8 +26,8 @@ from recsys.operator.similarity.base import UserSimilarityMeasure, ItemSimilarit
 
 
 # ------------------------------------------------------------------------------------------------ #
-class UserCosineSimilarity(UserSimilarityMeasure):
-    """User cosine similarity measure
+class UserPearsonSimilarity(UserSimilarityMeasure):
+    """User Pearson similarity measure
 
     Args:
         ratings_filepath (str): Path to the ratings file
@@ -47,7 +47,7 @@ class UserCosineSimilarity(UserSimilarityMeasure):
         destination: str,
         uservar: str = "userId",
         itemvar: str = "movieId",
-        ratingvar: str = "rating",
+        ratingvar: str = "rating_ctr_user",
         force: bool = False,
     ) -> None:
         super().__init__(
@@ -73,25 +73,18 @@ class UserCosineSimilarity(UserSimilarityMeasure):
         rvi = ratings[(ratings[self._uservar] == v) & (ratings[self._itemvar].isin(subjects))][
             self._ratingvar
         ]
-
-        # Obtain all ratings for user u
-        ru = ratings[(ratings[self._uservar] == u)][self._ratingvar]
-
-        # Obtain all ratings for user v
-        rv = ratings[(ratings[self._uservar] == v)][self._ratingvar]
-
         # Normalize ru and rv
-        l2ru = np.sqrt(np.sum(np.square(ru)))
-        l2rv = np.sqrt(np.sum(np.square(rv)))
+        l2rui = np.sqrt(np.sum(np.square(rui)))
+        l2rvi = np.sqrt(np.sum(np.square(rvi)))
 
         # Compute similarity
-        sim = rui.dot(rvi) / (l2ru * l2rv)
+        sim = rui.dot(rvi) / (l2rui * l2rvi)
         return sim
 
 
 # ------------------------------------------------------------------------------------------------ #
-class ItemCosineSimilarity(ItemSimilarityMeasure):
-    """User cosine similarity measure
+class ItemPearsonSimilarity(ItemSimilarityMeasure):
+    """User Pearson similarity measure
 
     Args:
         ratings_filepath (str): Path to the ratings file
@@ -111,7 +104,7 @@ class ItemCosineSimilarity(ItemSimilarityMeasure):
         destination: str,
         uservar: str = "userId",
         itemvar: str = "movieId",
-        ratingvar: str = "rating",
+        ratingvar: str = "rating_ctr_item",
         force: bool = False,
     ) -> None:
         super().__init__(
@@ -138,16 +131,10 @@ class ItemCosineSimilarity(ItemSimilarityMeasure):
             self._ratingvar
         ]
 
-        # Obtain all ratings for item i
-        ri = ratings[(ratings[self._itemvar] == i)][self._ratingvar]
-
-        # Obtain all ratings for item j
-        rj = ratings[(ratings[self._itemvar] == j)][self._ratingvar]
-
         # Normalize ru and rv
-        l2ri = np.sqrt(np.sum(np.square(ri)))
-        l2rj = np.sqrt(np.sum(np.square(rj)))
+        l2riu = np.sqrt(np.sum(np.square(riu)))
+        l2rju = np.sqrt(np.sum(np.square(rju)))
 
         # Compute similarity
-        sim = riu.dot(rju) / (l2ri * l2rj)
+        sim = riu.dot(rju) / (l2riu * l2rju)
         return sim

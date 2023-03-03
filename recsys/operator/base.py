@@ -11,21 +11,29 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 04:13:11 pm                                              #
-# Modified   : Tuesday February 28th 2023 04:13:51 pm                                              #
+# Modified   : Thursday March 2nd 2023 11:25:08 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+import os
 from abc import ABC, abstractmethod
 import logging
 from typing import Any, Union
+
+from atelier.persistence.io import IOService
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Operator(ABC):
     """Abstract base class for classes that perform a descrete operation as part of a larger workflow"""
 
-    def __init__(self, *args, **kwargs) -> None:
+    def __init__(
+        self, source: str = None, destination: str = None, force: bool = False, *args, **kwargs
+    ) -> None:
+        self._source = source
+        self._destination = destination
+        self._force = force
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
@@ -33,3 +41,27 @@ class Operator(ABC):
     @abstractmethod
     def execute(self, *args, **kwargs) -> Union[Any, None]:
         """Executes the operation"""
+
+    def _get_data(self, filepath: str) -> Any:
+        try:
+            return IOService.read(filepath)
+        except Exception as e:
+            self._logger.error(e)
+            raise
+
+    def _put_data(self, filepath: str, data: Any) -> None:
+        if filepath is not None:
+            IOService.write(filepath=filepath, data=data)
+
+    def _skip(self, endpoint: str) -> bool:
+        """Determines of operation should be skipped if endpoint already exists."""
+        if endpoint is None:
+            return False
+        elif os.path.isfile(endpoint) and not self._force:
+            self._logger.info(f"{self.__class__.__name__} skipped. Endpoint already exists.")
+            return True
+        elif os.path.isdir(endpoint) and len(os.listdir(endpoint)) > 0:
+            self._logger.info(f"{self.__class__.__name__} skipped. Endpoint already exists.")
+            return True
+        else:
+            return False

@@ -11,16 +11,15 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:50:55 pm                                            #
-# Modified   : Tuesday February 28th 2023 11:56:18 pm                                              #
+# Modified   : Thursday March 2nd 2023 11:25:48 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Transformer Module"""
+"""Data Center Module"""
 import pandas as pd
 
 from recsys import Operator
-from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -28,64 +27,50 @@ class MeanCenter(Operator):
     """Centers ratings by average user and item rating
 
     Args:
+        source (str): The URL to the zip file resource
+        destination (str): A filename into which the zip file will be stored.
         by (str): The aggregate average rating by which the ratings will be centered. Valid
             values are ['userId','movieId']. Default is 'userId'
-    Returns: DataFrame including the centered rating. The column name is automatically set
-        to rating_ctr_<by>.
+        force (bool): Whether to force execution.
+
     """
 
     def __init__(
         self,
         by: str = "userId",
+        column: str = "rating_ctr_user",
+        rating_var: str = "rating",
+        source: str = None,
+        destination: str = None,
+        force: bool = False,
     ) -> None:
-        super().__init__()
+        super().__init__(source=source, destination=destination, force=force)
         self._by = by
-        self._column = "rating_ctr_" + by
-        self._uservar = uservar
-        self._itemvar = itemvar
+        self._column = column
         self._rating_var = rating_var
-        self._user_centered_rating_var = user_centered_rating_var
-        self._item_centered_rating_var = item_centered_rating_var
 
-    @event_log
-    def run(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None) -> None:
 
-        data = self._fio.read(filepath=self._source)
-        data = self._center_by_user_rating(data)
-        data = self._center_by_item_rating(data)
-        self._fio.write(filepath=self._destination, data=data)
+        if not self._skip(endpoint=self._destination):
+            # Get the data. Priority goes to data passed into the method.
+            data = data or self._get_data(filepath=self._soource)
+            try:
+                # Obtain average user ratings
+                rbar = data.groupby(self._by)[self._rating_var].mean().reset_index()
+                rbar.columns = [self._by, "rbar"]
 
-    def _center_by_user_rating(self, data: pd.DataFrame) -> pd.DataFrame:
-        """Centers rating by average user rating"""
-        try:
-            # Obtain average user ratings
-            rbar = data.groupby(self._uservar)[self._rating_var].mean().reset_index()
-            rbar.columns = [self._uservar, "rbar"]
-            # Merge with ratings dataset
-            data = data.merge(rbar, on=self._uservar, how="left")
-            # Compute centered rating and drop the average rating column
-            data[self._user_centered_rating_var] = data[self._rating_var] - data["rbar"]
-            data = data.drop(columns=["rbar"])
-            return data
-        except KeyError as e:
-            msg = "User, item, or rating variable is incorrect."
-            self._logger.error(msg)
-            raise ValueError(e)
+                # Merge with ratings dataset
+                data = data.merge(rbar, on=self._by, how="left")
 
-    def _center_by_item_rating(self, data: pd.DataFrame) -> pd.DataFrame:
-        """Centers rating by average item rating"""
-        try:
-            # Obtain average item ratings
-            rbar = data.groupby(self._itemvar)[self._rating_var].mean().reset_index()
-            rbar.columns = [self._itemvar, "rbar"]
-            # Merge with ratings dataset
-            data = data.merge(rbar, on=self._itemvar, how="left")
-            # Compute centered rating and drop the average rating column
-            data[self._item_centered_rating_var] = data[self._rating_var] - data["rbar"]
-            data = data.drop(columns=["rbar"])
-            return data
+                # Compute centered rating and drop the average rating column
+                data[self._column] = data[self._rating_var] - data["rbar"]
+                data = data.drop(columns=["rbar"])
 
-        except KeyError as e:
-            msg = "User, item, or rating variable is incorrect."
-            self._logger.error(msg)
-            raise ValueError(e)
+                # Save data if destination is provided.
+                self._put_data(filepath=self._destination, data=data)
+
+                return data
+            except KeyError as e:
+                msg = "User, item, or rating variable is incorrect."
+                self._logger.error(msg)
+                raise ValueError(e)

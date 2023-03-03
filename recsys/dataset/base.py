@@ -4,32 +4,32 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/data/dataset.py                                                             #
+# Filename   : /recsys/dataset/base.py                                                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 03:40:09 pm                                              #
-# Modified   : Wednesday March 1st 2023 05:21:02 am                                                #
+# Modified   : Thursday March 2nd 2023 08:24:37 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Base module for domain package."""
+from abc import ABC, abstractmethod
 from copy import deepcopy
 
 import numpy as np
 import pandas as pd
 
-from recsys.persistence.io import IOService
-from recsys.assets.data import DataAsset
+from atelier.persistence.io import IOService
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                                  DATASET CLASS                                                   #
 # ------------------------------------------------------------------------------------------------ #
-class Dataset(DataAsset):  # pragma: no cover
+class Dataset(ABC):  # pragma: no cover
     """Base class for tabular datasets.
     Args:
         name (str): Name of the dataset
@@ -47,7 +47,6 @@ class Dataset(DataAsset):  # pragma: no cover
     ) -> None:
         super().__init__(name=name, description=description, datasource=datasource, data=data)
 
-        self._summarized = False
         self._summary = None
         self._summarize()
 
@@ -87,12 +86,12 @@ class Dataset(DataAsset):  # pragma: no cover
         """DataFrame containing summary and statistical information"""
         return self._data.describe().T
 
-    def summary(self) -> pd.DataFrame:
+    def summary(self) -> None:
         self._summarize()
-        return self._summary
 
+    @abstractmethod
     def _summarize(self) -> None:
-        if not self._summarized:
+        if not self._summary:
             self._nrows = self._data.shape[0]
             self._ncols = self._data.shape[1]
             self._size = self._nrows * self._ncols
@@ -112,4 +111,4 @@ class Dataset(DataAsset):  # pragma: no cover
             d["memory"] = self.memory
 
             self._summary = pd.DataFrame.from_dict(data=d, orient="index", columns=["Metric"])
-        self._summarized = True
+        print(self._summary)

@@ -4,14 +4,14 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/similarity/cosine.py                                               #
+# Filename   : /recsys/operator/similarity/adjcosine.py                                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday March 1st 2023 07:07:09 am                                                #
-# Modified   : Friday March 3rd 2023 12:57:54 am                                                   #
+# Modified   : Friday March 3rd 2023 01:03:49 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -47,7 +47,7 @@ class UserCosineSimilarity(UserSimilarityMeasure):
         destination: str,
         uservar: str = "userId",
         itemvar: str = "movieId",
-        ratingvar: str = "rating",
+        ratingvar: str = "rating_ctr_item",
         force: bool = False,
     ) -> None:
         super().__init__(
@@ -111,7 +111,7 @@ class ItemCosineSimilarity(ItemSimilarityMeasure):
         destination: str,
         uservar: str = "userId",
         itemvar: str = "movieId",
-        ratingvar: str = "rating",
+        ratingvar: str = "rating_ctr_user",
         force: bool = False,
     ) -> None:
         super().__init__(

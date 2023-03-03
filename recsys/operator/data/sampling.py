@@ -11,28 +11,34 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:51:25 pm                                            #
-# Modified   : Tuesday February 28th 2023 11:42:38 pm                                              #
+# Modified   : Thursday March 2nd 2023 11:26:19 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Sampling Operator Module"""
 from functools import cache
+
 import pandas as pd
 
 from recsys import Operator
-from recsys.workflow.event import event_log
 
 
 # ------------------------------------------------------------------------------------------------ #
 class UserRandomSampling(Operator):
     """Samples users at random until the target sample size is obtained.
 
+    Data may be sourced from file or passed as a parameter into the run method. Priority
+    goes to the parameter passed during runtime into the run method.
+
     Args:
         frac (str): The fraction of the original dataset to retain
         uservar (str): The name of the column containing the user identifier.
         itemvar (str): The name of the column containing the item identifier.
         random_state (int): Seed for pseudo random sampling
+        source (str): Source file path. Optional
+        destination (str): The output filepath. Optional
+        force (bool): Whether to force execution if the endpoint already exists.
     """
 
     def __init__(
@@ -40,29 +46,36 @@ class UserRandomSampling(Operator):
         frac: float,
         uservar: str = "userId",
         itemvar: str = "movieId",
+        source: str = None,
+        destination: str = None,
         random_state: int = None,
+        force: bool = False,
     ) -> None:
-        super().__init__()
+        super().__init__(source=source, destination=destination, force=force)
         self._frac = frac
         self._uservar = uservar
         self._itemvar = itemvar
         self._random_state = random_state
 
-    @event_log
     @cache
-    def run(self, data: pd.DataFrame) -> None:
+    def run(self, data: pd.DataFrame = None) -> None:
         """Samples the data"""
-        # Compute the number of samples to return
-        size = int(data.shape[0] * self._frac)
-        # Obtain value counts
-        counts = data[self._uservar].value_counts(sort=False).to_frame().reset_index()
-        counts.columns = [self._uservar, "count"]
-        # Shuffle and add cumulative sum of counts
-        counts = counts.sample(frac=1, random_state=self._random_state)
-        counts["cumsum"] = counts["count"].cumsum()
-        # Select users where cumulative sum is <= size
-        users = counts[counts["cumsum"] <= size][self._uservar].values
-        # Select user rows from data.
-        sample = data[data[self._uservar].isin(users)]
-        # eh viola!
-        return sample
+        if not self._skip(endpoint=self._destination):
+            # Get the data. Priority goes to data passed into the method.
+            data = data or self._get_data(filepath=self._source)
+            # Compute the number of samples to return
+            size = int(data.shape[0] * self._frac)
+            # Obtain value counts
+            counts = data[self._uservar].value_counts(sort=False).to_frame().reset_index()
+            counts.columns = [self._uservar, "count"]
+            # Shuffle and add cumulative sum of counts
+            counts = counts.sample(frac=1, random_state=self._random_state)
+            counts["cumsum"] = counts["count"].cumsum()
+            # Select users while cumulative sum is <= size
+            users = counts[counts["cumsum"] <= size][self._uservar].values
+            # Subset the dataframe to include the selected users
+            sample = data[data[self._uservar].isin(users)]
+            # Save data if destination is provided.
+            self._put_data(filepath=self._destination, data=sample)
+            # eh viola!
+            return sample
