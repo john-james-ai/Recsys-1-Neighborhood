@@ -11,8 +11,9 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 12:18:02 am                                                #
-# Modified   : Thursday March 2nd 2023 08:33:57 pm                                                 #
+# Modified   : Friday March 3rd 2023 01:34:05 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+from recsys.operator.base import Operator

@@ -9,8 +9,11 @@ __pycache__/
 # Data
 /data
 /devstudio
-tests/data
+tests/testdata
 tests/results
+*.pkl
+*.zip
+*.csv
 
 # Notes
 notes/

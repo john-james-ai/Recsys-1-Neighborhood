@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Thursday March 2nd 2023 09:45:22 pm                                                 #
+# Modified   : Friday March 3rd 2023 01:17:01 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -43,7 +43,7 @@ class ZipDownloader(Operator):
         super().__init__(source=source, destination=destination, force=force)
         self._chunk_size = chunk_size
 
-    def run(self, *args, **kwargs) -> None:
+    def execute(self, *args, **kwargs) -> None:
         """Downloads a zipfile."""
         if not self._skip(endpoint=self._destination):
             resp = requests.get(self._source, stream=True)

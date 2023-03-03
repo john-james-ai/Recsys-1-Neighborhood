@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 04:13:11 pm                                              #
-# Modified   : Thursday March 2nd 2023 11:25:08 pm                                                 #
+# Modified   : Friday March 3rd 2023 01:55:31 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -55,7 +55,7 @@ class Operator(ABC):
 
     def _skip(self, endpoint: str) -> bool:
         """Determines of operation should be skipped if endpoint already exists."""
-        if endpoint is None:
+        if endpoint is None or self._force is True:
             return False
         elif os.path.isfile(endpoint) and not self._force:
             self._logger.info(f"{self.__class__.__name__} skipped. Endpoint already exists.")
