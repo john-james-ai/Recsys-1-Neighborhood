@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 09:20:09 pm                                               #
-# Modified   : Thursday March 2nd 2023 09:48:48 pm                                                 #
+# Modified   : Friday March 3rd 2023 03:40:37 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -57,13 +57,13 @@ class TemporalTrainTestSplit(Operator):
         self._train_size = train_size
         self._timestamp_var = timestamp_var
 
-    def run(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None) -> None:
         """Performs the train test split."""
         if not self._skip(endpoint=self._destination):
 
-            data = data or self._get_data()
+            data = data or self._get_data(filepath=self._source)
 
-            if self._timestamp_var in data.columns:
+            try:
 
                 data_sorted = data.sort_values(by=[self._timestamp_var], ascending=True)
                 train_size = int(self._train_size * data.shape[0])
@@ -76,7 +76,7 @@ class TemporalTrainTestSplit(Operator):
 
                 result = {"train": train, "test": test}
                 return result
-            else:
+            except KeyError:
                 msg = f"Column {self._timestamp_var} was not found."
                 self._logger.error(msg)
-                raise ValueError(msg)
+                raise

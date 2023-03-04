@@ -4,73 +4,77 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/data/center.py                                                     #
+# Filename   : /recsys/operator/data/reindex.py                                                    #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Wednesday February 22nd 2023 05:50:55 pm                                            #
-# Modified   : Friday March 3rd 2023 03:56:43 am                                                   #
+# Created    : Friday March 3rd 2023 02:45:26 pm                                                   #
+# Modified   : Saturday March 4th 2023 06:07:01 am                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Data Center Module"""
+import os
+
 import pandas as pd
 
 from recsys import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
-class MeanCenter(Operator):
-    """Centers ratings by average user and item rating
+#                                TEMPORAL TRAIN/TEST SPLIT                                         #
+# ------------------------------------------------------------------------------------------------ #
+class Reindex(Operator):
+    """Converts user and movie ids to sequential indices.
 
     Args:
-        source (str): The URL to the zip file resource
-        destination (str): A filename into which the zip file will be stored.
-        by (str): The aggregate average rating by which the ratings will be centered. Valid
-            values are ['userId','movieId']. Default is 'userId'
-        force (bool): Whether to force execution.
-
+        source (str): Source file path. Optional
+        destination (str): The output directory. Optional)
+        uservar (str): Column  containing user id
+        itemvar (str): Column containing item id
+        useridx (str): Column containing the sequential user id
+        itemidx (str): Column containing the sequential item id
+        force (bool): Whether to overwrite existing data if it already exists.
     """
 
     def __init__(
         self,
-        by: str = "userId",
-        column: str = "rating_ctr_user",
-        rating_var: str = "rating",
         source: str = None,
         destination: str = None,
+        uservar: str = "userId",
+        itemvar: str = "movieId",
+        useridx: str = "useridx",
+        itemidx: str = "itemidx",
         force: bool = False,
     ) -> None:
         super().__init__(source=source, destination=destination, force=force)
-        self._by = by
-        self._column = column
-        self._rating_var = rating_var
+        self._uservar = uservar
+        self._itemvar = itemvar
+        self._useridx = useridx
+        self._itemidx = itemidx
 
     def execute(self, data: pd.DataFrame = None) -> None:
-
+        """Performs the train test split."""
         if not self._skip(endpoint=self._destination):
-            # Get the data. Priority goes to data passed into the method.
+
             data = data or self._get_data(filepath=self._source)
+
             try:
-                # Obtain average user ratings
-                rbar = data.groupby(self._by)[self._rating_var].mean().reset_index()
-                rbar.columns = [self._by, "rbar"]
 
-                # Merge with ratings dataset
-                data = data.merge(rbar, on=self._by, how="left")
+                data_sorted = data.sort_values(by=[self._timestamp_var], ascending=True)
+                train_size = int(self._train_size * data.shape[0])
 
-                # Compute centered rating and drop the average rating column
-                data[self._column] = data[self._rating_var] - data["rbar"]
-                data = data.drop(columns=["rbar"])
+                train = data_sorted[0:train_size]
+                test = data_sorted[train_size:]
 
-                # Save data if destination is provided.
-                self._put_data(filepath=self._destination, data=data)
+                self._put_data(filepath=self._train_filepath, data=train)
+                self._put_data(filepath=self._test_filepath, data=test)
 
-                return data
-            except KeyError as e:
-                msg = "User, item, or rating variable is incorrect."
+                result = {"train": train, "test": test}
+                return result
+            except KeyError:
+                msg = f"Column {self._timestamp_var} was not found."
                 self._logger.error(msg)
-                raise ValueError(e)
+                raise

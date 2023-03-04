@@ -4,23 +4,26 @@
 # Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/data/co-occurrence.py                                              #
+# Filename   : /recsys/operator/data/cooccurrence.py                                               #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 2nd 2023 10:01:36 pm                                                 #
-# Modified   : Friday March 3rd 2023 12:47:57 am                                                   #
+# Modified   : Friday March 3rd 2023 08:17:49 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Corating Module"""
 from abc import abstractmethod
-from itertools import combinations
 from functools import cache
+
+import numpy as np
+from tqdm import tqdm
 import pandas as pd
+from atelier.utils.combinations import cartesian_product
 
 from recsys import Operator
 
@@ -83,7 +86,7 @@ class UserCooccurrenceIndex(CooccurrenceIndex):
     @cache
     def execute(self, data: pd.DataFrame = None) -> None:
 
-        cooccurrence = pd.DataFrame()
+        cooccurrence = {}
 
         if not self._skip(endpoint=self._destination):
 
@@ -91,16 +94,40 @@ class UserCooccurrenceIndex(CooccurrenceIndex):
 
             try:
                 # Obtain the unique items in the ratings dataset
-                for item, ratings in data.groupby(self._itemvar):
-                    # For each item, get the users who have rated the item
+                for item, ratings in tqdm(data.groupby(self._itemvar)):
+                    # For each item, get the users whom have rated the item.
                     users = ratings[self._uservar].values
-                    # Create unique tuple combinations of users
-                    user_pairs = combinations(users, 2)
-                    # Format the user pairs and items into a dataframe
-                    d = {self._uservar: user_pairs, self._itemvar: item}
-                    df = pd.DataFrame(data=d)
-                    cooccurrence = pd.concat([cooccurrence, df], axis=0)
-            except Exception as e:
+                    if len(users) > 1:
+                        # Create 2 arrays for the cartesian product function
+                        a = np.array(users)
+                        b = np.array(users)
+                        # Compute the cartesian product of the users
+                        user_pairs = cartesian_product(a, b)
+                        # Transpose
+                        user_pairs = user_pairs.T
+                        # Convert list of arrays to tuples
+                        user_pairs = list(zip(user_pairs[:, 0], user_pairs[:, 1]))
+                        # iterate over unique tuple combinations of users
+                        for user_pair in user_pairs:
+                            # Drop matching pairs and eliminate duplicates
+                            if user_pair[0] != user_pair[1]:
+                                user_pair = tuple(sorted(user_pair))
+                                a = ratings[ratings["userId"] == user_pair[0]][
+                                    ["userId", "movieId"]
+                                ]
+                                b = ratings[ratings["userId"] == user_pair[1]][
+                                    ["userId", "movieId"]
+                                ]
+                                common_items = a[["userId", "movieId"]].merge(
+                                    b[["userId", "movieId"]], on="movieId", how="inner"
+                                )
+                                if cooccurrence.get(user_pair, None) is None:
+                                    cooccurrence[user_pair] = list(common_items["movieId"].values)
+                                else:
+                                    cooccurrence[user_pair].extend(
+                                        list(common_items["movieId"].values)
+                                    )
+            except Exception as e:  # pragma : no cover
                 self._logger.error(e)
                 raise
 
@@ -137,7 +164,7 @@ class ItemCooccurrenceIndex(CooccurrenceIndex):
     @cache
     def execute(self, data: pd.DataFrame = None) -> None:
 
-        cooccurrence = pd.DataFrame()
+        cooccurrence = {}
 
         if not self._skip(endpoint=self._destination):
 
@@ -145,16 +172,30 @@ class ItemCooccurrenceIndex(CooccurrenceIndex):
 
             try:
                 # Obtain the unique users in the ratings dataset
-                for user, ratings in data.groupby(self._uservar):
-                    # For each user, get the items which the user has rated.
+                for user, ratings in tqdm(data.groupby(self._uservar)):
+                    # For each user, get the items rated.
                     items = ratings[self._itemvar].values
-                    # Create unique tuple combinations of items
-                    item_pairs = combinations(items, 2)
-                    # Format the item pairs and users into a dataframe
-                    d = {self._itemvar: item_pairs, self._uservar: user}
-                    df = pd.DataFrame(data=d)
-                    cooccurrence = pd.concat([cooccurrence, df], axis=0)
-            except Exception as e:
+                    if len(items) > 1:
+                        # Create 2 arrays for the cartesian product function
+                        a = np.array(items)
+                        b = np.array(items)
+                        # Compute the cartesian product of the items
+                        item_pairs = cartesian_product(a, b)
+                        # Transpose
+                        item_pairs = item_pairs.T
+                        # Convert list of arrays to tuples
+                        item_pairs = list(zip(item_pairs[:, 0], item_pairs[:, 1]))
+                        # iterate over unique tuple combinations of users
+                        for item_pair in item_pairs:
+                            # Drop matching pairs and eliminate duplicates
+                            if item_pair[0] != item_pair[1]:
+                                item_pair = tuple(sorted(item_pair))
+                                if cooccurrence.get(item_pair, None) is None:
+                                    cooccurrence[item_pair] = [user]
+                                else:
+                                    cooccurrence[item_pair].append(user)
+
+            except Exception as e:  # pragma : no cover
                 self._logger.error(e)
                 raise
 
