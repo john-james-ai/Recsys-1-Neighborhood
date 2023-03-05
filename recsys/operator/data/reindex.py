@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/operator/data/reindex.py                                                    #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 02:45:26 pm                                                   #
-# Modified   : Saturday March 4th 2023 06:07:01 am                                                 #
+# Modified   : Sunday March 5th 2023 12:02:16 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -55,7 +55,7 @@ class Reindex(Operator):
         self._useridx = useridx
         self._itemidx = itemidx
 
-    def execute(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Performs the train test split."""
         if not self._skip(endpoint=self._destination):
 

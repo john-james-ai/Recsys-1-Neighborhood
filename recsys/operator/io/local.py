@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 05:57:39 am                                             #
-# Modified   : Saturday March 4th 2023 05:57:03 pm                                                 #
+# Modified   : Sunday March 5th 2023 12:03:31 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -62,7 +62,7 @@ class FileWriter(Operator):
         self._filepath = filepath
         self._fio = fio
 
-    def run(self, data: Any) -> None:
+    def run(self, data: Any, context: dict = None) -> None:
         self._fio.write(filepath=self._filepath, data=data)
 
 

@@ -1,131 +1,759 @@
-[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+[03/05/2023 12:00:08 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 
-Started TestZipExtractor test_setup at 09:49:35 AM on 03/04/2023
-[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+Started TestPipeline test_pipeline at 12:00:07 AM on 03/05/2023
+[03/05/2023 12:00:08 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ====================================================================================================
-[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
-	Completed TestZipExtractor test_setup in 0.2 seconds at 09:49:35 AM on 03/04/2023
-[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
+[03/05/2023 12:00:08 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:00:08 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:00:08 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:00:08 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:00:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:00:08 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[03/05/2023 12:00:21 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[03/05/2023 12:01:03 AM] [DEBUG] [recsys.operator.io.remote.ZipDownloader] [remote] [execute] : Downloaded zip archive from https://files.grouplens.org/datasets/movielens/ml-25m.zip to data/ext/ml-25m.zip
+[03/05/2023 12:01:03 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 55.02 seconds.
+[03/05/2023 12:01:03 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:01:08 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from data/ext/ml-25m.zip to data/raw/
+[03/05/2023 12:01:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 5.04 seconds.
+[03/05/2023 12:01:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:04:07 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 
-Started TestZipExtractor test_extract at 09:49:35 AM on 03/04/2023
-[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
+Started TestPipeline test_pipeline at 12:04:07 AM on 03/05/2023
+[03/05/2023 12:04:07 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ====================================================================================================
-[03/04/2023 09:49:44 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from tests/testdata/operators/io_operators/data/destination.zip to tests/testdata/operators/io_operators/data/archive
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+[03/05/2023 12:04:07 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:04:08 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:04:08 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:04:08 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:04:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:04:08 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:04:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.17 seconds.
+[03/05/2023 12:04:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:04:08 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:04:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.16 seconds.
+[03/05/2023 12:04:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:04:24 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [split] [execute] : Created training set at data/prod/train.pkl.
+[03/05/2023 12:04:24 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [split] [execute] : Created test set at data/prod/test.pkl.
+[03/05/2023 12:04:25 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 16.23 seconds.
+[03/05/2023 12:04:25 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:14:07 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 
-Started TestZipExtractor test_setup at 09:49:44 AM on 03/04/2023
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+Started TestPipeline test_pipeline at 12:14:07 AM on 03/05/2023
+[03/05/2023 12:14:07 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ====================================================================================================
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
-	Completed TestZipExtractor test_setup in 0.2 seconds at 09:49:44 AM on 03/04/2023
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+[03/05/2023 12:14:07 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:14:07 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:14:07 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:14:08 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.15 seconds.
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:14:08 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.15 seconds.
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:14:08 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.15 seconds.
+[03/05/2023 12:14:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:14:10 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [sampling] [_announce] : Created a 10% sample of dataset data/prod/train.pkl at data/dev/rating.pkl.
+[03/05/2023 12:14:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 1.32 seconds.
+[03/05/2023 12:14:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:14:10 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:14:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.15 seconds.
+[03/05/2023 12:14:10 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 2.52 seconds.
+[03/05/2023 12:14:10 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 2.9 seconds at 12:14:10 AM on 03/05/2023
+[03/05/2023 12:14:10 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ----------------------------------------------------------------------------------------------------
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
-	Completed TestZipExtractor test_extract in 8.5 seconds at 09:49:44 AM on 03/04/2023
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
-----------------------------------------------------------------------------------------------------
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
+[03/05/2023 12:16:40 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 
-Started TestZipExtractor test_extract_member at 09:49:44 AM on 03/04/2023
-[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
+Started TestPipeline test_pipeline at 12:16:39 AM on 03/05/2023
+[03/05/2023 12:16:40 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ====================================================================================================
-[03/04/2023 09:49:49 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from tests/testdata/operators/io_operators/data/destination.zip to tests/testdata/operators/io_operators/data/archive
-[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
-	Completed TestZipExtractor test_extract_member in 5.1 seconds at 09:49:49 AM on 03/04/2023
-[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:16:40 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:16:40 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:16:40 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.15 seconds.
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:16:40 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.15 seconds.
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:16:40 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:16:40 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.15 seconds.
+[03/05/2023 12:16:41 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:16:42 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [sampling] [_announce] : Created a 10% sample of dataset data/prod/train.pkl at data/dev/rating.pkl.
+[03/05/2023 12:16:42 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 1.34 seconds.
+[03/05/2023 12:16:42 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:16:42 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:16:42 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.15 seconds.
+[03/05/2023 12:16:42 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 2.54 seconds.
+[03/05/2023 12:16:42 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 2.9 seconds at 12:16:42 AM on 03/05/2023
+[03/05/2023 12:16:42 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ----------------------------------------------------------------------------------------------------
-[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_force] : 
+[03/05/2023 12:21:27 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 
-Started TestZipExtractor test_force at 09:49:49 AM on 03/04/2023
-[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_force] : 
+Started TestPipeline test_pipeline at 12:21:26 AM on 03/05/2023
+[03/05/2023 12:21:27 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ====================================================================================================
-[03/04/2023 09:49:49 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
-[03/04/2023 09:49:58 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from tests/testdata/operators/io_operators/data/destination.zip to tests/testdata/operators/io_operators/data/archive
-[03/04/2023 09:49:58 AM] [INFO] [test_compress] [test_compress] [test_force] : 
-	Completed TestZipExtractor test_force in 8.5 seconds at 09:49:58 AM on 03/04/2023
-[03/04/2023 09:49:58 AM] [INFO] [test_compress] [test_compress] [test_force] : 
+[03/05/2023 12:26:49 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 12:26:48 AM on 03/05/2023
+[03/05/2023 12:26:49 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 12:26:49 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:26:49 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:26:49 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:26:49 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:26:49 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:26:49 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:26:49 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.16 seconds.
+[03/05/2023 12:26:49 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:26:49 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:26:49 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.16 seconds.
+[03/05/2023 12:26:50 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:26:50 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:26:50 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:26:50 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:26:50 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:26:50 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [base] [_skip] : UserRandomSampling skipped. Endpoint already exists.
+[03/05/2023 12:26:50 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:26:50 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:26:50 AM] [ERROR] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_get_data] : [Errno 2] No such file or directory: 'data/dev/ratings.pkl'
+[03/05/2023 12:28:19 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 12:28:19 AM on 03/05/2023
+[03/05/2023 12:28:19 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 12:28:19 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:28:19 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:28:19 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:28:19 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:28:19 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:28:19 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_new_conn] : Starting new HTTPS connection (1): files.grouplens.org:443
+[03/05/2023 12:28:31 AM] [DEBUG] [urllib3.connectionpool] [connectionpool] [_make_request] : https://files.grouplens.org:443 "GET /datasets/movielens/ml-25m.zip HTTP/1.1" 200 261978986
+[03/05/2023 12:29:18 AM] [DEBUG] [recsys.operator.io.remote.ZipDownloader] [remote] [execute] : Downloaded zip archive from https://files.grouplens.org/datasets/movielens/ml-25m.zip to data/ext/ml-25m.zip
+[03/05/2023 12:29:18 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 58.77 seconds.
+[03/05/2023 12:29:18 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:29:23 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from data/ext/ml-25m.zip to data/raw/
+[03/05/2023 12:29:23 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 5.21 seconds.
+[03/05/2023 12:29:23 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:29:39 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [split] [execute] : Created training set at data/prod/train.pkl.
+[03/05/2023 12:29:39 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [split] [execute] : Created test set at data/prod/test.pkl.
+[03/05/2023 12:29:39 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 15.91 seconds.
+[03/05/2023 12:29:39 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:29:40 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [sampling] [_announce] : Created a 10% sample of dataset data/prod/train.pkl at data/dev/ratings.pkl.
+[03/05/2023 12:29:40 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 1.15 seconds.
+[03/05/2023 12:29:41 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:29:41 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [split] [execute] : Created training set at data/dev/train.pkl.
+[03/05/2023 12:29:41 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [split] [execute] : Created test set at data/dev/test.pkl.
+[03/05/2023 12:29:41 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.45 seconds.
+[03/05/2023 12:29:41 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 82.12 seconds.
+[03/05/2023 12:29:41 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 82.5 seconds at 12:29:41 AM on 03/05/2023
+[03/05/2023 12:29:41 AM] [INFO] [test_pipeline] [test_pipeline] [test_pipeline] : 
 ----------------------------------------------------------------------------------------------------
-[03/04/2023 03:23:32 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 03:23:32 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 03:23:32 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 03:23:32 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 03:23:32 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 03:23:33 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
-[03/04/2023 03:23:33 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 03:29:24 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 03:29:24 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 03:29:24 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 03:29:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 03:29:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 03:29:25 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
-[03/04/2023 03:29:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 03:31:52 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 03:31:52 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 03:31:52 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 03:31:52 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 03:31:52 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 03:31:52 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
-[03/04/2023 03:31:52 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 04:13:58 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 04:13:58 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 04:13:58 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 04:13:58 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 04:13:58 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 04:13:58 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
-[03/04/2023 04:13:58 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 05:42:42 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 05:42:42 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 05:42:42 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 05:42:42 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:42:42 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:42:42 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 05:43:16 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 05:43:16 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 05:43:16 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 05:43:16 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:43:16 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:43:16 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 05:44:29 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 05:44:29 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 05:44:29 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 05:44:29 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:44:29 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:44:29 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 05:50:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 05:50:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 05:50:25 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 05:50:26 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:50:26 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 05:50:26 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 06:06:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 06:06:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 06:06:25 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 06:06:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:06:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:06:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 06:09:00 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 06:09:00 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 06:09:00 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 06:09:00 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:09:00 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:09:00 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 06:11:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 06:11:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 06:11:39 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 06:11:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:11:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:11:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 06:12:30 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 06:12:30 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 06:12:30 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 06:12:30 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:12:30 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:12:31 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
-[03/04/2023 06:17:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
-[03/04/2023 06:17:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
-[03/04/2023 06:17:39 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
-[03/04/2023 06:17:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:17:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
-[03/04/2023 06:17:40 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+
+Started TestTask test_tesk at 12:38:27 AM on 03/05/2023
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+====================================================================================================
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+
+Started TestTask test_something at 12:38:28 AM on 03/05/2023
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+====================================================================================================
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+	Completed TestTask test_something in 0.0 seconds at 12:38:28 AM on 03/05/2023
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+
+Started TestTask test_teardown at 12:38:28 AM on 03/05/2023
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+====================================================================================================
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+	Completed TestTask test_teardown in 0.0 seconds at 12:38:28 AM on 03/05/2023
+[03/05/2023 12:38:28 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+
+Started TestTask test_tesk at 12:38:59 AM on 03/05/2023
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+====================================================================================================
+[03/05/2023 12:38:59 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:38:59 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:38:59 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: test_task 
+[03/05/2023 12:38:59 AM] [DEBUG] [tests.test_workspace.test_operator.TestOperator] [test_operator] [execute] : 2023-03-05 00:38:59.618237
+[03/05/2023 12:38:59 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: test_task. Duration: 0.32 seconds.
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+
+Started TestTask test_something at 12:38:59 AM on 03/05/2023
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+====================================================================================================
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+	Completed TestTask test_something in 0.0 seconds at 12:38:59 AM on 03/05/2023
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+
+Started TestTask test_teardown at 12:38:59 AM on 03/05/2023
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+====================================================================================================
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+	Completed TestTask test_teardown in 0.0 seconds at 12:38:59 AM on 03/05/2023
+[03/05/2023 12:38:59 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:39:25 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+
+Started TestTask test_tesk at 12:39:25 AM on 03/05/2023
+[03/05/2023 12:39:25 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+====================================================================================================
+[03/05/2023 12:39:25 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:39:25 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:39:26 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: test_task 
+[03/05/2023 12:39:26 AM] [DEBUG] [tests.test_workspace.test_operator.TestOperator] [test_operator] [execute] : 2023-03-05 00:39:26.148546
+[03/05/2023 12:39:26 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: test_task. Duration: 0.34 seconds.
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+Completed TestTask test_tesk in 0.6 seconds at 12:39:26 AM on 03/05/2023
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+
+Started TestTask test_something at 12:39:26 AM on 03/05/2023
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+====================================================================================================
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+	Completed TestTask test_something in 0.0 seconds at 12:39:26 AM on 03/05/2023
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+
+Started TestTask test_teardown at 12:39:26 AM on 03/05/2023
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+====================================================================================================
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+	Completed TestTask test_teardown in 0.0 seconds at 12:39:26 AM on 03/05/2023
+[03/05/2023 12:39:26 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+
+Started TestTask test_tesk at 12:40:07 AM on 03/05/2023
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+====================================================================================================
+[03/05/2023 12:40:08 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:40:08 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:40:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: test_task 
+[03/05/2023 12:40:08 AM] [DEBUG] [tests.test_workspace.test_operator.TestOperator] [test_operator] [execute] : 2023-03-05 00:40:08.350658
+[03/05/2023 12:40:08 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: test_task. Duration: 0.34 seconds.
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+Completed TestTask test_tesk in 0.7 seconds at 12:40:08 AM on 03/05/2023
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_tesk] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+
+Started TestTask test_something at 12:40:08 AM on 03/05/2023
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+====================================================================================================
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+	Completed TestTask test_something in 0.0 seconds at 12:40:08 AM on 03/05/2023
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_something] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+
+Started TestTask test_teardown at 12:40:08 AM on 03/05/2023
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+====================================================================================================
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+	Completed TestTask test_teardown in 0.0 seconds at 12:40:08 AM on 03/05/2023
+[03/05/2023 12:40:08 AM] [INFO] [tests.test_workspace.test_task] [test_task] [test_teardown] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:40:23 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 12:40:22 AM on 03/05/2023
+[03/05/2023 12:40:23 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 12:40:23 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:40:23 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:40:23 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:40:23 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:40:23 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:40:23 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:40:23 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.16 seconds.
+[03/05/2023 12:40:23 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:40:23 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:40:23 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.16 seconds.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:40:24 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:40:24 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [base] [_skip] : UserRandomSampling skipped. Endpoint already exists.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:40:24 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.16 seconds.
+[03/05/2023 12:40:24 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 1.4 seconds.
+[03/05/2023 12:40:24 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 1.8 seconds at 12:40:24 AM on 03/05/2023
+[03/05/2023 12:40:24 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:44:57 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 12:44:57 AM on 03/05/2023
+[03/05/2023 12:44:57 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 12:44:57 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:44:57 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:44:57 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:44:57 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:44:58 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.17 seconds.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:44:58 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.16 seconds.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:44:58 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:44:58 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [base] [_skip] : UserRandomSampling skipped. Endpoint already exists.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:44:58 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:44:58 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:44:59 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.16 seconds.
+[03/05/2023 12:44:59 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 1.43 seconds.
+[03/05/2023 12:44:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 1.8 seconds at 12:44:59 AM on 03/05/2023
+[03/05/2023 12:44:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:46:06 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+
+Started TestBuilder test_builder at 12:46:06 AM on 03/05/2023
+[03/05/2023 12:46:06 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+====================================================================================================
+[03/05/2023 12:46:06 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:46:06 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : Pipeline has 5 tasks.
+[03/05/2023 12:46:06 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 1	Class: Task
+	Operator: ZipDownloader
+	Name: source_movielens25m
+	Description: Obtain Movielens25M Dataset from the Grouplens website
+
+[03/05/2023 12:46:06 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 2	Class: Task
+	Operator: ZipExtractor
+	Name: extract_ratings
+	Description: Extract ratings file into raw directory.
+
+[03/05/2023 12:46:06 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 3	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dataset
+	Description: Split file into training and test set
+
+[03/05/2023 12:46:06 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 4	Class: Task
+	Operator: UserRandomSampling
+	Name: subsample_dataset
+	Description: Create a subsample of the dataset for development purposes
+
+[03/05/2023 12:46:06 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 5	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dev_set
+	Description: Split development set into train and test sets
+
+[03/05/2023 12:46:06 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+Completed TestBuilder test_builder in 0.3 seconds at 12:46:06 AM on 03/05/2023
+[03/05/2023 12:46:06 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:46:06 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 12:46:06 AM on 03/05/2023
+[03/05/2023 12:46:06 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 12:46:06 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:46:06 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:46:06 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:46:06 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:46:06 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:46:06 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:46:06 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.17 seconds.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:46:07 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.17 seconds.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:46:07 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.17 seconds.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:46:07 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [base] [_skip] : UserRandomSampling skipped. Endpoint already exists.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:46:07 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.16 seconds.
+[03/05/2023 12:46:07 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 1.43 seconds.
+[03/05/2023 12:46:07 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 1.5 seconds at 12:46:07 AM on 03/05/2023
+[03/05/2023 12:46:07 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:47:09 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+
+Started TestBuilder test_builder at 12:47:09 AM on 03/05/2023
+[03/05/2023 12:47:09 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+====================================================================================================
+[03/05/2023 12:47:09 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:47:09 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : Pipeline has 5 tasks.
+[03/05/2023 12:47:09 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 1	Class: Task
+	Operator: ZipDownloader
+	Name: source_movielens25m
+	Description: Obtain Movielens25M Dataset from the Grouplens website
+
+[03/05/2023 12:47:09 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 2	Class: Task
+	Operator: ZipExtractor
+	Name: extract_ratings
+	Description: Extract ratings file into raw directory.
+
+[03/05/2023 12:47:09 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 3	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dataset
+	Description: Split file into training and test set
+
+[03/05/2023 12:47:09 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 4	Class: Task
+	Operator: UserRandomSampling
+	Name: subsample_dataset
+	Description: Create a subsample of the dataset for development purposes
+
+[03/05/2023 12:47:09 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 5	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dev_set
+	Description: Split development set into train and test sets
+
+[03/05/2023 12:47:09 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+Completed TestBuilder test_builder in 0.3 seconds at 12:47:09 AM on 03/05/2023
+[03/05/2023 12:47:09 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 12:47:09 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 12:47:09 AM on 03/05/2023
+[03/05/2023 12:47:09 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 12:47:09 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 12:47:09 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:47:09 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 12:47:09 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 12:47:10 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.16 seconds.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 12:47:10 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.16 seconds.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 12:47:10 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 12:47:10 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [base] [_skip] : UserRandomSampling skipped. Endpoint already exists.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 0.16 seconds.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 12:47:10 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:47:10 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 12:47:11 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.16 seconds.
+[03/05/2023 12:47:11 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 1.44 seconds.
+[03/05/2023 12:47:11 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 1.5 seconds at 12:47:11 AM on 03/05/2023
+[03/05/2023 12:47:11 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 01:12:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+
+Started TestBuilder test_builder at 01:12:58 AM on 03/05/2023
+[03/05/2023 01:12:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+====================================================================================================
+[03/05/2023 01:12:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 01:12:59 AM on 03/05/2023
+[03/05/2023 01:12:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 01:13:37 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+
+Started TestBuilder test_builder at 01:13:37 AM on 03/05/2023
+[03/05/2023 01:13:37 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+====================================================================================================
+[03/05/2023 01:13:37 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:13:37 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : Pipeline has 5 tasks.
+[03/05/2023 01:13:37 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 1	Class: Task
+	Operator: ZipDownloader
+	Name: source_movielens25m
+	Description: Obtain Movielens25M Dataset from the Grouplens website
+
+[03/05/2023 01:13:37 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 2	Class: Task
+	Operator: ZipExtractor
+	Name: extract_ratings
+	Description: Extract ratings file into raw directory.
+
+[03/05/2023 01:13:37 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 3	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dataset
+	Description: Split file into training and test set
+
+[03/05/2023 01:13:37 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 4	Class: Task
+	Operator: UserRandomSampling
+	Name: subsample_dataset
+	Description: Create a subsample of the dataset for development purposes
+
+[03/05/2023 01:13:37 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 5	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dev_set
+	Description: Split development set into train and test sets
+
+[03/05/2023 01:13:37 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+Completed TestBuilder test_builder in 0.3 seconds at 01:13:37 AM on 03/05/2023
+[03/05/2023 01:13:37 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 01:13:37 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 01:13:37 AM on 03/05/2023
+[03/05/2023 01:13:37 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 01:13:37 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:13:37 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:13:37 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:13:37 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 01:13:37 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 01:13:37 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 01:14:12 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+
+Started TestBuilder test_builder at 01:14:12 AM on 03/05/2023
+[03/05/2023 01:14:12 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+====================================================================================================
+[03/05/2023 01:14:12 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:14:12 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : Pipeline has 5 tasks.
+[03/05/2023 01:14:12 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 1	Class: Task
+	Operator: ZipDownloader
+	Name: source_movielens25m
+	Description: Obtain Movielens25M Dataset from the Grouplens website
+
+[03/05/2023 01:14:12 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 2	Class: Task
+	Operator: ZipExtractor
+	Name: extract_ratings
+	Description: Extract ratings file into raw directory.
+
+[03/05/2023 01:14:12 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 3	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dataset
+	Description: Split file into training and test set
+
+[03/05/2023 01:14:12 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 4	Class: Task
+	Operator: UserRandomSampling
+	Name: subsample_dataset
+	Description: Create a subsample of the dataset for development purposes
+
+[03/05/2023 01:14:12 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 5	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dev_set
+	Description: Split development set into train and test sets
+
+[03/05/2023 01:14:12 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+Completed TestBuilder test_builder in 0.3 seconds at 01:14:12 AM on 03/05/2023
+[03/05/2023 01:14:12 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 01:14:12 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 01:14:12 AM on 03/05/2023
+[03/05/2023 01:14:12 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 01:14:12 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:14:12 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:14:12 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:14:12 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 01:14:13 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 01:14:13 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 01:14:13 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.16 seconds.
+[03/05/2023 01:14:13 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 01:14:13 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 01:14:14 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.17 seconds.
+[03/05/2023 01:14:14 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 01:14:14 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 01:14:14 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 01:15:52 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+
+Started TestBuilder test_builder at 01:15:51 AM on 03/05/2023
+[03/05/2023 01:15:52 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+====================================================================================================
+[03/05/2023 01:15:52 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:15:52 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : Pipeline has 5 tasks.
+[03/05/2023 01:15:52 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 1	Class: Task
+	Operator: ZipDownloader
+	Name: source_movielens25m
+	Description: Obtain Movielens25M Dataset from the Grouplens website
+
+[03/05/2023 01:15:52 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 2	Class: Task
+	Operator: ZipExtractor
+	Name: extract_ratings
+	Description: Extract ratings file into raw directory.
+
+[03/05/2023 01:15:52 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 3	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dataset
+	Description: Split file into training and test set
+
+[03/05/2023 01:15:52 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 4	Class: Task
+	Operator: UserRandomSampling
+	Name: subsample_dataset
+	Description: Create a subsample of the dataset for development purposes
+
+[03/05/2023 01:15:52 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 5	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dev_set
+	Description: Split development set into train and test sets
+
+[03/05/2023 01:15:52 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+Completed TestBuilder test_builder in 0.3 seconds at 01:15:52 AM on 03/05/2023
+[03/05/2023 01:15:52 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 01:15:52 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 01:15:52 AM on 03/05/2023
+[03/05/2023 01:15:52 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 01:15:52 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:15:52 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:15:52 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:15:52 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 01:15:52 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 01:15:52 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 01:38:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+
+Started TestBuilder test_builder at 01:38:59 AM on 03/05/2023
+[03/05/2023 01:38:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+====================================================================================================
+[03/05/2023 01:38:59 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:38:59 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : Pipeline has 5 tasks.
+[03/05/2023 01:38:59 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 1	Class: Task
+	Operator: ZipDownloader
+	Name: source_movielens25m
+	Description: Obtain Movielens25M Dataset from the Grouplens website
+
+[03/05/2023 01:38:59 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 2	Class: Task
+	Operator: ZipExtractor
+	Name: extract_ratings
+	Description: Extract ratings file into raw directory.
+
+[03/05/2023 01:38:59 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 3	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dataset
+	Description: Split file into training and test set
+
+[03/05/2023 01:38:59 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 4	Class: Task
+	Operator: UserRandomSampling
+	Name: subsample_dataset
+	Description: Create a subsample of the dataset for development purposes
+
+[03/05/2023 01:38:59 AM] [DEBUG] [recsys.workflow.pipeline.Pipeline] [pipeline] [check] : 
+
+Task: 5	Class: Task
+	Operator: TemporalTrainTestSplit
+	Name: split_dev_set
+	Description: Split development set into train and test sets
+
+[03/05/2023 01:38:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+Completed TestBuilder test_builder in 0.3 seconds at 01:38:59 AM on 03/05/2023
+[03/05/2023 01:38:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_builder] : 
+----------------------------------------------------------------------------------------------------
+[03/05/2023 01:38:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+
+Started TestPipeline test_pipeline at 01:38:59 AM on 03/05/2023
+[03/05/2023 01:38:59 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+====================================================================================================
+[03/05/2023 01:38:59 AM] [INFO] [recsys.workflow.pipeline.PipelineBuilder] [pipeline] [build] : Pipeline movielens25m_etl construction is complete.
+[03/05/2023 01:38:59 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:38:59 AM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/05/2023 01:38:59 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_setup] : Started task: movielens25m_etl 
+[03/05/2023 01:38:59 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: source_movielens25m 
+[03/05/2023 01:38:59 AM] [INFO] [recsys.operator.io.remote.ZipDownloader] [base] [_skip] : ZipDownloader skipped. Endpoint already exists.
+[03/05/2023 01:39:00 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: source_movielens25m. Duration: 0.17 seconds.
+[03/05/2023 01:39:00 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: extract_ratings 
+[03/05/2023 01:39:00 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/05/2023 01:39:01 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: extract_ratings. Duration: 0.17 seconds.
+[03/05/2023 01:39:01 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dataset 
+[03/05/2023 01:39:01 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 01:39:01 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 01:39:01 AM] [INFO] [root] [file_util] [copy_file] : copying data/prod/test.pkl -> /home/john/projects/Recsys-1-Neighbor/mlruns/0/d4556853eccd4a2bae7b56364c650964/artifacts/data
+[03/05/2023 01:39:01 AM] [INFO] [root] [file_util] [copy_file] : copying data/prod/train.pkl -> /home/john/projects/Recsys-1-Neighbor/mlruns/0/d4556853eccd4a2bae7b56364c650964/artifacts/data
+[03/05/2023 01:39:03 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dataset. Duration: 0.16 seconds.
+[03/05/2023 01:39:03 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: subsample_dataset 
+[03/05/2023 01:39:03 AM] [INFO] [recsys.operator.data.sampling.UserRandomSampling] [base] [_skip] : UserRandomSampling skipped. Endpoint already exists.
+[03/05/2023 01:39:03 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: subsample_dataset. Duration: 0.17 seconds.
+[03/05/2023 01:39:03 AM] [INFO] [recsys.workflow.task.Task] [task] [_setup] : Started task: split_dev_set 
+[03/05/2023 01:39:03 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 01:39:03 AM] [INFO] [recsys.operator.data.split.TemporalTrainTestSplit] [base] [_skip] : TemporalTrainTestSplit skipped. Endpoint already exists.
+[03/05/2023 01:39:03 AM] [INFO] [root] [file_util] [copy_file] : copying data/dev/test.pkl -> /home/john/projects/Recsys-1-Neighbor/mlruns/0/2cb86347552f4d28a12981cabd7a7c49/artifacts/data
+[03/05/2023 01:39:03 AM] [INFO] [root] [file_util] [copy_file] : copying data/dev/ratings.pkl -> /home/john/projects/Recsys-1-Neighbor/mlruns/0/2cb86347552f4d28a12981cabd7a7c49/artifacts/data
+[03/05/2023 01:39:03 AM] [INFO] [root] [file_util] [copy_file] : copying data/dev/train.pkl -> /home/john/projects/Recsys-1-Neighbor/mlruns/0/2cb86347552f4d28a12981cabd7a7c49/artifacts/data
+[03/05/2023 01:39:04 AM] [INFO] [recsys.workflow.task.Task] [task] [_teardown] : Completed task: split_dev_set. Duration: 0.17 seconds.
+[03/05/2023 01:39:04 AM] [INFO] [recsys.workflow.pipeline.Pipeline] [pipeline] [_teardown] : Completed task: movielens25m_etl. Duration: 4.64 seconds.
+[03/05/2023 01:39:04 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+Completed TestPipeline test_pipeline in 4.7 seconds at 01:39:04 AM on 03/05/2023
+[03/05/2023 01:39:04 AM] [INFO] [tests.test_workspace.test_pipeline] [test_pipeline] [test_pipeline] : 
+----------------------------------------------------------------------------------------------------

@@ -3,38 +3,33 @@
 # ================================================================================================ #
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
-# Python     : 3.10.6                                                                              #
-# Filename   : /recsys/__main__.py                                                                 #
+# Python     : 3.10.8                                                                              #
+# Filename   : /tests/test_workspace/test_operator.py                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Saturday March 4th 2023 07:08:06 pm                                                 #
+# Created    : Sunday March 5th 2023 12:33:42 am                                                   #
+# Modified   : Sunday March 5th 2023 12:38:52 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from recsys.container import Recsys  # pragma: no cover
-import logging
+from datetime import datetime
 
-# ------------------------------------------------------------------------------------------------ #
-logger = logging.getLogger(__name__)
+from recsys.operator.base import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
-def wireup():  # pragma: no cover
-    container = Recsys()
-    container.init_resources()
-    container.wire(modules=[__name__])
-
-
+#                                      TEST OPERATOR                                               #
 # ------------------------------------------------------------------------------------------------ #
-def main():  # pragma: no cover
-    wireup()
+class TestOperator(Operator):
+    """Operator does nothing."""
 
+    def __init__(self) -> None:
+        super().__init__()
 
-# ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":  # pragma: no cover
-    main()
+    def execute(self, *args, **kwargs) -> None:
+        """Downloads a zipfile."""
+        self._logger.debug(datetime.now())

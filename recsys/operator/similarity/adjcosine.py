@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/operator/similarity/adjcosine.py                                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday March 1st 2023 07:07:09 am                                                #
-# Modified   : Friday March 3rd 2023 01:03:49 am                                                   #
+# Modified   : Sunday March 5th 2023 01:32:34 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,6 +22,7 @@ from functools import cache
 import pandas as pd
 import numpy as np
 
+from recsys.operator.base import Artifact
 from recsys.operator.similarity.base import UserSimilarityMeasure, ItemSimilarityMeasure
 
 
@@ -59,6 +60,7 @@ class UserCosineSimilarity(UserSimilarityMeasure):
             ratingvar=ratingvar,
             force=force,
         )
+        self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
     @cache
     def _compute(self, pair: tuple, subjects: list, ratings: pd.DataFrame) -> float:
@@ -123,6 +125,7 @@ class ItemCosineSimilarity(ItemSimilarityMeasure):
             ratingvar=ratingvar,
             force=force,
         )
+        self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
     @cache
     def _compute(self, pair: tuple, subjects: list, ratings: pd.DataFrame) -> float:

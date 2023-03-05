@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/operator/io/compress.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Saturday March 4th 2023 09:47:31 am                                                 #
+# Modified   : Sunday March 5th 2023 01:30:42 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,7 +20,7 @@
 import os
 from zipfile import ZipFile
 
-from recsys import Operator
+from recsys.operator.base import Operator, Artifact
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -41,6 +41,8 @@ class ZipExtractor(Operator):
     ) -> None:
         super().__init__(source=source, destination=destination, force=force)
         self._member = member
+        filepath = os.path.join(self._destination, member)
+        self._artifact = Artifact(isfile=True, path=filepath, uripath="data")
 
     def execute(self, *args, **kwargs) -> None:
         """Extracts the contents"""

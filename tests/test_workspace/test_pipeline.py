@@ -3,15 +3,15 @@
 # ================================================================================================ #
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
-# Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_operators/test_data_operators/test_center.py                            #
+# Python     : 3.10.8                                                                              #
+# Filename   : /tests/test_workspace/test_pipeline.py                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Friday March 3rd 2023 02:17:33 am                                                   #
-# Modified   : Saturday March 4th 2023 05:57:34 pm                                                 #
+# Created    : Saturday March 4th 2023 11:37:45 pm                                                 #
+# Modified   : Sunday March 5th 2023 12:45:59 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,25 +21,23 @@ from datetime import datetime
 import pytest
 import logging
 
-from recsys.services.io import IOService
+from recsys.workflow.pipeline import PipelineBuilder
 
-from recsys.operator.data.center import MeanCenter
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
 # ------------------------------------------------------------------------------------------------ #
 double_line = f"\n{100 * '='}"
 single_line = f"\n{100 * '-'}"
-
-SOURCE = "tests/testdata/operators/data_operators/ratings_sample_1pct.pkl"
-SOURCE2 = "tests/testdata/operators/data_operators/ratings.csv"
-DESTINATION = "tests/testdata/operators/data_operators/center/ratings_ctr.pkl"
+# ------------------------------------------------------------------------------------------------ #
+FILEPATH = "config/etl.yml"
 
 
-@pytest.mark.ctr
-class TestCenter:  # pragma: no cover
+@pytest.mark.pipeline
+@pytest.mark.builder
+class TestBuilder:  # pragma: no cover
     # ============================================================================================ #
-    def test_split(self, caplog):
+    def test_builder(self, config_filepath, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -51,12 +49,10 @@ class TestCenter:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        s = MeanCenter(source=SOURCE, destination=DESTINATION, force=True)
-        s.execute()
-        df = IOService.read(DESTINATION)
-        assert "rating_ctr_user" in df.columns
-        assert abs(df["rating"].values - df["rating_ctr_user"].values).all() > 0
-
+        builder = PipelineBuilder()
+        builder.build(config_filepath=config_filepath)
+        pipeline = builder.pipeline
+        assert pipeline.check() is True
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
@@ -72,8 +68,11 @@ class TestCenter:  # pragma: no cover
         )
         logger.info(single_line)
 
+
+@pytest.mark.pipeline
+class TestPipeline:  # pragma: no cover
     # ============================================================================================ #
-    def test_force(self, caplog):
+    def test_pipeline(self, config_filepath, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -85,34 +84,25 @@ class TestCenter:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        s = MeanCenter(source=SOURCE2, destination=DESTINATION, force=False)
-        s.execute()
-        df = IOService.read(DESTINATION)
-        assert "rating_ctr_user" in df.columns
-        assert abs(df["rating"].values - df["rating_ctr_user"].values).all() > 0
-        assert df.shape[0] < 10000000
-
-        s = MeanCenter(
-            by="movieId",
-            column="rating_ctr_item",
-            source=SOURCE2,
-            destination=DESTINATION,
-            force=True,
+        builder = PipelineBuilder()
+        builder.build(config_filepath=config_filepath)
+        pipeline = builder.pipeline
+        pipeline.run()
+        assert pipeline.name == "movielens25m_etl"
+        assert (
+            pipeline.description
+            == "Extracts, transforms and loads the GroupLens Movielens25M ratings dataset"
         )
-        s.execute()
-        df = IOService.read(DESTINATION)
-        assert "rating_ctr_item" in df.columns
-        assert abs(df["rating"].values - df["rating_ctr_item"].values).all() > 0
-        assert df.shape[0] > 10000000
-
-        logger.debug(df.head())
+        assert isinstance(pipeline.started, datetime)
+        assert isinstance(pipeline.ended, datetime)
+        assert isinstance(pipeline.duration, float)
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
         duration = round((end - start).total_seconds(), 1)
 
         logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
+            "\nCompleted {} {} in {} seconds at {} on {}".format(
                 self.__class__.__name__,
                 inspect.stack()[0][3],
                 duration,

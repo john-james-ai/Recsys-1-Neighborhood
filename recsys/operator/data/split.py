@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/operator/data/split.py                                                      #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 09:20:09 pm                                               #
-# Modified   : Saturday March 4th 2023 11:42:38 am                                                 #
+# Modified   : Sunday March 5th 2023 01:29:42 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,7 @@ import os
 
 import pandas as pd
 
-from recsys import Operator
+from recsys.operator.base import Operator, Artifact
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -31,37 +31,38 @@ class TemporalTrainTestSplit(Operator):
     """Temporal train test split uses timestamp to split along a temporal dimension
 
     Args:
-        source (str): Optional the
+        source (str): Source file path.
+        train_filepath (str): The path to the train file.
+        test_filepath (str): The path to the test file.
         train_size (float): The proportion of data to allocate to the training set.
         timestamp_var (str): The variable containing the timestamp
-        source (str): Source file path. Optional
-        destination (str): The output directory. Optional)
         force (bool): Whether to overwrite existing data if it already exists.
     """
 
     def __init__(
         self,
+        source: str,
+        train_filepath: str,
+        test_filepath: str,
         train_size: float = 0.8,
         timestamp_var: str = "timestamp",
-        source: str = None,
-        destination: str = None,
-        train_filename: str = "train.pkl",
-        test_filename: str = "test.pkl",
         force: bool = False,
     ) -> None:
-        super().__init__(source=source, destination=destination, force=force)
-        self._train_filename = train_filename
-        self._test_filename = test_filename
-        self._train_filepath = os.path.join(self._destination, self._train_filename)
-        self._test_filepath = os.path.join(self._destination, self._test_filename)
+        super().__init__(source=source, force=force)
+        self._train_filepath = train_filepath
+        self._test_filepath = test_filepath
         self._train_size = train_size
         self._timestamp_var = timestamp_var
+        directory = os.path.dirname(self._train_filepath)
+        self._artifact = Artifact(isfile=False, path=directory, uripath="data")
 
-    def execute(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Performs the train test split."""
-        if not self._skip(endpoint=self._destination):
+        if not self._skip(endpoint=self._train_filepath) or not self._skip(
+            endpoint=self._test_filepath
+        ):
 
-            data = data or self._get_data(filepath=self._source)
+            data = self._get_data(filepath=self._source)
 
             try:
 
@@ -74,12 +75,9 @@ class TemporalTrainTestSplit(Operator):
                 self._put_data(filepath=self._train_filepath, data=train)
                 self._put_data(filepath=self._test_filepath, data=test)
 
-                result = {"train": train, "test": test}
-
                 self._logger.info(f"Created training set at {self._train_filepath}.")
                 self._logger.info(f"Created test set at {self._test_filepath}.")
 
-                return result
             except KeyError:
                 msg = f"Column {self._timestamp_var} was not found."
                 self._logger.error(msg)

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/operator/data/sampling.py                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:51:25 pm                                            #
-# Modified   : Saturday March 4th 2023 11:44:23 am                                                 #
+# Modified   : Sunday March 5th 2023 01:29:04 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,7 +20,7 @@
 from tqdm import tqdm
 import pandas as pd
 
-from recsys import Operator
+from recsys.operator.base import Operator, Artifact
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -55,8 +55,9 @@ class UserRandomSampling(Operator):
         self._uservar = uservar
         self._itemvar = itemvar
         self._random_state = random_state
+        self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
-    def execute(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Samples the data"""
         if not self._skip(endpoint=self._destination):
             # Get the data. Priority goes to data passed into the method.
@@ -107,8 +108,8 @@ class UserStratifiedRandomSampling(Operator):
         uservar (str): The name of the column containing the user identifier.
         itemvar (str): The name of the column containing the item identifier.
         random_state (int): Seed for pseudo random sampling
-        source (str): Source file path. Optional
-        destination (str): The output filepath. Optional
+        source (str): Source file path.
+        destination (str): The output filepath.
         force (bool): Whether to force execution if the endpoint already exists.
     """
 
@@ -127,8 +128,9 @@ class UserStratifiedRandomSampling(Operator):
         self._uservar = uservar
         self._itemvar = itemvar
         self._random_state = random_state
+        self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
-    def execute(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Samples the data"""
         if not self._skip(endpoint=self._destination):
             sample = pd.DataFrame()

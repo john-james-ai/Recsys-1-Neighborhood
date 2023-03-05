@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /config/etl.yml                                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday February 20th 2023 07:09:58 am                                               #
-# Modified   : Thursday February 23rd 2023 03:40:22 am                                             #
+# Modified   : Sunday March 5th 2023 12:28:04 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,49 +23,63 @@ pipeline:
     # -------------------------------------------------------------------------------------------- #
     #                                     MOVIELENS25M                                             #
     # -------------------------------------------------------------------------------------------- #
-    1:
-      task:
-        name: source_movielens25m
-        description: Obtain Movielens25M Dataset from the Grouplens website
-        stage: source
-      operator:
-        name: DownloadZipExtract
-        module: recsys.operator.file
-      params:
-        source: https://files.grouplens.org/datasets/movielens/ml-25m.zip
-        download: data/movielens25m/ext/
-        extract: data/movielens25m/raw/
-        force: False
 
-    # -------------------------------------------------------------------------------------------- #
-    #                                     SPOTIFY                                                  #
-    # -------------------------------------------------------------------------------------------- #
-    2:
-      tasks:
-        name: spotify
-        description: Spotify Million Playlist Benchmark Dataset
-        stage: source
+    - name: source_movielens25m
+      description: Obtain Movielens25M Dataset from the Grouplens website
       operator:
-        name: DownloaderFile
-        module: recsys.operator.file
-      params:
-        uri1: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge/dataset_files?unique_download_uri=204765&challenge_id=277
-        uri2: https://www.aicrowd.com/challenges/spotify-million-playlist-dataset-challenge/dataset_files?unique_download_uri=204766&challenge_id=277
-        destination: data/spotify/ext/
-        force: False
+        name: ZipDownloader
+        module: recsys.operator.io.remote
+        params:
+          source: https://files.grouplens.org/datasets/movielens/ml-25m.zip
+          destination: data/ext/ml-25m.zip
+          force: False
 
-    # -------------------------------------------------------------------------------------------- #
-    #                                    TENREC                                                    #
-    # -------------------------------------------------------------------------------------------- #
-    3:
-      tasks:
-        name: load_tenrec_dataset
-        description: Obtain Tenrec, a large-scale multipurpose benchmark dataset
-        stage: source
+    - name: extract_ratings
+      description: Extract ratings file into raw directory.
       operator:
-        name: DownloaderFile
-        module: recsys.operator.file
-      params:
-        source: https://static.qblv.qq.com/qblv/h5/algo-frontend/tenrec_dataset.html#deal
-        destination: data/tenrec/ext/
-        force: False
+        name: ZipExtractor
+        module: recsys.operator.io.compress
+        params:
+          source: data/ext/ml-25m.zip
+          destination: data/raw/
+          member: ratings.csv
+          force: False
+
+    - name: split_dataset
+      description: Split file into training and test set
+      operator:
+        name: TemporalTrainTestSplit
+        module: recsys.operator.data.split
+        params:
+          source: data/raw/ratings.csv
+          train_filepath: data/prod/train.pkl
+          test_filepath: data/prod/test.pkl
+          train_size: 0.8
+          timestamp_var: timestamp
+          force: False
+
+    - name: subsample_dataset
+      description: Create a subsample of the dataset for development purposes
+      operator:
+        name: UserRandomSampling
+        module: recsys.operator.data.sampling
+        params:
+          source: data/prod/train.pkl
+          destination: data/dev/ratings.pkl
+          uservar: 'userId'
+          itemvar: 'movieId'
+          frac: 0.1
+          force: False
+
+    - name: split_dev_set
+      description: Split development set into train and test sets
+      operator:
+        name: TemporalTrainTestSplit
+        module: recsys.operator.data.split
+        params:
+          source: data/dev/ratings.pkl
+          train_filepath: data/dev/train.pkl
+          test_filepath: data/dev/test.pkl
+          train_size: 0.8
+          timestamp_var: timestamp
+          force: False

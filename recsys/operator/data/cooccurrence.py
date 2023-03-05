@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/operator/data/cooccurrence.py                                               #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 2nd 2023 10:01:36 pm                                                 #
-# Modified   : Saturday March 4th 2023 07:17:04 am                                                 #
+# Modified   : Sunday March 5th 2023 01:27:27 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,9 +23,9 @@ from functools import cache
 import numpy as np
 from tqdm import tqdm
 import pandas as pd
-from atelier.utils.combinations import cartesian_product
+from recsys.services.combinations import cartesian_product
 
-from recsys import Operator
+from recsys.operator.base import Operator, Artifact
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -54,7 +54,7 @@ class CooccurrenceIndex(Operator):
         self._itemvar = itemvar
 
     @abstractmethod
-    def execute(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Creates the cooccurrence index"""
 
 
@@ -82,9 +82,10 @@ class UserCooccurrenceIndex(CooccurrenceIndex):
         super().__init__(
             source=source, destination=destination, uservar=uservar, itemvar=itemvar, force=force
         )
+        self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
     @cache
-    def execute(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
 
         cooccurrence = {}
 
@@ -162,9 +163,10 @@ class ItemCooccurrenceIndex(CooccurrenceIndex):
         super().__init__(
             source=source, destination=destination, uservar=uservar, itemvar=itemvar, force=force
         )
+        self._artifact = {"item_cooccurrence_index": self._destination}
 
     @cache
-    def execute(self, data: pd.DataFrame = None) -> None:
+    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
 
         cooccurrence = {}
 

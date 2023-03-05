@@ -11,9 +11,10 @@
             ["url", "https://github.com/john-james-ai/Recsys-1-Neighborhood"],
             ["projectname", "Recommender Systems in Python 1: Neighborhood Methods"],
             ["version", "0.1.0"],
-            ["pythonversion","3.10.6"]
+            ["pythonversion","3.10.8"]
         ],
         "psi-header.config": {
+
 
 
         }
