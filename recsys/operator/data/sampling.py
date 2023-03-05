@@ -11,14 +11,12 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:51:25 pm                                            #
-# Modified   : Friday March 3rd 2023 02:48:13 am                                                   #
+# Modified   : Saturday March 4th 2023 11:44:23 am                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Sampling Operator Module"""
-from functools import cache
-
 from tqdm import tqdm
 import pandas as pd
 
@@ -58,7 +56,6 @@ class UserRandomSampling(Operator):
         self._itemvar = itemvar
         self._random_state = random_state
 
-    @cache
     def execute(self, data: pd.DataFrame = None) -> None:
         """Samples the data"""
         if not self._skip(endpoint=self._destination):
@@ -78,8 +75,24 @@ class UserRandomSampling(Operator):
             sample = data[data[self._uservar].isin(users)]
             # Save data if destination is provided.
             self._put_data(filepath=self._destination, data=sample)
+            # Announce
+            self._announce()
             # eh viola!
             return sample
+
+    def _announce(self) -> None:
+        if self._source is None and self._destination is None:
+            self._logger.info(f"Created a {int(self._frac*100)}% sample of dataset.")
+        elif self._source is None:
+            self._logger.info(
+                f"Created a {int(self._frac*100)}% sample of dataset at {self._destination}."
+            )
+        elif self._destination is None:
+            self._logger.info(f"Created a {int(self._frac*100)}% sample of dataset {self._source}.")
+        else:
+            self._logger.info(
+                f"Created a {int(self._frac*100)}% sample of dataset {self._source} at {self._destination}."
+            )
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -115,7 +128,6 @@ class UserStratifiedRandomSampling(Operator):
         self._itemvar = itemvar
         self._random_state = random_state
 
-    @cache
     def execute(self, data: pd.DataFrame = None) -> None:
         """Samples the data"""
         if not self._skip(endpoint=self._destination):

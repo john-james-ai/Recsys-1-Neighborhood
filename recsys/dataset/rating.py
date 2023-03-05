@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday February 26th 2023 12:40:31 am                                               #
-# Modified   : Thursday March 2nd 2023 08:34:17 pm                                                 #
+# Modified   : Saturday March 4th 2023 07:15:37 am                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -152,7 +152,28 @@ class RatingsDataset(Dataset):
         """
         return self._data[self._data["userId"] == userId]["movieId"].tolist()
 
-    def _run_profile(self) -> None:
+    def center(
+        self, user_ctr_col: str = "rating_ctr_user", item_ctr_col: str = "rating_ctr_item"
+    ) -> None:
+        """Centers rating by user and item average rating."""
+        self._center(by="userId", col=user_ctr_col)
+        self._center(by="movieId", col=item_ctr_col)
+
+    def _center(self, by: str, col: str) -> None:
+        """Centers ratings by value indicated"""
+
+        # Obtain average user ratings
+        rbar = self._data.groupby(by=by)["rating"].mean().reset_index()
+        rbar.columns = [by, "rbar"]
+
+        # Merge with ratings dataset
+        self._data = self._data.merge(rbar, on=by, how="left")
+
+        # Compute centered rating and drop the average rating column
+        self._data[col] = self._data["rating"] - self._data["rbar"]
+        self._data = self._data.drop(columns=["rbar"])
+
+    def _summarize(self) -> None:
         """Runs a data profile including basic summary statistics"""
         if not self._profiled:
             super()._run_profile()

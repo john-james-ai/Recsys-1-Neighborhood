@@ -1,390 +1,131 @@
-[03/01/2023 12:04:39 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
+[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
 
-Started TestContainer test_studio at 12:04:39 AM on 03/01/2023
-[03/01/2023 12:04:39 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
+Started TestZipExtractor test_setup at 09:49:35 AM on 03/04/2023
+[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
 ====================================================================================================
-[03/01/2023 12:05:20 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
-
-Started TestContainer test_studio at 12:05:20 AM on 03/01/2023
-[03/01/2023 12:05:20 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
-====================================================================================================
-[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
-
-Started TestContainer test_studio at 12:12:05 AM on 03/01/2023
-[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
-====================================================================================================
-[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
-Completed TestContainer test_studio in 0.1 seconds at 12:12:05 AM on 03/01/2023
-[03/01/2023 12:12:05 AM] [INFO] [tests.test_container.test_recsys_container] [test_recsys_container] [test_studio] : 
+[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+	Completed TestZipExtractor test_setup in 0.2 seconds at 09:49:35 AM on 03/04/2023
+[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
 ----------------------------------------------------------------------------------------------------
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
 
-Started TestODB test_setup at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+Started TestZipExtractor test_extract at 09:49:35 AM on 03/04/2023
+[03/04/2023 09:49:35 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
 ====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.1 seconds at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+[03/04/2023 09:49:44 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from tests/testdata/operators/io_operators/data/destination.zip to tests/testdata/operators/io_operators/data/archive
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+
+Started TestZipExtractor test_setup at 09:49:44 AM on 03/04/2023
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+====================================================================================================
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
+	Completed TestZipExtractor test_setup in 0.2 seconds at 09:49:44 AM on 03/04/2023
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_setup] : 
 ----------------------------------------------------------------------------------------------------
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-
-Started TestODB test_connect at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-
-Started TestODB test_insert at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-====================================================================================================
-[03/01/2023 12:20:56 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-	Completed TestODB test_insert in 0.0 seconds at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
+	Completed TestZipExtractor test_extract in 8.5 seconds at 09:49:44 AM on 03/04/2023
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract] : 
 ----------------------------------------------------------------------------------------------------
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
 
-Started TestODB test_select at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_select] : 
+Started TestZipExtractor test_extract_member at 09:49:44 AM on 03/04/2023
+[03/04/2023 09:49:44 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
 ====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-
-Started TestODB test_selectall at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-
-Started TestODB test_update at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-
-Started TestODB test_delete at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-
-Started TestODB test_exists_clear at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-
-Started TestODB test_teardown at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-====================================================================================================
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-	Completed TestODB test_teardown in 0.0 seconds at 12:20:56 AM on 03/01/2023
-[03/01/2023 12:20:56 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
+[03/04/2023 09:49:49 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from tests/testdata/operators/io_operators/data/destination.zip to tests/testdata/operators/io_operators/data/archive
+[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
+	Completed TestZipExtractor test_extract_member in 5.1 seconds at 09:49:49 AM on 03/04/2023
+[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_extract_member] : 
 ----------------------------------------------------------------------------------------------------
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_force] : 
 
-Started TestODB test_setup at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+Started TestZipExtractor test_force at 09:49:49 AM on 03/04/2023
+[03/04/2023 09:49:49 AM] [INFO] [test_compress] [test_compress] [test_force] : 
 ====================================================================================================
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.1 seconds at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
+[03/04/2023 09:49:49 AM] [INFO] [recsys.operator.io.compress.ZipExtractor] [base] [_skip] : ZipExtractor skipped. Endpoint already exists.
+[03/04/2023 09:49:58 AM] [DEBUG] [recsys.operator.io.compress.ZipExtractor] [compress] [execute] : Extracted zip archive from tests/testdata/operators/io_operators/data/destination.zip to tests/testdata/operators/io_operators/data/archive
+[03/04/2023 09:49:58 AM] [INFO] [test_compress] [test_compress] [test_force] : 
+	Completed TestZipExtractor test_force in 8.5 seconds at 09:49:58 AM on 03/04/2023
+[03/04/2023 09:49:58 AM] [INFO] [test_compress] [test_compress] [test_force] : 
 ----------------------------------------------------------------------------------------------------
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-
-Started TestODB test_connect at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-====================================================================================================
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-Completed TestODB test_connect in 0.0 seconds at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-
-Started TestODB test_insert at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-====================================================================================================
-[03/01/2023 12:21:41 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-	Completed TestODB test_insert in 0.0 seconds at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-
-Started TestODB test_select at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-====================================================================================================
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-
-Started TestODB test_selectall at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-====================================================================================================
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-
-Started TestODB test_update at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-====================================================================================================
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-
-Started TestODB test_delete at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-====================================================================================================
-[03/01/2023 12:21:41 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-
-Started TestODB test_exists_clear at 12:21:41 AM on 03/01/2023
-[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-====================================================================================================
-[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-
-Started TestODB test_teardown at 12:21:42 AM on 03/01/2023
-[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-====================================================================================================
-[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-	Completed TestODB test_teardown in 0.0 seconds at 12:21:42 AM on 03/01/2023
-[03/01/2023 12:21:42 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.1 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-
-Started TestODB test_connect at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-Completed TestODB test_connect in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-
-Started TestODB test_insert at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-	Completed TestODB test_insert in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-
-Started TestODB test_select at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key Not_exist not found in database.
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-	Completed TestODB test_select in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-
-Started TestODB test_selectall at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-
-Started TestODB test_update at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-
-Started TestODB test_delete at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key ratings not found in database.
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-	Completed TestODB test_delete in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-
-Started TestODB test_exists_clear at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-	Completed TestODB test_exists_clear in 0.1 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-
-Started TestODB test_teardown at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-====================================================================================================
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-	Completed TestODB test_teardown in 0.0 seconds at 12:22:39 AM on 03/01/2023
-[03/01/2023 12:22:39 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.1 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-
-Started TestODB test_connect at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-Completed TestODB test_connect in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_connect] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-
-Started TestODB test_insert at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [insert] : Object with key ratings already exists in the database.
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-	Completed TestODB test_insert in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_insert] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-
-Started TestODB test_select at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key Not_exist not found in database.
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-	Completed TestODB test_select in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_select] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-
-Started TestODB test_selectall at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-	Completed TestODB test_selectall in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_selectall] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-
-Started TestODB test_update at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [update] : Object with key nothinghere not found in database.
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-	Completed TestODB test_update in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_update] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-
-Started TestODB test_delete at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [ERROR] [recsys.persistence.odb.ObjectDB] [odb] [select] : Object with key ratings not found in database.
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-	Completed TestODB test_delete in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_delete] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-
-Started TestODB test_exists_clear at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-
-Started TestODB test_setup at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-	Completed TestODB test_setup in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-	Completed TestODB test_exists_clear in 0.1 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_exists_clear] : 
-----------------------------------------------------------------------------------------------------
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-
-Started TestODB test_teardown at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-====================================================================================================
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-	Completed TestODB test_teardown in 0.0 seconds at 12:23:40 AM on 03/01/2023
-[03/01/2023 12:23:40 AM] [INFO] [test_odb] [test_odb] [test_teardown] : 
-----------------------------------------------------------------------------------------------------
+[03/04/2023 03:23:32 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 03:23:32 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 03:23:32 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 03:23:32 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 03:23:32 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 03:23:33 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
+[03/04/2023 03:23:33 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 03:29:24 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 03:29:24 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 03:29:24 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 03:29:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 03:29:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 03:29:25 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
+[03/04/2023 03:29:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 03:31:52 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 03:31:52 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 03:31:52 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 03:31:52 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 03:31:52 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 03:31:52 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
+[03/04/2023 03:31:52 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 04:13:58 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 04:13:58 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 04:13:58 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 04:13:58 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 04:13:58 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 04:13:58 PM] [DEBUG] [git.util] [util] [is_cygwin_git] : Failed checking if running in CYGWIN due to: FileNotFoundError(2, 'No such file or directory')
+[03/04/2023 04:13:58 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 05:42:42 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 05:42:42 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 05:42:42 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 05:42:42 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:42:42 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:42:42 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 05:43:16 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 05:43:16 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 05:43:16 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 05:43:16 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:43:16 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:43:16 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 05:44:29 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 05:44:29 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 05:44:29 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 05:44:29 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:44:29 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:44:29 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 05:50:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 05:50:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 05:50:25 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 05:50:26 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:50:26 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 05:50:26 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 06:06:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 06:06:25 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 06:06:25 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 06:06:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:06:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:06:25 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 06:09:00 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 06:09:00 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 06:09:00 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 06:09:00 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:09:00 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:09:00 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 06:11:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 06:11:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 06:11:39 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 06:11:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:11:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:11:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 06:12:30 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 06:12:30 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 06:12:30 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 06:12:30 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:12:30 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:12:31 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)
+[03/04/2023 06:17:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment Name: ETL Experiments with MLFlow
+[03/04/2023 06:17:39 PM] [DEBUG] [__main__] [__main__] [etl] : Experiment ID: 1
+[03/04/2023 06:17:39 PM] [DEBUG] [__main__] [__main__] [etl] : Artifact Location: file:///home/john/projects/Recsys-1-Neighbor/mlruns
+[03/04/2023 06:17:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:17:39 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'version'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=None)
+[03/04/2023 06:17:40 PM] [DEBUG] [git.cmd] [cmd] [execute] : Popen(['git', 'cat-file', '--batch-check'], cwd=/home/john/projects/Recsys-1-Neighbor, universal_newlines=False, shell=None, istream=<valid stream>)

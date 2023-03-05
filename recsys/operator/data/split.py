@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 09:20:09 pm                                               #
-# Modified   : Friday March 3rd 2023 03:40:37 am                                                   #
+# Modified   : Saturday March 4th 2023 11:42:38 am                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -75,6 +75,10 @@ class TemporalTrainTestSplit(Operator):
                 self._put_data(filepath=self._test_filepath, data=test)
 
                 result = {"train": train, "test": test}
+
+                self._logger.info(f"Created training set at {self._train_filepath}.")
+                self._logger.info(f"Created test set at {self._test_filepath}.")
+
                 return result
             except KeyError:
                 msg = f"Column {self._timestamp_var} was not found."

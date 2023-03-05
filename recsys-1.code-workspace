@@ -8,11 +8,15 @@
         "psi-header.variables": [
 
             ["projectCreationYear", "2023"],
-            ["url", "https://github.com/john-james-ai/recsys-deep-learning"],
-            ["projectname", "Recommender Systems and Deep Learning in Python"],
+            ["url", "https://github.com/john-james-ai/Recsys-1-Neighborhood"],
+            ["projectname", "Recommender Systems in Python 1: Neighborhood Methods"],
             ["version", "0.1.0"],
             ["pythonversion","3.10.6"]
-        ]
+        ],
+        "psi-header.config": {
+
+
+        }
     }
 
 }

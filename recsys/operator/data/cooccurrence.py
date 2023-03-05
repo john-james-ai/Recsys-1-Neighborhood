@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 2nd 2023 10:01:36 pm                                                 #
-# Modified   : Friday March 3rd 2023 08:17:49 am                                                   #
+# Modified   : Saturday March 4th 2023 07:17:04 am                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -109,9 +109,11 @@ class UserCooccurrenceIndex(CooccurrenceIndex):
                         user_pairs = list(zip(user_pairs[:, 0], user_pairs[:, 1]))
                         # iterate over unique tuple combinations of users
                         for user_pair in user_pairs:
+                            # Sort pairs to and avoid duplicates
+                            user_pair = tuple(sorted(user_pair))
                             # Drop matching pairs and eliminate duplicates
                             if user_pair[0] != user_pair[1]:
-                                user_pair = tuple(sorted(user_pair))
+
                                 a = ratings[ratings["userId"] == user_pair[0]][
                                     ["userId", "movieId"]
                                 ]

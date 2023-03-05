@@ -4,57 +4,50 @@
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/__main__.py                                                                 #
+# Filename   : /recsys/etl/transform.py                                                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday January 29th 2023 09:08:36 am                                                #
-# Modified   : Saturday March 4th 2023 03:23:25 pm                                                 #
+# Created    : Saturday March 4th 2023 07:40:00 am                                                 #
+# Modified   : Saturday March 4th 2023 05:57:03 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+"""Transforms MovieLens ratings dataset to pickle format."""
+import os
 import mlflow
-from mlflow.tracking.client import MlflowClient
-
-from recsys.container import Recsys  # pragma: no cover
+import click
 import logging
+
+from recsys.services.io import IOService
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
 # ------------------------------------------------------------------------------------------------ #
 
 
-def etl():
-    client = MlflowClient()
-    experiment = client.get_experiment_by_name(name="ETL Experiments with MLFlow")
-    logger.debug(f"Experiment Name: {experiment.name}")
-    logger.debug(f"Experiment ID: {experiment.experiment_id}")
-    logger.debug(f"Artifact Location: {experiment.artifact_location}")
+@click.command(
+    help="""Converts ratings dataset from csv to pickle format and registers the artifacts in MLFlow"""
+)
+@click.option("--source", default="data/raw/ratings.csv", help="The path to the ratings.csv file.")
+@click.option("--destination", default="data/raw/ratings.pkl", help="Filepath for pickle file.")
+def transform(source, destination):
+    with mlflow.start_run() as mlrun:  # noqa F841
 
-    mlflow.projects.run(
-        uri="recsys/etl",
-        entry_point="etl",
-        storage_dir="data",
-        experiment_id=experiment.experiment_id,
-    )
+        # Perform the conversion
+        ratings = IOService.read(filepath=source)
+        IOService.write(filepath=destination, data=ratings)
+        source_filename = os.path.basename(source)
+        destination_filename = os.path.basename(destination)
+        logger.info(f"Converted {source_filename} to {destination_filename}")
 
-
-# ------------------------------------------------------------------------------------------------ #
-def wireup():  # pragma: no cover
-    container = Recsys()
-    container.init_resources()
-    container.wire(modules=[__name__])
+        # Log artifact
+        logger.info(f"Uploading transformed ratings file: {destination}.")
+        mlflow.log_artifacts(destination, "ratings-transformed_filepath")
 
 
-# ------------------------------------------------------------------------------------------------ #
-def main():  # pragma: no cover
-    wireup()
-    etl()
-
-
-# ------------------------------------------------------------------------------------------------ #
-if __name__ == "__main__":  # pragma: no cover
-    main()
+if __name__ == "__main__":
+    transform()
