@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 2nd 2023 10:01:36 pm                                                 #
-# Modified   : Sunday March 5th 2023 01:27:27 am                                                   #
+# Modified   : Sunday March 5th 2023 07:38:09 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -179,25 +179,34 @@ class ItemCooccurrenceIndex(CooccurrenceIndex):
                 for user, ratings in tqdm(data.groupby(self._uservar)):
                     # For each user, get the items rated.
                     items = ratings[self._itemvar].values
-                    if len(items) > 1:
-                        # Create 2 arrays for the cartesian product function
-                        a = np.array(items)
-                        b = np.array(items)
+                    for item in items:
+                        # Check other raters
+                        users = data[data[self._itemvar] == item][self._uservar].values
+                        # Debugging code
+                        self._logger.debug(f"\n\nUser {user} has {len(users)-1} neighbors")
+                        # Find cartesian product of users
+                        a = np.array(users)
+                        b = np.array(users)
                         # Compute the cartesian product of the items
-                        item_pairs = cartesian_product(a, b)
+                        user_pairs = cartesian_product(a, b)
+                        # Debugging code
+                        self._logger.debug(
+                            f"\nThis in turn equates to {len(user_pairs)} combinations."
+                        )
                         # Transpose
-                        item_pairs = item_pairs.T
+                        user_pairs = user_pairs.T
                         # Convert list of arrays to tuples
-                        item_pairs = list(zip(item_pairs[:, 0], item_pairs[:, 1]))
+                        user_pairs = list(zip(user_pairs[:, 0], user_pairs[:, 1]))
                         # iterate over unique tuple combinations of users
-                        for item_pair in item_pairs:
+                        for user_pair in user_pairs:
                             # Drop matching pairs and eliminate duplicates
-                            if item_pair[0] != item_pair[1]:
-                                item_pair = tuple(sorted(item_pair))
-                                if cooccurrence.get(item_pair, None) is None:
-                                    cooccurrence[item_pair] = [user]
+                            if user_pair[0] != user_pair[1]:
+                                user_pair = tuple(sorted(user_pair))
+                                # Add the item as cooccurring with the two users
+                                if cooccurrence.get(user_pair, None) is None:
+                                    cooccurrence[user_pair] = [item]
                                 else:
-                                    cooccurrence[item_pair].append(user)
+                                    cooccurrence[user_pair].append(item)
 
             except Exception as e:  # pragma : no cover
                 self._logger.error(e)

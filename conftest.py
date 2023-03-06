@@ -11,14 +11,24 @@
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Sunday March 5th 2023 12:43:28 am                                                   #
+# Modified   : Sunday March 5th 2023 01:54:00 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 import pytest
 
+from recsys.services.io import IOService
 from recsys.container import Recsys
+
+# ------------------------------------------------------------------------------------------------ #
+RATINGS_FILEPATH = "data/dev/train.pkl"
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session", autouse=True)
+def dataframe():
+    return IOService.read(RATINGS_FILEPATH)
 
 
 # ------------------------------------------------------------------------------------------------ #

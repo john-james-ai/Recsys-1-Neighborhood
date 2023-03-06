@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 02:17:33 am                                                   #
-# Modified   : Saturday March 4th 2023 05:57:34 pm                                                 #
+# Modified   : Sunday March 5th 2023 06:05:11 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -38,7 +38,7 @@ DESTINATION1 = "tests/testdata/operators/data_operators/cooccurrence/user_rating
 DESTINATION2 = "tests/testdata/operators/data_operators/cooccurrence/item_ratings_ctr_10pct.pkl"
 
 
-@pytest.mark.pairs
+# @pytest.mark.pairs
 class TestUserCooccurrence:  # pragma: no cover
     # ============================================================================================ #
     def test_cooccurrence(self, caplog):
@@ -115,7 +115,7 @@ class TestUserCooccurrence:  # pragma: no cover
         logger.info(single_line)
 
 
-# @pytest.mark.pairs
+@pytest.mark.pairs
 class TestItemCooccurrence:  # pragma: no cover
     # ============================================================================================ #
     def test_cooccurrence(self, caplog):
@@ -134,6 +134,7 @@ class TestItemCooccurrence:  # pragma: no cover
         s.execute()
         d2 = IOService.read(DESTINATION2)
         assert isinstance(d2, dict)
+        logger.debug(dict(itertools.islice(d2.items(), 4)))
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
@@ -173,7 +174,7 @@ class TestItemCooccurrence:  # pragma: no cover
         d2 = IOService.read(DESTINATION2)
         assert isinstance(d2, dict)
 
-        logger.debug(dict(itertools.islice(d2.items(), 2)))
+        logger.debug(dict(itertools.islice(d2.items(), 4)))
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()

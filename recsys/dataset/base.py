@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 03:40:09 pm                                              #
-# Modified   : Saturday March 4th 2023 05:57:03 pm                                                 #
+# Modified   : Sunday March 5th 2023 10:17:34 pm                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,6 +19,7 @@
 """Base module for domain package."""
 from abc import ABC, abstractmethod
 from copy import deepcopy
+import logging
 
 import numpy as np
 import pandas as pd
@@ -45,10 +46,23 @@ class Dataset(ABC):  # pragma: no cover
         data: pd.DataFrame,
         datasource: str = "movielens25m",
     ) -> None:
-        super().__init__(name=name, description=description, datasource=datasource, data=data)
 
+        self._name = name
+        self._description = description
+        self._data = data
+        self._datasource = datasource
         self._summary = None
-        self._summarize()
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
+
+    @property
+    def name(self) -> np.array:
+        return self._name
+
+    @property
+    def description(self) -> np.array:
+        return self._description
 
     @property
     def columns(self) -> np.array:
@@ -88,27 +102,8 @@ class Dataset(ABC):  # pragma: no cover
 
     def summary(self) -> None:
         self._summarize()
+        return self._summary
 
     @abstractmethod
     def _summarize(self) -> None:
-        if not self._summary:
-            self._nrows = self._data.shape[0]
-            self._ncols = self._data.shape[1]
-            self._size = self._nrows * self._ncols
-            self._memory = (
-                str(round(self._data.memory_usage(deep=True).sum() / 1024**2, 3)) + " Mb"
-            )
-
-            d = {}
-            d["id"] = self._id
-            d["name"] = self._name
-            d["type"] = self.__class__.__name__
-            d["description"] = self._description
-            d["workspace"] = self._workspace
-            d["nrows"] = self._data.shape[0]
-            d["ncols"] = self._data.shape[1]
-            d["size"] = self._size
-            d["memory"] = self.memory
-
-            self._summary = pd.DataFrame.from_dict(data=d, orient="index", columns=["Metric"])
-        print(self._summary)
+        """Computes summary statistics."""
