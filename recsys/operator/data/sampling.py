@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:51:25 pm                                            #
-# Modified   : Sunday March 5th 2023 08:54:00 pm                                                   #
+# Modified   : Thursday March 9th 2023 02:03:57 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -285,7 +285,7 @@ class RandomTemporalInteractionThresholdSampling(Operator):
         groups = pending.sort_values(by=["timestamp"], ascending=True).groupby(
             by=by, group_keys=False
         )
-        for name, ratings in groups:
+        for name, ratings in tqdm(groups):
             for index, row in ratings.iterrows():
                 row = row.to_frame()
                 eviction = data[data[by] == name].sample(n=1, replace=False, axis=0)

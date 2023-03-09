@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 02:17:33 am                                                   #
-# Modified   : Sunday March 5th 2023 06:05:11 am                                                   #
+# Modified   : Thursday March 9th 2023 12:07:10 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,7 +24,7 @@ import itertools
 
 from recsys.services.io import IOService
 
-from recsys.operator.data.cooccurrence import UserCooccurrenceIndex, ItemCooccurrenceIndex
+from recsys.operator.data.co_occurrence import UserCooccurrenceIndex, ItemCooccurrenceIndex
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/dataset/corating.py                                                         #
+# Filename   : /recsys/data/co-occurrence.py                                                       #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday March 1st 2023 11:55:43 am                                                #
-# Modified   : Thursday March 2nd 2023 08:26:23 pm                                                 #
+# Modified   : Monday March 6th 2023 01:27:34 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,7 @@
 import numpy as np
 import pandas as pd
 
-from recsys.dataset.base import Dataset
+from recsys.data.base import Dataset
 
 
 # ------------------------------------------------------------------------------------------------ #

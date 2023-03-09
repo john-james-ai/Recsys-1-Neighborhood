@@ -4,25 +4,27 @@
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/dataset/base.py                                                             #
+# Filename   : /recsys/data/base.py                                                                #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 03:40:09 pm                                              #
-# Modified   : Sunday March 5th 2023 10:17:34 pm                                                   #
+# Modified   : Monday March 6th 2023 03:59:47 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Base module for domain package."""
+from __future__ import annotations
 from abc import ABC, abstractmethod
 from copy import deepcopy
 import logging
-
+from scipy import sparse
 import numpy as np
 import pandas as pd
+from typing import Union
 
 from recsys.services.io import IOService
 
@@ -107,3 +109,69 @@ class Dataset(ABC):  # pragma: no cover
     @abstractmethod
     def _summarize(self) -> None:
         """Computes summary statistics."""
+
+
+# ------------------------------------------------------------------------------------------------ #
+#                                       MATRIX                                                     #
+# ------------------------------------------------------------------------------------------------ #
+class Matrix(ABC):
+    """Matrix Abstract Base Class"""
+
+    def __init__(self) -> None:
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
+
+    @property
+    @abstractmethod
+    def rowdim(self) -> int:
+        """Returns the row dimension."""
+
+    @property
+    @abstractmethod
+    def columndim(self) -> int:
+        """Returns the column dimension."""
+
+    @property
+    @abstractmethod
+    def size(self) -> int:
+        """Returns the matrix size."""
+
+    @property
+    @abstractmethod
+    def nnz(self) -> int:
+        """Returns the number of non-zero elements."""
+
+    @property
+    @abstractmethod
+    def rowsum(self) -> int:
+        """Returns a vector of row sums."""
+
+    @property
+    @abstractmethod
+    def colsum(self) -> int:
+        """Returns a vector of column sums."""
+
+    @abstractmethod
+    def get(self, row: int, col: int) -> Union[int, float]:
+        """Retunrs the element at specified row and column."""
+
+    @abstractmethod
+    def dot(self, other: Matrix) -> Matrix:
+        """Performs a dot product with an other matrix"""
+
+    @abstractmethod
+    def sum(self, other: Matrix) -> Matrix:
+        """Adds an other matrix object."""
+
+    @abstractmethod
+    def to_numpy(self) -> None:
+        """Return the 2 dimensional numpy array"""
+
+    @abstractmethod
+    def to_csc(self) -> None:
+        """Return the sparse csc matrix."""
+
+    @abstractmethod
+    def to_csr(self) -> sparse.csc:
+        """Return the sparse csr matrix."""

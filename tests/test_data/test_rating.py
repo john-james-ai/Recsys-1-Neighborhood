@@ -4,14 +4,14 @@
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /tests/test_dataset/test_rating.py                                                  #
+# Filename   : /tests/test_data/test_rating.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 07:17:30 am                                                 #
-# Modified   : Sunday March 5th 2023 03:12:36 am                                                   #
+# Modified   : Monday March 6th 2023 01:27:30 am                                                   #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,7 +22,7 @@ import pytest
 import logging
 import pandas as pd
 
-from recsys.dataset.rating import RatingsDataset
+from recsys.data.dataset import RatingsDataset
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
