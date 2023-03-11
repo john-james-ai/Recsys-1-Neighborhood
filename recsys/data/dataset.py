@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday February 26th 2023 12:40:31 am                                               #
-# Modified   : Thursday March 9th 2023 04:09:28 pm                                                 #
+# Modified   : Thursday March 9th 2023 08:26:39 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,11 +22,11 @@ from scipy.sparse import csr_matrix, csc_matrix, coo_matrix
 import numpy as np
 import pandas as pd
 
-from recsys.data.base import Dataset
+from recsys.data.base import DatasetABC
 
 
 # ------------------------------------------------------------------------------------------------ #
-class RatingsDataset(Dataset):
+class Dataset(DatasetABC):
     """Dataset containing movielens ratings data"""
 
     def __init__(
@@ -52,7 +52,8 @@ class RatingsDataset(Dataset):
         self._centered_rating_item = "rating_ri"
 
         self.reindex()
-        self.center()
+        self.center(by="user")
+        self.center(by="item")
         self._rearrange()
         self._summarize()
 
@@ -196,7 +197,11 @@ class RatingsDataset(Dataset):
             self._data[col] = self._data["rating"] - self._data["rbar"]
             self._data = self._data.drop(columns=["rbar"])
 
-    def as_csr(self, centered_by: str = None) -> csr_matrix:
+    def as_df(self) -> pd.DataFrame:
+        """Returns the nonzero values in dataframe format"""
+        return self._data
+
+    def to_csr(self, centered_by: str = None) -> csr_matrix:
         """Produces a csr matrix
 
         Args:
@@ -219,7 +224,7 @@ class RatingsDataset(Dataset):
         coo = coo_matrix((data, (rows, cols)), shape=(self.n_users, self.n_items))
         return coo.tocsr()
 
-    def as_csc(self, centered_by: str = None) -> csc_matrix:
+    def to_csc(self, centered_by: str = None) -> csc_matrix:
         """Produces a csr matrix
 
         Args:
@@ -241,6 +246,27 @@ class RatingsDataset(Dataset):
         data = self._data[col]
         coo = coo_matrix((data, (rows, cols)), shape=(self.n_users, self.n_items))
         return coo.tocsc()
+
+    def as_coo(self, centered_by: str = None) -> csc_matrix:
+        """Produces a csr matrix
+
+        Args:
+            centered_by (str): Valid values in [None, 'user', 'item']. Default is None
+
+        Returns: scipy.sparse.csc_matrix
+
+        """
+        if centered_by is None:
+            col = "rating"
+        elif "user" in centered_by:
+            col = self._centered_rating_user
+        else:
+            col = self._centered_rating_item
+
+        rows = self._data["useridx"]
+        cols = self._data["itemidx"]
+        data = self._data[col]
+        return coo_matrix((data, (rows, cols)), shape=(self.n_users, self.n_items))
 
     def reindex(self) -> None:
         self._logger.debug("Reindexing...")
@@ -329,13 +355,13 @@ class RatingsDataset(Dataset):
             "movieId",
             "itemidx",
             "rating",
-            "rating_ctr_user",
-            "rating_ctr_item",
+            self._centered_rating_user,
+            self._centered_rating_item,
             "timestamp",
         ]
         self._data = self._data[cols]
 
-    def compare(self, other: RatingsDataset) -> pd.DataFrame:
+    def compare(self, other: Dataset) -> pd.DataFrame:
         df1 = self._summary
         df2 = other.summary()
         both = pd.concat([df1, df2], axis=1)

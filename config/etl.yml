@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday February 20th 2023 07:09:58 am                                               #
-# Modified   : Sunday March 5th 2023 12:28:04 am                                                   #
+# Modified   : Thursday March 9th 2023 04:24:34 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -52,8 +52,8 @@ pipeline:
         module: recsys.operator.data.split
         params:
           source: data/raw/ratings.csv
-          train_filepath: data/prod/train.pkl
-          test_filepath: data/prod/test.pkl
+          train_filepath: data/split/train.pkl
+          test_filepath: data/split/test.pkl
           train_size: 0.8
           timestamp_var: timestamp
           force: False
@@ -61,13 +61,13 @@ pipeline:
     - name: subsample_dataset
       description: Create a subsample of the dataset for development purposes
       operator:
-        name: UserRandomSampling
+        name: RandomTemporalInteractionThresholdSampling
         module: recsys.operator.data.sampling
         params:
-          source: data/prod/train.pkl
-          destination: data/dev/ratings.pkl
-          uservar: 'userId'
-          itemvar: 'movieId'
+          source: data/split/train.pkl
+          destination: data/clean/ratings.pkl
+          umax: 1000
+          imax: 1000
           frac: 0.1
           force: False
 
@@ -77,9 +77,9 @@ pipeline:
         name: TemporalTrainTestSplit
         module: recsys.operator.data.split
         params:
-          source: data/dev/ratings.pkl
-          train_filepath: data/dev/train.pkl
-          test_filepath: data/dev/test.pkl
+          source: data/clean/ratings.pkl
+          train_filepath: data/clean/train.pkl
+          test_filepath: data/clean/test.pkl
           train_size: 0.8
           timestamp_var: timestamp
           force: False

@@ -3,77 +3,86 @@
 # ================================================================================================ #
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
-# Python     : 3.10.6                                                                              #
-# Filename   : /recsys/data/co-occurrence.py                                                       #
+# Python     : 3.10.8                                                                              #
+# Filename   : /recsys/data/matrix.py                                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Wednesday March 1st 2023 11:55:43 am                                                #
-# Modified   : Monday March 6th 2023 01:27:34 am                                                   #
+# Created    : Monday March 6th 2023 03:30:16 am                                                   #
+# Modified   : Thursday March 9th 2023 06:42:34 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Corating Data Module"""
-
+"""Interaction Matrix Module"""
+from scipy.sparse import csr_matrix, csc_matrix, coo_matrix
 import numpy as np
-import pandas as pd
 
-from recsys.data.base import Dataset
+from recsys.data.base import MatrixABC
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Corating(Dataset):
-    """DataFrame listing corated items or users.
-
-    Corated items can be a list of items rated by a pair of users, or a list of users who have
-    rated a pair of items. The specific implementation is determined by the keyvar, and coratevar
-    variables.
-    Args:
-        name (str): The name of the corating dataset
-        description (str): Description indicating whether this is a user or item corating index.
-        data (str): DataFrame containing two columns: a column containing tuples of users or items
-            and a column containing the items or users rating, or rated by the tuple pair
-        keyvar (tuple): A pair of users or items. Valid values are ['userId', 'movieId']
-        coratevar  (int): If keyvar is a pair of users, the coratevar is the column containing
-            the items rated by the pair of users. If the keyvar is a pair of items, the coratevar
-            is the variable containing the users that have rated both items. Valid values are
-            ['userId', 'movieId']
-    """
+class Matrix(MatrixABC):
+    """Matrix Class"""
 
     def __init__(
-        self,
-        name: str,
-        description: str,
-        data: pd.DataFrame,
-        keyvar: str = "userId",
-        coratevar: str = "movieId",
+        self, name: str, description: str, data: coo_matrix, datasource: str = "movielens25m"
     ) -> None:
-        super().__init__(name=name, description=description, data=data)
-        self._keyvar = keyvar
-        self._coratevar = coratevar
-        self._summary = None
-        self._counts = None
+        super().__init__()
+        self._name = name
+        self._description = description
+        self._datasource = datasource
+        self._coo = data
 
-    def get_corating(self, key: tuple) -> np.array:
-        """Provides corated items or users"""
-        return self._data[self._data[self._keyvar] == key][self._coratevar].values
+        self._csr = None
+        self._csc = None
 
-    def get_counts(self) -> pd.DataFrame:
-        if self._counts is None:
-            self._counts = self._data.value_counts()
-        return self._counts
+    @property
+    def rows(self) -> int:
+        """Returns the number of rows."""
+        return self._coo.shape[0]
 
-    def _summarize(self) -> None:
-        self._summary = {}
-        keyvar = self._keyvar + "_pairs"
-        coratevar = self._coratevar + "s"
-        if self._summary is None:
-            if self._counts is None:
-                self._counts = self._data.value_counts()
-            self._summary[keyvar] = self._data[self._keyvar].nunique()
-            self._summary[coratevar] = self._data[self._coratevar].describe().T
-        print(f"\nThere are {self._summary[keyvar]} unique pairs")
-        print(f"Summary Statistics of Counts per Pair\n{self._summary[coratevar]}")
+    @property
+    def cols(self) -> int:
+        """Returns the number of columns."""
+        return self._coo.shape[1]
+
+    @property
+    def size(self) -> int:
+        """Returns the matrix size as nrows * ncols."""
+        return self._coo.shape[0] * self._coo.shape[1]
+
+    @property
+    def nnz(self) -> int:
+        """Returns the number of non-zero elements."""
+        return self._coo.nnz
+
+    def sum(self, axis: int) -> np.array:
+        """Returns sum along an axis."""
+        return self._coo.sum(axis=axis)
+
+    def getrow(self, row: int) -> np.array:
+        """Returns the designated row."""
+        return self._coo.getrow(i=row)
+
+    def getcol(self, col: int) -> np.array:
+        """Returns the designated column."""
+        return self._coo.getcol(j=col)
+
+    def to_numpy(self) -> None:
+        """Return the 2 dimensional numpy array"""
+        return self._coo.toarray()
+
+    def to_csc(self) -> csc_matrix:
+        """Return the sparse csc matrix."""
+        if self._csc is None:
+            self._csc = self._coo.tocsc()
+        return self._csc
+
+    def to_csr(self) -> csr_matrix:
+        """Return the sparse csr matrix."""
+        if self._csr is None:
+            self._csr = self._coo.tocsr()
+        return self._csr

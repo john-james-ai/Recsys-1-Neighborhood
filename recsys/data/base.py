@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 03:40:09 pm                                              #
-# Modified   : Monday March 6th 2023 03:59:47 am                                                   #
+# Modified   : Thursday March 9th 2023 05:34:38 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,7 +24,6 @@ import logging
 from scipy import sparse
 import numpy as np
 import pandas as pd
-from typing import Union
 
 from recsys.services.io import IOService
 
@@ -32,7 +31,7 @@ from recsys.services.io import IOService
 # ------------------------------------------------------------------------------------------------ #
 #                                  DATASET CLASS                                                   #
 # ------------------------------------------------------------------------------------------------ #
-class Dataset(ABC):  # pragma: no cover
+class DatasetABC(ABC):  # pragma: no cover
     """Base class for tabular datasets.
     Args:
         name (str): Name of the dataset
@@ -114,7 +113,7 @@ class Dataset(ABC):  # pragma: no cover
 # ------------------------------------------------------------------------------------------------ #
 #                                       MATRIX                                                     #
 # ------------------------------------------------------------------------------------------------ #
-class Matrix(ABC):
+class MatrixABC(ABC):
     """Matrix Abstract Base Class"""
 
     def __init__(self) -> None:
@@ -124,13 +123,13 @@ class Matrix(ABC):
 
     @property
     @abstractmethod
-    def rowdim(self) -> int:
-        """Returns the row dimension."""
+    def rows(self) -> int:
+        """Returns the number of rows."""
 
     @property
     @abstractmethod
-    def columndim(self) -> int:
-        """Returns the column dimension."""
+    def cols(self) -> int:
+        """Returns the number of columns."""
 
     @property
     @abstractmethod
@@ -142,27 +141,17 @@ class Matrix(ABC):
     def nnz(self) -> int:
         """Returns the number of non-zero elements."""
 
-    @property
     @abstractmethod
-    def rowsum(self) -> int:
+    def sum(self, axis: int) -> np.array:
         """Returns a vector of row sums."""
 
-    @property
     @abstractmethod
-    def colsum(self) -> int:
-        """Returns a vector of column sums."""
+    def getrow(self, row: int) -> np.array:
+        """Returns the designated row."""
 
     @abstractmethod
-    def get(self, row: int, col: int) -> Union[int, float]:
-        """Retunrs the element at specified row and column."""
-
-    @abstractmethod
-    def dot(self, other: Matrix) -> Matrix:
-        """Performs a dot product with an other matrix"""
-
-    @abstractmethod
-    def sum(self, other: Matrix) -> Matrix:
-        """Adds an other matrix object."""
+    def getcol(self, col: int) -> np.array:
+        """Returns the designated column."""
 
     @abstractmethod
     def to_numpy(self) -> None:

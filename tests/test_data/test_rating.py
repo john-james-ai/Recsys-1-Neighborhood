@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 07:17:30 am                                                 #
-# Modified   : Monday March 6th 2023 01:27:30 am                                                   #
+# Modified   : Thursday March 9th 2023 05:36:07 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,7 +22,7 @@ import pytest
 import logging
 import pandas as pd
 
-from recsys.data.dataset import RatingsDataset
+from recsys.data.dataset import Dataset
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -50,7 +50,7 @@ class TestRating:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        ratings = RatingsDataset(name=NAME, description=DESCRIPTION, data=dataframe)
+        ratings = Dataset(name=NAME, description=DESCRIPTION, data=dataframe)
         assert isinstance(ratings.sparsity, float)
         assert isinstance(ratings.density, float)
         assert ratings.n_users < 1000000
@@ -93,7 +93,7 @@ class TestRating:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        ratings = RatingsDataset(name=NAME, description=DESCRIPTION, data=dataframe)
+        ratings = Dataset(name=NAME, description=DESCRIPTION, data=dataframe)
         assert len(ratings.get_user_ratings(useridx=10)) > 2
         assert len(ratings.get_item_ratings(itemidx=10)) > 2
         assert len(ratings.get_users_rated_item(itemidx=10)) > 2
@@ -127,7 +127,7 @@ class TestRating:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        ratings = RatingsDataset(name=NAME, description=DESCRIPTION, data=dataframe)
+        ratings = Dataset(name=NAME, description=DESCRIPTION, data=dataframe)
         df = ratings.to_df()
         assert df.rating.gt(df.rating_ctr_user).all()
         assert df.rating.gt(df.rating_ctr_item).all()
@@ -159,7 +159,7 @@ class TestRating:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        ratings = RatingsDataset(name=NAME, description=DESCRIPTION, data=dataframe)
+        ratings = Dataset(name=NAME, description=DESCRIPTION, data=dataframe)
         assert "useridx" in ratings.columns
         assert "itemidx" in ratings.columns
         assert ratings.ncols == 8

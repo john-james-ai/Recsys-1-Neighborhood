@@ -8,10 +8,10 @@
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 02:17:33 am                                                   #
-# Modified   : Saturday March 4th 2023 05:57:34 pm                                                 #
+# Modified   : Thursday March 9th 2023 07:18:42 pm                                                 #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,7 +24,7 @@ import logging
 
 from recsys.services.io import IOService
 
-from recsys.operator.data.split import TemporalTrainTestSplit
+from recsys.operator.dataset.split import TemporalTrainTestSplit
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
