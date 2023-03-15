@@ -4,14 +4,14 @@
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /tests/test_operators/test_similarity/test_cosine.py                                #
+# Filename   : /tests/test_operators/test_similarity/test_adj_cosine.py                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 08:09:28 pm                                                 #
-# Modified   : Sunday March 12th 2023 01:23:01 am                                                  #
+# Modified   : Saturday March 11th 2023 02:57:41 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -35,15 +35,12 @@ logger = logging.getLogger(__name__)
 double_line = f"\n{100 * '='}"
 single_line = f"\n{100 * '-'}"
 
-U = 29466
-V = 141336
-I = 654  # noqa:
-J = 2221
-USER_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/user_cosine.pkl"
-ITEM_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/item_cosine.pkl"
+
+USER_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/user_acosine.pkl"
+ITEM_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/item_acosine.pkl"
 
 
-@pytest.mark.cosine
+@pytest.mark.acosine
 class TestCosine:  # pragma: no cover
     # ============================================================================================ #
     def test_setup(self, caplog):
@@ -76,7 +73,7 @@ class TestCosine:  # pragma: no cover
 
     # ============================================================================================ #
     # @pytest.mark.skip()
-    def test_user_cosine(self, dataset, caplog):
+    def test_user_acosine(self, dataset, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -89,31 +86,31 @@ class TestCosine:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         factory = SimilarityMatrixFactory(
-            name="cosine_similarity",
+            name="acosine_similarity",
             description="Cosine Similarity",
             dim="user",
-            metric="cosine",
+            metric="acosine",
             destination=USER_COSINE_SIMILARITY,
         )
-        cosine = factory.execute(data=dataset)
-        csr = cosine.to_csr()
-        assert isinstance(cosine, Matrix)
+        acosine = factory.execute(data=dataset)
+        csr = acosine.to_csr()
+        assert isinstance(acosine, Matrix)
         assert isinstance(csr, csr_matrix)
         assert csr.max() <= 1.01
         assert csr.min() >= -1.01
 
         with pytest.raises(ValueError):
             factory = SimilarityMatrixFactory(
-                name="cosine_similarity",
+                name="acosine_similarity",
                 description="Cosine Similarity",
                 dim="df",
-                metric="cosine",
+                metric="acosine",
                 destination=USER_COSINE_SIMILARITY,
             )
 
         with pytest.raises(ValueError):
             factory = SimilarityMatrixFactory(
-                name="cosine_similarity",
+                name="acosine_similarity",
                 description="Cosine Similarity",
                 dim="user",
                 metric="notvalid",
@@ -137,7 +134,7 @@ class TestCosine:  # pragma: no cover
 
     # ============================================================================================ #
     # @pytest.mark.skip()
-    def test_item_cosine(self, dataset, caplog):
+    def test_item_acosine(self, dataset, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -150,15 +147,15 @@ class TestCosine:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         factory = SimilarityMatrixFactory(
-            name="cosine_similarity",
+            name="acosine_similarity",
             description="Cosine Similarity",
             dim="item",
-            metric="cosine",
+            metric="acosine",
             destination=ITEM_COSINE_SIMILARITY,
         )
-        cosine = factory.execute(data=dataset)
-        csc = cosine.to_csc()
-        assert isinstance(cosine, Matrix)
+        acosine = factory.execute(data=dataset)
+        csc = acosine.to_csc()
+        assert isinstance(acosine, Matrix)
         assert isinstance(csc, csc_matrix)
         assert csc.max() <= 1.01
         assert csc.min() >= -1.01

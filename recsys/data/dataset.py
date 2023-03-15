@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday February 26th 2023 12:40:31 am                                               #
-# Modified   : Thursday March 9th 2023 08:26:39 pm                                                 #
+# Modified   : Saturday March 11th 2023 05:06:59 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -35,8 +35,10 @@ class Dataset(DatasetABC):
         description: str,
         data: pd.DataFrame,
         datasource: str = "movielens25m",
+        centered_rating_adj=1e-9,
     ) -> None:
         super().__init__(name=name, description=description, data=data, datasource=datasource)
+        self._centered_rating_adj = centered_rating_adj
         self._profiled = False
         self._summary = None
         self._nrows = None
@@ -48,8 +50,10 @@ class Dataset(DatasetABC):
         self._sparsity = None
         self._density = None
         self._memory = None
-        self._centered_rating_user = "rating_ru"
-        self._centered_rating_item = "rating_ri"
+        self._centered_rating_user = "rating_cu"
+        self._centered_rating_item = "rating_ci"
+        self._znorm_rating_user = "rating_zu"
+        self._znorm_rating_item = "rating_zi"
 
         self.reindex()
         self.center(by="user")
@@ -165,9 +169,13 @@ class Dataset(DatasetABC):
     def center(self, by: str = "user") -> None:
         """Centers users by the user or item average rating.
 
+        Note: All centered ratings will have an adjustment added to reduce
+        probability of a zero rating, as zeros, explicit or not, are treated
+        as zeros in sparse matrices.
+
         The columns for the centered ratings are:
-            user: 'rating_ru'
-            item: 'rating_ri'
+            user: 'rating_cu'
+            item: 'rating_ci'
 
         Args:
             by (str): Valid values in ['user', 'item']
@@ -194,10 +202,61 @@ class Dataset(DatasetABC):
             self._data = self._data.merge(rbar, on=by, how="left")
 
             # Compute centered rating and drop the average rating column
-            self._data[col] = self._data["rating"] - self._data["rbar"]
+            self._data[col] = self._data["rating"] - self._data["rbar"] + self._centered_rating_adj
             self._data = self._data.drop(columns=["rbar"])
 
-    def as_df(self) -> pd.DataFrame:
+    def znorm(self, by: str = "user") -> None:
+        """Normalizes centered ratings by the standard deviation of user or item ratings.
+
+        While mean centering removes the offsets caused by the different perceptions of an average
+        rating, Z-score normalization  also considers the spread in the individual rating
+        scales.
+
+        In user-based methods, the normalization of a rating rui divides
+        the user-mean-centered rating by the standard deviation u of the ratings given by
+        user u.
+
+        Likewise, the z-score normalization of rui in item-based methods divides the itemmean-
+        centered rating by the standard deviation of ratings given to item i.
+
+        The columns for the z-normalized ratings are:
+            user: 'rating_zu'
+            item: 'rating_zi'
+
+        Args:
+            by (str): Valid values in ['user', 'item']
+
+        """
+        if "user" in by:
+            by = "useridx"
+            ccol = self._centered_rating_user
+            zcol = self._znorm_rating_user
+        else:
+            by = "itemidx"
+            ccol = self._centered_rating_item
+            zcol = self._znorm_rating_item
+
+        if zcol in self._data.columns:
+            msg = f"Ratings have already been normalized {by} in {zcol}."
+            self._logger.info(msg)
+        else:
+            if ccol not in self._data.columns:
+                self.center(by=by)
+
+            self._logger.debug(f"Normalizing mean ratings by {by} and storing in {zcol}.")
+
+            # Obtain the standard deviation of ratings
+            rstd = self._data.groupby(by=by)["rating"].std().reset_index()
+            rstd.columns = [by, "rstd"]
+
+            # Merge with ratings dataset
+            self._data = self._data.merge(rstd, on=by, how="left")
+
+            # Normalize the centered column by the standard deviation of ratings and drop the normalizer column.
+            self._data[zcol] = self._data[ccol] / self._data["rstd"]
+            self._data = self._data.drop(columns=["rstd"])
+
+    def to_df(self) -> pd.DataFrame:
         """Returns the nonzero values in dataframe format"""
         return self._data
 
@@ -213,7 +272,7 @@ class Dataset(DatasetABC):
 
         if centered_by is None:
             col = "rating"
-        elif "user" in centered_by:
+        elif "u" in centered_by.lower():
             col = self._centered_rating_user
         else:
             col = self._centered_rating_item
@@ -276,22 +335,6 @@ class Dataset(DatasetABC):
         else:
             self._reindex(id="userId", to="useridx")
             self._reindex(id="movieId", to="itemidx")
-
-    def _center(self, by: str, col: str) -> None:
-        """Centers ratings by value indicated"""
-
-        self._logger.debug(f"Centering ratings by {by}...")
-
-        # Obtain average user ratings
-        rbar = self._data.groupby(by=by)["rating"].mean().reset_index()
-        rbar.columns = [by, "rbar"]
-
-        # Merge with ratings dataset
-        self._data = self._data.merge(rbar, on=by, how="left")
-
-        # Compute centered rating and drop the average rating column
-        self._data[col] = self._data["rating"] - self._data["rbar"]
-        self._data = self._data.drop(columns=["rbar"])
 
     def _summarize(self) -> None:
         """Runs a data profile including basic summary statistics"""

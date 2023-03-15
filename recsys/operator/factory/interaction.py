@@ -11,17 +11,20 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 04:26:15 pm                                                 #
-# Modified   : Thursday March 9th 2023 07:23:17 pm                                                 #
+# Modified   : Saturday March 11th 2023 05:22:55 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Interaction Matrix Factory"""
 from scipy.sparse import coo_matrix
+import warnings
 
 from recsys.data.dataset import Dataset
 from recsys.data.matrix import Matrix
 from recsys.operator.base import Operator, Artifact
+
+warnings.filterwarnings("ignore")
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -66,7 +69,7 @@ class InteractionMatrixFactory(Operator):
 
             dataset = data or self._get_data(filepath=self._source)
 
-            df = dataset.as_df()
+            df = dataset.to_df()
             df = df[["useridx", "itemidx"]]
             df["interaction"] = 1
             rows = df["useridx"]

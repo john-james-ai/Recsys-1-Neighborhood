@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Thursday March 9th 2023 06:43:48 pm                                                 #
+# Modified   : Saturday March 11th 2023 11:14:37 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,12 +19,13 @@
 import pytest
 
 from recsys.data.dataset import Dataset
-from recsys.data.matrix import Matrix
 from recsys.services.io import IOService
 from recsys.container import Recsys
 
 # ------------------------------------------------------------------------------------------------ #
+RATINGS_SMALL_FILEPATH = "tests/testdata/ratings_small.csv"
 RATINGS_FILEPATH = "tests/testdata/operators/data_operators/sampling/temporaralthreshold/ratings_random_temporal_sampling_1000.pkl"
+INTERACTIONS_FILEPATH = "tests/testdata/operators/data_operators/factories/interaction.pkl"
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -51,11 +52,8 @@ def dataset(dataframe):
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session", autouse=True)
-def interaction(dataset):
-    out = Matrix(
-        name="test_interaction_matrix", description="Test Interaction Matrix", data=dataset.as_coo()
-    )
-    return out
+def interaction():
+    return IOService.read(INTERACTIONS_FILEPATH)
 
 
 # ------------------------------------------------------------------------------------------------ #

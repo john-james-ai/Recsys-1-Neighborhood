@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Tuesday February 28th 2023 03:40:09 pm                                              #
-# Modified   : Thursday March 9th 2023 05:34:38 pm                                                 #
+# Modified   : Saturday March 11th 2023 10:40:56 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -133,6 +133,11 @@ class MatrixABC(ABC):
 
     @property
     @abstractmethod
+    def shape(self) -> tuple:
+        """Returns the matrix shape."""
+
+    @property
+    @abstractmethod
     def size(self) -> int:
         """Returns the matrix size."""
 
@@ -154,13 +159,47 @@ class MatrixABC(ABC):
         """Returns the designated column."""
 
     @abstractmethod
-    def to_numpy(self) -> None:
+    def to_numpy(self) -> np.array:
         """Return the 2 dimensional numpy array"""
 
     @abstractmethod
-    def to_csc(self) -> None:
+    def to_csc(self) -> sparse.csc_matrix:
         """Return the sparse csc matrix."""
 
     @abstractmethod
-    def to_csr(self) -> sparse.csc:
+    def to_csr(self) -> sparse.csr_matrix:
         """Return the sparse csr matrix."""
+
+
+# ------------------------------------------------------------------------------------------------ #
+#                                          ARRAY                                                   #
+# ------------------------------------------------------------------------------------------------ #
+class ArrayABC(ABC):
+    """Array Abstract Base Class
+
+    Encapsulates a 1D numpy array.
+    """
+
+    def __init__(self) -> None:
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
+
+    @property
+    @abstractmethod
+    def size(self) -> int:
+        """Returns the matrix size."""
+
+    @property
+    @abstractmethod
+    def min(self) -> int:
+        """Returns the minimum in the array."""
+
+    @property
+    @abstractmethod
+    def max(self) -> int:
+        """Returns the maximum in the array."""
+
+    @abstractmethod
+    def to_numpy(self) -> None:
+        """Return the 2 dimensional numpy array"""

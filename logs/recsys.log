@@ -1,536 +1,179 @@
-[03/11/2023 12:21:22 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:21:24 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:21:26 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:21:28 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:21:29 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+[03/12/2023 12:03:56 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
+[03/12/2023 12:03:58 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_cu.
+[03/12/2023 12:04:00 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ci.
+[03/12/2023 12:04:02 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
+[03/12/2023 12:04:03 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
 
-Started TestCosine test_setup at 12:21:28 PM on 03/11/2023
-[03/11/2023 12:21:29 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+Started TestCosine test_setup at 12:04:02 AM on 03/12/2023
+[03/12/2023 12:04:03 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
 ====================================================================================================
-[03/11/2023 12:21:29 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.4 seconds at 12:21:29 PM on 03/11/2023
-[03/11/2023 12:21:29 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+[03/12/2023 12:04:05 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+Completed TestCosine test_setup in 2.9 seconds at 12:04:05 AM on 03/12/2023
+[03/12/2023 12:04:05 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
 ----------------------------------------------------------------------------------------------------
-[03/11/2023 12:21:29 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+[03/12/2023 12:04:05 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
 
-Started TestCosine test_user_cosine at 12:21:29 PM on 03/11/2023
-[03/11/2023 12:21:29 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+Started TestCosine test_user_cosine at 12:04:05 AM on 03/12/2023
+[03/12/2023 12:04:05 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
 ====================================================================================================
-[03/11/2023 12:21:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:21:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csr...
-[03/11/2023 12:21:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.106497 seconds elapsed
-[03/11/2023 12:21:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.165187 seconds elapsed
-[03/11/2023 12:21:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.180064 seconds elapsed
-[03/11/2023 12:21:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...0.291434 seconds elapsed
-[03/11/2023 12:21:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing dot product...0.336204 seconds elapsed
-[03/11/2023 12:23:00 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to coo_matrix...91.320341 seconds elapsed
-[03/11/2023 12:24:25 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Created Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 111.532185 seconds.
-[03/11/2023 12:26:53 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-	Completed TestCosine test_user_cosine in 324.8 seconds at 12:26:53 PM on 03/11/2023
-[03/11/2023 12:26:53 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:26:54 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:26:54 PM on 03/11/2023
-[03/11/2023 12:26:54 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:26:54 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:26:54 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:26:54 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.243831 seconds elapsed
-[03/11/2023 12:26:54 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.288835 seconds elapsed
-[03/11/2023 12:26:54 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.299029 seconds elapsed
-[03/11/2023 12:26:55 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...1.068829 seconds elapsed
-[03/11/2023 12:26:55 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing dot product...1.126736 seconds elapsed
-[03/11/2023 12:27:08 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to coo_matrix...14.470899 seconds elapsed
-[03/11/2023 12:27:08 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Created Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 14.546091 seconds.
-[03/11/2023 12:30:19 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:30:22 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:30:23 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:30:25 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:30:26 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:30:26 PM on 03/11/2023
-[03/11/2023 12:30:26 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:30:29 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 2.9 seconds at 12:30:29 PM on 03/11/2023
-[03/11/2023 12:30:29 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:30:29 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:30:29 PM on 03/11/2023
-[03/11/2023 12:30:29 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:30:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:30:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:30:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.236586 seconds elapsed
-[03/11/2023 12:30:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.283654 seconds elapsed
-[03/11/2023 12:30:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.29242 seconds elapsed
-[03/11/2023 12:30:30 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...1.026847 seconds elapsed
-[03/11/2023 12:31:23 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:31:26 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:31:27 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:31:30 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:31:30 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:31:30 PM on 03/11/2023
-[03/11/2023 12:31:30 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:31:30 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 12:31:30 PM on 03/11/2023
-[03/11/2023 12:31:30 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:31:30 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:31:30 PM on 03/11/2023
-[03/11/2023 12:31:30 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:31:30 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:31:30 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:31:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.2564 seconds elapsed
-[03/11/2023 12:31:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.306042 seconds elapsed
-[03/11/2023 12:31:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.314983 seconds elapsed
-[03/11/2023 12:31:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...0.95453 seconds elapsed
-[03/11/2023 12:38:21 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:38:24 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:38:25 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:38:28 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:38:28 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:38:28 PM on 03/11/2023
-[03/11/2023 12:38:28 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:38:28 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.4 seconds at 12:38:28 PM on 03/11/2023
-[03/11/2023 12:38:28 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:38:28 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:38:28 PM on 03/11/2023
-[03/11/2023 12:38:28 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:38:28 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:38:28 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:38:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of csc: (141779, 47171)
-[03/11/2023 12:38:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.243238 seconds elapsed
-[03/11/2023 12:38:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of squared norm: (141779, 47171)
-[03/11/2023 12:38:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.295602 seconds elapsed
-[03/11/2023 12:38:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of norm: (47171,)
-[03/11/2023 12:38:29 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.304401 seconds elapsed
-[03/11/2023 12:38:30 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of nonzero: 5957526.5957526
-[03/11/2023 12:38:30 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...1.329289 seconds elapsed
-[03/11/2023 12:38:30 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing dot product...1.387682 seconds elapsed
-[03/11/2023 12:38:41 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to coo_matrix...13.080739 seconds elapsed
-[03/11/2023 12:38:42 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Created Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 13.149003 seconds.
-[03/11/2023 12:44:02 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:44:04 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:44:06 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:44:08 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:44:09 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:44:09 PM on 03/11/2023
-[03/11/2023 12:44:09 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:44:09 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 12:44:09 PM on 03/11/2023
-[03/11/2023 12:44:09 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:44:09 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:44:09 PM on 03/11/2023
-[03/11/2023 12:44:09 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of csc: (141779, 47171)
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.279215 seconds elapsed
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of squared norm: (141779, 47171)
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.332578 seconds elapsed
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of norm: (47171,)
-[03/11/2023 12:44:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.341429 seconds elapsed
-[03/11/2023 12:44:10 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of nonzero: 5957526.5957526
-[03/11/2023 12:44:10 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...1.028226 seconds elapsed
-[03/11/2023 12:46:24 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:46:27 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:46:28 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:46:30 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:46:31 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:46:31 PM on 03/11/2023
-[03/11/2023 12:46:31 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:46:31 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 12:46:31 PM on 03/11/2023
-[03/11/2023 12:46:31 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:46:31 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:46:31 PM on 03/11/2023
-[03/11/2023 12:46:31 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of csc: (141779, 47171)
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.261356 seconds elapsed
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of squared norm: (141779, 47171)
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.31541 seconds elapsed
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of norm: (47171,)
-[03/11/2023 12:46:31 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.325126 seconds elapsed
-[03/11/2023 12:46:32 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of nonzero: 5957526.5957526
-[03/11/2023 12:46:32 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...0.983905 seconds elapsed
-[03/11/2023 12:46:32 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing dot product...1.043109 seconds elapsed
-[03/11/2023 12:46:43 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to coo_matrix...12.290485 seconds elapsed
-[03/11/2023 12:46:43 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Created Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 12.354546 seconds.
-[03/11/2023 12:49:17 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:49:19 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:49:20 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:49:23 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:49:23 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:49:23 PM on 03/11/2023
-[03/11/2023 12:49:23 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:49:23 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 12:49:23 PM on 03/11/2023
-[03/11/2023 12:49:23 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:49:23 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:49:23 PM on 03/11/2023
-[03/11/2023 12:49:23 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:49:23 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:49:23 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:49:23 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of csc: (141779, 47171)
-[03/11/2023 12:49:24 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.263162 seconds elapsed
-[03/11/2023 12:49:24 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of squared norm: (141779, 47171)
-[03/11/2023 12:49:24 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.316196 seconds elapsed
-[03/11/2023 12:49:24 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of norm: (47171,)
-[03/11/2023 12:49:24 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.325184 seconds elapsed
-[03/11/2023 12:49:24 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of nonzero: 5957526.5957526
-[03/11/2023 12:49:24 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...0.991967 seconds elapsed
-[03/11/2023 12:50:20 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:50:22 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:50:23 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:50:25 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:50:26 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:50:26 PM on 03/11/2023
-[03/11/2023 12:50:26 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:50:26 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 12:50:26 PM on 03/11/2023
-[03/11/2023 12:50:26 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:50:26 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:50:26 PM on 03/11/2023
-[03/11/2023 12:50:26 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of csc: (141779, 47171)
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.268797 seconds elapsed
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of squared norm: (141779, 47171)
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.320552 seconds elapsed
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of norm: (47171,)
-[03/11/2023 12:50:26 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.329665 seconds elapsed
-[03/11/2023 12:50:27 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of nonzero: 5957526.5957526
-[03/11/2023 12:50:27 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...0.978596 seconds elapsed
-[03/11/2023 12:50:27 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing dot product...1.036807 seconds elapsed
-[03/11/2023 12:50:39 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to coo_matrix...12.514014 seconds elapsed
-[03/11/2023 12:50:39 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Created Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 12.592456 seconds.
-[03/11/2023 12:57:57 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 12:57:59 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 12:58:01 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 12:58:03 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 12:58:04 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 12:58:03 PM on 03/11/2023
-[03/11/2023 12:58:04 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 12:58:04 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 12:58:04 PM on 03/11/2023
-[03/11/2023 12:58:04 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 12:58:04 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 12:58:04 PM on 03/11/2023
-[03/11/2023 12:58:04 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Creating Cosine Similarity Matrix
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to csc...
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of csc: (141779, 47171)
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise multiplication...0.272699 seconds elapsed
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Transposing to item major
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of squared norm: (47171, 141779)
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing norm...0.324245 seconds elapsed
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of norm: (47171,)
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Extracting nnz values...0.333247 seconds elapsed
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Shape of nonzero: 5957526.5957526
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing element-wise division...0.445051 seconds elapsed
-[03/11/2023 12:58:04 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Computing dot product...0.488956 seconds elapsed
-[03/11/2023 12:58:16 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : 	Converting to coo_matrix...12.071329 seconds elapsed
-[03/11/2023 12:58:16 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [execute] : Created Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 12.135112 seconds.
-[03/11/2023 12:58:16 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-	Completed TestCosine test_item_cosine in 12.5 seconds at 12:58:16 PM on 03/11/2023
-[03/11/2023 12:58:16 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 01:15:18 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 01:15:20 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 01:15:22 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 01:15:24 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 01:15:25 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 01:15:24 PM on 03/11/2023
-[03/11/2023 01:15:25 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 01:15:25 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 01:15:25 PM on 03/11/2023
-[03/11/2023 01:15:25 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 01:15:25 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-
-Started TestCosine test_user_cosine at 01:15:25 PM on 03/11/2023
-[03/11/2023 01:15:25 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-====================================================================================================
-[03/11/2023 01:15:25 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : Creating Cosine Similarity Matrix
-[03/11/2023 01:15:25 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed element-wise multiplication...0.152301 seconds elapsed
-[03/11/2023 01:15:25 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed norm...0.165797 seconds elapsed
-[03/11/2023 01:15:25 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Extracted nnz values...0.27943 seconds elapsed
-[03/11/2023 01:15:25 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed element-wise division...0.323244 seconds elapsed
-[03/11/2023 01:16:56 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed dot product...91.128527 seconds elapsed
-[03/11/2023 01:16:56 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Converted to coo_matrix...91.255377 seconds elapsed
-[03/11/2023 01:16:56 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : Created User Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 91.374051 seconds.
-[03/11/2023 01:16:56 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-	Completed TestCosine test_user_cosine in 91.5 seconds at 01:16:56 PM on 03/11/2023
-[03/11/2023 01:16:56 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 01:16:56 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 01:16:56 PM on 03/11/2023
-[03/11/2023 01:16:56 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 01:16:57 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : Creating Cosine Similarity Matrix
-[03/11/2023 01:16:57 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed element-wise multiplication...0.045362 seconds elapsed
-[03/11/2023 01:16:57 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed norm...0.054826 seconds elapsed
-[03/11/2023 01:16:57 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Extracted nnz values...0.149746 seconds elapsed
-[03/11/2023 01:16:57 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed element-wise division...0.195295 seconds elapsed
-[03/11/2023 01:17:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Computed dot product...12.833458 seconds elapsed
-[03/11/2023 01:17:09 PM] [DEBUG] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : 	Converted to coo_matrix...12.91027 seconds elapsed
-[03/11/2023 01:17:10 PM] [INFO] [recsys.operator.matrix.cosine.CosineSimilarityMatrixFactory] [cosine] [_cosine] : Created Item Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 13.037275 seconds.
-[03/11/2023 01:17:10 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-	Completed TestCosine test_item_cosine in 13.6 seconds at 01:17:10 PM on 03/11/2023
-[03/11/2023 01:17:10 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 01:50:33 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 01:50:36 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 01:50:37 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 01:50:39 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 01:50:40 PM on 03/11/2023
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 01:50:40 PM on 03/11/2023
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-
-Started TestCosine test_user_cosine at 01:50:40 PM on 03/11/2023
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-====================================================================================================
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 01:50:40 PM on 03/11/2023
-[03/11/2023 01:50:40 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 01:51:30 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 01:51:33 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 01:51:34 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 01:51:37 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 01:51:37 PM on 03/11/2023
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 01:51:37 PM on 03/11/2023
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-
-Started TestCosine test_user_cosine at 01:51:37 PM on 03/11/2023
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-====================================================================================================
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 01:51:37 PM on 03/11/2023
-[03/11/2023 01:51:37 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 01:53:33 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 01:53:35 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 01:53:36 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 01:53:39 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 01:53:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 01:53:40 PM on 03/11/2023
-[03/11/2023 01:53:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 01:53:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 01:53:40 PM on 03/11/2023
-[03/11/2023 01:53:40 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 01:53:40 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-
-Started TestCosine test_user_cosine at 01:53:40 PM on 03/11/2023
-[03/11/2023 01:53:40 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-====================================================================================================
-[03/11/2023 01:53:40 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Creating Cosine Similarity Matrix
-[03/11/2023 01:53:40 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.050246 seconds elapsed
-[03/11/2023 01:53:40 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.063815 seconds elapsed
-[03/11/2023 01:53:40 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.158101 seconds elapsed
-[03/11/2023 01:53:40 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.201857 seconds elapsed
-[03/11/2023 01:55:07 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...87.339045 seconds elapsed
-[03/11/2023 01:55:07 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...87.459054 seconds elapsed
-[03/11/2023 01:55:07 PM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created User Cosine Similarity Matrix, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 87.577423 seconds.
-[03/11/2023 01:55:08 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-
-Started TestCosine test_item_cosine at 01:55:08 PM on 03/11/2023
-[03/11/2023 01:55:08 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-====================================================================================================
-[03/11/2023 01:55:08 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Creating Cosine Similarity Matrix
-[03/11/2023 01:55:08 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.045444 seconds elapsed
-[03/11/2023 01:55:08 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.066399 seconds elapsed
-[03/11/2023 01:55:08 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.761521 seconds elapsed
-[03/11/2023 01:55:08 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.812748 seconds elapsed
-[03/11/2023 02:07:01 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 02:07:04 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 02:07:05 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 02:07:08 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 02:07:08 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 02:07:08 PM on 03/11/2023
-[03/11/2023 02:07:08 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 02:07:08 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 02:07:08 PM on 03/11/2023
-[03/11/2023 02:07:08 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 02:07:08 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-
-Started TestCosine test_user_cosine at 02:07:08 PM on 03/11/2023
-[03/11/2023 02:07:08 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-====================================================================================================
-[03/11/2023 02:07:09 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
+[03/12/2023 12:04:05 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_get_matrix] : 	Centering by None
+[03/12/2023 12:04:05 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
 Creating User Cosine Similarity Matrix
-[03/11/2023 02:07:09 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.060624 seconds elapsed
-[03/11/2023 02:07:09 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.07626 seconds elapsed
-[03/11/2023 02:07:09 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.207958 seconds elapsed
-[03/11/2023 02:07:09 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.254381 seconds elapsed
-[03/11/2023 02:08:42 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...93.587559 seconds elapsed
-[03/11/2023 02:08:42 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...93.761282 seconds elapsed
-[03/11/2023 02:08:42 PM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created User Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 93.912251 seconds.
-[03/11/2023 02:08:43 PM] [ERROR] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [__init__] : dim parameter value df is not supported. Valid values are: {'u': 'User', 'i': 'Item'}
-[03/11/2023 02:08:43 PM] [ERROR] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [__init__] : metric parameter value notvalid is not a supported metric. Valid values are: dict_values(['Adjusted Cosine Similarity', 'Cosine Similarity', 'Pearson Correlation'])
-[03/11/2023 02:08:43 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-	Completed TestCosine test_user_cosine in 94.1 seconds at 02:08:43 PM on 03/11/2023
-[03/11/2023 02:08:43 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 02:08:43 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.063173 seconds elapsed
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of squared norm is (141779, 47171)
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.081422 seconds elapsed
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of norm is (141779,)
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.220562 seconds elapsed
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of matrix is (141779, 47171)
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Length of row_indices is 5957526
+[03/12/2023 12:04:06 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.277036 seconds elapsed
+[03/12/2023 12:05:39 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...93.965279 seconds elapsed
+[03/12/2023 12:05:40 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...94.102556 seconds elapsed
+[03/12/2023 12:05:40 AM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created User Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 94.230363 seconds.
+[03/12/2023 12:05:46 AM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
 
-Started TestCosine test_item_cosine at 02:08:43 PM on 03/11/2023
-[03/11/2023 02:08:43 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+Started TestCosine test_item_cosine at 12:05:46 AM on 03/12/2023
+[03/12/2023 12:05:46 AM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
 ====================================================================================================
-[03/11/2023 02:08:43 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
+[03/12/2023 12:05:46 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_get_matrix] : 	Centering by None
+[03/12/2023 12:05:46 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
 Creating Item Cosine Similarity Matrix
-[03/11/2023 02:08:43 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.056125 seconds elapsed
-[03/11/2023 02:08:43 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.0818 seconds elapsed
-[03/11/2023 02:08:44 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.837105 seconds elapsed
-[03/11/2023 02:08:44 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.889561 seconds elapsed
-[03/11/2023 02:08:56 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...13.561725 seconds elapsed
-[03/11/2023 02:08:56 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...13.646924 seconds elapsed
-[03/11/2023 02:08:56 PM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created Item Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 13.775596 seconds.
-[03/11/2023 02:10:54 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 02:10:56 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 02:10:58 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 02:11:00 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 02:11:01 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+[03/12/2023 12:05:46 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.078037 seconds elapsed
+[03/12/2023 12:05:46 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of squared norm is (47171, 141779)
+[03/12/2023 12:05:46 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.093633 seconds elapsed
+[03/12/2023 12:05:46 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of norm is (47171,)
+[03/12/2023 12:05:47 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.242132 seconds elapsed
+[03/12/2023 12:05:47 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of matrix is (47171, 141779)
+[03/12/2023 12:05:47 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Length of row_indices is 5957526
+[03/12/2023 12:05:47 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.314344 seconds elapsed
+[03/12/2023 12:12:53 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
+[03/12/2023 12:12:55 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_cu.
+[03/12/2023 12:12:57 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ci.
+[03/12/2023 12:12:59 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
+[03/12/2023 12:13:00 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
 
-Started TestCosine test_setup at 02:11:01 PM on 03/11/2023
-[03/11/2023 02:11:01 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+Started TestCosine test_setup at 12:13:00 AM on 03/12/2023
+[03/12/2023 12:13:00 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
 ====================================================================================================
-[03/11/2023 02:11:01 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 02:11:01 PM on 03/11/2023
-[03/11/2023 02:11:01 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+[03/12/2023 12:13:00 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+Completed TestCosine test_setup in 0.3 seconds at 12:13:00 AM on 03/12/2023
+[03/12/2023 12:13:00 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
 ----------------------------------------------------------------------------------------------------
-[03/11/2023 02:11:01 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+[03/12/2023 12:13:00 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
 
-Started TestCosine test_item_cosine at 02:11:01 PM on 03/11/2023
-[03/11/2023 02:11:01 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+Started TestCosine test_user_cosine at 12:13:00 AM on 03/12/2023
+[03/12/2023 12:13:00 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
 ====================================================================================================
-[03/11/2023 02:11:01 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
-Creating Item Cosine Similarity Matrix
-[03/11/2023 02:11:01 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.051749 seconds elapsed
-[03/11/2023 02:11:01 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.060203 seconds elapsed
-[03/11/2023 02:11:01 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.177805 seconds elapsed
-[03/11/2023 02:11:01 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.222261 seconds elapsed
-[03/11/2023 02:11:13 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...11.655106 seconds elapsed
-[03/11/2023 02:11:13 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...11.727743 seconds elapsed
-[03/11/2023 02:11:13 PM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created Item Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 11.853674 seconds.
-[03/11/2023 02:11:13 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-	Completed TestCosine test_item_cosine in 12.4 seconds at 02:11:13 PM on 03/11/2023
-[03/11/2023 02:11:13 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 02:11:37 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
-[03/11/2023 02:11:39 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_ru.
-[03/11/2023 02:11:40 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ri.
-[03/11/2023 02:11:43 PM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
-[03/11/2023 02:11:43 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-
-Started TestCosine test_setup at 02:11:43 PM on 03/11/2023
-[03/11/2023 02:11:43 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-====================================================================================================
-[03/11/2023 02:11:43 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-Completed TestCosine test_setup in 0.3 seconds at 02:11:43 PM on 03/11/2023
-[03/11/2023 02:11:43 PM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 02:11:43 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-
-Started TestCosine test_user_cosine at 02:11:43 PM on 03/11/2023
-[03/11/2023 02:11:43 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-====================================================================================================
-[03/11/2023 02:11:44 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_get_matrix] : 	Centering by None
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
 Creating User Cosine Similarity Matrix
-[03/11/2023 02:11:44 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.050066 seconds elapsed
-[03/11/2023 02:11:44 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.063099 seconds elapsed
-[03/11/2023 02:11:44 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.157148 seconds elapsed
-[03/11/2023 02:11:44 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.201444 seconds elapsed
-[03/11/2023 02:13:15 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...91.844967 seconds elapsed
-[03/11/2023 02:13:16 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...91.969382 seconds elapsed
-[03/11/2023 02:13:16 PM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created User Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 92.089429 seconds.
-[03/11/2023 02:13:16 PM] [ERROR] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [__init__] : dim parameter value df is not supported. Valid values are: {'u': 'User', 'i': 'Item'}
-[03/11/2023 02:13:16 PM] [ERROR] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [__init__] : metric parameter value notvalid is not a supported metric. Valid values are: dict_values(['Adjusted Cosine Similarity', 'Cosine Similarity', 'Pearson Correlation'])
-[03/11/2023 02:13:16 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-	Completed TestCosine test_user_cosine in 92.3 seconds at 02:13:16 PM on 03/11/2023
-[03/11/2023 02:13:16 PM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
-----------------------------------------------------------------------------------------------------
-[03/11/2023 02:13:16 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.052149 seconds elapsed
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of squared norm is (141779, 47171)
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.06619 seconds elapsed
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of norm is (141779,)
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.164393 seconds elapsed
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of matrix is (141779, 47171)
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Length of row_indices is 5957526
+[03/12/2023 12:13:00 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.210824 seconds elapsed
+[03/12/2023 12:14:30 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...90.077647 seconds elapsed
+[03/12/2023 12:14:52 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...111.37871 seconds elapsed
+[03/12/2023 12:16:05 AM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created User Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 184.899819 seconds.
+[03/12/2023 12:18:34 AM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
 
-Started TestCosine test_item_cosine at 02:13:16 PM on 03/11/2023
-[03/11/2023 02:13:16 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+Started TestCosine test_item_cosine at 12:18:34 AM on 03/12/2023
+[03/12/2023 12:18:34 AM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
 ====================================================================================================
-[03/11/2023 02:13:16 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
+[03/12/2023 12:18:34 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_get_matrix] : 	Centering by None
+[03/12/2023 12:18:34 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
 Creating Item Cosine Similarity Matrix
-[03/11/2023 02:13:16 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.0441 seconds elapsed
-[03/11/2023 02:13:16 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.053313 seconds elapsed
-[03/11/2023 02:13:16 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.146629 seconds elapsed
-[03/11/2023 02:13:16 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.191281 seconds elapsed
-[03/11/2023 02:13:28 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...12.201774 seconds elapsed
-[03/11/2023 02:13:28 PM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...12.298564 seconds elapsed
-[03/11/2023 02:13:28 PM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created Item Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 12.453633 seconds.
-[03/11/2023 02:13:29 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
-	Completed TestCosine test_item_cosine in 13.0 seconds at 02:13:29 PM on 03/11/2023
-[03/11/2023 02:13:29 PM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+[03/12/2023 12:18:34 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.060182 seconds elapsed
+[03/12/2023 12:18:34 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of squared norm is (47171, 141779)
+[03/12/2023 12:18:34 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.071263 seconds elapsed
+[03/12/2023 12:18:34 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of norm is (47171,)
+[03/12/2023 12:18:35 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.22932 seconds elapsed
+[03/12/2023 12:18:35 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of matrix is (47171, 141779)
+[03/12/2023 12:18:35 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Length of row_indices is 5957526
+[03/12/2023 12:18:35 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.279044 seconds elapsed
+[03/12/2023 12:29:28 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
+[03/12/2023 12:29:30 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_cu.
+[03/12/2023 12:29:31 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ci.
+[03/12/2023 12:29:34 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
+[03/12/2023 12:29:34 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+
+Started TestCosine test_setup at 12:29:34 AM on 03/12/2023
+[03/12/2023 12:29:34 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+====================================================================================================
+[03/12/2023 12:29:37 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+Completed TestCosine test_setup in 3.0 seconds at 12:29:37 AM on 03/12/2023
+[03/12/2023 12:29:37 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
 ----------------------------------------------------------------------------------------------------
+[03/12/2023 12:29:37 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+
+Started TestCosine test_user_cosine at 12:29:37 AM on 03/12/2023
+[03/12/2023 12:29:37 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+====================================================================================================
+[03/12/2023 12:29:37 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_get_matrix] : 	Centering by None
+[03/12/2023 12:29:37 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
+Creating User Cosine Similarity Matrix
+[03/12/2023 12:29:37 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.062224 seconds elapsed
+[03/12/2023 12:29:37 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of squared norm is (141779, 47171)
+[03/12/2023 12:29:37 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.079345 seconds elapsed
+[03/12/2023 12:29:37 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of norm is (141779,)
+[03/12/2023 12:29:38 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.233814 seconds elapsed
+[03/12/2023 12:29:38 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of matrix is (141779, 47171)
+[03/12/2023 12:29:38 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Length of row_indices is 5957526
+[03/12/2023 12:29:38 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.292224 seconds elapsed
+[03/12/2023 12:31:15 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...97.196895 seconds elapsed
+[03/12/2023 12:31:45 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...127.757115 seconds elapsed
+[03/12/2023 12:33:01 AM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created User Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 204.125705 seconds.
+[03/12/2023 01:13:12 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [reindex] : Reindexing...
+[03/12/2023 01:13:15 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by useridx and storing in rating_cu.
+[03/12/2023 01:13:16 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [center] : Centering ratings by itemidx and storing in rating_ci.
+[03/12/2023 01:13:19 AM] [DEBUG] [recsys.data.dataset.Dataset] [dataset] [_summarize] : Computing descriptive statistics....
+[03/12/2023 01:13:20 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+
+Started TestCosine test_setup at 01:13:19 AM on 03/12/2023
+[03/12/2023 01:13:20 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+====================================================================================================
+[03/12/2023 01:13:22 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+Completed TestCosine test_setup in 2.6 seconds at 01:13:22 AM on 03/12/2023
+[03/12/2023 01:13:22 AM] [INFO] [test_cosine] [test_cosine] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/12/2023 01:13:22 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+
+Started TestCosine test_user_cosine at 01:13:22 AM on 03/12/2023
+[03/12/2023 01:13:22 AM] [INFO] [test_cosine] [test_cosine] [test_user_cosine] : 
+====================================================================================================
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_get_matrix] : 	Centering by None
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
+Creating User Cosine Similarity Matrix
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.061602 seconds elapsed
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of squared norm is (141779, 47171)
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.07881 seconds elapsed
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of norm is (141779,)
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.220434 seconds elapsed
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of matrix is (141779, 47171)
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Length of row_indices is 5957526
+[03/12/2023 01:13:22 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.275427 seconds elapsed
+[03/12/2023 01:14:56 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...93.678804 seconds elapsed
+[03/12/2023 01:15:21 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...119.080757 seconds elapsed
+[03/12/2023 01:17:02 AM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created User Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/user_cosine.pkl in 219.78194 seconds.
+[03/12/2023 01:20:27 AM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+
+Started TestCosine test_item_cosine at 01:20:27 AM on 03/12/2023
+[03/12/2023 01:20:27 AM] [INFO] [test_cosine] [test_cosine] [test_item_cosine] : 
+====================================================================================================
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_get_matrix] : 	Centering by None
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 
+Creating Item Cosine Similarity Matrix
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise multiplication...0.052325 seconds elapsed
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of squared norm is (47171, 141779)
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed norm...0.062 seconds elapsed
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of norm is (47171,)
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Extracted nnz values...0.183777 seconds elapsed
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Shape of matrix is (47171, 141779)
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Length of row_indices is 5957526
+[03/12/2023 01:20:27 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed element-wise division...0.232112 seconds elapsed
+[03/12/2023 01:20:43 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Computed dot product...15.749335 seconds elapsed
+[03/12/2023 01:20:46 AM] [DEBUG] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : 	Converted to coo_matrix...19.040415 seconds elapsed
+[03/12/2023 01:20:51 AM] [INFO] [recsys.operator.matrix.similarity.SimilarityMatrixFactory] [similarity] [_compute_similarity] : Created Item Cosine Similarity, cosine_similarity and stored at tests/testdata/operators/similarity/factories/item_cosine.pkl in 23.641206 seconds.

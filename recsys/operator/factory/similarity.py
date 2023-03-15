@@ -4,14 +4,14 @@
 # Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/operator/matrix/similarity.py                                               #
+# Filename   : /recsys/operator/factory/similarity.py                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 04:26:15 pm                                                 #
-# Modified   : Saturday March 11th 2023 02:09:52 pm                                                #
+# Modified   : Wednesday March 15th 2023 03:30:15 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -39,6 +39,7 @@ class SimilarityMatrixFactory(Operator):
         metric (str): One of the currently supported similarity metrics. See Notes:
         destination (str): The filepath for persisting the matrix
         dim (str): Either 'u' or 'user' for user dimension, or 'i' or 'item' for item dimension.
+        znorm (bool): Whether to use z-normalized ratings. Default = False
         force (bool): Whether to overwrite existing data if it already exists.
 
     Notes:
@@ -48,6 +49,7 @@ class SimilarityMatrixFactory(Operator):
               c       Cosine Similarity
               a       Adjusted Cosine Similarity
               p       Pearson Correlation
+              f       Frequency Weighted Pearson Corrleation
 
         For the metric parameter, only the first letter lower case will be used.
     """
@@ -57,6 +59,7 @@ class SimilarityMatrixFactory(Operator):
         "a": "Adjusted Cosine Similarity",
         "c": "Cosine Similarity",
         "p": "Pearson Correlation",
+        "f": "Frequency Weighted Pearson Correlation",
     }
 
     def __init__(
@@ -66,11 +69,13 @@ class SimilarityMatrixFactory(Operator):
         metric: str,
         destination: str,
         dim: str,
+        znorm: bool = False,
         datasource: str = "movielens25m",
         force: bool = False,
     ) -> None:
         super().__init__(destination=destination, force=force)
         self._name = name
+        self._znorm = znorm
         self._description = description
         self._datasource = datasource
 
@@ -90,11 +95,11 @@ class SimilarityMatrixFactory(Operator):
 
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="matrix")
 
-    def execute(self, data: Dataset, context: dict = None) -> np.array:
+    def execute(self, data: Dataset, context: dict = None) -> Matrix:
         """Creates and persists a cosine similarity matrix object from a Dataset.
 
         Args:
-            data (Matrix): The Interaction Matrix
+            data (Dataset): The Dataset Object
 
         """
 
@@ -106,17 +111,23 @@ class SimilarityMatrixFactory(Operator):
         else:
             return self._get_data(filepath=self._destination)
 
-    def _get_matrix(self, data: Dataset) -> Union[csc_matrix, csr_matrix]:
+    def _get_matrix(self, data: Matrix) -> Union[csc_matrix, csr_matrix]:
         """Obtains the sparse matrix based upon the axis and metric"""
 
         if self._metric[0].lower() == "c":
             centered_by = None
-        elif self._dim == "User":
+        elif "u" in self._dim.lower() and self._metric[0].lower() == "p":
             centered_by = "user"
-        else:
+        elif "i" in self._dim.lower() and self._metric[0].lower() == "p":
             centered_by = "item"
+        elif "u" in self._dim.lower() and self._metric[0].lower() == "a":
+            centered_by = "item"
+        else:
+            centered_by = "user"
 
-        if self._dim == "User":
+        self._logger.debug(f"\tCentering by {centered_by}")
+
+        if "u" in self._dim.lower():
             return data.to_csr(centered_by=centered_by)
         else:
             return data.to_csc(centered_by=centered_by).T
@@ -130,14 +141,18 @@ class SimilarityMatrixFactory(Operator):
         squared_norm = matrix.multiply(matrix)
         elapsed = (datetime.now() - started).total_seconds()
         self._logger.debug(f"\tComputed element-wise multiplication...{elapsed} seconds elapsed")
+        self._logger.debug(f"\tShape of squared norm is {squared_norm.shape}")
 
         norm = np.array(np.sqrt(squared_norm.sum(axis=1)))[:, 0]
         elapsed = (datetime.now() - started).total_seconds()
         self._logger.debug(f"\tComputed norm...{elapsed} seconds elapsed")
+        self._logger.debug(f"\tShape of norm is {norm.shape}")
 
         row_indices, col_indices = matrix.nonzero()
         elapsed = (datetime.now() - started).total_seconds()
         self._logger.debug(f"\tExtracted nnz values...{elapsed} seconds elapsed")
+        self._logger.debug(f"\tShape of matrix is {matrix.shape}")
+        self._logger.debug(f"\tLength of row_indices is {len(row_indices)}")
 
         matrix.data /= norm[row_indices]
         elapsed = (datetime.now() - started).total_seconds()
@@ -147,7 +162,7 @@ class SimilarityMatrixFactory(Operator):
         elapsed = (datetime.now() - started).total_seconds()
         self._logger.debug(f"\tComputed dot product...{elapsed} seconds elapsed")
 
-        cosine = coo_matrix(matrix)
+        cosine = coo_matrix(cosine)
         elapsed = (datetime.now() - started).total_seconds()
         self._logger.debug(f"\tConverted to coo_matrix...{elapsed} seconds elapsed")
 
