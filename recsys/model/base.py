@@ -4,32 +4,38 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /tests/test_workspace/test_operator.py                                              #
+# Filename   : /recsys/model/base.py                                                               #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday March 5th 2023 12:33:42 am                                                   #
-# Modified   : Friday March 17th 2023 03:00:23 pm                                                  #
+# Created    : Friday March 17th 2023 07:02:43 am                                                  #
+# Modified   : Friday March 17th 2023 09:54:52 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from datetime import datetime
+from abc import ABC, abstractmethod
 
-from recsys import Operator
+import numpy as np
+import pandas as pd
+
+from recsys.data.dataset import Dataset
 
 
 # ------------------------------------------------------------------------------------------------ #
-#                                      TEST OPERATOR                                               #
-# ------------------------------------------------------------------------------------------------ #
-class TestOperator(Operator):
-    """Operator does nothing."""
+class Model(ABC):
+    """Abstract base class for model objects."""
 
-    def __init__(self) -> None:
-        super().__init__()
+    @abstractmethod
+    def fit(self, dataset: Dataset) -> None:
+        """Sets dataset"""
 
-    def execute(self, *args, **kwargs) -> None:
-        """Downloads a zipfile."""
-        self._logger.debug(datetime.now())
+    @abstractmethod
+    def predict(self, X: pd.DataFrame) -> pd.DataFrame:
+        """Computes prediction"""
+
+    @abstractmethod
+    def score(self, X: pd.DataFrame, y: np.array) -> float:
+        """Scores the predictions"""

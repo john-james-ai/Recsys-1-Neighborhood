@@ -1,23 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
-# Python     : 3.10.6                                                                              #
+# Python     : 3.10.8                                                                              #
 # Filename   : /recsys/data/similarity.py                                                          #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday March 1st 2023 05:01:09 am                                                #
-# Modified   : Monday March 6th 2023 01:27:49 am                                                   #
+# Modified   : Friday March 17th 2023 03:27:08 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Similarity Matrix Module"""
-
 import pandas as pd
 
 from recsys.data.base import Dataset

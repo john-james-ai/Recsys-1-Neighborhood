@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Saturday March 11th 2023 11:14:37 pm                                                #
+# Modified   : Wednesday March 15th 2023 10:00:54 pm                                               #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,7 +23,9 @@ from recsys.services.io import IOService
 from recsys.container import Recsys
 
 # ------------------------------------------------------------------------------------------------ #
-RATINGS_SMALL_FILEPATH = "tests/testdata/ratings_small.csv"
+RATINGS_SMALL_FILEPATH = (
+    "tests/testdata/operators/data_operators/ratings_user_random_sample_1pct.pkl"
+)
 RATINGS_FILEPATH = "tests/testdata/operators/data_operators/sampling/temporaralthreshold/ratings_random_temporal_sampling_1000.pkl"
 INTERACTIONS_FILEPATH = "tests/testdata/operators/data_operators/factories/interaction.pkl"
 
@@ -31,7 +33,7 @@ INTERACTIONS_FILEPATH = "tests/testdata/operators/data_operators/factories/inter
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session", autouse=True)
 def dataframe():
-    return IOService.read(RATINGS_FILEPATH)
+    return IOService.read(RATINGS_SMALL_FILEPATH)
 
 
 # ------------------------------------------------------------------------------------------------ #

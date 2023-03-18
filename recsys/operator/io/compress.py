@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
-# Python     : 3.10.6                                                                              #
+# Python     : 3.10.8                                                                              #
 # Filename   : /recsys/operator/io/compress.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Sunday March 5th 2023 01:30:42 am                                                   #
+# Created    : Saturday February 25th 2023 05:55:47 am                                             #
+# Modified   : Friday March 17th 2023 03:00:22 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-"""Data Mover Module"""
+"""Data Compression Module"""
 import os
 from zipfile import ZipFile
 
-from recsys.operator.base import Operator, Artifact
+from recsys import Operator, Artifact
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -30,7 +30,7 @@ class ZipExtractor(Operator):
     """Extracts Zipfile contents.
 
     Args:
-        source(str): Path to the zipfile
+        source (str): Path to the zipfile
         destination (str): The extract directory
         member (str): The member to extract. If None, all members will be extracted.
         force (bool): Whether to force execution.

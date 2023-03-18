@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/services/io.py                                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 05:56:09 pm                                                 #
-# Modified   : Saturday March 4th 2023 05:56:27 pm                                                 #
+# Modified   : Friday March 17th 2023 05:24:54 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -115,6 +115,7 @@ class CSVIO(IO):  # pragma: no cover
     def _read(
         cls,
         filepath: str,
+        sep: str = ",",
         header: Union[int, None] = 0,
         index_col: Union[int, str] = None,
         usecols: List[str] = None,
@@ -125,6 +126,7 @@ class CSVIO(IO):  # pragma: no cover
 
         return pd.read_csv(
             filepath,
+            sep=sep,
             header=header,
             index_col=index_col,
             usecols=usecols,
@@ -233,6 +235,7 @@ class ParquetIO(IO):  # pragma: no cover
 class IOService:  # pragma: no cover
 
     __io = {
+        "dat": CSVIO,
         "csv": CSVIO,
         "yaml": YamlIO,
         "yml": YamlIO,

@@ -1,25 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems and Deep Learning in Python                                     #
 # Version    : 0.1.0                                                                               #
-# Python     : 3.10.8                                                                              #
-# Filename   : /recsys/services/combinations.py                                                    #
+# Python     : 3.10.6                                                                              #
+# Filename   : /recsys/persistence/__init__.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday March 4th 2023 10:55:09 pm                                                 #
-# Modified   : Saturday March 4th 2023 10:58:07 pm                                                 #
+# Created    : Sunday January 29th 2023 12:18:07 am                                                #
+# Modified   : Wednesday February 22nd 2023 10:58:49 pm                                            #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-import numpy as np
-
-
-def cartesian_product(*arrays):
-    # Source: https://stackoverflow.com/questions/11144513/cartesian-product-of-x-and-y-array-points-into-single-array-of-2d-points/49445693#49445693
-    ndim = len(arrays)
-    return np.stack(np.meshgrid(*arrays), axis=-1).reshape(-1, ndim)

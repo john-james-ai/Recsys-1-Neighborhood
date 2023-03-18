@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
-# Python     : 3.10.6                                                                              #
+# Python     : 3.10.8                                                                              #
 # Filename   : /recsys/operator/base.py                                                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Tuesday February 28th 2023 04:13:11 pm                                              #
-# Modified   : Thursday March 9th 2023 08:58:08 pm                                                 #
+# Created    : Saturday March 4th 2023 09:34:32 pm                                                 #
+# Modified   : Friday March 17th 2023 04:54:53 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,8 +19,8 @@
 import os
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
-import logging
 from typing import Any, Union
+import logging
 
 from recsys.services.io import IOService
 

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
 # Filename   : /tests/test_operators/test_similarity/test_adj_cosine.py                            #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 08:09:28 pm                                                 #
-# Modified   : Saturday March 11th 2023 02:57:41 pm                                                #
+# Modified   : Friday March 17th 2023 07:49:35 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -25,8 +25,8 @@ import shutil
 
 from scipy.sparse import csr_matrix, csc_matrix
 
-from recsys.data.matrix import Matrix
-from recsys.operator.matrix.similarity import SimilarityMatrixFactory
+from recsys.matrix.i2 import Matrix
+from recsys.operator.factory.similarity import AdjustedCosineSimilarityMatrixFactory
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -35,13 +35,16 @@ logger = logging.getLogger(__name__)
 double_line = f"\n{100 * '='}"
 single_line = f"\n{100 * '-'}"
 
-
-USER_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/user_acosine.pkl"
-ITEM_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/item_acosine.pkl"
+U = 873
+V = 13624
+I = 654  # noqa:
+J = 2221
+USER_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/user_adj_cosine.pkl"
+ITEM_COSINE_SIMILARITY = "tests/testdata/operators/similarity/factories/item_adj_cosine.pkl"
 
 
 @pytest.mark.acosine
-class TestCosine:  # pragma: no cover
+class TestAdjCosine:  # pragma: no cover
     # ============================================================================================ #
     def test_setup(self, caplog):
         start = datetime.now()
@@ -73,7 +76,7 @@ class TestCosine:  # pragma: no cover
 
     # ============================================================================================ #
     # @pytest.mark.skip()
-    def test_user_acosine(self, dataset, caplog):
+    def test_user_adj_cosine(self, dataset, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -85,35 +88,24 @@ class TestCosine:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        factory = SimilarityMatrixFactory(
-            name="acosine_similarity",
+        factory = AdjustedCosineSimilarityMatrixFactory(
+            name="cosine_similarity",
             description="Cosine Similarity",
             dim="user",
-            metric="acosine",
             destination=USER_COSINE_SIMILARITY,
         )
-        acosine = factory.execute(data=dataset)
-        csr = acosine.to_csr()
-        assert isinstance(acosine, Matrix)
+        cosine = factory.execute(data=dataset)
+        csr = cosine.to_csr()
+        assert isinstance(cosine, Matrix)
         assert isinstance(csr, csr_matrix)
         assert csr.max() <= 1.01
         assert csr.min() >= -1.01
 
         with pytest.raises(ValueError):
-            factory = SimilarityMatrixFactory(
-                name="acosine_similarity",
+            factory = AdjustedCosineSimilarityMatrixFactory(
+                name="cosine_similarity",
                 description="Cosine Similarity",
                 dim="df",
-                metric="acosine",
-                destination=USER_COSINE_SIMILARITY,
-            )
-
-        with pytest.raises(ValueError):
-            factory = SimilarityMatrixFactory(
-                name="acosine_similarity",
-                description="Cosine Similarity",
-                dim="user",
-                metric="notvalid",
                 destination=USER_COSINE_SIMILARITY,
             )
 
@@ -122,7 +114,7 @@ class TestCosine:  # pragma: no cover
         duration = round((end - start).total_seconds(), 1)
 
         logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
+            "\nCompleted {} {} in {} seconds at {} on {}".format(
                 self.__class__.__name__,
                 inspect.stack()[0][3],
                 duration,
@@ -134,7 +126,7 @@ class TestCosine:  # pragma: no cover
 
     # ============================================================================================ #
     # @pytest.mark.skip()
-    def test_item_acosine(self, dataset, caplog):
+    def test_item_adj_cosine(self, dataset, caplog):
         start = datetime.now()
         logger.info(
             "\n\nStarted {} {} at {} on {}".format(
@@ -146,16 +138,15 @@ class TestCosine:  # pragma: no cover
         )
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
-        factory = SimilarityMatrixFactory(
-            name="acosine_similarity",
+        factory = AdjustedCosineSimilarityMatrixFactory(
+            name="cosine_similarity",
             description="Cosine Similarity",
             dim="item",
-            metric="acosine",
             destination=ITEM_COSINE_SIMILARITY,
         )
-        acosine = factory.execute(data=dataset)
-        csc = acosine.to_csc()
-        assert isinstance(acosine, Matrix)
+        cosine = factory.execute(data=dataset)
+        csc = cosine.to_csc()
+        assert isinstance(cosine, Matrix)
         assert isinstance(csc, csc_matrix)
         assert csc.max() <= 1.01
         assert csc.min() >= -1.01
@@ -165,7 +156,7 @@ class TestCosine:  # pragma: no cover
         duration = round((end - start).total_seconds(), 1)
 
         logger.info(
-            "\n\tCompleted {} {} in {} seconds at {} on {}".format(
+            "\nCompleted {} {} in {} seconds at {} on {}".format(
                 self.__class__.__name__,
                 inspect.stack()[0][3],
                 duration,
