@@ -4,10 +4,10 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: |
-  <p style="text-align:left"><span style="color:#407192"><span style="font-size:18px"><span style="font-family:Lato">Deep Learning &amp;&nbsp;Neural Architecture Search in&nbsp;</span></span><span style="font-size:18px"><span style="font-family:Lato">Digital Advertising CTR Prediction</span></span></span></p>
+  <p style="text-align:left"><span style="color:#407192"><span style="font-size:18px"><span style="font-family:Lato">Recommender Systems Lab: Towards State-of-the-Art</span></span></span></p>
 author: John James
 copyright: "2022"
-logo: "figures/deepctr_logo.png"
+logo: "figures/recommender system.png"
 root: index
 options:
   numbered: true
