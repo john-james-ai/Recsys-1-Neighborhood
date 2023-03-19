@@ -1,41 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/services/data_types.py                                                      #
+# Filename   : /recsys/datasource/base.py                                                          #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/Recsys-1-Neighborhood                              #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday March 4th 2023 10:44:20 pm                                                 #
-# Modified   : Saturday March 4th 2023 10:46:10 pm                                                 #
+# Created    : Friday March 17th 2023 03:33:14 pm                                                  #
+# Modified   : Friday March 17th 2023 08:41:06 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from types import SimpleNamespace
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
 
 # ------------------------------------------------------------------------------------------------ #
-class RecursiveNamespace(SimpleNamespace):
-    """Extension to SimpleNamespace
-    Source: https://dev.to/taqkarim/extending-simplenamespace-for-nested-dictionaries-58e8
-    """
+@dataclass
+class DataSource(ABC):
+    """Defines the interface for recommender data sources"""
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        for key, val in kwargs.items():
-            if type(val) == dict:
-                setattr(self, key, RecursiveNamespace(**val))
-            elif type(val) == list:
-                setattr(self, key, list(map(self.map_entry, val)))
-
-    @staticmethod
-    def map_entry(entry):
-        if isinstance(entry, dict):
-            return RecursiveNamespace(**entry)
-
-        return entry
+    @abstractmethod
+    def fetch_data(self) -> None:
+        """Downloads and extracts the data if it is not already present"""

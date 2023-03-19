@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 04:26:15 pm                                                 #
-# Modified   : Friday March 17th 2023 07:49:43 pm                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -70,7 +70,7 @@ class SimilarityMatrixFactory(Operator):
 
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="matrix")
 
-    def execute(self, data: Dataset, context: dict = None) -> Matrix:
+    def __call__(self, data: Dataset, context: dict = None) -> Matrix:
         """Creates and persists a similarity matrix object from a Dataset.
 
         Args:

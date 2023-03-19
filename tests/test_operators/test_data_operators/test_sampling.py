@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /tests/test_operators/test_data_operators/test_sampling.py                          #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 02:17:33 am                                                   #
-# Modified   : Friday March 17th 2023 06:26:28 am                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,7 @@ from datetime import datetime
 import pytest
 import logging
 
-from recsys.services.io import IOService
+from recsys import IOService
 
 from recsys.operator.dataset.sampling import UserRandomSampling, UserStratifiedRandomSampling
 
@@ -59,7 +59,7 @@ class TestUserRandomSampling:  # pragma: no cover
         s = UserRandomSampling(
             frac=0.1, uservar=USERVAR, itemvar=ITEMVAR, source=SOURCE, destination=DESTINATION1
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(SOURCE)
         df2 = IOService.read(DESTINATION1)
         assert df1.shape[0] > df2.shape[0] * 9
@@ -100,7 +100,7 @@ class TestUserRandomSampling:  # pragma: no cover
             destination=DESTINATION1,
             force=False,
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(SOURCE)
         df2 = IOService.read(DESTINATION1)
         assert df1.shape[0] > df2.shape[0] * 9
@@ -112,7 +112,7 @@ class TestUserRandomSampling:  # pragma: no cover
             destination=DESTINATION1,
             force=True,
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(SOURCE)
         df2 = IOService.read(DESTINATION1)
         assert df1.shape[0] > df2.shape[0] * 9
@@ -151,7 +151,7 @@ class TestUserStratifiedRandomSampling:  # pragma: no cover
         s = UserStratifiedRandomSampling(
             frac=0.01, uservar=USERVAR, itemvar=ITEMVAR, source=SOURCE, destination=DESTINATION2
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(SOURCE)
         df2 = IOService.read(DESTINATION2)
         assert df1.shape[0] > df2.shape[0] * 90
@@ -192,7 +192,7 @@ class TestUserStratifiedRandomSampling:  # pragma: no cover
             destination=DESTINATION2,
             force=False,
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(SOURCE)
         df2 = IOService.read(DESTINATION2)
         assert df1.shape[0] > df2.shape[0] * 90
@@ -204,7 +204,7 @@ class TestUserStratifiedRandomSampling:  # pragma: no cover
             destination=DESTINATION2,
             force=True,
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(SOURCE2)
         df2 = IOService.read(DESTINATION2)
         assert df1.shape[0] < df2.shape[0] * 90

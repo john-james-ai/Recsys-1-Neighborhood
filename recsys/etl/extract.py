@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems and Deep Learning in Python                                     #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /recsys/etl/extract.py                                                              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-deep-learning                               #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 07:40:00 am                                                 #
-# Modified   : Saturday March 4th 2023 10:21:44 am                                                 #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,8 +22,8 @@ import mlflow
 import click
 import logging
 
-from recsys.operator.io.remote import ZipDownloader
-from recsys.operator.io.compress import ZipExtractor
+from dataprep.download import ZipDownloader
+from dataprep.extract import ZipExtractor
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -48,10 +48,10 @@ def extract(source, destination, raw_dir, member):
     with mlflow.start_run() as mlrun:  # noqa F841
         # Download data
         downloader = ZipDownloader(source=source, destination=destination)
-        downloader.execute()
+        downloader.__call__()
         # Extract member from zipfile
         extractor = ZipExtractor(source=destination, destination=raw_dir, member=member)
-        extractor.execute()
+        extractor.__call__()
         # Log artifact
         ratings_filepath = os.path.join(raw_dir, member)
         logger.info(f"Uploading raw ratings: {ratings_filepath}.")

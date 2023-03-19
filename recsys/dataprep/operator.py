@@ -4,61 +4,37 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/operator/base.py                                                            #
+# Filename   : /recsys/dataprep/operator.py                                                        #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 09:34:32 pm                                                 #
-# Modified   : Friday March 17th 2023 04:54:53 pm                                                  #
+# Modified   : Saturday March 18th 2023 09:03:27 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+"""Base DataPrep Module"""
 import os
-from dataclasses import dataclass
 from abc import ABC, abstractmethod
-from typing import Any, Union
 import logging
+from typing import Union
 
-from recsys.services.io import IOService
+import pandas as pd
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Operator(ABC):
     """Abstract base class for classes that perform a descrete operation as part of a larger workflow"""
 
-    def __init__(
-        self, source: str = None, destination: str = None, force: bool = False, *args, **kwargs
-    ) -> None:
-        self._source = source
-        self._destination = destination
-        self._force = force
-        self._artifact = None
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
-
-    @property
-    def artifact(self) -> dict:
-        """Returns the artifact key value pair to register with MLFlow."""
-        return self._artifact
+    def __init__(self) -> None:
+        self._logger = logging.getLogger(f"{self.__module__}.{self.__class__.__name__}")
 
     @abstractmethod
-    def execute(self, *args, **kwargs) -> Union[Any, None]:
-        """Code from subclass that executes the operation"""
-
-    def _get_data(self, filepath: str) -> Any:
-        try:
-            return IOService.read(filepath)
-        except Exception as e:
-            self._logger.error(e)
-            raise
-
-    def _put_data(self, filepath: str, data: Any) -> None:
-        if filepath is not None:
-            IOService.write(filepath=filepath, data=data)
+    def __call__(self, data: pd.DataFrame = None) -> Union[pd.DataFrame, None]:
+        """Code from subclass that __call__s the operation"""
 
     def _skip(self, endpoint: str) -> bool:
         """Determines of operation should be skipped if endpoint already exists."""
@@ -74,11 +50,3 @@ class Operator(ABC):
             return True
         else:
             return False
-
-
-# ------------------------------------------------------------------------------------------------ #
-@dataclass
-class Artifact:
-    isfile: bool  # Indicates whether the artifact is a file or a directory
-    path: str  # The filepath or directory containing the artifacts
-    uripath: str  # The directory within the artifact store to place the artifact

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /tests/test_operators/test_io_operators/test_remote/test_remote.py                  #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 01:16:11 am                                                   #
-# Modified   : Friday March 17th 2023 06:26:28 am                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,7 +23,7 @@ import pytest
 import logging
 import shutil
 
-from recsys.operator.io.remote import ZipDownloader
+from dataprep.download import ZipDownloader
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -83,7 +83,7 @@ class TestZipDownload:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         zdl = ZipDownloader(source=SOURCE1, destination=DESTINATION)
-        zdl.execute()
+        zdl.__call__()
         assert os.path.exists(DESTINATION)
 
         # ---------------------------------------------------------------------------------------- #
@@ -115,10 +115,10 @@ class TestZipDownload:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         zdl = ZipDownloader(source=SOURCE2, destination=DESTINATION, force=False)
-        zdl.execute()
+        zdl.__call__()
         assert os.path.getsize(DESTINATION) < 4000000
         zdl = ZipDownloader(source=SOURCE2, destination=DESTINATION, force=True)
-        zdl.execute()
+        zdl.__call__()
         assert os.path.getsize(DESTINATION) > 4000000
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 08:09:28 pm                                                 #
-# Modified   : Friday March 17th 2023 07:49:39 pm                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -92,7 +92,7 @@ class TestPearson:  # pragma: no cover
             dim="user",
             destination=DESTINATION,
         )
-        pearson = factory.execute(data=dataset)
+        pearson = factory.__call__(data=dataset)
         csr = pearson.to_csr()
         assert isinstance(pearson, Matrix)
         assert isinstance(csr, csr_matrix)
@@ -143,7 +143,7 @@ class TestPearson:  # pragma: no cover
             dim="item",
             destination=DESTINATION,
         )
-        pearson = factory.execute(data=dataset)
+        pearson = factory.__call__(data=dataset)
         csc = pearson.to_csc()
         assert isinstance(pearson, Matrix)
         assert isinstance(csc, csc_matrix)

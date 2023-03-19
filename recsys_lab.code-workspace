@@ -14,7 +14,10 @@
             ["pythonversion","3.10.8"]
         ],
         "psi-header.config": {
-        }
+        },
+        "python.analysis.extraPaths": [
+            "recsys"
+        ]
     }
 
 }

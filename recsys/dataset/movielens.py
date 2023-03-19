@@ -10,87 +10,349 @@
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Friday March 17th 2023 03:29:59 pm                                                  #
-# Modified   : Friday March 17th 2023 08:03:32 pm                                                  #
+# Created    : Friday March 17th 2023 06:05:25 pm                                                  #
+# Modified   : Saturday March 18th 2023 09:57:06 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-import os
-from dataclasses import dataclass
+from __future__ import annotations
+import warnings
+from copy import deepcopy
+
+from scipy.sparse import csr_matrix, csc_matrix, coo_matrix
+import numpy as np
+import pandas as pd
 
 from recsys.dataset.base import Dataset
-from recsys.operator.io.remote import ZipDownloader
-from recsys.operator.io.compress import ZipExtractor
-from recsys.services.io import IOService
+
+warnings.filterwarnings("ignore")
 
 
 # ------------------------------------------------------------------------------------------------ #
-@dataclass
 class MovieLens(Dataset):
-    source: str = None
-    destination: str = None
-    filename: str = None
-    directory: str = None
-    force: bool = False
+    """Object containing interaction data.
 
-    def fetch_data(self) -> None:
-        """Downloads a data source and extracts the interaction data."""
-        downloader = ZipDownloader(source=self.source, destination=self.destination)
-        downloader.execute()
+    Args:
+        name (str): Name of the matrix in lowercase
+        description (str): Description of the matrix
+        filepath (str): The persistence location for this object.
+        data (str): Pandas DataFrame containing rating interaction data.
+    """
 
-        extractor = ZipExtractor(
-            source=self.destination, destination=self.directory, member=self.filename
+    __ITEMID = "movieId"
+    __USERID = "userId"
+    __RATING = "rating"
+    __RATING_USER_CENTERED = "rating_cu"
+    __RATING_ITEM_CENTERED = "rating_ci"
+    __TIMESTAMP = "timestamp"
+
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        filepath: str,
+        data: pd.DataFrame,
+    ) -> None:
+        super().__init__(name=name, description=description, filepath=filepath, data=data)
+
+        self._profiled = False
+        self._summary = None
+        self._nrows = None
+        self._ncols = None
+        self._size = None
+        self._n_users = None
+        self._n_items = None
+        self._interaction_matrix_size = None
+        self._sparsity = None
+        self._density = None
+        self._memory = None
+
+        self._summarize()
+
+    @property
+    def shape(self) -> tuple:
+        return ()
+
+    @property
+    def sparsity(self) -> float:
+        """Returns measure of sparsity of the data in percent"""
+        return self._sparsity
+
+    @property
+    def density(self) -> float:
+        """Returns measure of density of the data in percent"""
+        return self._density
+
+    @property
+    def n_users(self) -> int:
+        """Returns number of unique users"""
+        return self._n_users
+
+    @property
+    def n_items(self) -> int:
+        """Returns number of unique items."""
+        return self._n_items
+
+    @property
+    def columns(self) -> np.array:
+        return self._data.columns
+
+    @property
+    def nrows(self) -> int:
+        return self._nrows
+
+    @property
+    def ncols(self) -> int:
+        return self._ncols
+
+    @property
+    def size(self) -> int:
+        return self._size
+
+    @property
+    def interaction_matrix_size(self) -> int:
+        return self._interaction_matrix_size
+
+    @property
+    def users(self) -> np.array:
+        """Returns array of unique users"""
+        return np.sort(self._data[MovieLens.__USERID].unique())
+
+    @property
+    def items(self) -> np.array:
+        """Returns array of unique items"""
+        return np.sort(self._data[MovieLens.__ITEMID].unique())
+
+    @property
+    def user_item_ratio(self) -> float:
+        """Returns ratio of the number of users to items."""
+        return self.n_users / self.n_items
+
+    @property
+    def item_user_ratio(self) -> float:
+        """Returns ratio of the number of items to users."""
+        return self.n_items / self.n_users
+
+    @property
+    def user_rating_frequency(self) -> pd.DataFrame:
+        """Returns number of ratings by user."""
+        return (
+            self._data[MovieLens.__USERID]
+            .value_counts()
+            .to_frame(name="n_ratings")
+            .reset_index(names=[MovieLens.__USERID])
         )
-        extractor.execute()
 
+    @property
+    def user_rating_frequency_distribution(self) -> pd.DataFrame:
+        """Distribution of user rating frequency"""
+        return self.user_rating_frequency["n_ratings"].describe().to_frame().T
 
-@dataclass
-class MovieLens1M(MovieLens):
-    """Encapsulates data and operations for the MovieLens25M data source"""
+    @property
+    def item_rating_frequency(self) -> pd.DataFrame:
+        """Returns number of ratings by item."""
+        return (
+            self._data[MovieLens.__ITEMID]
+            .value_counts()
+            .to_frame(name="n_ratings")
+            .reset_index(names=[MovieLens.__ITEMID])
+        )
 
-    source: str = "https://files.grouplens.org/datasets/movielens/ml-1m.zip"
-    destination: str = "data/ext/ml-1m.zip"
-    filename: str = "ratings.dat"
-    directory: str = "data/movielens1m/raw"
-    force: bool = False
+    @property
+    def item_rating_frequency_distribution(self) -> pd.DataFrame:
+        """Distribution of item rating frequency"""
+        return self.item_rating_frequency["n_ratings"].describe().to_frame().T
 
-    def fetch_data(self) -> None:
-        super().fetch_data()
-        ratings = IOService.read(os.path.join(self.directory, self.filename), sep="::")
-        IOService.write(filepath=os.path.join(self.directory, "ratings.pkl"), data=ratings)
-        return ratings
+    def get_user_ratings(self, useridx: int) -> pd.DataFrame:
+        """Returns ratings created by user.
+        Args:
+            useridx (int): index for the user
+        Returns: pd.DataFrame
+        """
 
+        return self._data[self._data[MovieLens.__USERID] == useridx]
 
-@dataclass
-class MovieLens10M(MovieLens):
-    """Encapsulates data and operations for the MovieLens25M data source"""
+    def get_item_ratings(self, itemidx: int) -> pd.DataFrame:
+        """Returns ratings for the given item
+        Args:
+            itemidx (int): Index for the item / movie
+        Returns: pd.DataFrame
+        """
+        return self._data[self._data[MovieLens.__ITEMID] == itemidx]
 
-    source: str = "https://files.grouplens.org/datasets/movielens/ml-10m.zip"
-    destination: str = "data/ext/ml-10m.zip"
-    filename: str = "ratings.dat"
-    directory: str = "data/movielens10m/raw"
-    force: bool = False
+    def get_users_rated_item(self, itemidx: int) -> list:
+        """Returns a list of users who have rated itemidx
+        Args:
+            itemidx (int): The index for the item
+        """
+        return self._data[self._data[MovieLens.__ITEMID] == itemidx][MovieLens.__USERID].tolist()
 
-    def fetch_data(self) -> None:
-        super().fetch_data()
-        ratings = IOService.read(os.path.join(self.directory, self.filename), sep="::")
-        IOService.write(filepath=os.path.join(self.directory, "ratings.pkl"), data=ratings)
-        return ratings
+    def get_items_rated_user(self, useridx: int) -> list:
+        """Returns a list of items rated by useridx.
+        Args:
+            useridx (int): The index for the user
+        """
+        return self._data[self._data[MovieLens.__USERID] == useridx][MovieLens.__ITEMID].tolist()
 
+    def get_items_rated_users(self, u: int, v: int) -> set:
+        """Returns a list of items rated by both u and v.
 
-@dataclass
-class MovieLens25M(MovieLens):
-    """Encapsulates data and operations for the MovieLens25M data source"""
+        Args:
+            u (int): A user index
+            v (int): A user index
+        """
+        Iu = self.get_items_rated_user(useridx=u)
+        Iv = self.get_items_rated_user(useridx=v)
+        return set(Iu).intersection(Iv)
 
-    source: str = "https://files.grouplens.org/datasets/movielens/ml-25m.zip"
-    destination: str = "data/ext/ml-25m.zip"
-    filename: str = "ratings.csv"
-    directory: str = "data/movielens25m/raw"
-    force: bool = False
+    def get_users_rated_items(self, i: int, j: int) -> set:
+        """Returns a list of users who have rated both items i and j.
 
-    def fetch_data(self) -> None:
-        super().fetch_data()
-        ratings = IOService.read(os.path.join(self.directory, self.filename))
-        IOService.write(filepath=os.path.join(self.directory, "ratings.pkl"), data=ratings)
-        return ratings
+        Args:
+            i (int): An item index
+            j (int): An item index
+        """
+        Ui = self.get_users_rated_item(itemidx=i)
+        Uj = self.get_users_rated_item(itemidx=j)
+        return set(Ui).intersection(Uj)
+
+    def compare(self, other: MovieLens) -> pd.DataFrame:
+        """Compare this and another MovieLens returning descriptive statistics.
+
+        Args:
+            other (MovieLens): The other interaction matrix which to compare.
+        """
+        df1 = self._summary
+        df2 = other.summary()
+        both = pd.concat([df1, df2], axis=1)
+        both["% change"] = (df1[self._name] - df2[other.name]) / df1[self._name] * 100
+        return both
+
+    def to_df(self) -> pd.DataFrame:
+        """Returns the nonzero values in dataframe format"""
+        return deepcopy(self._data)
+
+    def to_csr(self, centered_by: str = None) -> csr_matrix:
+        """Produces a csr matrix
+
+        Args:
+            centered_by (str): Valid values in [None, 'user', 'item']. Default is None
+
+        Returns: scipy.sparse.csr_matrix
+
+        """
+
+        if centered_by is None:
+            col = MovieLens.__RATING
+        elif "u" in centered_by.lower():
+            col = MovieLens.__RATING_USER_CENTERED
+        else:
+            col = MovieLens.__RATING_ITEM_CENTERED
+
+        rows = self._data[MovieLens.__USERID]
+        cols = self._data[MovieLens.__ITEMID]
+        data = self._data[col]
+        return csr_matrix((data, (rows, cols)), shape=(self.n_users, self.n_items))
+
+    def to_csc(self, centered_by: str = None) -> csc_matrix:
+        """Produces a csr matrix
+
+        Args:
+            centered_by (str): Valid values in [None, 'user', 'item']. Default is None
+
+        Returns: scipy.sparse.csc_matrix
+
+        """
+
+        if centered_by is None:
+            col = MovieLens.__RATING
+        elif "user" in centered_by:
+            col = MovieLens.__RATING_USER_CENTERED
+        else:
+            col = MovieLens.__RATING_ITEM_CENTERED
+
+        rows = self._data[MovieLens.__USERID]
+        cols = self._data[MovieLens.__ITEMID]
+        data = self._data[col]
+        return csc_matrix((data, (rows, cols)), shape=(self.n_users, self.n_items))
+
+    def to_coo(self, centered_by: str = None) -> coo_matrix:
+        """Produces a csr matrix
+
+        Args:
+            centered_by (str): Valid values in [None, 'user', 'item']. Default is None
+
+        Returns: scipy.sparse.csc_matrix
+
+        """
+        if centered_by is None:
+            col = MovieLens.__RATING
+        elif "user" in centered_by:
+            col = MovieLens.__RATING_USER_CENTERED
+        else:
+            col = MovieLens.__RATING_ITEM_CENTERED
+
+        rows = self._data[MovieLens.__USERID]
+        cols = self._data[MovieLens.__ITEMID]
+        data = self._data[col]
+        return coo_matrix((data, (rows, cols)), shape=(self.n_users, self.n_items))
+
+    def to_binary(self) -> csr_matrix:
+        """Returns a user/item interaction matrix in csr format"""
+        df = self._data[[MovieLens.__USERID, MovieLens.__ITEMID]]
+        df["interaction"] = 1
+        rows = df[MovieLens.__USERID]
+        cols = df[MovieLens.__ITEMID]
+        data = df["interaction"]
+        return csr_matrix((data, (rows, cols)), shape=(self.n_users, self.n_items))
+
+    def _summarize(self) -> None:
+        """Runs a data profile including basic summary statistics"""
+        if not self._profiled:
+            self._logger.debug("Computing descriptive statistics....")
+            # Computes basic statistics
+            self._nrows = self._data.shape[0]
+            self._ncols = self._data.shape[1]
+            self._size = self._nrows * self._ncols
+            self._memory = round(self._data.memory_usage(deep=True).sum() / 1024**2, 3)
+            self._n_users = int(self._data[MovieLens.__USERID].nunique())
+            self._n_items = int(self._data[MovieLens.__ITEMID].nunique())
+            self._user_item_ratio = self.user_item_ratio
+            self._item_user_ratio = self.item_user_ratio
+            self._mean_ratings_per_user = self._nrows / self._n_users
+            self._mean_ratings_per_item = self._nrows / self._n_items
+            self._interaction_matrix_size = int(self._n_users * self._n_items)
+            self._density = self._nrows / (self._n_users * self._n_items) * 100
+            self._sparsity = 100 - self._density
+            self._memory = self._data.memory_usage(deep=True).sum()
+            self._max_ratings_per_user = self.user_rating_frequency["n_ratings"].max()
+            self._max_ratings_per_item = self.item_rating_frequency["n_ratings"].max()
+            self._min_ratings_per_user = self.user_rating_frequency["n_ratings"].min()
+            self._min_ratings_per_item = self.item_rating_frequency["n_ratings"].min()
+
+            d = {}
+            # d["name"] = self._name
+            # d["type"] = self.__class__.__name__
+            # d["description"] = self._description
+            d["nrows"] = self._data.shape[0]
+            d["ncols"] = self._data.shape[1]
+            d["n_users"] = self._n_users
+            d["n_items"] = self._n_items
+            d["max_ratings_per_user"] = self._max_ratings_per_user
+            d["mean_ratings_per_user"] = self._mean_ratings_per_user
+            d["min_ratings_per_user"] = self._min_ratings_per_user
+            d["max_ratings_per_item"] = self._max_ratings_per_item
+            d["mean_ratings_per_item"] = self._mean_ratings_per_item
+            d["min_ratings_per_item"] = self._min_ratings_per_item
+            d["user_item_ratio"] = self._user_item_ratio
+            d["item_user_ratio"] = self._item_user_ratio
+            d["size"] = self._size
+            d["interaction_matrix_size"] = self._interaction_matrix_size
+            d["memory"] = self._memory
+            d["sparsity"] = self._sparsity
+            d["density"] = self._density
+
+            self._summary = pd.DataFrame.from_dict(data=d, orient="index", columns=[self._name])
+
+        self._profiled = True

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /tests/test_operators/test_io_operators/test_compress/test_compress.py              #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 01:39:19 am                                                   #
-# Modified   : Friday March 17th 2023 06:26:28 am                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,7 +23,7 @@ import pytest
 import logging
 import shutil
 
-from recsys.operator.io.compress import ZipExtractor
+from dataprep.extract import ZipExtractor
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -82,7 +82,7 @@ class TestZipExtractor:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         ext = ZipExtractor(source=SOURCE, destination=DESTINATION)
-        ext.execute()
+        ext.__call__()
         assert len(os.listdir(DESTINATION)) == 7
         self.test_setup(caplog)
         # ---------------------------------------------------------------------------------------- #
@@ -114,7 +114,7 @@ class TestZipExtractor:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         ext = ZipExtractor(source=SOURCE, destination=DESTINATION, member="ratings.csv")
-        ext.execute()
+        ext.__call__()
         assert len(os.listdir(DESTINATION)) == 1
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()
@@ -145,10 +145,10 @@ class TestZipExtractor:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         ext = ZipExtractor(source=SOURCE, destination=DESTINATION, force=False)
-        ext.execute()
+        ext.__call__()
 
         ext = ZipExtractor(source=SOURCE, destination=DESTINATION, force=True)
-        ext.execute()
+        ext.__call__()
 
         # ---------------------------------------------------------------------------------------- #
         end = datetime.now()

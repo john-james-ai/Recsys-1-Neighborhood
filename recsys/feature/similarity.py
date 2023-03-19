@@ -4,14 +4,14 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/data/similarity.py                                                          #
+# Filename   : /recsys/matrix/similarity.py                                                        #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday March 1st 2023 05:01:09 am                                                #
-# Modified   : Friday March 17th 2023 03:27:08 pm                                                  #
+# Modified   : Friday March 17th 2023 08:23:42 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,11 +19,11 @@
 """Similarity Matrix Module"""
 import pandas as pd
 
-from recsys.data.base import Dataset
+from recsys.matrix.base import Matrix
 
 
 # ------------------------------------------------------------------------------------------------ #
-class SimilarityMatrix(Dataset):
+class SimilarityMatrix(Matrix):
     """Similarity Matrix
 
     Args:

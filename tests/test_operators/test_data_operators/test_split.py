@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # ================================================================================================ #
-# Project    : Recommender Systems in Python 1: Neighborhood Methods                               #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
 # Filename   : /tests/test_operators/test_data_operators/test_split.py                             #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
-# URL        : https://github.com/john-james-ai/recsys-01-collaborative-filtering                  #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 3rd 2023 02:17:33 am                                                   #
-# Modified   : Friday March 17th 2023 06:26:28 am                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -22,9 +22,9 @@ from datetime import datetime
 import pytest
 import logging
 
-from recsys.services.io import IOService
+from recsys import IOService
 
-from recsys.operator.dataset.split import TemporalTrainTestSplit
+from recsys.data_selection.split_builder import TemporalTrainTestSplit
 
 # ------------------------------------------------------------------------------------------------ #
 logger = logging.getLogger(__name__)
@@ -55,7 +55,7 @@ class TestSplit:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         s = TemporalTrainTestSplit(source=SOURCE, destination=DESTINATION, force=True)
-        s.execute()
+        s.__call__()
         assert os.path.exists(TRAIN_FILEPATH)
         assert os.path.exists(TEST_FILEPATH)
         df1 = IOService.read(TRAIN_FILEPATH)
@@ -93,7 +93,7 @@ class TestSplit:  # pragma: no cover
         s = TemporalTrainTestSplit(
             train_size=0.5, source=SOURCE, destination=DESTINATION, force=False
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(TRAIN_FILEPATH)
         df2 = IOService.read(TEST_FILEPATH)
         assert df1.shape[0] > df2.shape[0] * 3
@@ -101,7 +101,7 @@ class TestSplit:  # pragma: no cover
         s = TemporalTrainTestSplit(
             train_size=0.5, source=SOURCE2, destination=DESTINATION, force=True
         )
-        s.execute()
+        s.__call__()
         df1 = IOService.read(TRAIN_FILEPATH)
         df2 = IOService.read(TEST_FILEPATH)
         assert df1.shape[0] < df2.shape[0] * 4

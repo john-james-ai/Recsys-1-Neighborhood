@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 08:09:28 pm                                                 #
-# Modified   : Friday March 17th 2023 07:49:47 pm                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -97,7 +97,7 @@ class TestCosine:  # pragma: no cover
             dim="user",
             destination=DESTINATION,
         )
-        cosine = factory.execute(data=dataset)
+        cosine = factory.__call__(data=dataset)
         csr = cosine.to_csr()
         assert isinstance(cosine, Matrix)
         assert isinstance(csr, csr_matrix)
@@ -154,7 +154,7 @@ class TestCosine:  # pragma: no cover
             dim="item",
             destination=DESTINATION,
         )
-        cosine = factory.execute(data=dataset)
+        cosine = factory.__call__(data=dataset)
         csc = cosine.to_csc()
         assert isinstance(cosine, Matrix)
         assert isinstance(csc, csc_matrix)

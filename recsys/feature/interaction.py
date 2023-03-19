@@ -11,13 +11,14 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 06:05:25 pm                                                  #
-# Modified   : Friday March 17th 2023 08:16:50 pm                                                  #
+# Modified   : Friday March 17th 2023 08:22:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 from __future__ import annotations
 import warnings
+from copy import deepcopy
 
 from scipy.sparse import csr_matrix, csc_matrix, coo_matrix
 import numpy as np
@@ -55,7 +56,12 @@ class InteractionMatrix(Matrix):
         filepath: str,
         data: pd.DataFrame,
     ) -> None:
-        super().__init__(name=name, description=description, data=data)
+        super().__init__()
+        self._name = name
+        self._description = description
+        self._filepath = filepath
+        self._data = data
+
         self._profiled = False
         self._summary = None
         self._nrows = None
@@ -73,7 +79,16 @@ class InteractionMatrix(Matrix):
         self._summarize()
 
     @property
-    def name(self)
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def description(self) -> str:
+        return self._description
+
+    @property
+    def filepath(self) -> str:
+        return self._filepath
 
     @property
     def sparsity(self) -> float:
@@ -226,7 +241,7 @@ class InteractionMatrix(Matrix):
 
     def to_df(self) -> pd.DataFrame:
         """Returns the nonzero values in dataframe format"""
-        return self._data
+        return deepcopy(self._data)
 
     def to_csr(self, centered_by: str = None) -> csr_matrix:
         """Produces a csr matrix

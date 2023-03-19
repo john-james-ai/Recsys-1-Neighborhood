@@ -4,14 +4,14 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.6                                                                              #
-# Filename   : /recsys/operator/io/remote.py                                                       #
+# Filename   : /recsys/dataprep/download.py                                                        #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Friday March 17th 2023 03:00:22 pm                                                  #
+# Modified   : Saturday March 18th 2023 09:04:02 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -21,7 +21,8 @@ import os
 import requests
 from tqdm import tqdm
 
-from recsys import Operator, Artifact
+from recsys.dataprep.operator import Operator
+from recsys.dataprep.artifact import Artifact
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -40,12 +41,16 @@ class ZipDownloader(Operator):
     def __init__(
         self, source: str, destination: str, chunk_size: int = 1024, force: bool = False
     ) -> None:
-        super().__init__(source=source, destination=destination, force=force)
+        super().__init__()
+        self._source = source
+        self._destination = destination
+        self._force = force
         self._chunk_size = chunk_size
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
-    def execute(self, *args, **kwargs) -> None:
+    def __call__(self, *args, **kwargs) -> None:
         """Downloads a zipfile."""
+
         if not self._skip(endpoint=self._destination):
 
             resp = requests.get(self._source, stream=True)

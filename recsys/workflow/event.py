@@ -4,32 +4,64 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /tests/test_workspace/test_operator.py                                              #
+# Filename   : /recsys/workflow/event.py                                                           #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Sunday March 5th 2023 12:33:42 am                                                   #
-# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
+# Created    : Saturday March 18th 2023 08:04:10 pm                                                #
+# Modified   : Saturday March 18th 2023 08:05:16 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
+from abc import ABC, abstractmethod
+from typing import Any, Union
 from datetime import datetime
-
-from recsys import Operator
+import logging
 
 
 # ------------------------------------------------------------------------------------------------ #
-#                                      TEST OPERATOR                                               #
-# ------------------------------------------------------------------------------------------------ #
-class TestOperator(Operator):
-    """Operator does nothing."""
-
+class Event(ABC):  # pragma: no cover
     def __init__(self) -> None:
-        super().__init__()
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
-    def __call__(self, *args, **kwargs) -> None:
-        """Downloads a zipfile."""
-        self._logger.debug(datetime.now())
+    @property
+    @abstractmethod
+    def name(self) -> str:
+        """Returns the name of the task"""
+
+    @property
+    @abstractmethod
+    def description(self) -> str:
+        """Returns the description of the task"""
+
+    @property
+    @abstractmethod
+    def started(self) -> datetime:
+        """Returns the datetime the task started."""
+
+    @property
+    @abstractmethod
+    def ended(self) -> datetime:
+        """Returns the datetime the task ended."""
+
+    @property
+    @abstractmethod
+    def duration(self) -> datetime:
+        """Returns the duration of the task."""
+
+    @abstractmethod
+    def _setup(self) -> None:
+        """Performs required initialization steps before running the task"""
+
+    @abstractmethod
+    def _teardown(self) -> None:
+        """Wrap up activities."""
+
+    @abstractmethod
+    def run(self) -> Union[None, Any]:
+        """Runs the task."""

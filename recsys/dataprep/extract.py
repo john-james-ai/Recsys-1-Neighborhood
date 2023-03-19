@@ -4,14 +4,14 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/operator/io/compress.py                                                     #
+# Filename   : /recsys/dataprep/extract.py                                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 05:55:47 am                                             #
-# Modified   : Friday March 17th 2023 03:00:22 pm                                                  #
+# Modified   : Saturday March 18th 2023 08:59:33 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,7 +20,8 @@
 import os
 from zipfile import ZipFile
 
-from recsys import Operator, Artifact
+from recsys.dataprep.operator import Operator
+from recsys.dataprep.artifact import Artifact
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -39,12 +40,15 @@ class ZipExtractor(Operator):
     def __init__(
         self, source: str, destination: str, member: str = None, force: bool = False
     ) -> None:
-        super().__init__(source=source, destination=destination, force=force)
+        super().__init__()
+        self._source = source
+        self._destination = destination
+        self._force = force
         self._member = member
         filepath = os.path.join(self._destination, member)
         self._artifact = Artifact(isfile=True, path=filepath, uripath="data")
 
-    def execute(self, *args, **kwargs) -> None:
+    def __call__(self, *args, **kwargs) -> None:
         """Extracts the contents"""
 
         if not self._skip(endpoint=self._destination):

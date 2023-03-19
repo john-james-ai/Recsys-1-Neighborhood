@@ -10,25 +10,26 @@
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday March 4th 2023 08:14:42 pm                                                 #
-# Modified   : Friday March 17th 2023 03:00:23 pm                                                  #
+# Created    : Saturday March 18th 2023 07:57:18 pm                                                #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from typing import Any, Union
+from typing import Union
 from datetime import datetime
 
 import mlflow
+import pandas as pd
 
-from recsys.workflow.base import Event
-from recsys import Operator
+from recsys.workflow.event import Event
+from dataprep.operator import Operator
+from recsys.dataset.base import Dataset
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Task(Event):
     """Object that performs a step in a pipeline.
-
     Args:
         name (str): Task name
         description (str): Description for the task
@@ -48,9 +49,18 @@ class Task(Event):
         self._description = description
         self._operator = operator
 
+        self._state = "created"
         self._started = None
         self._ended = None
         self._duration = None
+
+    def __call__(self, data: Union[pd.DataFrame, Dataset]) -> Union[None, pd.DataFrame, Dataset]:
+        """Runs the task."""
+
+        self._setup()
+        data = self._operator.__call__(data)
+        self._teardown()
+        return data
 
     @property
     def name(self) -> str:
@@ -78,25 +88,22 @@ class Task(Event):
         return self._duration
 
     @property
-    def operator(self) -> Operator:
-        return self._operator
+    def state(self) -> str:
+        return self._state
 
     def _setup(self) -> None:
         """Performs required initialization steps before running the task"""
         self._started = datetime.now()
-        mlflow.start_run(
-            run_name=self._name,
-            nested=True,
-        )
+        self._state = "running"
         self._logger.info(f"Started task: {self._name} ")
 
     def _teardown(self, artifact: dict = None) -> None:
         """Wrap up activities."""
         self._ended = datetime.now()
+        self._state = "success"
         self._duration = (self._ended - self._started).total_seconds()
         mlflow.log_metric("duration", self._duration)
         self._log_artifact()
-        mlflow.end_run()
         self._logger.info(
             f"Completed task: {self._name}. Duration: {round(self._duration,2)} seconds."
         )
@@ -114,11 +121,3 @@ class Task(Event):
                     local_dir=self._operator.artifact.path,
                     artifact_path=self._operator.artifact.uripath,
                 )
-
-    def run(self, data: Any = None, context: dict = None) -> Union[None, Any]:
-        """Runs the task."""
-
-        self._setup()
-        data = self._operator.execute(data, context)
-        self._teardown()
-        return data

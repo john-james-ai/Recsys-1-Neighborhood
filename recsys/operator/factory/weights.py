@@ -11,13 +11,13 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 04:26:15 pm                                                 #
-# Modified   : Friday March 17th 2023 08:16:50 pm                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Cooccurrence Matrix Factory"""
-from recsys.matrix.i2 import Matrix
+from recsys.matrix.base import Matrix
 from recsys import Operator, Artifact
 
 # ------------------------------------------------------------------------------------------------ #
@@ -40,7 +40,7 @@ class SignificanceWeightedMatrixFactory(Operator):
     Where Suv and Sij are user similarity and item similarity matrices, respectively.
 
     The similarity matrix will be read from file as the source. An interaction matrix used to compute
-    the weights will be passed into the execute method
+    the weights will be passed into the __call__ method
 
     Args:
         name (str): The name of the weighted similarity matrix
@@ -82,7 +82,7 @@ class SignificanceWeightedMatrixFactory(Operator):
 
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="matrix")
 
-    def execute(self, data: Matrix, context: dict = None) -> Matrix:
+    def __call__(self, data: Matrix, context: dict = None) -> Matrix:
         """Creates a signficance weighting matrix from an interaction matrix.
 
         Args:

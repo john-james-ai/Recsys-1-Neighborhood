@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 05:51:25 pm                                            #
-# Modified   : Friday March 17th 2023 03:00:23 pm                                                  #
+# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -57,7 +57,7 @@ class UserRandomSampling(Operator):
         self._random_state = random_state
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
-    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
+    def __call__(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Samples the data"""
         if not self._skip(endpoint=self._destination):
             # Get the data. Priority goes to data passed into the method.
@@ -130,7 +130,7 @@ class UserStratifiedRandomSampling(Operator):
         self._random_state = random_state
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
-    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
+    def __call__(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Samples the data"""
         if not self._skip(endpoint=self._destination):
             sample = pd.DataFrame()
@@ -177,7 +177,7 @@ class TemporalInteractionThresholdSampling(Operator):
 
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
-    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
+    def __call__(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Controls the sampling process."""
 
         if not self._skip(endpoint=self._destination):
@@ -240,7 +240,7 @@ class RandomTemporalInteractionThresholdSampling(Operator):
 
         self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
 
-    def execute(self, data: pd.DataFrame = None, context: dict = None) -> None:
+    def __call__(self, data: pd.DataFrame = None, context: dict = None) -> None:
         """Controls the sampling process."""
 
         if not self._skip(endpoint=self._destination):
