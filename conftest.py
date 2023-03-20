@@ -18,7 +18,7 @@
 # ================================================================================================ #
 import pytest
 
-from recsys.data.dataset import Dataset
+from recsys.dataset.movielens import MovieLens
 from recsys import IOService
 from recsys.container import Recsys
 
@@ -46,8 +46,8 @@ def config_filepath():
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session", autouse=True)
 def dataset(dataframe):
-    ds = Dataset(
-        name="test_dataset", description="Test Dataset Sampled to 1000 Interactions", data=dataframe
+    ds = MovieLens(
+        name="test_dataset", desc="Test Dataset Sampled to 1000 Interactions", data=dataframe
     )
     return ds
 

@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# ================================================================================================ #
+# Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
+# Version    : 0.1.0                                                                               #
+# Python     : 3.10.6                                                                              #
+# Filename   : /config/neighborhood/data/movielens25m.yml                                          #
+# ------------------------------------------------------------------------------------------------ #
+# Author     : John James                                                                          #
+# Email      : john.james.ai.studio@gmail.com                                                      #
+# URL        : https://github.com/john-james-ai/recsys-lab                                         #
+# ------------------------------------------------------------------------------------------------ #
+# Created    : Monday February 20th 2023 07:09:58 am                                               #
+# Modified   : Sunday March 19th 2023 07:01:05 pm                                                  #
+# ------------------------------------------------------------------------------------------------ #
+# License    : MIT License                                                                         #
+# Copyright  : (c) 2023 John James                                                                 #
+# ================================================================================================ #
+movielens25m:   # The name of the pipeline passed to the pipeline builder.
+  name: movielens25m
+  description: Extracts, transforms and loads the GroupLens Movielens25M ratings dataset
+  tasks:
+    # -------------------------------------------------------------------------------------------- #
+    #                                     MOVIELENS25M                                             #
+    # -------------------------------------------------------------------------------------------- #
+
+    - name: source_movielens25m
+      description: Obtain Movielens25M Dataset from the Grouplens website
+      operator:
+        name: ZipDownloader
+        module: recsys.dataprep.download
+        params:
+          source: https://files.grouplens.org/datasets/movielens/ml-25m.zip
+          destination: data/movielens25m/ext/ml-25m.zip
+          force: False
+
+    - name: extract_ratings
+      description: Extract ratings file into raw directory.
+      operator:
+        name: ZipExtractor
+        module: recsys.dataprep.extract
+        params:
+          source: data/movielens25m/ext/ml-25m.zip
+          destination: data/movielens25m/raw/
+          member: ratings.csv
+          force: False
+
+    - name: split_dataset
+      description: Split dataset into train, validation, and test sets. 80/10/10
+      operator:
+        name: TemporalSplitter
+        module: recsys.dataprep.split
+        params:
+          directory: data/movielens25m/split
+          train_size: 0.8
+          test_size: 0.1
+          validation_size: 0.1
+          timestamp_var: timestamp
+          force: False
+
+    - name: min_items_per_user_filter
+      description: Minimum Items per User
+      operator:
+        name: MinItemsPerUserFilter
+        module: recsys.dataprep
+        params:
+          min_items_per_user: 4
+          drop_duplicates: True
+          userid: userId
+          itemid: movieId
+
+    - name: min_users_per_item
+      description: Minimum Users per Item
+      operator:
+        name: MinUsersPerItemFilter
+        module: recsys.dataprep
+        params:
+          min_users_per_item: 4
+          drop_duplicates: True
+          userid: userId
+          itemid: movieId
+
+
+    - name: max_items_per_user
+      description: Max Items per User
+      operator:
+        name: MaxItemsPerUserFilter
+        module: recsys.dataprep
+        params:
+          max_items_per_user: 1000
+          drop_duplicates: True
+          userid: userId
+          itemid: movieId
+          timestamp: timestamp
+
+    - name: max_users_per_item
+      description: Max Users per Item
+      operator:
+        name: MaxUsersPerItemFilter
+        module: recsys.dataprep
+        params:
+          max_items_per_user: 1000
+          drop_duplicates: True
+          userid: userId
+          itemid: movieId
+          timestamp: timestamp
+
+    - name: index_sequencer
+      description: Index Sequencer
+      operator:
+        name: IndexSequencer
+        module: recsys.dataprep
+        params:
+          useridx: useridx
+          itemidx: itemidx
+          userid: userId
+          itemid: movieId
+
+    - name: normalize_by_user
+      description: Normalizer by User
+      operator:
+        name: Normalizer
+        module: recsys.dataprep
+        params:
+          by: userId
+          rating_col: rating
+          epsilon: 1e-9
+
+    - name: normalize_by_item
+      description: Normalizer by Item
+      operator:
+        name: Normalizer
+        module: recsys.dataprep
+        params:
+          by: movieId
+          rating_col: rating
+          epsilon: 1e-9
+

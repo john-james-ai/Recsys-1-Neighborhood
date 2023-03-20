@@ -48,12 +48,12 @@ class TestTask:  # pragma: no cover
         logger.info(double_line)
         # ---------------------------------------------------------------------------------------- #
         NAME = "test_task"
-        DESCRIPTION = "Test Task Description"
+        desc = "Test Task desc"
         OPERATOR = TestOperator()
-        task = Task(name=NAME, description=DESCRIPTION, operator=OPERATOR)
+        task = Task(name=NAME, desc=desc, operator=OPERATOR)
         task.run()
         assert task.name == NAME
-        assert task.description == DESCRIPTION
+        assert task.desc == desc
         assert isinstance(task.started, datetime)
         assert isinstance(task.ended, datetime)
         assert isinstance(task.duration, float)

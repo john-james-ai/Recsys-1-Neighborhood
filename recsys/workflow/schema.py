@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 18th 2023 05:18:14 pm                                                #
-# Modified   : Saturday March 18th 2023 05:49:12 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -26,7 +26,7 @@ from datetime import datetime
 class DataSchema:
     id: str  # The name and the date it was created in <name_MMDDYYYY> format
     name: str  # The name of the data object.
-    description: str  # The description of the Data object
+    desc: str  # The desc of the Data object
     filename: str  # The filename of the Data object
     type: str  # The class of the object
     size: float  # The proportion of the total size if this is part of a ModelDataSchema
@@ -39,7 +39,7 @@ class DataSchema:
 class ModelDataSchema:
     id: str  # The name and the date it was created in <name_MMDDYYYY> format
     name: str  # The name of the model data schema
-    description: str  # Describe the schema in terms of its purpose stage, state
+    desc: str  # Describe the schema in terms of its purpose stage, state
     location: str  # The directory containing the data
     full_train: DataSchema  # The full training set
     train: DataSchema  # The train DataSchema object

@@ -4,14 +4,14 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/matrix/interaction.py                                                       #
+# Filename   : /recsys/feature/interaction.py                                                      #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 06:05:25 pm                                                  #
-# Modified   : Friday March 17th 2023 08:22:29 pm                                                  #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -35,7 +35,7 @@ class InteractionMatrix(Matrix):
 
     Args:
         name (str): Name of the matrix in lowercase
-        description (str): Description of the matrix
+        desc (str): desc of the matrix
         filepath (str): The persistence location for this object.
         data (str): Pandas DataFrame containing rating interaction data.
     """
@@ -52,13 +52,13 @@ class InteractionMatrix(Matrix):
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         filepath: str,
         data: pd.DataFrame,
     ) -> None:
         super().__init__()
         self._name = name
-        self._description = description
+        self._desc = desc
         self._filepath = filepath
         self._data = data
 
@@ -83,8 +83,8 @@ class InteractionMatrix(Matrix):
         return self._name
 
     @property
-    def description(self) -> str:
-        return self._description
+    def desc(self) -> str:
+        return self._desc
 
     @property
     def filepath(self) -> str:
@@ -391,7 +391,7 @@ class InteractionMatrix(Matrix):
             d = {}
             # d["name"] = self._name
             # d["type"] = self.__class__.__name__
-            # d["description"] = self._description
+            # d["desc"] = self._desc
             d["nrows"] = self._data.shape[0]
             d["ncols"] = self._data.shape[1]
             d["n_users"] = self._n_users

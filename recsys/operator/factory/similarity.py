@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 04:26:15 pm                                                 #
-# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -36,7 +36,7 @@ class SimilarityMatrixFactory(Operator):
 
     Args:
         name (str): The name of the interaction matrix
-        description (str): Describes the interaction matrix
+        desc (str): Describes the interaction matrix
         destination (str): The directory for persisting the matrix
         dim (str): Either 'u' or 'user' for user dimension, or 'i' or 'item' for item dimension.
         force (bool): Whether to overwrite existing data if it already exists.
@@ -49,7 +49,7 @@ class SimilarityMatrixFactory(Operator):
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         destination: str,
         dim: str,
         datasource: str = "movielens25m",
@@ -57,7 +57,7 @@ class SimilarityMatrixFactory(Operator):
     ) -> None:
         super().__init__(destination=destination, force=force)
         self._name = name
-        self._description = description
+        self._desc = desc
         self._datasource = datasource
         self._filepath = None
 
@@ -118,7 +118,7 @@ class SimilarityMatrixFactory(Operator):
 
         matrix = Matrix(
             name=self._name,
-            description=self._description,
+            desc=self._desc,
             data=sim,
             datasource=self._datasource,
         )
@@ -138,7 +138,7 @@ class CosineSimilarityMatrixFactory(SimilarityMatrixFactory):
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         destination: str,
         dim: str,
         datasource: str = "movielens25m",
@@ -146,7 +146,7 @@ class CosineSimilarityMatrixFactory(SimilarityMatrixFactory):
     ) -> None:
         super().__init__(
             name=name,
-            description=description,
+            desc=desc,
             destination=destination,
             dim=dim,
             datasource=datasource,
@@ -186,7 +186,7 @@ class AdjustedCosineSimilarityMatrixFactory(SimilarityMatrixFactory):
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         destination: str,
         dim: str,
         datasource: str = "movielens25m",
@@ -194,7 +194,7 @@ class AdjustedCosineSimilarityMatrixFactory(SimilarityMatrixFactory):
     ) -> None:
         super().__init__(
             name=name,
-            description=description,
+            desc=desc,
             destination=destination,
             dim=dim,
             datasource=datasource,
@@ -236,7 +236,7 @@ class PearsonSimilarityMatrixFactory(SimilarityMatrixFactory):
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         destination: str,
         dim: str,
         datasource: str = "movielens25m",
@@ -244,7 +244,7 @@ class PearsonSimilarityMatrixFactory(SimilarityMatrixFactory):
     ) -> None:
         super().__init__(
             name=name,
-            description=description,
+            desc=desc,
             destination=destination,
             dim=dim,
             datasource=datasource,

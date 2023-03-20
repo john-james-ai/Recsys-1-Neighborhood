@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 07:31:37 pm                                                 #
-# Modified   : Saturday March 18th 2023 08:05:09 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -33,12 +33,12 @@ class Pipeline(Event):
     """Abstract base class for Pipelines
     Args:
         name (str): Human readable name for the pipeline run.
-        description (str): Description of the pipelne
+        desc (str): desc of the pipelne
     """
 
-    def __init__(self, name: str, description: str) -> None:
+    def __init__(self, name: str, desc: str) -> None:
         self._name = name
-        self._description = description
+        self._desc = desc
 
         self._input_schema = None
         self._output_schema = None
@@ -55,8 +55,8 @@ class Pipeline(Event):
         return self._name
 
     @property
-    def description(self) -> str:
-        return self._description
+    def desc(self) -> str:
+        return self._desc
 
     @property
     def started(self) -> datetime:

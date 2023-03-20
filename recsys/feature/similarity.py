@@ -4,14 +4,14 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/matrix/similarity.py                                                        #
+# Filename   : /recsys/feature/similarity.py                                                       #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday March 1st 2023 05:01:09 am                                                #
-# Modified   : Friday March 17th 2023 08:23:42 pm                                                  #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -28,7 +28,7 @@ class SimilarityMatrix(Matrix):
 
     Args:
         name (str): The name of the similarity matrix
-        description (str): Describes the similarity matrix in terms of items or users
+        desc (str): Describes the similarity matrix in terms of items or users
         data (pd.DataFrame): The similarity matrix data in DataFrame format.
         measure (SimilarityMeasure): The SimilarityMeasure object that was used.
         dimension (str): Either ['userId', or 'movieid'] for user similarity or item similarity,
@@ -36,9 +36,9 @@ class SimilarityMatrix(Matrix):
     """
 
     def __init__(
-        self, name: str, description: str, data: pd.DataFrame, measure: str, dimension: str
+        self, name: str, desc: str, data: pd.DataFrame, measure: str, dimension: str
     ) -> None:
-        super().__init__(name=name, description=description, data=data)
+        super().__init__(name=name, desc=desc, data=data)
         self._measure = measure
         self._dimension = dimension
 

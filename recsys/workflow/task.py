@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 18th 2023 07:57:18 pm                                                #
-# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -32,21 +32,21 @@ class Task(Event):
     """Object that performs a step in a pipeline.
     Args:
         name (str): Task name
-        description (str): Description for the task
+        desc (str): desc for the task
         operator (Operator): An instance of an Operator which fulfills the task.
     """
 
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         operator: Operator,
         *args,
         **kwargs,
     ) -> None:
         super().__init__()
         self._name = name
-        self._description = description
+        self._desc = desc
         self._operator = operator
 
         self._state = "created"
@@ -68,9 +68,9 @@ class Task(Event):
         return self._name
 
     @property
-    def description(self) -> str:
-        """Returns the description of the task"""
-        return self._description
+    def desc(self) -> str:
+        """Returns the desc of the task"""
+        return self._desc
 
     @property
     def started(self) -> datetime:

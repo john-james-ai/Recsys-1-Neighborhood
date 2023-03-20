@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 04:26:15 pm                                                 #
-# Modified   : Saturday March 18th 2023 08:41:29 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -44,7 +44,7 @@ class SignificanceWeightedMatrixFactory(Operator):
 
     Args:
         name (str): The name of the weighted similarity matrix
-        description (str): Describes the weighted similarity matrix
+        desc (str): Describes the weighted similarity matrix
         source (str): The filepath of the similarity matrix.
         destination (str): The filepath to the weighted similarity matrix.
         dim (str): Either 'u' or 'user' for user dimension, or 'i' or 'item' for item dimension.
@@ -59,7 +59,7 @@ class SignificanceWeightedMatrixFactory(Operator):
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         source: str,
         destination: str,
         dim: str,
@@ -70,7 +70,7 @@ class SignificanceWeightedMatrixFactory(Operator):
         super().__init__(source=source, destination=destination, force=force)
         self._name = name
         self._threshold = threshold
-        self._description = description
+        self._desc = desc
         self._datasource = datasource
 
         try:
@@ -119,7 +119,7 @@ class SignificanceWeightedMatrixFactory(Operator):
 
         matrix = Matrix(
             name=self._name,
-            description=self._description,
+            desc=self._desc,
             data=Suv,
             datasource=self._datasource,
         )
@@ -144,7 +144,7 @@ class SignificanceWeightedMatrixFactory(Operator):
 
         matrix = Matrix(
             name=self._name,
-            description=self._description,
+            desc=self._desc,
             data=Sij,
             datasource=self._datasource,
         )

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 09:20:09 pm                                               #
-# Modified   : Saturday March 18th 2023 10:31:49 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -35,7 +35,6 @@ class TemporalSplitter(Operator):
 
     Args:
         directory (str): The directory into which the splits will be persisted.
-        dataset (type[Dataset]): The Dataset type to create from the splits.
         train_size (float): Proportion of data for training. Default = 0.80
         test_size (float): Proportion of data for test. Default = 0.1
         validation_size (float): Proportion reserved for validation set. This will equal
@@ -47,7 +46,6 @@ class TemporalSplitter(Operator):
     def __init__(
         self,
         directory: str,
-        dataset: type[Dataset],
         train_size: float = 0.80,
         validation_size: float = 0.10,
         test_size: float = 0.10,
@@ -56,7 +54,6 @@ class TemporalSplitter(Operator):
     ) -> None:
         super().__init__()
         self._directory = directory
-        self._dataset = dataset
         self._train_size = train_size
         self._validation_size = validation_size or 1 - (train_size + test_size)
         self._test_size = test_size
@@ -103,35 +100,29 @@ class TemporalSplitter(Operator):
 
             # Training set
             name = "train"
-            description = "Temporal Training Set"
+            desc = "Temporal Training Set"
             filepath = os.path.join(self._directory, "train.pkl")
             data = train
-            dataset = self._dataset(
-                name=name, description=description, filepath=filepath, data=data
-            )
+            dataset = Dataset(name=name, desc=desc, filepath=filepath, data=data)
             IOService.write(filepath=dataset.filepath, data=dataset)
             splits["train"] = dataset
 
             # Test set
             name = "test"
-            description = "Temporal Test Set"
+            desc = "Temporal Test Set"
             filepath = os.path.join(self._directory, "test.pkl")
             data = test
-            dataset = self._dataset(
-                name=name, description=description, filepath=filepath, data=data
-            )
+            dataset = Dataset(name=name, desc=desc, filepath=filepath, data=data)
             IOService.write(filepath=dataset.filepath, data=dataset)
             splits["test"] = dataset
 
             # Validation set
             if validation_size > 0.0:
                 name = "validation"
-                description = "Temporal Validation Set"
+                desc = "Temporal Validation Set"
                 filepath = os.path.join(self._directory, "validation.pkl")
                 data = validation
-                dataset = self._dataset(
-                    name=name, description=description, filepath=filepath, data=data
-                )
+                dataset = Dataset(name=name, desc=desc, filepath=filepath, data=data)
                 IOService.write(filepath=dataset.filepath, data=dataset)
                 splits["validation"] = dataset
 

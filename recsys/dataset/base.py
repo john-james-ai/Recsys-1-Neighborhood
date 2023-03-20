@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 08:42:29 pm                                                  #
-# Modified   : Saturday March 18th 2023 08:52:16 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -33,14 +33,14 @@ class Dataset(ABC):
 
     Args:
         name (str): Lowercase name of dataset
-        description (str): Description of dataset and its contents
+        desc (str): desc of dataset and its contents
         filepath (str): The persistence location for the Dataset object.
         data (pd.DataFrame): Pandas DataFrame containing the data.
     """
 
-    def __init__(self, name: str, description: str, filepath: str, data: pd.DataFrame) -> None:
+    def __init__(self, name: str, desc: str, filepath: str, data: pd.DataFrame) -> None:
         self._name = name
-        self._description = description
+        self._desc = desc
         self._filepath = filepath
         self._data = data
         self._logger = logging.getLogger(
@@ -52,8 +52,8 @@ class Dataset(ABC):
         return self._name
 
     @property
-    def description(self) -> str:
-        return self._description
+    def desc(self) -> str:
+        return self._desc
 
     @property
     def filepath(self) -> str:

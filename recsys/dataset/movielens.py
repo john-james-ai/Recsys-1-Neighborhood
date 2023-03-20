@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 06:05:25 pm                                                  #
-# Modified   : Saturday March 18th 2023 09:57:06 pm                                                #
+# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -35,7 +35,7 @@ class MovieLens(Dataset):
 
     Args:
         name (str): Name of the matrix in lowercase
-        description (str): Description of the matrix
+        desc (str): desc of the matrix
         filepath (str): The persistence location for this object.
         data (str): Pandas DataFrame containing rating interaction data.
     """
@@ -50,11 +50,11 @@ class MovieLens(Dataset):
     def __init__(
         self,
         name: str,
-        description: str,
+        desc: str,
         filepath: str,
         data: pd.DataFrame,
     ) -> None:
-        super().__init__(name=name, description=description, filepath=filepath, data=data)
+        super().__init__(name=name, desc=desc, filepath=filepath, data=data)
 
         self._profiled = False
         self._summary = None
@@ -334,7 +334,7 @@ class MovieLens(Dataset):
             d = {}
             # d["name"] = self._name
             # d["type"] = self.__class__.__name__
-            # d["description"] = self._description
+            # d["desc"] = self._desc
             d["nrows"] = self._data.shape[0]
             d["ncols"] = self._data.shape[1]
             d["n_users"] = self._n_users

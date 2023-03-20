@@ -4,64 +4,30 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/workflow/event.py                                                           #
+# Filename   : /recsys/persistence/database.py                                                     #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
-# Created    : Saturday March 18th 2023 08:04:10 pm                                                #
-# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
+# Created    : Sunday March 19th 2023 04:32:25 pm                                                  #
+# Modified   : Sunday March 19th 2023 05:17:35 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from abc import ABC, abstractmethod
-from typing import Any, Union
-from datetime import datetime
-import logging
+from sqlalchemy import create_engine
+from sqlalchemy import engine
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Event(ABC):  # pragma: no cover
+class Database:
+    __location = "sqlite:///assets/registry.db"
+
     def __init__(self) -> None:
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
+        self._engine = create_engine(Database.__location)
+        self._cxn = engine.connect()
 
     @property
-    @abstractmethod
-    def name(self) -> str:
-        """Returns the name of the task"""
-
-    @property
-    @abstractmethod
-    def desc(self) -> str:
-        """Returns the desc of the task"""
-
-    @property
-    @abstractmethod
-    def started(self) -> datetime:
-        """Returns the datetime the task started."""
-
-    @property
-    @abstractmethod
-    def ended(self) -> datetime:
-        """Returns the datetime the task ended."""
-
-    @property
-    @abstractmethod
-    def duration(self) -> datetime:
-        """Returns the duration of the task."""
-
-    @abstractmethod
-    def _setup(self) -> None:
-        """Performs required initialization steps before running the task"""
-
-    @abstractmethod
-    def _teardown(self) -> None:
-        """Wrap up activities."""
-
-    @abstractmethod
-    def run(self) -> Union[None, Any]:
-        """Runs the task."""
+    def connection(self) -> engine.connect:
+        return self._cxn

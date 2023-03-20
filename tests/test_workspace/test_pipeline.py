@@ -90,7 +90,7 @@ class TestPipeline:  # pragma: no cover
         pipeline.run()
         assert pipeline.name == "movielens25m_etl"
         assert (
-            pipeline.description
+            pipeline.desc
             == "Extracts, transforms and loads the GroupLens Movielens25M ratings dataset"
         )
         assert isinstance(pipeline.started, datetime)
