@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday March 19th 2023 04:11:20 pm                                                  #
-# Modified   : Monday March 20th 2023 01:42:59 am                                                  #
+# Modified   : Monday March 20th 2023 03:01:56 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -56,7 +56,7 @@ class Asset(ABC):
 
 
 # ------------------------------------------------------------------------------------------------ #
-class AssetCentreABC(ABC):
+class AssetRepoABC(ABC):
     """Abstract base class for asset repositories.
 
     Each subclass maintains the persistence of a single asset type.

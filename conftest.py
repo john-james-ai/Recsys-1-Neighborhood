@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Sunday March 19th 2023 11:39:49 pm                                                  #
+# Modified   : Monday March 20th 2023 03:52:22 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -90,6 +90,6 @@ def datasets(dataframe):
 def container():
     container = Recsys()
     container.init_resources()
-    container.wire(modules=["recsys.container"])
+    container.wire(modules=["recsys.container", "recsys.asset.centre"])
 
     return container

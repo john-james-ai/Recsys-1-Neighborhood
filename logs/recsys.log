@@ -5584,3 +5584,416 @@ Started TestRepo test_show at 02:27:36 AM on 03/20/2023
 	Completed TestRepo test_show in 0.9 seconds at 02:27:37 AM on 03/20/2023
 [03/20/2023 02:27:37 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_show] : 
 ----------------------------------------------------------------------------------------------------
+[03/20/2023 03:29:16 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:16 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:17 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:17 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:17 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:17 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:18 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:18 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:18 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:29:18 AM on 03/20/2023
+[03/20/2023 03:29:18 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:29:50 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:50 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:50 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:50 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:51 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:51 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:51 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:51 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:29:52 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:29:52 AM on 03/20/2023
+[03/20/2023 03:29:52 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:31:58 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:31:59 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:31:59 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:31:59 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:31:59 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:32:00 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:32:00 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:32:00 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:32:01 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:32:01 AM on 03/20/2023
+[03/20/2023 03:32:01 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:43:26 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:26 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:28 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:28 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:43:28 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:43:28 AM on 03/20/2023
+[03/20/2023 03:43:28 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:43:28 AM] [ERROR] [recsys.asset.centre.AssetCentre] [centre] [_get_repo] : No repository exists for asset type: movielens.
+[03/20/2023 03:48:52 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:53 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:53 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:53 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:53 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:54 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:54 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:54 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:48:55 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:48:54 AM on 03/20/2023
+[03/20/2023 03:48:55 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:51:05 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:05 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:05 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:06 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:06 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:06 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:06 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:07 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:51:07 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:51:07 AM on 03/20/2023
+[03/20/2023 03:51:07 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:53:03 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:03 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:03 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:05 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:05 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:53:05 AM on 03/20/2023
+[03/20/2023 03:53:05 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:53:55 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:55 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:56 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:56 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:56 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:56 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:57 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:57 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:53:57 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 03:53:57 AM on 03/20/2023
+[03/20/2023 03:53:57 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 03:53:57 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :            name       type                                description
+0  test_dataset  MovieLens  Test Dataset Sampled to 1000 Interactions
+[03/20/2023 03:53:58 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+Completed TestAssetCentre test_add_get in 0.4 seconds at 03:53:58 AM on 03/20/2023
+[03/20/2023 03:53:58 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:27 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:28 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:28 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:28 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:28 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+
+Started TestRepo test_setup at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+Completed TestRepo test_setup in 0.3 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+
+Started TestRepo test_table_not_exists at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [_get_registry] : Exception when attempting to read the registry from the dataset table.
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+	Completed TestRepo test_table_not_exists in 0.0 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+
+Started TestRepo test_add at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [_get_registry] : Exception when attempting to read the registry from the dataset table.
+[03/20/2023 03:54:29 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :            name       type                                description
+0  test_dataset  MovieLens  Test Dataset Sampled to 1000 Interactions
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+	Completed TestRepo test_add in 0.2 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+
+Started TestRepo test_add_already_exists at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [add] : An asset named test_dataset already exists. Change the name or replace the asset.
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+	Completed TestRepo test_add_already_exists in 0.0 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+
+Started TestRepo test_get at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+	Completed TestRepo test_get in 0.1 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+
+Started TestRepo test_get_not_exists at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+	Completed TestRepo test_get_not_exists in 0.0 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+
+Started TestRepo test_exists at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+	Completed TestRepo test_exists in 0.0 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+
+Started TestRepo test_not_exists at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+	Completed TestRepo test_not_exists in 0.0 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+
+Started TestRepo test_replace at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :            name       type                                       description
+0  test_dataset  MovieLens  Test Dataset 2 to Test Replacement Functionality
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+	Completed TestRepo test_replace in 0.3 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+
+Started TestRepo test_replace_not_found at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+====================================================================================================
+[03/20/2023 03:54:29 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [replace] : This asset named, test_dataset_3, does not exist. Try the add method.
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+	Completed TestRepo test_replace_not_found in 0.0 seconds at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+
+Started TestRepo test_remove at 03:54:29 AM on 03/20/2023
+[03/20/2023 03:54:29 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+====================================================================================================
+[03/20/2023 03:54:30 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+	Completed TestRepo test_remove in 0.3 seconds at 03:54:30 AM on 03/20/2023
+[03/20/2023 03:54:30 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 03:54:30 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+
+Started TestRepo test_show at 03:54:30 AM on 03/20/2023
+[03/20/2023 03:54:30 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+====================================================================================================
+[03/20/2023 03:54:30 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_1  MovieLens  Test Dataset 1 Description
+[03/20/2023 03:54:30 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_2  MovieLens  Test Dataset 2 Description
+[03/20/2023 03:54:30 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_3  MovieLens  Test Dataset 3 Description
+[03/20/2023 03:54:30 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_4  MovieLens  Test Dataset 4 Description
+[03/20/2023 03:54:30 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_5  MovieLens  Test Dataset 5 Description
+[03/20/2023 03:54:31 AM] [DEBUG] [test_asset_repos] [test_asset_repos] [test_show] : None
+[03/20/2023 03:54:31 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+	Completed TestRepo test_show in 0.9 seconds at 03:54:31 AM on 03/20/2023
+[03/20/2023 03:54:31 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:51 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:51 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:51 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:52 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:52 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:52 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:52 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:53 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+
+Started TestRepo test_setup at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+Completed TestRepo test_setup in 0.2 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_setup] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+
+Started TestRepo test_table_not_exists at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [_get_registry] : Exception when attempting to read the registry from the dataset table.
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+	Completed TestRepo test_table_not_exists in 0.0 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_table_not_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+
+Started TestRepo test_add at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [_get_registry] : Exception when attempting to read the registry from the dataset table.
+[03/20/2023 04:07:53 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :            name       type                                description
+0  test_dataset  MovieLens  Test Dataset Sampled to 1000 Interactions
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+	Completed TestRepo test_add in 0.2 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+
+Started TestRepo test_add_already_exists at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [add] : An asset named test_dataset already exists. Change the name or replace the asset.
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+	Completed TestRepo test_add_already_exists in 0.0 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_add_already_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+
+Started TestRepo test_get at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+	Completed TestRepo test_get in 0.0 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+
+Started TestRepo test_get_not_exists at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+	Completed TestRepo test_get_not_exists in 0.0 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_get_not_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+
+Started TestRepo test_exists at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+	Completed TestRepo test_exists in 0.0 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+
+Started TestRepo test_not_exists at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+	Completed TestRepo test_not_exists in 0.0 seconds at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_not_exists] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+
+Started TestRepo test_replace at 04:07:53 AM on 03/20/2023
+[03/20/2023 04:07:53 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+====================================================================================================
+[03/20/2023 04:07:53 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :            name       type                                       description
+0  test_dataset  MovieLens  Test Dataset 2 to Test Replacement Functionality
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+	Completed TestRepo test_replace in 0.3 seconds at 04:07:54 AM on 03/20/2023
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+
+Started TestRepo test_replace_not_found at 04:07:54 AM on 03/20/2023
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+====================================================================================================
+[03/20/2023 04:07:54 AM] [ERROR] [recsys.asset.repo.AssetRepo] [repo] [replace] : This asset named, test_dataset_3, does not exist. Try the add method.
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+	Completed TestRepo test_replace_not_found in 0.0 seconds at 04:07:54 AM on 03/20/2023
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_replace_not_found] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+
+Started TestRepo test_remove at 04:07:54 AM on 03/20/2023
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+====================================================================================================
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+	Completed TestRepo test_remove in 0.3 seconds at 04:07:54 AM on 03/20/2023
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_remove] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+
+Started TestRepo test_show at 04:07:54 AM on 03/20/2023
+[03/20/2023 04:07:54 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+====================================================================================================
+[03/20/2023 04:07:54 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_1  MovieLens  Test Dataset 1 Description
+[03/20/2023 04:07:54 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_2  MovieLens  Test Dataset 2 Description
+[03/20/2023 04:07:54 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_3  MovieLens  Test Dataset 3 Description
+[03/20/2023 04:07:55 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_4  MovieLens  Test Dataset 4 Description
+[03/20/2023 04:07:55 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :              name       type                 description
+0  test_dataset_5  MovieLens  Test Dataset 5 Description
+[03/20/2023 04:07:55 AM] [DEBUG] [test_asset_repos] [test_asset_repos] [test_show] : None
+[03/20/2023 04:07:55 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+	Completed TestRepo test_show in 1.0 seconds at 04:07:55 AM on 03/20/2023
+[03/20/2023 04:07:55 AM] [INFO] [test_asset_repos] [test_asset_repos] [test_show] : 
+----------------------------------------------------------------------------------------------------
+[03/20/2023 04:08:03 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:04 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:05 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:05 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:05 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:05 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 04:08:05 AM on 03/20/2023
+[03/20/2023 04:08:05 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 04:08:47 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:48 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:48 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:48 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:48 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:48 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:49 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:49 AM] [DEBUG] [recsys.dataset.movielens.MovieLens] [movielens] [_summarize] : Computing descriptive statistics....
+[03/20/2023 04:08:49 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+
+Started TestAssetCentre test_add_get at 04:08:49 AM on 03/20/2023
+[03/20/2023 04:08:49 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+====================================================================================================
+[03/20/2023 04:08:49 AM] [DEBUG] [recsys.asset.repo.AssetRepo] [repo] [_register] :            name       type                                description
+0  test_dataset  MovieLens  Test Dataset Sampled to 1000 Interactions
+[03/20/2023 04:08:50 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+Completed TestAssetCentre test_add_get in 0.4 seconds at 04:08:50 AM on 03/20/2023
+[03/20/2023 04:08:50 AM] [INFO] [test_asset_centre] [test_asset_centre] [test_add_get] : 
+----------------------------------------------------------------------------------------------------

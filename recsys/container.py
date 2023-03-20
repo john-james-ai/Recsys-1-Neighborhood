@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 09:25:49 am                                                 #
-# Modified   : Monday March 20th 2023 02:11:40 am                                                  #
+# Modified   : Monday March 20th 2023 04:07:27 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -23,6 +23,7 @@ from dependency_injector import containers, providers
 from recsys.services.io import IOService
 from recsys.persistence.database import Database
 
+from recsys.asset.repo import AssetRepo
 from recsys.asset.centre import AssetCentre
 
 
@@ -44,14 +45,14 @@ class ServicesContainer(containers.DeclarativeContainer):
 
 
 # ------------------------------------------------------------------------------------------------ #
-class AssetCenterContainer(containers.DeclarativeContainer):
+class RepoContainer(containers.DeclarativeContainer):
 
     config = providers.Configuration()
 
     database = providers.Dependency()
 
     datasource = providers.Singleton(
-        AssetCentre,
+        AssetRepo,
         database=database,
         directory=config.datasource.directory,
         tablename=config.datasource.tablename,
@@ -59,7 +60,7 @@ class AssetCenterContainer(containers.DeclarativeContainer):
     )
 
     dataset = providers.Singleton(
-        AssetCentre,
+        AssetRepo,
         database=database,
         directory=config.dataset.directory,
         tablename=config.dataset.tablename,
@@ -67,7 +68,7 @@ class AssetCenterContainer(containers.DeclarativeContainer):
     )
 
     operator = providers.Singleton(
-        AssetCentre,
+        AssetRepo,
         database=database,
         directory=config.operator.directory,
         tablename=config.operator.tablename,
@@ -75,7 +76,7 @@ class AssetCenterContainer(containers.DeclarativeContainer):
     )
 
     algorithm = providers.Singleton(
-        AssetCentre,
+        AssetRepo,
         database=database,
         directory=config.algorithm.directory,
         tablename=config.algorithm.tablename,
@@ -83,7 +84,7 @@ class AssetCenterContainer(containers.DeclarativeContainer):
     )
 
     model = providers.Singleton(
-        AssetCentre,
+        AssetRepo,
         database=database,
         directory=config.model.directory,
         tablename=config.model.tablename,
@@ -91,11 +92,21 @@ class AssetCenterContainer(containers.DeclarativeContainer):
     )
 
     pipeline = providers.Singleton(
-        AssetCentre,
+        AssetRepo,
         database=database,
         directory=config.pipeline.directory,
         tablename=config.pipeline.tablename,
         io=IOService,
+    )
+
+    centre = providers.Singleton(
+        AssetCentre,
+        datasource=datasource,
+        dataset=dataset,
+        operator=operator,
+        algorithm=algorithm,
+        model=model,
+        pipeline=pipeline,
     )
 
 
@@ -106,6 +117,4 @@ class Recsys(containers.DeclarativeContainer):
 
     services = providers.Container(ServicesContainer, config=config)
 
-    assets = providers.Container(
-        AssetCenterContainer, config=config.assets, database=services.database
-    )
+    assets = providers.Container(RepoContainer, config=config.assets, database=services.database)
