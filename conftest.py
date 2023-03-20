@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 08:08:04 am                                                #
-# Modified   : Saturday March 18th 2023 07:43:23 am                                                #
+# Modified   : Sunday March 19th 2023 11:39:49 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,7 +19,7 @@
 import pytest
 
 from recsys.dataset.movielens import MovieLens
-from recsys import IOService
+from recsys.services.io import IOService
 from recsys.container import Recsys
 
 # ------------------------------------------------------------------------------------------------ #
@@ -27,7 +27,6 @@ RATINGS_SMALL_FILEPATH = (
     "tests/testdata/operators/data_operators/ratings_user_random_sample_1pct.pkl"
 )
 RATINGS_FILEPATH = "tests/testdata/operators/data_operators/sampling/temporaralthreshold/ratings_random_temporal_sampling_1000.pkl"
-INTERACTIONS_FILEPATH = "tests/testdata/operators/data_operators/factories/interaction.pkl"
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -54,8 +53,36 @@ def dataset(dataframe):
 
 # ------------------------------------------------------------------------------------------------ #
 @pytest.fixture(scope="session", autouse=True)
-def interaction():
-    return IOService.read(INTERACTIONS_FILEPATH)
+def dataset2(dataframe):
+    ds = MovieLens(
+        name="test_dataset", desc="Test Dataset 2 to Test Replacement Functionality", data=dataframe
+    )
+    return ds
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session", autouse=True)
+def dataset3(dataframe):
+    ds = MovieLens(
+        name="test_dataset_3",
+        desc="Test Dataset 3 to Test Replacement Functionality",
+        data=dataframe,
+    )
+    return ds
+
+
+# ------------------------------------------------------------------------------------------------ #
+@pytest.fixture(scope="session", autouse=True)
+def datasets(dataframe):
+    datasets = []
+    for i in range(1, 6):
+        ds = MovieLens(
+            name="test_dataset_" + str(i),
+            desc="Test Dataset " + str(i) + " Description",
+            data=dataframe,
+        )
+        datasets.append(ds)
+    return datasets
 
 
 # ------------------------------------------------------------------------------------------------ #

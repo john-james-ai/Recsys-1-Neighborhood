@@ -11,23 +11,27 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday March 19th 2023 04:32:25 pm                                                  #
-# Modified   : Sunday March 19th 2023 05:17:35 pm                                                  #
+# Modified   : Monday March 20th 2023 12:42:10 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-from sqlalchemy import create_engine
-from sqlalchemy import engine
+import os
+
+from sqlalchemy import create_engine, engine
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Database:
-    __location = "sqlite:///assets/registry.db"
+    """Sqlite database using the SQLAlchemy ORM"""
 
-    def __init__(self) -> None:
-        self._engine = create_engine(Database.__location)
-        self._cxn = engine.connect()
+    def __init__(self, directory: str, filename: str) -> None:
+        self._directory = directory
+        self._filename = filename
 
     @property
-    def connection(self) -> engine.connect:
-        return self._cxn
+    def engine(self) -> engine:
+        """Returns an SQLAlchemy engine."""
+        os.makedirs(self._directory, exist_ok=True)
+        engine = create_engine(self._filename)
+        return engine

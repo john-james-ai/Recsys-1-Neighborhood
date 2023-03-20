@@ -4,14 +4,14 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/persistence/base.py                                                         #
+# Filename   : /recsys/asset/base.py                                                               #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday March 19th 2023 04:11:20 pm                                                  #
-# Modified   : Sunday March 19th 2023 07:00:39 pm                                                  #
+# Modified   : Monday March 20th 2023 01:42:59 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,6 +19,7 @@
 """Persistence Base Class"""
 from __future__ import annotations
 from abc import ABC, abstractmethod
+import logging
 
 import pandas as pd
 
@@ -38,18 +39,20 @@ class Asset(ABC):
         self._desc = desc
 
     @property
-    @abstractmethod
-    def name(self) -> str:
-        "Returns the asset name"
+    def id(self) -> pd.DataFrame:
+        """Returns name, desc, and type in DataFrame format for registration"""
+        d = {"name": self._name, "type": self.__class__.__name__, "description": self._desc}
+        df = pd.DataFrame(data=d, index=[0])
+        return df
 
     @property
-    @abstractmethod
+    def name(self) -> str:
+        return self._name
+
+    @property
     def desc(self) -> str:
         "Returns the asset desc"
-
-    @abstractmethod
-    def to_df(self) -> pd.DataFrame:
-        """Returns a pandas dataframe representation of the asset"""
+        return self._desc
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -61,6 +64,11 @@ class AssetCentreABC(ABC):
     Note: Each subclass must override the constructor designating location and tablename.
 
     """
+
+    def __init__(self) -> None:
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     @abstractmethod
     def add(self, asset: Asset) -> None:

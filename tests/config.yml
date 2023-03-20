@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday January 29th 2023 09:13:15 am                                                #
-# Modified   : Sunday March 19th 2023 08:36:24 pm                                                  #
+# Modified   : Monday March 20th 2023 02:11:24 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -44,23 +44,27 @@ logging:
     handlers: ["console", "file"]
   disable_existing_loggers: False
 
+database:
+    filename: "sqlite:///tests/testdata/assets/registry.db"
+    directory: "tests/testdata/assets/"
+
 assets:
   datasource:
-    location: tests/testdata/assets/datasource/
+    directory: tests/testdata/assets/datasource/
     tablename: datasource
   dataset:
-    location: tests/testdata/assets/dataset/
+    directory: tests/testdata/assets/dataset/
     tablename: dataset
   operator:
-    location: tests/testdata/assets/operator/
+    directory: tests/testdata/assets/operator/
     tablename: operator
   algorithm:
-    location: tests/testdata/assets/algorithm/
+    directory: tests/testdata/assets/algorithm/
     tablename: algorithm
   model:
-    location: tests/testdata/assets/model/
+    directory: tests/testdata/assets/model/
     tablename: model
   pipeline:
-    location: tests/testdata/assets/pipeline/
+    directory: tests/testdata/assets/pipeline/
     tablename: pipeline
 

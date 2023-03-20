@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Thursday March 9th 2023 04:26:15 pm                                                 #
-# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
+# Modified   : Sunday March 19th 2023 10:48:14 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,7 +24,7 @@ from typing import Union
 import numpy as np
 from scipy.sparse import csc_matrix, csr_matrix
 
-from recsys.data.dataset import Dataset
+from recsys.dataset.base import Dataset
 from recsys.matrix.i2 import Matrix
 from recsys import Operator, Artifact
 

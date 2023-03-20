@@ -11,53 +11,39 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 08:42:29 pm                                                  #
-# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
+# Modified   : Sunday March 19th 2023 10:34:46 pm                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Dataset Base Module"""
 from __future__ import annotations
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 from copy import deepcopy
 import logging
 
 import pandas as pd
 
+from recsys.asset.base import Asset
 from recsys.services.io import IOService
 
 
 # ------------------------------------------------------------------------------------------------ #
-class Dataset(ABC):
-    """Abstract base class for dataset objects
+class Dataset(Asset):
+    """Asset base class for dataset objects
 
     Args:
         name (str): Lowercase name of dataset
         desc (str): desc of dataset and its contents
-        filepath (str): The persistence location for the Dataset object.
         data (pd.DataFrame): Pandas DataFrame containing the data.
     """
 
-    def __init__(self, name: str, desc: str, filepath: str, data: pd.DataFrame) -> None:
-        self._name = name
-        self._desc = desc
-        self._filepath = filepath
+    def __init__(self, name: str, desc: str, data: pd.DataFrame) -> None:
+        super().__init__(name=name, desc=desc)
         self._data = data
         self._logger = logging.getLogger(
             f"{self.__module__}.{self.__class__.__name__}",
         )
-
-    @property
-    def name(self) -> str:
-        return self._name
-
-    @property
-    def desc(self) -> str:
-        return self._desc
-
-    @property
-    def filepath(self) -> str:
-        return self._filepath
 
     def head(self, n: int = 5) -> pd.DataFrame:
         return self._data.head(n)
