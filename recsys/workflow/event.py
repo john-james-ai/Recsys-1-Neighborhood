@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 18th 2023 08:04:10 pm                                                #
-# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
+# Modified   : Monday March 20th 2023 06:36:55 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,16 +19,10 @@
 from abc import ABC, abstractmethod
 from typing import Any, Union
 from datetime import datetime
-import logging
 
 
 # ------------------------------------------------------------------------------------------------ #
 class Event(ABC):  # pragma: no cover
-    def __init__(self) -> None:
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
-
     @property
     @abstractmethod
     def name(self) -> str:
@@ -54,12 +48,17 @@ class Event(ABC):  # pragma: no cover
     def duration(self) -> datetime:
         """Returns the duration of the task."""
 
+    @property
+    @abstractmethod
+    def state(self) -> str:
+        """Returns the state of the task."""
+
     @abstractmethod
     def _setup(self) -> None:
         """Performs required initialization steps before running the task"""
 
     @abstractmethod
-    def _teardown(self) -> None:
+    def _setdown(self) -> None:
         """Wrap up activities."""
 
     @abstractmethod

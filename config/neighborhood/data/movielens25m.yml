@@ -11,21 +11,25 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Monday February 20th 2023 07:09:58 am                                               #
-# Modified   : Sunday March 19th 2023 07:01:05 pm                                                  #
+# Modified   : Saturday March 25th 2023 02:29:21 am                                                #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
-movielens25m:   # The name of the pipeline passed to the pipeline builder.
-  name: movielens25m
-  description: Extracts, transforms and loads the GroupLens Movielens25M ratings dataset
+movielens25m_etl:   # The name of the pipeline passed to the pipeline builder.
+  name: movielens25m_etl
+  desc: Extracts, transforms and loads the GroupLens Movielens25M ratings dataset
   tasks:
     # -------------------------------------------------------------------------------------------- #
     #                                     MOVIELENS25M                                             #
     # -------------------------------------------------------------------------------------------- #
 
     - name: source_movielens25m
-      description: Obtain Movielens25M Dataset from the Grouplens website
+      desc: Obtain Movielens25M Dataset from the Grouplens website
+      input_schema:
+        type: DataSource
+        name: movielens25m
+        attribute: df
       operator:
         name: ZipDownloader
         module: recsys.dataprep.download
@@ -35,7 +39,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           force: False
 
     - name: extract_ratings
-      description: Extract ratings file into raw directory.
+      desc: Extract ratings file into raw directory.
       operator:
         name: ZipExtractor
         module: recsys.dataprep.extract
@@ -46,7 +50,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           force: False
 
     - name: split_dataset
-      description: Split dataset into train, validation, and test sets. 80/10/10
+      desc: Split dataset into train, validation, and test sets. 80/10/10
       operator:
         name: TemporalSplitter
         module: recsys.dataprep.split
@@ -59,7 +63,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           force: False
 
     - name: min_items_per_user_filter
-      description: Minimum Items per User
+      desc: Minimum Items per User
       operator:
         name: MinItemsPerUserFilter
         module: recsys.dataprep
@@ -70,7 +74,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           itemid: movieId
 
     - name: min_users_per_item
-      description: Minimum Users per Item
+      desc: Minimum Users per Item
       operator:
         name: MinUsersPerItemFilter
         module: recsys.dataprep
@@ -82,7 +86,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
 
 
     - name: max_items_per_user
-      description: Max Items per User
+      desc: Max Items per User
       operator:
         name: MaxItemsPerUserFilter
         module: recsys.dataprep
@@ -94,7 +98,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           timestamp: timestamp
 
     - name: max_users_per_item
-      description: Max Users per Item
+      desc: Max Users per Item
       operator:
         name: MaxUsersPerItemFilter
         module: recsys.dataprep
@@ -106,7 +110,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           timestamp: timestamp
 
     - name: index_sequencer
-      description: Index Sequencer
+      desc: Index Sequencer
       operator:
         name: IndexSequencer
         module: recsys.dataprep
@@ -117,7 +121,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           itemid: movieId
 
     - name: normalize_by_user
-      description: Normalizer by User
+      desc: Normalizer by User
       operator:
         name: Normalizer
         module: recsys.dataprep
@@ -127,7 +131,7 @@ movielens25m:   # The name of the pipeline passed to the pipeline builder.
           epsilon: 1e-9
 
     - name: normalize_by_item
-      description: Normalizer by Item
+      desc: Normalizer by Item
       operator:
         name: Normalizer
         module: recsys.dataprep

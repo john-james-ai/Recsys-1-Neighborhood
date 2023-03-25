@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Wednesday February 22nd 2023 07:35:10 pm                                            #
-# Modified   : Saturday March 18th 2023 09:04:02 pm                                                #
+# Modified   : Monday March 20th 2023 09:48:27 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,15 +20,15 @@
 import os
 import requests
 from tqdm import tqdm
+import logging
 
-from recsys.dataprep.operator import Operator
-from recsys.dataprep.artifact import Artifact
+from recsys import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                                   ZIP DOWNLOADER                                                 #
 # ------------------------------------------------------------------------------------------------ #
-class ZipDownloader(Operator):
+class DownloadOperator(Operator):
     """Downloads a zip file from a website.
 
     Args:
@@ -38,6 +38,9 @@ class ZipDownloader(Operator):
         force (bool): Whether to force execution.
     """
 
+    __name = "download_operator"
+    __desc = "Downloads files from remote sites using HTTP requests."
+
     def __init__(
         self, source: str, destination: str, chunk_size: int = 1024, force: bool = False
     ) -> None:
@@ -46,7 +49,9 @@ class ZipDownloader(Operator):
         self._destination = destination
         self._force = force
         self._chunk_size = chunk_size
-        self._artifact = Artifact(isfile=True, path=self._destination, uripath="data")
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, *args, **kwargs) -> None:
         """Downloads a zipfile."""

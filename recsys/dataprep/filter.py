@@ -11,21 +11,20 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 18th 2023 06:39:05 am                                                #
-# Modified   : Saturday March 18th 2023 09:00:11 pm                                                #
+# Modified   : Monday March 20th 2023 09:49:36 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Data Prep: Filter Module"""
 from typing import Union
-
+import logging
 from tqdm import tqdm
 from pandas import pd
-import mlflow
 
 from recsys import Dataset
 
-from dataprep.operator import Operator
+from recsys import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -43,6 +42,9 @@ class MinItemsPerUserFilter(Operator):
 
     """
 
+    __name = "min_items_per_user_filter"
+    __desc = "Filters out users with an interaction count below a threshold."
+
     def __init__(
         self,
         min_items_per_user: int = 4,
@@ -51,13 +53,13 @@ class MinItemsPerUserFilter(Operator):
         itemid: str = "movieId",
     ) -> None:
         super().__init__()
-
         self._min_items_per_user = min_items_per_user
         self._drop_duplicates = drop_duplicates
         self._userid = userid
         self._itemid = itemid
-        mlflow.log_param(key="min_items_per_user", value=self._min_items_per_user)
-        mlflow.log_param(key="drop_duplicates", value=self._drop_duplicates)
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, data: Union[pd.DataFrame, Dataset]) -> pd.DataFrame:
         """Filters the user interactions by the number of items per user
@@ -91,6 +93,9 @@ class MinUsersPerItemFilter(Operator):
 
     """
 
+    __name = "min_users_per_item_filter"
+    __desc = "Filters out items with reviewer count below a threshold."
+
     def __init__(
         self,
         min_users_per_item: int = 4,
@@ -98,13 +103,14 @@ class MinUsersPerItemFilter(Operator):
         userid: str = "userId",
         itemid: str = "movieId",
     ) -> None:
-
+        super().__init__()
         self._min_users_per_item = min_users_per_item
         self._drop_duplicates = drop_duplicates
         self._userid = userid
         self._itemid = itemid
-        mlflow.log_param(key="min_users_per_item", value=self._min_items_per_user)
-        mlflow.log_param(key="drop_duplicates", value=self._drop_duplicates)
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, data: Union[pd.DataFrame, Dataset]) -> pd.DataFrame:
         """Filters the items with interactions below a threshold
@@ -147,9 +153,10 @@ class MaxItemsPerUserFilter(Operator):
     Analysis for Item-Based Collaborative Filtering,” in Proceedings of the 31st International
     Conference on Scientific and Statistical Database Management, Santa Cruz CA
     USA, Jul. 2019, pp. 61–72. doi: 10.1145/3335783.3335784.
-
-
     """
+
+    __name = "max_items_per_user_filter"
+    __desc = "Filters out interactions above a threshold for each user."
 
     def __init__(
         self,
@@ -159,15 +166,16 @@ class MaxItemsPerUserFilter(Operator):
         itemid: str = "movieId",
         timestamp: str = "timestamp",
     ) -> None:
-
+        super().__init__()
         self._max_items_per_user = max_items_per_user
         self._drop_duplicates = drop_duplicates
         self._userid = userid
         self._itemid = itemid
         self._timestamp = timestamp
         self._interactions_cut = 0
-        mlflow.log_param(key="max_items_per_user", value=self._max_items_per_user)
-        mlflow.log_param(key="drop_duplicates", value=self._drop_duplicates)
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, data: Union[pd.DataFrame, Dataset]) -> pd.DataFrame:
         """Filters the user interactions above a threshold
@@ -246,8 +254,10 @@ class MaxUsersPerItemFilter(Operator):
     Conference on Scientific and Statistical Database Management, Santa Cruz CA
     USA, Jul. 2019, pp. 61–72. doi: 10.1145/3335783.3335784.
 
-
     """
+
+    __name = "max_users_per_item_filter"
+    __desc = "Filters out interactions above a threshold for each item."
 
     def __init__(
         self,
@@ -257,15 +267,16 @@ class MaxUsersPerItemFilter(Operator):
         itemid: str = "movieId",
         timestamp: str = "timestamp",
     ) -> None:
-
+        super().__init__()
         self._max_users_per_item = max_users_per_item
         self._drop_duplicates = drop_duplicates
         self._userid = userid
         self._itemid = itemid
         self._timestamp = timestamp
         self._interactions_cut = 0
-        mlflow.log_param(key="max_users_per_item", value=self._max_users_per_item)
-        mlflow.log_param(key="drop_duplicates", value=self._drop_duplicates)
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, data: Union[pd.DataFrame, Dataset]) -> pd.DataFrame:
         """Filters the items with interactions above a threshold

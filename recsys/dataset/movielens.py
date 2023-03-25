@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 06:05:25 pm                                                  #
-# Modified   : Sunday March 19th 2023 10:33:07 pm                                                  #
+# Modified   : Monday March 20th 2023 11:09:12 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,6 +19,7 @@
 from __future__ import annotations
 import warnings
 from copy import deepcopy
+import logging
 
 from scipy.sparse import csr_matrix, csc_matrix, coo_matrix
 import numpy as np
@@ -52,7 +53,10 @@ class MovieLens(Dataset):
         desc: str,
         data: pd.DataFrame,
     ) -> None:
-        super().__init__(name=name, desc=desc, data=data)
+        super().__init__()
+        self._name = name
+        self._desc = desc
+        self._data = data
 
         self._profiled = False
         self._summary = None
@@ -65,8 +69,17 @@ class MovieLens(Dataset):
         self._sparsity = None
         self._density = None
         self._memory = None
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
-        self._summarize()
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @property
+    def desc(self) -> str:
+        return self._desc
 
     @property
     def shape(self) -> tuple:
@@ -94,18 +107,22 @@ class MovieLens(Dataset):
 
     @property
     def columns(self) -> np.array:
+        """Returns the array of the column names in the Dataset"""
         return self._data.columns
 
     @property
     def nrows(self) -> int:
+        """Returns the number of rows in the Dataset"""
         return self._nrows
 
     @property
     def ncols(self) -> int:
+        """Returns the number of columns in the Dataset"""
         return self._ncols
 
     @property
     def size(self) -> int:
+        """The number of elements in the Dataset"""
         return self._size
 
     @property
@@ -161,6 +178,10 @@ class MovieLens(Dataset):
     def item_rating_frequency_distribution(self) -> pd.DataFrame:
         """Distribution of item rating frequency"""
         return self.item_rating_frequency["n_ratings"].describe().to_frame().T
+
+    def head(self, n: int = 5) -> pd.DataFrame:
+        """Prints n rows from the top of the DataFrame"""
+        print(self._data.head(n))
 
     def get_user_ratings(self, useridx: int) -> pd.DataFrame:
         """Returns ratings created by user.

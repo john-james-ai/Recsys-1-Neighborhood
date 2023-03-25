@@ -11,24 +11,25 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 18th 2023 06:41:14 am                                                #
-# Modified   : Saturday March 18th 2023 09:00:07 pm                                                #
+# Modified   : Monday March 20th 2023 09:49:58 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Data Prep: Normalize Module"""
 from typing import Union
+import logging
 
 from pandas import pd
 
 from recsys import Dataset
-from recsys.dataprep.operator import Operator
+from recsys import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                            MINIMUM ITEMS PER USER                                                #
 # ------------------------------------------------------------------------------------------------ #
-class Normalizer(Operator):
+class NormalizeOperator(Operator):
     """Normalizes ratings values via mean centering.
 
     Args:
@@ -38,6 +39,9 @@ class Normalizer(Operator):
 
     """
 
+    __name = "normalize_operator"
+    __desc = "Mean centers ratings."
+
     def __init__(
         self,
         by: str,
@@ -45,10 +49,12 @@ class Normalizer(Operator):
         epsilon: float = 1e-9,
     ) -> None:
         super().__init__()
-
         self._by = by
         self._rating_col = rating_col
         self._epsilon = epsilon
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, data: Union[pd.DataFrame, Dataset]) -> pd.DataFrame:
         """Mean centers ratings.

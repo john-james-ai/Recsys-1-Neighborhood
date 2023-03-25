@@ -11,26 +11,26 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 18th 2023 06:41:01 am                                                #
-# Modified   : Sunday March 19th 2023 01:19:43 am                                                  #
+# Modified   : Monday March 20th 2023 09:49:47 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Data Prep: Index Module"""
 from typing import Union
-
+import logging
 
 from pandas import pd
 import numpy as np
 
 from recsys import Dataset
-from dataprep.operator import Operator
+from recsys import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                            MINIMUM ITEMS PER USER                                                #
 # ------------------------------------------------------------------------------------------------ #
-class IndexSequencer(Operator):
+class IndexSequenceOperator(Operator):
     """Creates a user and item indices in the sequential space.
 
     Args:
@@ -41,6 +41,9 @@ class IndexSequencer(Operator):
 
     """
 
+    __name = "index_sequence_operator"
+    __desc = "Creates sequential user and item indices."
+
     def __init__(
         self,
         useridx: str = "useridx",
@@ -49,11 +52,14 @@ class IndexSequencer(Operator):
         itemid: str = "movieId",
     ) -> None:
         super().__init__()
-
         self._useridx = useridx
         self._itemidx = itemidx
         self._userid = userid
         self._itemid = itemid
+
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, data: Union[pd.DataFrame, Dataset]) -> pd.DataFrame:
         """Filters the user interactions by the number of items per user

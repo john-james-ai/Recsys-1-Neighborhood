@@ -4,33 +4,50 @@
 # Project    : Recommender Systems Lab: Towards State-of-the-Art                                   #
 # Version    : 0.1.0                                                                               #
 # Python     : 3.10.8                                                                              #
-# Filename   : /recsys/dataprep/operator.py                                                        #
+# Filename   : /recsys/workflow/operator.py                                                        #
 # ------------------------------------------------------------------------------------------------ #
 # Author     : John James                                                                          #
 # Email      : john.james.ai.studio@gmail.com                                                      #
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 09:34:32 pm                                                 #
-# Modified   : Saturday March 18th 2023 09:03:27 pm                                                #
+# Modified   : Monday March 20th 2023 09:58:37 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
 # ================================================================================================ #
 """Base DataPrep Module"""
 import os
-from abc import ABC, abstractmethod
-import logging
+from abc import abstractmethod
 from typing import Union
 
 import pandas as pd
 
+from recsys.asset.base import Asset
+
 
 # ------------------------------------------------------------------------------------------------ #
-class Operator(ABC):
-    """Abstract base class for classes that perform a descrete operation as part of a larger workflow"""
+class Operator(Asset):
+    """Abstract base class for classes that perform a descrete operation as part of a larger workflow
+
+    Note: Subclasses must define two class members for identification and persistence purposes:
+        __name
+        __description
+
+    """
 
     def __init__(self) -> None:
-        self._logger = logging.getLogger(f"{self.__module__}.{self.__class__.__name__}")
+        super().__init__()
+
+    @property
+    @classmethod
+    def name(cls) -> str:
+        return cls.__name
+
+    @property
+    @classmethod
+    def desc(cls) -> str:
+        return cls.__desc
 
     @abstractmethod
     def __call__(self, data: pd.DataFrame = None) -> Union[pd.DataFrame, None]:

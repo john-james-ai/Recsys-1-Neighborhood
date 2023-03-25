@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 03:29:59 pm                                                  #
-# Modified   : Saturday March 18th 2023 08:56:26 pm                                                #
+# Modified   : Monday March 20th 2023 09:53:30 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -20,8 +20,8 @@ import os
 from dataclasses import dataclass
 
 from recsys.datasource.base import DataSource
-from recsys.dataprep.download import ZipDownloader
-from recsys.dataprep.extract import ZipExtractor
+from recsys.dataprep.download import DownloadOperator
+from recsys.dataprep.extract import ZipExtractOperator
 from recsys.services.io import IOService
 
 
@@ -34,12 +34,15 @@ class MovieLens(DataSource):
     directory: str = None
     force: bool = False
 
+    def __post_init__(self) -> None:
+        super().__init__()
+
     def fetch_data(self) -> None:
         """Downloads a data source and extracts the interaction data."""
-        downloader = ZipDownloader(source=self.source, destination=self.destination)
+        downloader = DownloadOperator(source=self.source, destination=self.destination)
         downloader.__call__()
 
-        extractor = ZipExtractor(
+        extractor = ZipExtractOperator(
             source=self.destination, destination=self.directory, member=self.filename
         )
         extractor.__call__()
@@ -54,6 +57,9 @@ class MovieLens1M(MovieLens):
     filename: str = "ratings.dat"
     directory: str = "data/movielens1m/raw"
     force: bool = False
+
+    def __post_init__(self) -> None:
+        super().__init__()
 
     def fetch_data(self) -> None:
         super().fetch_data()
@@ -72,6 +78,9 @@ class MovieLens10M(MovieLens):
     directory: str = "data/movielens10m/raw"
     force: bool = False
 
+    def __post_init__(self) -> None:
+        super().__init__()
+
     def fetch_data(self) -> None:
         super().fetch_data()
         ratings = IOService.read(os.path.join(self.directory, self.filename), sep="::")
@@ -88,6 +97,9 @@ class MovieLens25M(MovieLens):
     filename: str = "ratings.csv"
     directory: str = "data/movielens25m/raw"
     force: bool = False
+
+    def __post_init__(self) -> None:
+        super().__init__()
 
     def fetch_data(self) -> None:
         super().fetch_data()

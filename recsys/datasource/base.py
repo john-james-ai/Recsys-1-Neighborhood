@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday March 17th 2023 03:33:14 pm                                                  #
-# Modified   : Friday March 17th 2023 08:41:06 pm                                                  #
+# Modified   : Monday March 20th 2023 09:51:22 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -24,6 +24,9 @@ from dataclasses import dataclass
 @dataclass
 class DataSource(ABC):
     """Defines the interface for recommender data sources"""
+
+    def __init__(self) -> None:
+        super().__init__()
 
     @abstractmethod
     def fetch_data(self) -> None:

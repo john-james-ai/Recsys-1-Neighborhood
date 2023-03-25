@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday February 25th 2023 05:55:47 am                                             #
-# Modified   : Saturday March 18th 2023 08:59:33 pm                                                #
+# Modified   : Monday March 20th 2023 09:48:55 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,15 +19,15 @@
 """Data Compression Module"""
 import os
 from zipfile import ZipFile
+import logging
 
-from recsys.dataprep.operator import Operator
-from recsys.dataprep.artifact import Artifact
+from recsys import Operator
 
 
 # ------------------------------------------------------------------------------------------------ #
 #                                   ZIP EXTRACTOR                                                  #
 # ------------------------------------------------------------------------------------------------ #
-class ZipExtractor(Operator):
+class ZipExtractOperator(Operator):
     """Extracts Zipfile contents.
 
     Args:
@@ -37,6 +37,9 @@ class ZipExtractor(Operator):
         force (bool): Whether to force execution.
     """
 
+    __name = "zip_extract_operator"
+    __desc = "Extracts files from zip archives."
+
     def __init__(
         self, source: str, destination: str, member: str = None, force: bool = False
     ) -> None:
@@ -45,8 +48,9 @@ class ZipExtractor(Operator):
         self._destination = destination
         self._force = force
         self._member = member
-        filepath = os.path.join(self._destination, member)
-        self._artifact = Artifact(isfile=True, path=filepath, uripath="data")
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     def __call__(self, *args, **kwargs) -> None:
         """Extracts the contents"""

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Friday February 24th 2023 09:20:09 pm                                               #
-# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
+# Modified   : Monday March 20th 2023 09:50:08 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,8 +19,9 @@
 """Train/Test Split Module"""
 from __future__ import annotations
 import os
+import logging
 
-from recsys.dataprep.operator import Operator
+from recsys import Operator
 from recsys.dataprep.artifact import Artifact
 from recsys.services.log import log
 from recsys.dataset.base import Dataset
@@ -30,7 +31,7 @@ from recsys.services.io import IOService
 # ------------------------------------------------------------------------------------------------ #
 #                                TEMPORAL TRAIN/TEST SPLIT                                         #
 # ------------------------------------------------------------------------------------------------ #
-class TemporalSplitter(Operator):
+class TemporalSplitOperator(Operator):
     """Temporal train validatioon, and test split uses timestamp to split along a temporal dimension
 
     Args:
@@ -42,6 +43,9 @@ class TemporalSplitter(Operator):
         timestamp_var (str): The variable containing the timestamp
         force (bool): Whether to overwrite existing data if it already exists.
     """
+
+    __name = "temporal_split_operator"
+    __desc = "Splits datasets by fixed points in time."
 
     def __init__(
         self,
@@ -61,6 +65,9 @@ class TemporalSplitter(Operator):
         self._artifact = Artifact(isfile=False, path=directory, uripath="data")
         self._force = force
         self._validate()
+        self._logger = logging.getLogger(
+            f"{self.__module__}.{self.__class__.__name__}",
+        )
 
     @log
     def __call__(self, dataset: Dataset) -> None:

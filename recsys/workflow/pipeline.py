@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Saturday March 4th 2023 07:31:37 pm                                                 #
-# Modified   : Sunday March 19th 2023 04:13:29 pm                                                  #
+# Modified   : Monday March 20th 2023 06:36:55 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -83,7 +83,7 @@ class Pipeline(Event):
         self._state = "running"
         self._logger.info(f"Started task: {self._name} ")
 
-    def _teardown(self) -> None:
+    def _setdown(self) -> None:
         """Wrap up activities."""
         self._ended = datetime.now()
         self._duration = (self._ended - self._started).total_seconds()

@@ -11,7 +11,7 @@
 # URL        : https://github.com/john-james-ai/recsys-lab                                         #
 # ------------------------------------------------------------------------------------------------ #
 # Created    : Sunday March 19th 2023 04:11:20 pm                                                  #
-# Modified   : Monday March 20th 2023 03:01:56 am                                                  #
+# Modified   : Monday March 20th 2023 09:48:01 am                                                  #
 # ------------------------------------------------------------------------------------------------ #
 # License    : MIT License                                                                         #
 # Copyright  : (c) 2023 John James                                                                 #
@@ -19,9 +19,6 @@
 """Persistence Base Class"""
 from __future__ import annotations
 from abc import ABC, abstractmethod
-import logging
-
-import pandas as pd
 
 
 # ------------------------------------------------------------------------------------------------ #
@@ -30,33 +27,40 @@ class Asset(ABC):
 
     Args:
         name (str): Name of the asset instance
-        atype type[Asset]: A class type
         desc (str): desc of the asset
     """
 
-    def __init__(self, name: str, desc: str) -> None:
-        self._name = name
-        self._desc = desc
+    def __init__(self) -> None:
+        self._filepath = None
 
     @property
-    def id(self) -> pd.DataFrame:
-        """Returns name, desc, and type in DataFrame format for registration"""
-        d = {"name": self._name, "type": self.__class__.__name__, "description": self._desc}
-        df = pd.DataFrame(data=d, index=[0])
-        return df
-
-    @property
+    @abstractmethod
     def name(self) -> str:
-        return self._name
+        """Returns the asset name"""
 
     @property
+    @abstractmethod
     def desc(self) -> str:
-        "Returns the asset desc"
-        return self._desc
+        "Returns the asset description"
+
+    @property
+    def filepath(self) -> str:
+        return self._filepath
+
+    @filepath.setter
+    def filepath(self, filepath: str) -> None:
+        if self._filepath is None:
+            self._filepath = filepath
+        else:
+            msg = (
+                "Attempt to change the filepath failed. The filepath parameter may not be modified."
+            )
+            self._logger.error(msg)
+            raise RuntimeError(msg)
 
 
 # ------------------------------------------------------------------------------------------------ #
-class AssetRepoABC(ABC):
+class AssetCentreABC(ABC):
     """Abstract base class for asset repositories.
 
     Each subclass maintains the persistence of a single asset type.
@@ -64,11 +68,6 @@ class AssetRepoABC(ABC):
     Note: Each subclass must override the constructor designating location and tablename.
 
     """
-
-    def __init__(self) -> None:
-        self._logger = logging.getLogger(
-            f"{self.__module__}.{self.__class__.__name__}",
-        )
 
     @abstractmethod
     def add(self, asset: Asset) -> None:
